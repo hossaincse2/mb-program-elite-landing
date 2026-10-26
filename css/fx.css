@@ -1,0 +1,119 @@
+/* ============================================================
+   FX — scroll-driven effects (port of the alchimiadellasovrana.it feel)
+   JS (fx.js) writes progress vars (--hero-p, --filo-p, --corrente-p,
+   --alchemy-p, --contract-p, --el-p, --spine-p, --watt-p) as 0..1.
+   ============================================================ */
+:root{
+  --ease-sig:cubic-bezier(.2,.75,.2,1);--ease-exit:cubic-bezier(.5,0,.9,.25);--ease-inout:cubic-bezier(.65,0,.35,1);
+  --dur-slow:.62s;--dur-reveal:.9s;--dur-luce:22s;--dur-ignite:1.9s;--dur-mote:14s;--dur-breath:6s;
+  --gold-soft:#e4d2aa;--wash:linear-gradient(90deg,transparent,hsla(41,52%,78%,.42) 46%,hsla(40,45%,91%,.7) 52%,transparent);
+}
+
+/* reveal: same easing signature as the reference */
+.reveal{transition:opacity var(--dur-reveal) var(--ease-sig),transform var(--dur-reveal) var(--ease-sig);transition-delay:var(--d,0s)}
+
+/* ---------- HERO: breathing plate, drifting light, ignite sweep, motes ---------- */
+.hero{overflow:hidden;isolation:isolate}
+.hero-inner{position:relative;z-index:1}
+.hero-sky{position:absolute;inset:-8%;overflow:hidden;z-index:0;pointer-events:none}
+.hero-sky span{position:absolute;inset:-30%;mix-blend-mode:screen;pointer-events:none;animation:luce var(--dur-luce) var(--ease-inout) infinite alternate}
+.hero-sky .a{background:radial-gradient(ellipse 50% 40% at 28% 30%,rgba(168,138,74,.16),transparent 70%)}
+.hero-sky .b{background:radial-gradient(ellipse 58% 48% at 72% 66%,rgba(100,30,43,.28),transparent 70%);animation-delay:calc(var(--dur-luce)*-.6);animation-duration:calc(var(--dur-luce)*1.4);--luce-dx:-3%;--luce-dy:4%}
+.hero-sky .c{background:radial-gradient(ellipse 42% 38% at 50% 48%,rgba(168,138,74,.12),transparent 70%);animation-delay:calc(var(--dur-luce)*-1.1);animation-duration:calc(var(--dur-luce)*1.8);--luce-dx:2%;--luce-dy:-3%}
+@keyframes luce{0%{opacity:.8;transform:translateZ(0) scale(1)}to{opacity:1;transform:translate3d(var(--luce-dx,4%),var(--luce-dy,3%),0) scale(1.08)}}
+.hero-photo img{transform:translate3d(0,calc(var(--hero-p,0)*-22px),0) scale(calc(1 + var(--hero-p,0)*.055));transform-origin:50% 42%;will-change:transform}
+.hero-sweep{position:absolute;top:0;bottom:0;left:0;width:240%;mix-blend-mode:screen;pointer-events:none;z-index:2;
+  background:linear-gradient(105deg,transparent 42%,hsla(41,52%,78%,.55) 50%,transparent 58%);
+  transform:translate3d(-70%,0,0);animation:ignite var(--dur-ignite) var(--ease-sig) .35s forwards}
+@keyframes ignite{to{transform:translate3d(70%,0,0)}}
+.mote{position:absolute;width:3px;height:3px;border-radius:50%;background:radial-gradient(circle,var(--gold-soft),transparent 70%);opacity:0;pointer-events:none;z-index:1;
+  top:62%;left:12%;animation:mote var(--dur-mote) linear infinite}
+.mote.m2{top:74%;left:20%;animation-delay:calc(var(--dur-mote)/-3)}
+.mote.m3{top:84%;left:6%;animation-delay:calc(var(--dur-mote)/-3*2)}
+@keyframes mote{0%{opacity:0;transform:translateZ(0)}18%{opacity:.85}82%{opacity:.55}to{opacity:0;transform:translate3d(-26px,-190px,0)}}
+.hero .scroll-cue{opacity:clamp(0,calc(1 - var(--hero-p,0)*16),1)}
+
+/* ---------- RAIL: the left thread fills with the page; a bead rides its tip ---------- */
+.rail{background:hsla(41,52%,78%,.24)!important}
+.rail::before{content:"";position:absolute;left:0;top:0;width:1px;height:calc(var(--page-p,0)*100%);background:#a88a4a;border-radius:0;opacity:1}
+.rail::after{content:"";position:absolute;left:-2px;top:calc(var(--page-p,0)*100% - 2.5px);width:5px;height:5px;border-radius:50%;background:var(--gold-soft);opacity:clamp(0,calc(min(var(--page-p,0),1 - var(--page-p,0))*40),1);box-shadow:0 0 10px rgba(228,210,170,.6)}
+.rail::before,.rail::after{top:auto}
+.rail::before{top:0}.rail::after{top:calc(var(--page-p,0)*100% - 2.5px)}
+@media (prefers-reduced-motion:reduce){.rail::after{display:none}}
+
+/* ---------- Sigil rule: hairline that draws itself while you scroll ---------- */
+.sigil-rule{position:absolute;top:0;left:50%;translate:-50% 0;width:min(var(--w),100% - 56px);height:1px;background:hsla(41,52%,78%,.24);pointer-events:none;z-index:2}
+.sigil-rule::after{content:"";position:absolute;inset:0;background:#a88a4a;clip-path:inset(0 calc((1 - clamp(0,var(--filo-p,0),1))*100%) 0 0)}
+.on-cream .sigil-rule{background:rgba(110,101,88,.28)}.on-cream .sigil-rule::after{background:#918b82}
+.sigil-rule i{position:absolute;left:50%;top:-4px;width:8px;height:8px;rotate:45deg;translate:-50% 0;border:1px solid #a88a4a;background:var(--coal);
+  opacity:clamp(0,calc((var(--filo-p,0) - .85)*6.67),1)}
+.on-cream .sigil-rule i{background:var(--cream)}
+
+/* ---------- CORRENTE: word bands slide with the page, not with time ---------- */
+.marquee{display:flex;justify-content:center;--travel:clamp(8rem,24vw,22rem);--sign:-1;overflow:clip;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 clamp(1.5rem,10%,7rem),#000 calc(100% - clamp(1.5rem,10%,7rem)),transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 clamp(1.5rem,10%,7rem),#000 calc(100% - clamp(1.5rem,10%,7rem)),transparent)}
+.marquee.reverse{--sign:1}
+.marquee-track{flex:none;animation:none!important;transform:translate3d(calc((var(--corrente-p,.5) - .5)*var(--travel)*var(--sign)),0,0)}
+@media (max-width:1023.98px){.marquee{--travel:min(120vw,30rem)}}
+@media (max-height:699.98px){.marquee-track{transform:none}}
+
+/* ---------- CONTRACTION: column narrows + letters open as you read ---------- */
+.piombo .wrap.compiac{width:min(calc(100% - 56px - var(--contract-p,0)*22%),var(--w));transition:width .18s linear}
+.compiac .lead-soft{letter-spacing:calc(-.02em + var(--contract-p,0)*.08em);opacity:calc(.72 + var(--contract-p,1)*.28);transition:letter-spacing .18s linear}
+
+/* ---------- ALCHEMY wash: gold light sweeps across the artwork ---------- */
+.art-wash{position:absolute;top:0;bottom:0;left:0;width:18%;mix-blend-mode:screen;pointer-events:none;z-index:2;background:var(--wash);
+  opacity:clamp(0,min(calc(var(--alchemy-p,0)*14),calc((1 - var(--alchemy-p,0))*14)),1);
+  transform:translate3d(calc(var(--alchemy-p,0)*555% - 50%),0,0)}
+
+/* ---------- ELEMENTS: sticky stations, each element enters its own way ---------- */
+.elements{position:relative}
+.el{padding:0;border-top:14px solid #0c0a09;min-height:190vh}
+.el-stage{position:sticky;top:var(--hh);min-height:calc(100svh - var(--hh));display:grid;place-items:center;padding:56px 0;overflow:hidden}
+.el-in{--el-ease:cubic-bezier(.34,.02,.2,1)}
+.el-acqua .el-in{--el-ease:cubic-bezier(.42,0,.2,1)}
+.el-aria .el-in{--el-ease:cubic-bezier(.16,1,.3,1)}
+.el-fuoco .el-in{--el-ease:cubic-bezier(.2,.9,.1,1)}
+.el-in>*{transition:opacity var(--dur-slow) var(--ease-exit),translate var(--dur-slow) var(--ease-exit),scale var(--dur-slow) var(--ease-exit),filter var(--dur-slow) var(--ease-exit),letter-spacing var(--dur-slow) var(--ease-exit);transition-delay:0s}
+.el.is-active .el-in>*{transition-delay:calc(var(--i,0)*70ms);transition-timing-function:var(--el-ease)}
+.el.is-armed .el-in>*{opacity:.42}
+.el.is-armed.is-active .el-in>*{opacity:1;filter:none;translate:none;scale:none}
+.el-terra.is-armed .el-in>*{translate:0 44px}
+.el-fuoco.is-armed .el-in>*{scale:.955}
+.el-aria.is-armed .el-in .eyebrow{letter-spacing:.3em}
+.el-aria.is-armed .el-name{filter:blur(7px)}
+.el-fuoco .el-name{position:relative}
+.el-fuoco .el-name::before{content:"";position:absolute;inset:-18% -8%;background:radial-gradient(ellipse at 50% 55%,hsla(41,52%,78%,.22),transparent 62%);opacity:0;transform:scale(1.25);z-index:-1;
+  transition:opacity var(--dur-slow) var(--ease-exit),transform var(--dur-slow) var(--ease-exit)}
+.el-fuoco.is-active .el-name::before{opacity:.9;transform:none;transition-timing-function:cubic-bezier(.2,.9,.1,1)}
+
+/* spine: four nodes that light as you travel through the elements */
+.el-spine{display:none;position:sticky;top:calc(50svh - 70px);height:0;z-index:6;pointer-events:none}
+.el-spine ol{list-style:none;margin:0;padding:0;position:absolute;right:clamp(18px,3vw,44px);top:0;height:140px;width:12px;display:flex;flex-direction:column;justify-content:space-between;align-items:center}
+.el-spine ol::before{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:1px;background:hsla(41,52%,78%,.3)}
+.el-spine ol::after{content:"";position:absolute;left:50%;top:6px;width:1px;height:calc((100% - 12px)*var(--spine-p,0));background:var(--gold-soft)}
+.el-spine li{position:relative;z-index:1;width:12px;height:12px;border:1px solid #a88a4a;border-radius:50%;background:#0c0a09;transition:background .45s var(--ease-sig),box-shadow .45s var(--ease-sig)}
+.el-spine li.on{background:#a88a4a;box-shadow:0 0 14px rgba(228,210,170,.55)}
+@media (min-width:900px){.el-spine{display:block}}
+@media (max-height:640px){.el{min-height:0}.el-stage{position:static;padding:70px 0}}
+
+/* ---------- WATT: halo swells with scroll, number climbs 100 → 400 ---------- */
+.capacita{position:relative;overflow:hidden;isolation:isolate}
+.capacita::before{content:"";position:absolute;left:50%;top:50%;width:46vmax;aspect-ratio:1;margin:-23vmax 0 0 -23vmax;border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,hsla(41,52%,78%,.5),transparent 62%);
+  opacity:calc(.05 + var(--watt-p,1)*.4);transform:scale(calc(.25 + var(--watt-p,1)*2.7))}
+
+/* ---------- FINAL rule draws open ---------- */
+.accesso .secure{position:relative}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  .hero-sky span,.hero-sweep,.mote{animation:none}
+  .hero-sweep,.mote,.x-removed{display:none}
+  .marquee-track{transform:none}
+  .el{min-height:0}.el-stage{position:static}
+  .el.is-armed .el-in>*{opacity:1;translate:none;scale:none;filter:none}
+}
+
+.manifesto{overflow-x:clip}
