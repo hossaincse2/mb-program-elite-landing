@@ -162,4 +162,53 @@
   $('#demo-welcome').addEventListener('click', function () { store('mb_welcome_done', null); maybeWelcome(true); });
 
   renderCal(); renderChakra(); maybeWelcome(false);
+
+  /* ---------- Diario: calendario mensile + aggiungi attività ---------- */
+  (function () {
+    var MESI = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+    var GG = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+    var now = new Date(), cur = new Date(now.getFullYear(), now.getMonth(), 1), selD = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var items = {};
+    try { items = JSON.parse(store('mb_diario') || '{}') || {}; } catch (e) { items = {}; }
+    function key(x) { return x.getFullYear() + '-' + (x.getMonth() + 1) + '-' + x.getDate(); }
+    function same(a, b) { return key(a) === key(b); }
+    function save() { store('mb_diario', JSON.stringify(items)); }
+    function render() {
+      $('#mc-title').textContent = MESI[cur.getMonth()] + ' ' + cur.getFullYear();
+      var first = (new Date(cur.getFullYear(), cur.getMonth(), 1).getDay() + 6) % 7;
+      var n = new Date(cur.getFullYear(), cur.getMonth() + 1, 0).getDate(), h = '';
+      for (var i = 0; i < first; i++) h += '<i></i>';
+      for (var dd = 1; dd <= n; dd++) {
+        var dt = new Date(cur.getFullYear(), cur.getMonth(), dd), k = key(dt);
+        var cl = (same(dt, now) ? ' today' : '') + (same(dt, selD) ? ' sel' : '') + (items[k] && items[k].length ? ' has' : '');
+        h += '<button type="button" class="' + cl.trim() + '" data-d="' + dd + '" aria-label="' + dd + ' ' + MESI[cur.getMonth()] + '"><span>' + dd + '</span></button>';
+      }
+      $('#mc-grid').innerHTML = h;
+      day();
+    }
+    function day() {
+      $('#dia-date').textContent = GG[selD.getDay()] + ' ' + selD.getDate() + ' ' + MESI[selD.getMonth()].slice(0, 3) + ' ' + selD.getFullYear();
+      var arr = items[key(selD)] || [];
+      $('#dia-list').innerHTML = arr.map(function (a, i) { return '<li><div><b>' + a.a + '</b><small>' + a.t + '</small></div><button type="button" data-rm="' + i + '">Rimuovi</button></li>'; }).join('');
+      $('#dia-empty').hidden = arr.length > 0;
+    }
+    $('#mc-grid').addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      selD = new Date(cur.getFullYear(), cur.getMonth(), +b.getAttribute('data-d')); render();
+    });
+    $('#mc-prev').addEventListener('click', function () { cur.setMonth(cur.getMonth() - 1); render(); });
+    $('#mc-next').addEventListener('click', function () { cur.setMonth(cur.getMonth() + 1); render(); });
+    $('#mc-today').addEventListener('click', function () { cur = new Date(now.getFullYear(), now.getMonth(), 1); selD = new Date(now.getFullYear(), now.getMonth(), now.getDate()); render(); });
+    $('#dia-list').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-rm]'); if (!b) return;
+      var k = key(selD); items[k].splice(+b.getAttribute('data-rm'), 1); save(); render();
+    });
+    $('#add-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var k = key(selD); (items[k] = items[k] || []).push({ a: $('#add-act').value, t: $('#add-time').value });
+      save(); $('#add-form').reset(); $('#m-add').close(); render();
+    });
+    $('#m-add').addEventListener('close', function () { $('#add-form').reset(); });
+    render();
+  })();
 })();
