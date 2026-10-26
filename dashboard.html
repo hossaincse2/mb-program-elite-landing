@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="it" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Area Riservata · MB Program Élite</title>
+<meta name="theme-color" content="#0c0a09">
+<link rel="icon" href="img/butterfly-gold.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/alch.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash">
+
+<header class="d-top">
+  <a class="d-logo" href="#home" data-go="home" aria-label="MB Program – Home">
+    <img src="img/butterfly-gold.svg" alt="" width="34" height="34">
+    <span><b>MB</b><i>PROGRAM</i></span>
+  </a>
+  <div class="d-top-r">
+    <a class="d-site" href="index.html">← Sito</a>
+    <button class="ico" aria-label="Menu laterale lezione" id="side-toggle" hidden><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <button class="ico" aria-label="Profilo"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.6-3.600 3.400-5.500 7-5.500s6.400 1.900 7 5.500"/></svg></button>
+  </div>
+</header>
+
+<main id="views">
+
+<!-- ================= HOME ================= -->
+<section class="view is-on" id="v-home" aria-label="Home">
+  <div class="wrap">
+    <div class="hello">
+      <p class="hello-t">Benvenuta <b id="nome">Sovrana</b>,</p>
+      <p class="hello-s">pronta per la tua sfida?</p>
+      <p class="sub-badge" title="Abbonamento unico: Fitness Somatico + Alchimia Spirituale"><span>Abbonamento attivo</span> 97 giorni · 26/01/27</p>
+    </div>
+
+    <!-- calendario -->
+    <section class="cal" aria-label="Calendario">
+      <div class="cal-h">
+        <span></span>
+        <div class="cal-nav"><button id="cal-prev" aria-label="Settimana precedente">‹</button><span id="cal-month">Ottobre 2026</span><button id="cal-next" aria-label="Settimana successiva">›</button></div>
+        <div class="cal-r"><button class="pill" id="cal-today">Oggi</button><button class="ico" id="cal-set" aria-label="Impostazioni calendario"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.400 15a1.700 1.700 0 0 0 .3 1.800l.1.1a2 2 0 1 1-2.800 2.800l-.1-.1a1.700 1.700 0 0 0-1.800-.3 1.700 1.700 0 0 0-1 1.500V21a2 2 0 1 1-4 0v-.1a1.700 1.700 0 0 0-1.100-1.500 1.700 1.700 0 0 0-1.800.3l-.1.1a2 2 0 1 1-2.800-2.800l.1-.1a1.700 1.700 0 0 0 .3-1.800 1.700 1.700 0 0 0-1.500-1H3a2 2 0 1 1 0-4h.1a1.700 1.700 0 0 0 1.500-1.100 1.700 1.700 0 0 0-.3-1.800l-.1-.1a2 2 0 1 1 2.800-2.800l.1.1a1.700 1.700 0 0 0 1.800.3H9a1.700 1.700 0 0 0 1-1.500V3a2 2 0 1 1 4 0v.1a1.700 1.700 0 0 0 1 1.500 1.700 1.700 0 0 0 1.800-.3l.1-.1a2 2 0 1 1 2.800 2.800l-.1.1a1.700 1.700 0 0 0-.3 1.800V9a1.700 1.700 0 0 0 1.500 1H21a2 2 0 1 1 0 4h-.1a1.700 1.700 0 0 0-1.500 1z"/></svg></button></div>
+      </div>
+      <div class="cal-days" id="cal-days"></div>
+    </section>
+
+    <!-- FITNESS SOMATICO -->
+    <section class="sec" id="sec-fitness">
+      <header class="sec-h">
+        <h2 class="alch">IL TUO PORTALE DI FITNESS SOMATICO</h2>
+        <button class="link" data-open="m-guide">Iniziazione all’Utilizzo <span aria-hidden="true">⚜️</span></button>
+      </header>
+      <div class="chakra-grid" id="chakra-grid"></div>
+    </section>
+
+    <!-- SPAZIO SACRO -->
+    <section class="sec" id="sec-sacro">
+      <header class="sec-h"><h2 class="alch">IL TUO SPAZIO SACRO</h2></header>
+      <div class="sacro-list" id="sacro-list">
+        <button class="sacro" data-sacro="percorsi"><span class="s-ico" aria-hidden="true">🌌</span><span class="s-t">I Percorsi Alchemici</span><span class="s-plus">+</span></button>
+        <button class="sacro" data-sacro="geometrie"><span class="s-ico" aria-hidden="true">🧘</span><span class="s-t">Geometrie del Corpo</span><span class="s-plus">+</span></button>
+        <button class="sacro" data-sacro="sound"><span class="s-ico" aria-hidden="true">🔊</span><span class="s-t">Sound Healing Vibrazionale</span><span class="s-plus">+</span></button>
+      </div>
+    </section>
+
+    <!-- RINNOVO (spostato qui, al posto di "Nutri le tue emozioni") -->
+    <aside class="renew" aria-label="Rinnovo">
+      <p>Hai terminato il programma del mese e vuoi iniziare il successivo?</p>
+      <a class="btn-gold" href="https://www.mb-elite.com/welcome" rel="noopener">Rinnova <span aria-hidden="true">→</span></a>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= BLOCCO (interno chakra) ================= -->
+<section class="view" id="v-blocco" aria-label="Blocco">
+  <div class="wrap">
+    <button class="back" data-go="home">← Torna alla mappa</button>
+    <header class="blk-h"><p class="eyebrow" id="blk-eyebrow"></p><h1 class="alch" id="blk-title"></h1><p class="blk-sub" id="blk-sub"></p></header>
+    <div class="month-grid" id="month-grid"></div>
+  </div>
+</section>
+
+<!-- ================= LEZIONE ================= -->
+<section class="view" id="v-lezione" aria-label="Lezione">
+  <div class="lesson">
+    <aside class="side" id="side">
+      <div class="side-top"><label class="search"><input type="search" placeholder="Cerca nel corso" aria-label="Cerca nel corso"></label><button class="ico" id="side-close" aria-label="Chiudi menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+      <h3 class="side-h">Tutorial Pratico</h3>
+      <ul class="side-l" id="tut-list"></ul>
+      <h3 class="side-h">Fitness <small>Esegui gli allenamenti in sequenza</small></h3>
+      <ul class="side-l">
+        <li class="on"><a href="#"><span>M1: Training 1</span><em>43–64 min</em></a></li>
+        <li><a href="#"><span>M1: Training 2</span><em>40–60 min</em></a></li>
+        <li><a href="#"><span>M1: Training 3</span><em>45–62 min</em></a></li>
+      </ul>
+    </aside>
+    <div class="lesson-main">
+      <div class="lesson-bar"><button class="back" data-go="blocco">← Indietro</button><div class="lesson-t"><b id="les-title">Tecnica-Basi Metodologia</b><span id="les-sub">RADICE · MESE 1</span></div><span></span></div>
+      <div class="lesson-body">
+        <h2 class="alch">M1: TRAINING 1</h2>
+        <div class="seg" role="tablist" aria-label="Versione"><button class="on" role="tab" aria-selected="true">ESTESA</button><button role="tab" aria-selected="false">BREVE</button></div>
+        <div class="player"><video controls preload="none" poster="img/hero.jpg"><!-- <source src="media/training-1.mp4" type="video/mp4"> --></video><span class="player-note">Qui va il video (player invariato)</span></div>
+        <div class="done-wrap"><button class="btn-done" id="btn-done"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.500l2.800 2.800L16 9.500"/></svg><span>Segna come completato</span></button></div>
+        <div class="notes">
+          <div class="tabs"><button class="on">Note</button></div>
+          <p>Attrezzatura, suggerimenti e indicazioni della lezione.</p>
+          <p class="muted">I testi di Marica restano invariati: qui cambia solo lo sfondo del riquadro.</p>
+        </div>
+        <div class="workbook">
+          <h3>Workbook dell’1%</h3>
+          <p>La piccola azione di oggi. Rompi il tuo vecchio loop emotivo con un confine biologico radicale.</p>
+          <p class="muted">Testo di Marica invariato: sfondo nero pece, ampio padding laterale, scritte bianche.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOG ================= -->
+<section class="view" id="v-blog" aria-label="Blog">
+  <div class="banner"><img src="img/guida.jpg" alt="" width="1400" height="933"><div><h1 class="alch">BLOG</h1><p>Articoli, riflessioni e aggiornamenti dal mondo MB.</p></div></div>
+  <div class="wrap">
+    <div class="blog-grid">
+      <article class="post"><img src="img/hero.jpg" alt="" loading="lazy" width="400" height="300"><div><p class="eyebrow">Blog</p><h3>Titolo dell’articolo</h3><p>Breve estratto dell’articolo del blog. I contenuti reali verranno inseriti da Marica.</p></div></article>
+      <article class="post"><img src="img/piombo-oro.jpg" alt="" loading="lazy" width="400" height="300"><div><p class="eyebrow">Blog</p><h3>Titolo dell’articolo</h3><p>Breve estratto dell’articolo del blog. I contenuti reali verranno inseriti da Marica.</p></div></article>
+      <article class="post"><img src="img/guida.jpg" alt="" loading="lazy" width="400" height="300"><div><p class="eyebrow">Blog</p><h3>Titolo dell’articolo</h3><p>Breve estratto dell’articolo del blog. I contenuti reali verranno inseriti da Marica.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="v-attivita" aria-label="Attività"><div class="wrap"><header class="sec-h"><h2 class="alch">ATTIVITÀ</h2></header><p class="placeholder">Sezione invariata nei contenuti: si applica solo la nuova palette (antracite, bordeaux, oro).</p></div></section>
+<section class="view" id="v-diario" aria-label="Diario"><div class="wrap"><header class="sec-h"><h2 class="alch">DIARIO</h2></header><p class="placeholder">Sezione invariata nei contenuti: si applica solo la nuova palette (antracite, bordeaux, oro).</p></div></section>
+</main>
+
+<!-- bottom nav: Nutrizione eliminata, World → Blog -->
+<nav class="d-nav" aria-label="Navigazione principale">
+  <button data-go="home" class="on"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg><span>Home</span></button>
+  <button data-go="attivita"><svg viewBox="0 0 24 24"><path d="M5 13c3-1 5-4 7-9 2 5 4 8 7 9-3 1-5 4-7 7-2-3-4-6-7-7z"/></svg><span>Attività</span></button>
+  <button data-go="diario"><svg viewBox="0 0 24 24"><path d="M6 4h11a1 1 0 0 1 1 1v15H7a1 1 0 0 1-1-1z"/><path d="M9 8h6M9 12h6"/></svg><span>Diario</span></button>
+  <button data-go="blog"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/><path d="M8 9h8M8 13h8M8 16h5"/></svg><span>Blog</span></button>
+</nav>
+
+<!-- ============ MODALI ============ -->
+<!-- Benvenuto (non chiudibile finché non si preme il bottone) -->
+<dialog class="dlg dlg-welcome" id="m-welcome" aria-labelledby="w-title">
+  <div class="dlg-box">
+    <div class="w-video"><video controls preload="none" poster="img/hero.jpg" aria-label="Video di Benvenuto"><!-- <source src="media/benvenuto.mp4" type="video/mp4"> --></video><span class="player-note">Video di Benvenuto · 2 minuti</span></div>
+    <h2 class="alch" id="w-title">BENVENUTA SOVRANA. IL TUO VIAGGIO BIOLOGICO INIZIA ORA.</h2>
+    <div class="w-text">
+      <p>Sei dentro MB Program Elite. Questo non è un contenitore di video da consumare in modo passivo, né un’applicazione di fitness standard. Da questo momento, stai ricalibrando la tua vecchia biologia per reclamare la tua Sovranità.</p>
+      <h3>Le Regole d’Oro del tuo Portale:</h3>
+      <p><b>🔴 IL TUO PORTALE DI FITNESS SOMATICO (In Alto):</b> Vedrai l’intera mappa degli 8 Blocchi Chakra, ma puoi accedere solo alla tua mensilità attiva. Il passato si chiuderà alle tue spalle per evitare di frammentare la tua energia, e il futuro si sbloccherà con lucchetti dorati mese dopo mese. Concentrati sul presente.</p>
+      <p><b>🌌 IL TUO SPAZIO SACRO (In Basso):</b> Questo è il tuo Spazio Sacro di Guarigione Cellulare, sempre accessibile. Qui troverai le tue Attivazioni Energetiche, lo Yoga e il Sound Healing. Ricorda: ogni singola sessione di questo Archivio è supportata dal tuo Workbook dell’1% posizionato sotto al video. Usalo giorno per giorno per rompere i tuoi vecchi loop emotivi.</p>
+      <p class="w-end">Guarda il video qui sopra per intero, riaccorda il tuo respiro e fai clic qui sotto per iniziare.</p>
+    </div>
+    <div class="w-foot"><button class="btn-gold btn-lg" id="w-go">Varca la Soglia ed Entra</button></div>
+  </div>
+</dialog>
+
+<!-- Messaggio blocco -->
+<dialog class="dlg dlg-sm" id="m-msg" aria-labelledby="msg-t"><div class="dlg-box">
+  <button class="x" data-close aria-label="Chiudi">×</button>
+  <div class="msg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.500"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <h2 class="alch" id="msg-t"></h2><p id="msg-p"></p>
+  <button class="btn-gold" data-close>Ho capito</button>
+</div></dialog>
+
+<!-- Iniziazione all'Utilizzo -->
+<dialog class="dlg dlg-wide" id="m-guide" aria-labelledby="g-t"><div class="dlg-box">
+  <button class="x" data-close aria-label="Chiudi">×</button>
+  <h2 class="alch" id="g-t">L’ARCHITETTURA DEL TUO PERCORSO.</h2>
+  <p class="g-sub">Scegli la tua frequenza biologica settimanale, senza fretta e senza sforzo.</p>
+  <div class="tbl-wrap"><table class="tbl">
+    <thead><tr><th>Livello</th><th>🏋️ Fitness Somatico</th><th>🌌 Alchimia Spirituale</th><th>👑 La tua Sovranità</th></tr></thead>
+    <tbody>
+      <tr><th scope="row"><span class="dot g"></span>SOFT</th><td><b>2 Allenamenti a settimana</b><br><small>(Scegli la versione BREVE)</small></td><td><b>1 Meditazione al giorno</b><br>+ 1 Pratica Yoga a settimana</td><td>Reset iniziale del sistema nervoso e rilascio delle prime corazze fisiche.</td></tr>
+      <tr><th scope="row"><span class="dot y"></span>MEDIUM</th><td><b>2/3 Allenamenti a settimana</b><br><small>(Scegli la versione BREVE o ESTESA)</small></td><td><b>1 Meditazione al giorno</b><br>+ 2 Pratiche Yoga a settimana</td><td>Consolidamento della postura, sblocco profondo del core e stabilità.</td></tr>
+      <tr><th scope="row"><span class="dot r"></span>STRONG</th><td><b>3 Allenamenti a settimana</b><br><small>(Scegli la versione ESTESA)</small></td><td><b>1 Meditazione al giorno</b><br>+ 3 Pratiche Yoga a settimana</td><td>Massima potenza biologica, ricalibrazione cellulare e radicamento.</td></tr>
+    </tbody></table></div>
+  <blockquote class="g-note">«Ascolta il tuo corpo. Puoi cambiare livello in base all’energia della tua settimana. Se lo desideri, puoi integrare liberamente le sessioni di stretching e i moduli aggiuntivi dalla sezione "Attività". Il Sound Healing vibrazionale non ha regole: ascoltalo ogni volta che senti il sistema nervoso in trincea, anche durante la notte.»</blockquote>
+</div></dialog>
+
+<!-- Spazio Sacro (3 modali, un solo contenitore riempito da JS) -->
+<dialog class="dlg dlg-mid" id="m-sacro" aria-labelledby="sc-t"><div class="dlg-box">
+  <button class="x" data-close aria-label="Chiudi">×</button>
+  <h2 class="alch" id="sc-t"></h2>
+  <div class="acc" id="sc-acc"></div>
+</div></dialog>
+
+<!-- Impostazioni Calendario -->
+<dialog class="dlg dlg-mid" id="m-cal" aria-labelledby="c-t"><div class="dlg-box">
+  <button class="x" data-close aria-label="Chiudi">×</button>
+  <h2 id="c-t" class="cal-t">Impostazioni Calendario</h2>
+  <p class="c-intro">Questo calendario è pensato come un alleato gentile nel tuo percorso, non come un giudice. Usalo come supporto per organizzare i tuoi allenamenti e le tue pratiche, ma sentiti sempre libera di seguire i tuoi ritmi e le tue esigenze del momento. Saltare una sessione non significa fallire: il calendario ti accompagnerà sempre alla lezione successiva all’ultima che hai completato, senza farti perdere nulla. Questo strumento è un dono che fai a te stessa, non un obbligo. Rispetta i tuoi tempi, ascolta te stessa e procedi con amore.</p>
+  <h3 class="c-h">Avvisi e notifiche</h3>
+  <div class="c-card">
+    <p class="c-k">Via email</p>
+    <label class="sw-row"><span>ALLENAMENTI</span><input type="checkbox" class="sw"></label>
+    <label class="sw-row"><span>MEDITAZIONI</span><input type="checkbox" class="sw"></label>
+    <label class="sw-row"><span>YOGA</span><input type="checkbox" class="sw"></label>
+  </div>
+  <p class="c-help">Ricevi una notifica con il riepilogo delle attività il giorno prima. Puoi disabilitare quando vuoi.</p>
+  <div class="c-actions"><button class="btn-gold" data-close>Salva</button></div>
+
+  <details class="c-sec" open><summary><span class="c-ico">🏋️</span>ALLENAMENTI</summary>
+    <div class="c-in"><h4>Frequenza settimanale</h4><p>Quanti allenamenti ti senti di fare a settimana?</p>
+      <div class="seg3" data-seg><button>1</button><button>2</button><button class="on">3</button></div>
+      <h4>Giorni di allenamento</h4>
+      <label class="sw-row"><span>Uguale per tutti i giorni</span><input type="checkbox" class="sw" checked></label>
+      <div class="days"><button class="on">L</button><button>M</button><button class="on">M</button><button>G</button><button class="on">V</button><button>S</button><button>D</button></div>
+    </div></details>
+  <details class="c-sec"><summary><span class="c-ico">🧘</span>MEDITAZIONI</summary>
+    <div class="c-in"><h4>Frequenza settimanale</h4><p>Quante meditazioni ti senti di fare a settimana?</p>
+      <div class="seg3" data-seg><button>3</button><button>5</button><button class="on">7</button></div>
+      <label class="sw-row"><span>Uguale per tutti i giorni</span><input type="checkbox" class="sw" checked></label>
+    </div></details>
+  <details class="c-sec"><summary><span class="c-ico">☯</span>YOGA</summary>
+    <div class="c-in"><h4>Frequenza settimanale</h4><p>Quante pratiche yoga ti senti di fare a settimana?</p>
+      <div class="seg3" data-seg><button class="on">1</button><button>2</button><button>3</button></div>
+      <label class="sw-row"><span>Uguale per tutti i giorni</span><input type="checkbox" class="sw"></label>
+    </div></details>
+  <div class="c-actions c-end"><button class="btn-line" data-close>Salva</button><button class="btn-gold" data-close>Salva e genera calendario</button></div>
+</div></dialog>
+
+<!-- DEMO: da rimuovere in produzione -->
+<div class="demo" role="region" aria-label="Anteprima (solo demo)">
+  <b>DEMO</b>
+  <label>Cliente al mese
+    <select id="demo-month">
+      <option value="1">1</option><option value="4">4</option><option value="5">5</option><option value="12">12</option><option value="34">34</option><option value="38">38</option><option value="46">46 (compimento)</option>
+    </select></label>
+  <button id="demo-welcome">Rivedi benvenuto</button>
+</div>
+
+<script src="js/alch.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+/* Blog + Gift Card (palette Figma: nero / bordeaux / oro) */
+.sub-page{background:var(--ink)}
+.page-hero{padding:calc(var(--hh) + 70px) 20px 70px;text-align:center;background:radial-gradient(90% 120% at 50% 0%,#3a1623 0%,#1a1013 55%,#0f0d0c 100%);border-bottom:1px solid rgba(201,164,92,.25)}
+.page-hero .eyebrow{margin-bottom:18px}
+.page-hero h1{color:var(--ivory);max-width:15em;margin-inline:auto}
+.page-hero h1::after{content:"";display:block;width:90px;height:1px;background:var(--gold);margin:28px auto 0}
+.blog-body{padding:70px 0 110px;background:linear-gradient(#0f0d0c,#17110e)}
+.blog-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(30px,5vw,70px);align-items:start}
+.posts{display:grid;gap:56px}
+.post[hidden]{display:none}
+.post-cover{display:grid;place-items:center;align-content:center;gap:12px;aspect-ratio:16/8.4;text-align:center;text-decoration:none;padding:24px;background:linear-gradient(rgba(26,12,16,.25),rgba(15,13,12,.55)),url(../img/marble.jpg) center/cover;border:1px solid rgba(201,164,92,.5);outline:1px solid rgba(201,164,92,.2);outline-offset:6px;transition:transform .5s var(--ease),box-shadow .5s}
+.post-cover:hover{transform:translateY(-3px);box-shadow:0 26px 50px -26px rgba(201,164,92,.55)}
+.pc-title{font-size:clamp(22px,3.6vw,40px);color:var(--gold-l)}
+.pc-line{display:flex;align-items:center;gap:12px;color:var(--gold);font-size:13px;width:min(260px,70%)}
+.pc-line i{flex:1;height:1px;background:var(--gold-d)}
+.pc-sub{font-size:clamp(15px,1.8vw,19px);color:var(--txt);font-style:italic;letter-spacing:.04em}
+.post-cat{margin-top:22px;font-family:var(--f-label);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.post-h{margin-top:6px;font-family:var(--f-display);text-transform:uppercase;font-weight:400;font-size:clamp(20px,2.4vw,27px);line-height:1.2}
+.post-h a{color:var(--ivory);text-decoration:none;transition:color .3s}.post-h a:hover{color:var(--gold-l)}
+.post-meta{margin-top:8px;font-size:14px;color:var(--txt-dim)}
+.post-ex{margin-top:12px;font-size:17px;color:var(--txt)}
+.no-res{color:var(--txt-dim);text-align:center}
+.side{position:sticky;top:calc(var(--hh) + 24px)}
+.side-h{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:17px;letter-spacing:.04em;color:var(--ivory);padding-bottom:10px;border-bottom:1px solid var(--gold);margin:0 0 18px}
+.side-h:not(:first-child){margin-top:38px}
+.search{display:flex;border:1px solid rgba(201,164,92,.4);background:rgba(255,255,255,.03)}
+.search input{flex:1;min-width:0;background:none;border:0;color:var(--ivory);font:inherit;font-size:16px;padding:12px 14px}
+.search input:focus{outline:0}
+.search:focus-within{border-color:var(--gold)}
+.search button{background:none;border:0;color:var(--gold-l);width:46px;display:grid;place-items:center}
+.search svg{width:20px;height:20px}
+.cats,.top{display:grid;gap:4px}
+.cats button{background:none;border:0;padding:8px 0;color:var(--txt);font:inherit;font-size:16px;text-align:left;transition:color .3s,padding-left .3s var(--ease)}
+.cats button:hover,.cats button.is-on{color:var(--gold-l);padding-left:8px}
+.top a{display:flex;gap:10px;padding:8px 0;text-decoration:none;color:var(--txt);font-size:14px;letter-spacing:.04em;line-height:1.35;transition:color .3s}
+.top a::before{content:"→";color:var(--gold)}
+.top a:hover{color:var(--gold-l)}
+/* gift card */
+.gift-lead{max-width:44em;margin:22px auto 0;color:var(--gold-l);font-size:clamp(17px,1.9vw,20px)}
+.gift-lead.strong b{color:var(--ivory)}
+.gift-how{padding:80px 0 110px;background:linear-gradient(#0f0d0c,#17110e)}
+.how-key{max-width:36em;margin:0 auto 26px;font-size:clamp(18px,2vw,22px);color:var(--ivory);text-decoration:underline;text-decoration-color:var(--gold-d);text-underline-offset:6px}
+.how-text{max-width:50em;margin:0 auto;font-size:16px;color:var(--txt-dim)}
+.gift-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,70px);margin-top:70px;align-items:center}
+.gcard{position:relative;max-width:420px;margin-inline:auto;aspect-ratio:1/1;display:grid;place-content:center;justify-items:center;text-align:center;background:radial-gradient(90% 90% at 30% 20%,#4a1626 0%,#1a0e12 60%,#0b0908 100%);border:1px solid rgba(201,164,92,.7);outline:1px solid rgba(201,164,92,.25);outline-offset:-12px;box-shadow:0 40px 70px -35px #000,0 0 80px -30px rgba(201,164,92,.5);animation:float 8s ease-in-out infinite}
+.gcard::before,.gcard::after{content:"";position:absolute;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.gcard::before{top:16%}.gcard::after{bottom:18%}
+.gc-bfly{position:absolute;top:22px;right:26px;width:44px;height:44px;opacity:.9}
+.gc-small{font-family:var(--f-label);letter-spacing:.5em;text-transform:uppercase;font-size:14px;color:var(--gold-l)}
+.gc-big{font-size:clamp(36px,6vw,54px);color:var(--gold);margin:6px 0;text-transform:none;letter-spacing:.02em}
+.gc-amt{margin-top:18px;font-size:30px;color:var(--ivory)}
+.gc-brand{position:absolute;bottom:7%;font-family:var(--f-label);letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:var(--gold-l)}
+.gc-brand b{font-size:15px;letter-spacing:.1em}
+.gift-form{display:grid;gap:18px;padding:clamp(24px,3.4vw,40px);border:1px solid rgba(201,164,92,.4);background:rgba(255,255,255,.02);text-align:left}
+.gift-form legend{font-family:var(--f-label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-l);padding:0;margin-bottom:8px}
+.gift-form fieldset{border:0;padding:0;margin:0}
+.gift-form label{display:grid;gap:6px;font-family:var(--f-label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-l)}
+.gift-form input,.gift-form textarea{font:inherit;font-size:17px;letter-spacing:0;text-transform:none;background:rgba(255,255,255,.04);border:1px solid rgba(201,164,92,.35);color:var(--ivory);padding:12px 14px;border-radius:0;color-scheme:dark}
+.gift-form input:focus,.gift-form textarea:focus{outline:0;border-color:var(--gold)}
+.amts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.amts button{background:none;border:1px solid rgba(201,164,92,.4);color:var(--txt);padding:13px 0;font:inherit;font-size:18px;transition:.3s var(--ease)}
+.amts button:hover{border-color:var(--gold)}
+.amts button.is-on{background:linear-gradient(135deg,#e7cf90,#c9a45c 50%,#a98239);color:#1a120a;border-color:#d8bc78}
+.gift-form .btn{justify-self:start}
+.ok{color:var(--gold-l);font-size:15px}
+@media (max-width:900px){.blog-grid,.gift-grid{grid-template-columns:1fr}.side{position:static}.page-hero{padding-top:calc(var(--hh) + 50px)}}
+@media (max-width:480px){.amts{grid-template-columns:1fr 1fr}.post-cover{aspect-ratio:4/3}}

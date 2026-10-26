@@ -1,0 +1,7 @@
+.w{white-space:nowrap;display:inline-block}
+.g{position:relative;display:inline-block;line-height:1;vertical-align:baseline}
+.g::after{content:"";position:absolute;left:50%;width:.115em;height:.2em;background:currentColor;transform:translate(-50%,-50%);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);pointer-events:none}
+.g-o::after{top:.5em}
+.g-c::after{top:.5em;left:46%}
+.g-u::after{top:.4em}
+.g-a::after{top:.66em;width:.1em;height:.17em}

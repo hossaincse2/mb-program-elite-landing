@@ -1,0 +1,28 @@
+/* MB Program — pagina link bio /elite (nero pece, antracite, oro) */
+html:has(body.elite-page){background:#0b0908}
+body.elite-page{background:radial-gradient(900px 520px at 50% -8%,#2b221e 0%,#1a1614 45%,#0b0908 100%) no-repeat;min-height:100dvh;display:flex;flex-direction:column}
+.el-wrap{flex:1;width:min(560px,100% - 40px);margin:0 auto;padding:calc(var(--hh) + clamp(36px,7vh,70px)) 0 40px}
+.el-head{text-align:center;margin-bottom:clamp(30px,6vh,52px)}
+.el-logo{width:64px;height:64px;margin:0 auto 14px;filter:drop-shadow(0 6px 18px rgba(201,164,92,.35))}
+.el-brand{font-family:var(--f-label);font-size:22px;letter-spacing:.32em;text-transform:uppercase;color:var(--ivory)}
+.el-brand span{color:var(--gold-l);font-weight:700}
+.el-tag{margin-top:8px;font-family:var(--f-label);font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+.el-links{display:grid;gap:clamp(16px,3vh,24px)}
+.el-btn{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:clamp(150px,22vh,190px);padding:30px 28px;text-decoration:none;color:var(--ivory);background:linear-gradient(160deg,#14100e,#050403);border:1px solid rgba(201,164,92,.75);box-shadow:0 18px 40px -22px #000,inset 0 0 0 5px #0b0908,inset 0 0 0 6px rgba(201,164,92,.18);transition:transform .45s var(--ease),border-color .45s var(--ease),box-shadow .45s var(--ease),background .45s var(--ease)}
+.el-btn::after{content:"";position:absolute;left:50%;bottom:16px;width:28px;height:1px;background:var(--gold);transform:translateX(-50%);transition:width .5s var(--ease)}
+.el-btn:hover,.el-btn:focus-visible{transform:translateY(-4px);border-color:var(--gold-l);background:linear-gradient(160deg,#1d1612,#0a0807);box-shadow:0 26px 50px -22px rgba(201,164,92,.45),inset 0 0 0 5px #0b0908,inset 0 0 0 6px rgba(201,164,92,.4)}
+.el-btn:hover::after{width:90px}
+.el-ico{font-size:24px;line-height:1;filter:saturate(.8)}
+.el-t{font-family:var(--f-display);font-size:clamp(22px,5.4vw,28px);letter-spacing:.04em;text-transform:uppercase;background:linear-gradient(135deg,#f1dca0,#c9a45c 55%,#a98239);-webkit-background-clip:text;background-clip:text;color:transparent}
+.el-d{max-width:34ch;font-size:16px;line-height:1.5;color:var(--txt-dim)}
+.el-foot{background:#000;border-top:1px solid rgba(201,164,92,.22);padding:34px 20px 28px;text-align:center}
+.el-legal{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 26px;font-size:12.5px}
+.el-legal a{color:var(--txt-dim);text-decoration:none;transition:color .3s}
+.el-legal a:hover{color:var(--gold-l)}
+.el-social{display:flex;justify-content:center;gap:clamp(18px,4vw,30px);margin:22px 0 20px}
+.el-social a{display:grid;place-items:center;width:38px;height:38px;color:var(--gold);border:1px solid rgba(201,164,92,.35);border-radius:50%;transition:color .3s,background .3s,border-color .3s,transform .3s var(--ease)}
+.el-social a:hover{color:#111;background:var(--gold);border-color:var(--gold);transform:translateY(-2px)}
+.el-social svg{width:18px;height:18px}
+.el-copy{font-size:11.5px;color:#6f655a;letter-spacing:.06em}
+@media (max-width:420px){.el-social{gap:12px}.el-social a{width:34px;height:34px}}
+@media (prefers-reduced-motion:reduce){.el-btn,.el-btn::after{transition:none}}
