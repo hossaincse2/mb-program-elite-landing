@@ -18,12 +18,28 @@
   }
   $$('.marquee-set').forEach(function(s){
     var r=el('div','sigil-rule','<i></i>');r.setAttribute('aria-hidden','true');s.insertBefore(r,s.firstChild);
-    s.setAttribute('data-fx','draw');s.setAttribute('data-fx-var','--filo-p');s.setAttribute('data-fx-anchor','.9');
+    r.setAttribute('data-fx','draw');r.setAttribute('data-fx-var','--rule-p');r.setAttribute('data-fx-anchor','.9');
   });
   $$('.marquee').forEach(function(m){m.setAttribute('data-fx','enter');m.setAttribute('data-fx-var','--corrente-p')});
-  var art=$('.art-full');if(art){art.appendChild(el('span','art-wash'));art.setAttribute('data-fx','draw');art.setAttribute('data-fx-var','--alchemy-p');art.setAttribute('data-fx-anchor','.78')}
+  var art=$('.alch-fig');if(art){art.appendChild(el('span','art-wash'));art.setAttribute('data-fx','draw');art.setAttribute('data-fx-var','--alchemy-p');art.setAttribute('data-fx-anchor','.78')}
   var comp=$('.compiac');if(comp){comp.setAttribute('data-fx','enter');comp.setAttribute('data-fx-var','--contract-p')}
   var cap=$('.capacita');if(cap){cap.setAttribute('data-fx','draw');cap.setAttribute('data-fx-var','--watt-p');cap.setAttribute('data-fx-anchor','1')}
+
+
+  /* filo: every section carries its own thread (rail · lit walk · bead · ring node) */
+  (function(){
+    var map=[['.hero','oro','origin'],['.piombo','piombo','head'],['.manifesto','transmute','none'],['.elementi-head','oro','head'],['.elements','oro','none'],
+      ['.ecosistema','oro','head'],['.app','oro','head'],['.posa','oro','head'],['.capacita','oro','head'],['.guida','oro','head'],['.corpo','oro','head'],
+      ['.testi','oro','head'],['.accesso','oro','head'],['.faq','oro','head'],['.contatti','oro','head']];
+    function mk(host,walk,node,gap){
+      var f=el('div','filo','<span class="rail"></span><span class="walk"></span><span class="carrier"><span class="bead"></span></span>'+(node!=='none'?'<span class="node"></span>':''));
+      f.setAttribute('aria-hidden','true');f.setAttribute('data-walk',walk);f.setAttribute('data-node',node);
+      f.setAttribute('data-fx','draw');f.setAttribute('data-fx-var','--filo-p');f.setAttribute('data-fx-size','--filo-h');
+      host.classList.add('has-filo');host.insertBefore(f,host.firstChild);
+    }
+    map.forEach(function(m){var h=$(m[0]);if(h)mk(h,m[1],m[2])});
+    $$('.marquee-set').forEach(function(s){mk(s,s.classList.contains('on-cream')?'piombo':'oro','none')});
+  })();
 
   /* elements: stage + runway + spine */
   var els=$$('section.el');
@@ -50,7 +66,7 @@
   function measure(){
     vh=w.innerHeight;
     items.forEach(function(it){var r=it.e.getBoundingClientRect();it.top=r.top+w.scrollY;it.h=r.height;
-      if(it.size)it.e.style.setProperty(it.size,String(Math.round(it.h)))});
+      if(it.size){it.e.style.setProperty(it.size,String(Math.round(it.h)));if(it.e.getAttribute('data-node')==='head')it.e.style.setProperty('--filo-at',(56/Math.max(it.h,1)).toFixed(4))}});
   }
   function calc(it,y){
     var F=it.top-y,h=it.h||1,p;

@@ -33,20 +33,40 @@
 @keyframes mote{0%{opacity:0;transform:translateZ(0)}18%{opacity:.85}82%{opacity:.55}to{opacity:0;transform:translate3d(-26px,-190px,0)}}
 .hero .scroll-cue{opacity:clamp(0,calc(1 - var(--hero-p,0)*16),1)}
 
-/* ---------- RAIL: the left thread fills with the page; a bead rides its tip ---------- */
-.rail{background:hsla(41,52%,78%,.24)!important}
-.rail::before{content:"";position:absolute;left:0;top:0;width:1px;height:calc(var(--page-p,0)*100%);background:#a88a4a;border-radius:0;opacity:1}
-.rail::after{content:"";position:absolute;left:-2px;top:calc(var(--page-p,0)*100% - 2.5px);width:5px;height:5px;border-radius:50%;background:var(--gold-soft);opacity:clamp(0,calc(min(var(--page-p,0),1 - var(--page-p,0))*40),1);box-shadow:0 0 10px rgba(228,210,170,.6)}
-.rail::before,.rail::after{top:auto}
-.rail::before{top:0}.rail::after{top:calc(var(--page-p,0)*100% - 2.5px)}
-@media (prefers-reduced-motion:reduce){.rail::after{display:none}}
+/* ---------- FILO: each section's thread — faint rail, lit walk, travelling bead, ring node ---------- */
+.rail{display:none!important}
+.has-filo{position:relative}
+.filo{--filo-x:14px;--filo-node-y:56px;--filo-node:12px;--filo-ink:#a88a4a;--filo-hot:#e4d2aa;--filo-rule:hsla(41,52%,78%,.24);
+  position:absolute;top:0;bottom:0;left:var(--filo-x);width:1px;pointer-events:none;z-index:3;
+  --filo-start:0px;--gs:0px;--ge:0px}
+.filo[data-walk=piombo]{--filo-ink:#918b82}
+.filo[data-walk=transmute]{--filo-ink:#a88a4a}
+.on-cream>.filo,.manifesto>.filo{--filo-rule:rgba(110,101,88,.3)}
+.filo[data-node=head]{--gs:calc(var(--filo-node-y) - 1px);--ge:calc(var(--filo-node-y) + var(--filo-node) + 1px)}
+.filo .rail,.filo .walk{position:absolute;left:0;right:0;top:var(--filo-start);bottom:0;
+  -webkit-mask-image:linear-gradient(to bottom,#000 var(--gs),transparent var(--gs),transparent var(--ge),#000 var(--ge));
+  mask-image:linear-gradient(to bottom,#000 var(--gs),transparent var(--gs),transparent var(--ge),#000 var(--ge))}
+.filo .rail{display:block!important;background:var(--filo-rule)}
+.filo .walk{background:var(--filo-ink);clip-path:inset(0 0 calc((1 - var(--filo-p,0))*100%) 0)}
+.filo[data-walk=transmute] .walk{background:linear-gradient(180deg,#918b82,#a88a4a)}
+.filo .carrier{position:absolute;left:0;top:var(--filo-start);width:0;height:0;
+  transform:translateY(calc(var(--filo-p,0)*(var(--filo-h,0) - var(--filo-start-n,0))*1px))}
+.filo[data-node=origin]{--filo-node-y:108px;--filo-start:121px;--filo-start-n:121}
+.filo .bead{position:absolute;left:-2.5px;top:-2.5px;width:5px;height:5px;border-radius:50%;background:var(--filo-hot);
+  opacity:clamp(0,calc(min(var(--filo-p,0),1 - var(--filo-p,0))*40),1)}
+.filo .bead::before{content:"";position:absolute;bottom:50%;left:2px;width:1px;height:120px;background:linear-gradient(0deg,var(--filo-hot),transparent)}
+.filo .node{position:absolute;top:var(--filo-node-y);left:calc(50% - var(--filo-node)/2);width:var(--filo-node);height:var(--filo-node);border:1px solid var(--filo-ink);border-radius:50%;box-sizing:border-box}
+.filo .node::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:var(--filo-ink);translate:-50% -50%;
+  --lit:clamp(0,calc((var(--filo-p,0) - var(--filo-at,0))*20),1);scale:var(--lit);opacity:var(--lit)}
+.filo[data-node=origin] .node::after{--lit:1}
+@media (prefers-reduced-motion:reduce){.filo .bead{display:none}.filo .walk{clip-path:none}.filo .node::after{scale:1;opacity:1}}
 
 /* ---------- Sigil rule: hairline that draws itself while you scroll ---------- */
 .sigil-rule{position:absolute;top:0;left:50%;translate:-50% 0;width:min(var(--w),100% - 56px);height:1px;background:hsla(41,52%,78%,.24);pointer-events:none;z-index:2}
-.sigil-rule::after{content:"";position:absolute;inset:0;background:#a88a4a;clip-path:inset(0 calc((1 - clamp(0,var(--filo-p,0),1))*100%) 0 0)}
+.sigil-rule::after{content:"";position:absolute;inset:0;background:#a88a4a;clip-path:inset(0 calc((1 - clamp(0,var(--rule-p,0),1))*100%) 0 0)}
 .on-cream .sigil-rule{background:rgba(110,101,88,.28)}.on-cream .sigil-rule::after{background:#918b82}
 .sigil-rule i{position:absolute;left:50%;top:-4px;width:8px;height:8px;rotate:45deg;translate:-50% 0;border:1px solid #a88a4a;background:var(--coal);
-  opacity:clamp(0,calc((var(--filo-p,0) - .85)*6.67),1)}
+  opacity:clamp(0,calc((var(--rule-p,0) - .85)*6.67),1)}
 .on-cream .sigil-rule i{background:var(--cream)}
 
 /* ---------- CORRENTE: word bands slide with the page, not with time ---------- */
@@ -116,4 +136,21 @@
   .el.is-armed .el-in>*{opacity:1;translate:none;scale:none;filter:none}
 }
 
-.manifesto{overflow-x:clip}
+
+/* ---------- L'ALCHIMIA · Dal piombo all'oro (framed artwork, ledger rows) ---------- */
+.manifesto{overflow-x:clip;background:linear-gradient(#f6f1e6 0,#ece4d5 30%,#c4bbad 62%,#a79d90 80%,#1a1614 100%);padding:clamp(56px,7vw,96px) 0 130px}
+.alch-head{text-align:left}
+.alch-eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 14px;font-family:var(--f-label);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#6a4a2c}
+.alch-ring{position:relative;width:26px;height:26px;border:1px solid var(--gold-d);border-radius:50%;flex:none}
+.alch-ring::after{content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;margin:-2.5px;border-radius:50%;background:var(--gold-d)}
+.alch-title{font-size:clamp(30px,4.6vw,56px);line-height:1.1;color:#1a1614;margin:0 0 clamp(26px,3.4vw,44px)}
+.manifesto .art.alch-fig{width:min(60%,760px);min-width:min(320px,100% - 44px);max-width:none;margin:0 auto;position:relative;overflow:hidden;background:#0c0a09;
+  box-shadow:0 34px 70px -26px rgba(40,24,10,.6),0 0 0 1px rgba(26,22,20,.55)}
+.alch-fig img,.alch-fig picture{display:block;width:100%;height:auto}
+.manifesto .pairs{max-width:600px;margin:clamp(34px,4vw,52px) auto 0;gap:15px}
+.manifesto .pairs li{grid-template-columns:1fr clamp(70px,12vw,120px) 1fr;font-size:15.5px;gap:10px}
+.manifesto .pairs span{color:#2d231c}
+.manifesto .pairs b{color:#7a5636}
+.alch-pull{margin:clamp(40px,5vw,64px) auto 0;text-align:center;font-size:clamp(19px,2.2vw,25px);color:#7a5636;line-height:1.4}
+.alch-cap{max-width:38em;margin:22px auto 0;text-align:center;font-size:clamp(14.5px,1.4vw,16px);line-height:1.8;color:#2d231c}
+@media (max-width:700px){.manifesto .art.alch-fig{width:calc(100% - 44px)}}
