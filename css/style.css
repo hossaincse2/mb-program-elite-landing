@@ -2,13 +2,14 @@
    MB PROGRAM ÉLITE — Landing (Figma: "Alchimia della Sovrana — Landing")
    Palette: nero pece / antracite / bordeaux / oro metallico
    ========================================================== */
+@font-face{font-family:"Elemental";src:url(../fonts/Elemental.ttf) format("truetype");font-weight:400;font-style:normal;font-display:swap}
 :root{
   --ink:#0f0d0c; --coal:#1a1614; --coal-2:#241d1a; --brown:#3a2316; --teal:#0e2733;
   --wine:#4a1626; --wine-d:#2a0f18; --mauve:#6e4a52;
   --cream:#f4ede1; --ivory:#faf6ee; --sand:#efe5d3;
   --gold:#c9a45c; --gold-l:#e6cd8e; --gold-d:#9b7a37;
   --txt:#e9e0d2; --txt-dim:#b9ad9b; --txt-dark:#2a211c; --txt-dark-dim:#6b5a4c;
-  --f-display:"Cinzel","Trajan Pro",Georgia,serif;
+  --f-display:"Elemental","Cinzel",Georgia,serif;
   --f-nav:Georgia,"Gelasio","Times New Roman",serif;
   --f-label:Georgia,"Gelasio","Times New Roman",serif;
   --f-body:Georgia,"Gelasio","Times New Roman",serif;
@@ -465,3 +466,11 @@ html.modal-open{overflow:hidden}
 .page{position:relative;background:radial-gradient(120% 100% at 50% 0%,#43301f,#21170f 70%),#21170f}
 .page::before{content:"";position:absolute;inset:10px;border:1px solid rgba(201,164,92,.3);pointer-events:none}
 .page-l{border-right:1px solid rgba(201,164,92,.25)}
+
+.foot-logo{width:84px;height:auto;margin:0 auto 26px}
+.hero-logo{height:auto}
+
+/* Elemental (heading font from Figma): R has a descending swash -> give it room */
+.display{line-height:1.2;letter-spacing:.02em}
+.el-name{line-height:1.1;margin:6px 0 18px}
+.h-xl,.h-lg{line-height:1.22}

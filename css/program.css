@@ -1,5 +1,6 @@
+@font-face{font-family:"Elemental";src:url(../fonts/Elemental.ttf) format("truetype");font-weight:400;font-style:normal;font-display:swap}
 /* Il Viaggio in Sala — pagina programma (Figma: Alchimia della Sovrana) */
-:root{--bg1:#fdfbf7;--bg2:#f3eadc;--ink:#1c1714;--txt:#3b322c;--wine:#4a1626;--gold:#a88a4a;--brown:#7a5230;--rule:#e2d7c6;--f-disp:"Cinzel","Trajan Pro",Georgia,serif;--f-ser:Georgia,"Gelasio","Times New Roman",serif}
+:root{--bg1:#fdfbf7;--bg2:#f3eadc;--ink:#1c1714;--txt:#3b322c;--wine:#4a1626;--gold:#a88a4a;--brown:#7a5230;--rule:#e2d7c6;--f-disp:"Elemental","Cinzel",Georgia,serif;--f-ser:Georgia,"Gelasio","Times New Roman",serif}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;font-family:var(--f-ser);color:var(--txt);background:linear-gradient(180deg,var(--bg1) 0,#f8f2e8 40%,var(--bg2) 100%);-webkit-font-smoothing:antialiased;line-height:1.6}
@@ -68,3 +69,5 @@ dd p:last-child{margin-bottom:0}
 .pg-cta{display:inline-block;margin-top:26px;padding:14px 34px;border:1px solid var(--brown);color:var(--wine);font-weight:700;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:background .3s,color .3s}
 .pg-cta:hover{background:var(--wine);color:#fff;border-color:var(--wine)}
 @media (max-width:560px){.pg-acc{display:none}.pg-bar>a:nth-child(2){font-size:10px;letter-spacing:.12em}}
+
+.pg-logo img{filter:brightness(.66) saturate(1.35) contrast(1.05);height:auto}
