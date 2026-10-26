@@ -8,7 +8,7 @@
 .blog-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(30px,5vw,70px);align-items:start}
 .posts{display:grid;gap:56px}
 .post[hidden]{display:none}
-.post-cover{display:grid;place-items:center;align-content:center;gap:12px;aspect-ratio:16/8.4;text-align:center;text-decoration:none;padding:24px;background:linear-gradient(rgba(26,12,16,.25),rgba(15,13,12,.55)),url(../img/marble.jpg) center/cover;border:1px solid rgba(201,164,92,.5);outline:1px solid rgba(201,164,92,.2);outline-offset:6px;transition:transform .5s var(--ease),box-shadow .5s}
+.post-cover{display:grid;place-items:center;align-content:center;gap:12px;aspect-ratio:16/8.4;text-align:center;text-decoration:none;padding:24px;background:linear-gradient(rgba(26,12,16,.25),rgba(15,13,12,.55)),url(../img/marble.jpg?v=c2f1e755) center/cover;border:1px solid rgba(201,164,92,.5);outline:1px solid rgba(201,164,92,.2);outline-offset:6px;transition:transform .5s var(--ease),box-shadow .5s}
 .post-cover:hover{transform:translateY(-3px);box-shadow:0 26px 50px -26px rgba(201,164,92,.55)}
 .pc-title{font-size:clamp(22px,3.6vw,40px);color:var(--gold-l)}
 .pc-line{display:flex;align-items:center;gap:12px;color:var(--gold);font-size:13px;width:min(260px,70%)}

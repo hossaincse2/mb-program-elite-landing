@@ -2,7 +2,7 @@
    MB PROGRAM ÉLITE — Landing (Figma: "Alchimia della Sovrana — Landing")
    Palette: nero pece / antracite / bordeaux / oro metallico
    ========================================================== */
-@font-face{font-family:"Elemental";src:url(../fonts/Elemental.ttf) format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Elemental";src:url(../fonts/Elemental.ttf?v=b33e10bf) format("truetype");font-weight:400;font-style:normal;font-display:swap}
 :root{
   --ink:#0f0d0c; --coal:#1a1614; --coal-2:#241d1a; --brown:#3a2316; --teal:#0e2733;
   --wine:#4a1626; --wine-d:#2a0f18; --mauve:#6e4a52;
@@ -212,7 +212,7 @@ html.menu-open{overflow:hidden}
 .tile-title{font-size:clamp(24px,3vw,36px)}
 .tile .btn{margin-top:auto;align-self:flex-start}
 .tile p:not(.eyebrow){margin-bottom:10px}
-.tile-marble{background:linear-gradient(rgba(250,247,240,.82),rgba(250,247,240,.7)),url(../img/marble.jpg) center/cover;color:var(--txt-dark)}
+.tile-marble{background:linear-gradient(rgba(250,247,240,.82),rgba(250,247,240,.7)),url(../img/marble.jpg?v=c2f1e755) center/cover;color:var(--txt-dark)}
 .tile-marble .eyebrow{color:#7a5a2a}
 .tile-dark{background:linear-gradient(160deg,#1b1613,#0f0d0c);color:var(--txt);border:1px solid rgba(201,164,92,.18)}
 .tile-dark .tile-title{color:var(--ivory)}

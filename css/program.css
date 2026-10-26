@@ -1,4 +1,4 @@
-@font-face{font-family:"Elemental";src:url(../fonts/Elemental.ttf) format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Elemental";src:url(../fonts/Elemental.ttf?v=b33e10bf) format("truetype");font-weight:400;font-style:normal;font-display:swap}
 /* Il Viaggio in Sala — pagina programma (Figma: Alchimia della Sovrana) */
 :root{--bg1:#fdfbf7;--bg2:#f3eadc;--ink:#1c1714;--txt:#3b322c;--wine:#4a1626;--gold:#a88a4a;--brown:#7a5230;--rule:#e2d7c6;--f-disp:"Elemental","Cinzel",Georgia,serif;--f-ser:Georgia,"Gelasio","Times New Roman",serif}
 *,*::before,*::after{box-sizing:border-box}
