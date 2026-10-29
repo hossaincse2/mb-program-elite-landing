@@ -32,11 +32,17 @@ p{text-wrap:pretty}
 .scroll-cue{display:flex;flex-direction:column;align-items:center;gap:10px;margin:40px auto 0;color:var(--txt-dim);letter-spacing:.34em}
 .scroll-cue svg{width:18px;height:28px;color:var(--gold);animation:cue 2.4s ease-in-out infinite}
 @keyframes cue{50%{transform:translateY(6px);opacity:.55}}
-/* foto: stessa altezza del pannello, mano sinistra sempre intera (contain) su fondo sfumato della stessa foto */
-.hero-photo{aspect-ratio:auto;min-height:100%;display:flex;align-items:flex-end;justify-content:center;border:1px solid rgba(168,138,74,.45);background:#0d0b0a;isolation:isolate}
-.hero-photo::before{content:"";position:absolute;inset:-40px;background:url(../img/hero-full.jpg?v=63a14fd1) 50% 0/cover;filter:blur(30px) brightness(.8) saturate(1.15);z-index:-1}
-.hero-photo img{position:relative;width:auto;max-width:100%;height:auto;max-height:100%;aspect-ratio:4/5;object-fit:cover;
-  -webkit-mask-image:linear-gradient(transparent 0,#000 14%,#000 100%);mask-image:linear-gradient(transparent 0,#000 14%,#000 100%)}
+/* foto: riempie tutto il riquadro (stessa altezza del pannello, nessun blur). Il riquadro è ~0,67 contro
+   lo 0,80 della foto: si ritaglia solo ai lati, ancorato all'80% così restano intere entrambe le mani
+   (farfalla a sinistra, mano sinistra sul ginocchio a destra: occupano il 14%–96% della larghezza) */
+.hero-photo{aspect-ratio:auto;min-height:100%;border:1px solid rgba(168,138,74,.45);background:#0d0b0a}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:80% 50%}
+/* sotto 1280px il riquadro diventerebbe troppo stretto (<82% di foto visibile) e taglierebbe una mano: colonna unica, foto intera 4:5 */
+@media (max-width:1279.98px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-photo{aspect-ratio:4/5;min-height:0;width:min(560px,100%);margin-inline:auto}
+  .hero-photo img{object-position:50% 50%}
+}
 .hero-photo::after{box-shadow:inset 0 0 70px rgba(10,8,7,.6)}
 
 /* ---------- PARTE 2 · IL PIOMBO / LEGGE DI COERENZA ---------- */
