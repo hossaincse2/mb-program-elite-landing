@@ -105,6 +105,9 @@
     if(!rm){
       var F=pz.getBoundingClientRect().top,hdr=($('.site-header')||{}).offsetHeight||68;
       var T=Math.max(hdr+24,Math.min(vh*.14,vh-pzL.offsetHeight-24));   // dove le metà finiscono di unirsi
+      /* ...ma al più tardi dove porta il menu "Il Portale": cliccandolo le due card sono già affiancate */
+      var sec=pz.closest('section'),land=hdr+(F-sec.getBoundingClientRect().top);
+      T=Math.min(Math.max(T,land),vh-80);
       a=clamp((vh-F)/Math.max(vh-T,1));
       s=clamp(1-Math.abs(F-T)/70)*(a>.96?1:0);
       var F0=Math.min(T,vh*.94-pzB.offsetTop);                            // il Workbook parte solo dopo l'unione e quando entra nello schermo
