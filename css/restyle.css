@@ -53,8 +53,8 @@ p{text-wrap:pretty}
 .eyebrow-center{justify-content:center}
 .piombo .glyphs{margin:4px auto 34px;padding:0 4px 14px;justify-content:center;color:var(--gold)}
 .piombo .h-xl{max-width:14em;margin-inline:auto;color:var(--ivory);font-size:clamp(30px,4.4vw,54px)}
-.piombo .lead{max-width:30em;margin:30px auto 0;color:var(--ivory)}
-.piombo .small-copy{max-width:34em;margin:22px auto 0;font-size:clamp(17px,1.6vw,19px);font-weight:500;line-height:1.7;color:#ece3d3}
+.piombo .lead{max-width:27em;margin:30px auto 0;color:var(--ivory)}
+.piombo .small-copy{max-width:31em;margin:22px auto 0;font-size:clamp(17px,1.6vw,19px);font-weight:500;line-height:1.7;color:#ece3d3}
 .mirror{position:relative;width:min(340px,72vw);aspect-ratio:1/1;margin:80px auto 70px;display:grid;place-items:center}
 .mirror-glow{position:absolute;left:50%;top:50%;width:190%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(201,193,181,.34),rgba(145,139,130,.12) 55%,transparent);pointer-events:none;animation:breath 7s ease-in-out infinite}
 .mirror-disc{position:relative;width:100%;aspect-ratio:1/1}
@@ -64,7 +64,7 @@ p{text-wrap:pretty}
 .piombo .wrap.coerenza{width:min(var(--w),100% - 56px)}
 .coerenza .ring-icon{margin-inline:auto}
 .coerenza .h-lg{max-width:15em;color:var(--ivory)}
-.coerenza .lead-soft{max-width:34em;margin:26px auto 0;color:#ece3d3;font-size:clamp(17px,1.6vw,19.5px);letter-spacing:0!important;opacity:1!important}
+.coerenza .lead-soft{max-width:31em;margin:26px auto 0;color:#ece3d3;font-size:clamp(17px,1.6vw,19.5px);font-weight:500;line-height:1.75;letter-spacing:0!important;opacity:1!important}
 
 /* ---------- MARQUEE: a tutta larghezza, loop infinito su ogni schermo ---------- */
 .marquee-set.on-dark{background:#171513}

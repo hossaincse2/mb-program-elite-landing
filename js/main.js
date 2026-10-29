@@ -26,6 +26,18 @@
   }
   kernR();
 
+  /* tipografia italiana: le parole di 1–2 lettere (e, a, è, di, il, la, si…) restano attaccate alla successiva,
+     così nessuna lettera resta isolata a fine riga */
+  d.querySelectorAll('p, li, blockquote, h1, h2, h3, summary').forEach(function (el) {
+    var tw = d.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), n;
+    while ((n = tw.nextNode())) {
+      if (n.parentNode.closest('script,style,.kr')) continue;
+      var bind = function (s) { return s.replace(/(^|[\s(«“"])([A-Za-zÀ-ÿ]{1,2})[ \t\n]+(?=\S)/g, function (m, pre, w) { return pre + w + '\u00A0'; }); };
+      var v = bind(bind(n.nodeValue)); // due passate: copre anche parole corte consecutive ("è la", "e il")
+      if (v !== n.nodeValue) n.nodeValue = v;
+    }
+  });
+
   /* ---- scroll reveal (fluid fades while the user scrolls down) ---- */
   var revealEls = d.querySelectorAll('.reveal, .pairs');
   if ('IntersectionObserver' in window) {
