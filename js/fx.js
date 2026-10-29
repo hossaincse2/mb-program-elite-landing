@@ -46,7 +46,7 @@
   var els=$$('section.el');
   if(els.length){
     var runway=el('div','elements');els[0].parentNode.insertBefore(runway,els[0]);
-    var spine=el('div','el-thread','<i class="fill"></i><i class="bead"></i>');spine.setAttribute('aria-hidden','true');
+    var spine=el('div','el-thread','<div class="el-thread-in"><i class="fill"></i><i class="bead"></i><ol><li><span>Terra</span></li><li><span>Acqua</span></li><li><span>Aria</span></li><li><span>Fuoco</span></li></ol></div>');spine.setAttribute('aria-hidden','true');
     runway.appendChild(spine);
     els.forEach(function(s){
       runway.appendChild(s);
@@ -78,7 +78,7 @@
       default:p=(vh-F)/(vh+h)}
     return clamp(p);
   }
-  var spineLis=null;
+  var spineLis=spine?$$('li',spine):null;
   function update(){
     ticking=false;var y=w.scrollY;page();
     items.forEach(function(it){

@@ -7,8 +7,8 @@
 
   /* ---- Elemental: la R ha una coda larga che il browser non crena (Figma sì).
      Avvolgiamo ogni R dei titoli in .kr per stringerla come nel file Figma ---- */
-  (function () {
-    var w = d.createTreeWalker(d.body, NodeFilter.SHOW_TEXT, null), nodes = [], n, seen = new Map();
+  function kernR(scope) {
+    var w = d.createTreeWalker(scope || d.body, NodeFilter.SHOW_TEXT, null), nodes = [], n, seen = new Map();
     var isElemental = function (el) {
       if (!seen.has(el)) seen.set(el, /^\s*"?Elemental/i.test(getComputedStyle(el).fontFamily) && !/^(SCRIPT|STYLE|TEXTAREA|OPTION)$/.test(el.tagName));
       return seen.get(el);
@@ -23,7 +23,8 @@
       });
       t.parentNode.replaceChild(f, t);
     });
-  })();
+  }
+  kernR();
 
   /* ---- scroll reveal (fluid fades while the user scrolls down) ---- */
   var revealEls = d.querySelectorAll('.reveal, .pairs');
@@ -104,6 +105,7 @@
     plans.forEach(function (p) { var on = p === btn; p.classList.toggle('is-on', on); p.setAttribute('aria-checked', on); });
     var m = +btn.dataset.months, price = +btn.dataset.price, old = +btn.dataset.old;
     elName.textContent = 'MB Program Élite — ' + m + (m === 1 ? ' Mese' : ' Mesi');
+    kernR(elName);
     elOld.textContent = eur(old); elPrice.textContent = eur(price);
     elMonth.textContent = 'Pari a ' + eur(price / m) + ' al mese';
   }
