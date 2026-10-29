@@ -133,6 +133,10 @@
       live.addEventListener('load', function () {
         var w = live.contentWindow, t0 = null;
         try { w.document.documentElement.style.scrollBehavior = 'auto'; } catch (e) { return; }
+        /* nel telefono solo l'interfaccia reale: niente barra DEMO, link "← Sito", benvenuto, barra di scorrimento */
+        var css = w.document.createElement('style');
+        css.textContent = '.demo,.d-site,dialog{display:none!important}html{scrollbar-width:none}::-webkit-scrollbar{width:0;height:0;display:none}';
+        w.document.head.appendChild(css);
         (function step(ts) {
           if (t0 === null) t0 = ts;
           var doc = w.document.documentElement, max = Math.max(0, doc.scrollHeight - w.innerHeight);

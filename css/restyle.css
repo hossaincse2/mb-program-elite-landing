@@ -54,7 +54,7 @@ p{text-wrap:pretty}
 .piombo .glyphs{margin:4px auto 34px;padding:0 4px 14px;justify-content:center;color:var(--gold)}
 .piombo .h-xl{max-width:14em;margin-inline:auto;color:var(--ivory);font-size:clamp(30px,4.4vw,54px)}
 .piombo .lead{max-width:30em;margin:30px auto 0;color:var(--ivory)}
-.piombo .small-copy{max-width:34em;margin:22px auto 0;font-size:clamp(17px,1.6vw,19px);font-weight:500;line-height:1.7;color:#e2d8c6}
+.piombo .small-copy{max-width:34em;margin:22px auto 0;font-size:clamp(17px,1.6vw,19px);font-weight:500;line-height:1.7;color:#ece3d3}
 .mirror{position:relative;width:min(340px,72vw);aspect-ratio:1/1;margin:80px auto 70px;display:grid;place-items:center}
 .mirror-glow{position:absolute;left:50%;top:50%;width:190%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(201,193,181,.34),rgba(145,139,130,.12) 55%,transparent);pointer-events:none;animation:breath 7s ease-in-out infinite}
 .mirror-disc{position:relative;width:100%;aspect-ratio:1/1}
@@ -64,7 +64,7 @@ p{text-wrap:pretty}
 .piombo .wrap.coerenza{width:min(var(--w),100% - 56px)}
 .coerenza .ring-icon{margin-inline:auto}
 .coerenza .h-lg{max-width:15em;color:var(--ivory)}
-.coerenza .lead-soft{max-width:34em;margin:26px auto 0;color:#e2d8c6;font-size:clamp(17px,1.6vw,19.5px);letter-spacing:0!important;opacity:1!important}
+.coerenza .lead-soft{max-width:34em;margin:26px auto 0;color:#ece3d3;font-size:clamp(17px,1.6vw,19.5px);letter-spacing:0!important;opacity:1!important}
 
 /* ---------- MARQUEE: a tutta larghezza, loop infinito su ogni schermo ---------- */
 .marquee-set.on-dark{background:#171513}
@@ -109,13 +109,13 @@ p{text-wrap:pretty}
 .manifesto .pairs b{color:var(--gold-l);font-weight:600}
 .pairs i::after{background:var(--gold);box-shadow:0 0 0 3px rgba(168,138,74,.3)}
 .alch-pull{color:var(--champ)}
-.alch-cap{color:#e2d8c6;font-size:clamp(16px,1.5vw,17.5px)}
+.alch-cap{color:#ece3d3;font-size:clamp(16px,1.5vw,17.5px)}
 .manifesto .man-title{color:var(--gold-l)}
 .manifesto-text{color:#ece3d3;max-width:40em}
 
 /* ---------- PARTE 4 · I QUATTRO ELEMENTI ---------- */
 .elementi-head{position:relative;background:linear-gradient(#171513,#241f1b);border:0;padding:100px 0 160px}
-.elementi-head .lead-center{font-size:17.5px;color:#e2d8c6;max-width:42em}
+.elementi-head .lead-center{font-size:17.5px;color:#ece3d3;max-width:42em}
 /* filo d'energia: scende dal titolo fino a Terra e prosegue lungo i 4 elementi */
 .energy-lead{position:absolute;left:50%;bottom:0;width:1px;height:120px;background:rgba(228,210,170,.14)}
 .energy-lead::after{content:"";position:absolute;inset:0;background:linear-gradient(#e4d2aa,#a88a4a);box-shadow:0 0 12px rgba(198,161,91,.8);transform-origin:top;transform:scaleY(var(--lead-p,1))}
@@ -218,7 +218,7 @@ p{text-wrap:pretty}
 .guida-copy .btn{align-self:flex-start;margin-top:18px}
 
 /* ---------- PARTE 9 · IL CORPO ---------- */
-.corpo{background:linear-gradient(#40161e 0%,#4a2a33 38%,#cdbcb0 66%,var(--ivory) 84%);padding:90px 0 120px}
+.corpo{background:linear-gradient(#40161e 0%,#4a2a33 58%,#cdbcb0 74%,var(--ivory) 88%);padding:90px 0 120px}
 .corpo .h-lg{color:var(--ivory);max-width:13em;margin:0 auto 46px}
 .body-list{max-width:620px}
 .body-list li{display:flex;align-items:baseline;justify-content:center;gap:18px;padding:22px 0;border-bottom:1px solid rgba(228,210,170,.2)}
@@ -254,7 +254,7 @@ p{text-wrap:pretty}
 .accesso{background:radial-gradient(70% 50% at 50% 22%,#4a1a24 0%,#2a1117 45%,#171513 100%);color:var(--txt);padding:110px 0 130px}
 .accesso .h-lg{color:var(--ivory)}
 .accesso .eyebrow{color:var(--gold-l)}
-.accesso .lead-center{color:#e2d8c6}
+.accesso .lead-center{color:#ece3d3}
 .plans{gap:22px;max-width:960px;margin-top:64px;align-items:stretch}
 .plan{background:linear-gradient(170deg,#2a1117 0%,#1b1214 60%,#141110 100%);border:1px solid rgba(168,138,74,.75);padding:42px 14px 34px;gap:10px;color:var(--gold-l);isolation:isolate}
 .plan:hover{transform:translateY(-4px);border-color:var(--champ)}
@@ -319,7 +319,7 @@ p{text-wrap:pretty}
 .news-photo img{position:absolute;inset:6% 4% 0;width:92%;height:94%;object-fit:contain;object-position:50% 100%;transition:transform .5s ease}
 .newsletter:hover .news-photo img{transform:scale(1.03)}
 .news-copy .h-md{color:var(--ivory);margin-bottom:18px}
-.news-copy p{color:#e2d8c6;font-size:17px;line-height:1.75}
+.news-copy p{color:#ece3d3;font-size:17px;line-height:1.75}
 .news-form{display:grid;gap:22px;margin-top:30px}
 .news-form input{font:inherit;font-size:17px;background:transparent;border:0;border-bottom:1px solid rgba(168,138,74,.8);color:var(--soft);padding:12px 2px;border-radius:0}
 .news-form input::placeholder{color:rgba(201,193,181,.6);font-style:italic}
@@ -354,7 +354,7 @@ p{text-wrap:pretty}
 .m-sub{color:var(--champ);margin:-14px 0 30px}
 .m-h{font-family:var(--f-label);font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-l);margin:34px 0 12px}
 .modal-box>p,.story p,.pillars3 p,.moduli p,.rule45 p,.m-note,.prive-copy p{color:var(--soft);font-size:17px;line-height:1.85}
-.moduli p{color:#e2d8c6;font-size:16px}
+.moduli p{color:#ece3d3;font-size:16px}
 .modal-box>p{margin-bottom:14px}
 .story{gap:34px}
 .story h3{color:var(--gold-l);font-size:13px;margin-bottom:12px}
@@ -425,7 +425,7 @@ p{text-wrap:pretty}
 .gift-3d img{width:100%;height:auto;display:block;border:1px solid rgba(168,138,74,.45)}
 .gift-how .h-md{color:var(--ivory);margin-bottom:22px}
 .how-key{text-decoration:none;color:var(--champ)}
-.how-text{color:#e2d8c6;font-size:17px;line-height:1.8}
+.how-text{color:#ece3d3;font-size:17px;line-height:1.8}
 .gift-rules{max-width:44em;margin:34px auto 0;display:grid;gap:16px}
 .gift-rules li{position:relative;padding-left:34px;color:#ece3d3;font-size:17px;line-height:1.75}
 .gift-rules li::before{content:"";position:absolute;left:4px;top:11px;width:12px;height:11px;background:linear-gradient(#e4d2aa,#a88a4a);clip-path:polygon(50% 100%,0 0,100% 0)}
@@ -481,3 +481,9 @@ p{text-wrap:pretty}
   .el-thread{right:4px;width:26px}
   .el-thread-in{background:none;border:0;box-shadow:none}
 }
+
+/* Palette: oro master #A88A4A ovunque; su fondi bordeaux/petrolio e nei box del blog i testi oro piccoli usano
+   Luminous Gold #C6A15B (variante ufficiale) per restare leggibili (contrasto >= 4.5:1) */
+.accesso,.t-card,.el-fuoco,.box{--gold-l:#c6a15b}
+.el-acqua .el-name{color:#c6a15b}
+.t-card .q-title em,.t-card .q-sig,.t-more{color:#c6a15b}
