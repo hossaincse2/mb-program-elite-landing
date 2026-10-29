@@ -11,9 +11,10 @@
   --gold:#a88a4a; --gold-l:#c6a15b; --gold-d:#9a743c; --champ:#e4d2aa;
   --txt:#f2ebdd; --txt-dim:#c9c1b5; --txt-dark:#171513; --txt-dark-dim:#5a4f45;
   --f-display:"Elemental","Cinzel",Georgia,serif;
-  --f-nav:Georgia,"Gelasio","Times New Roman",serif;
-  --f-label:Georgia,"Gelasio","Times New Roman",serif;
-  --f-body:Georgia,"Gelasio","Times New Roman",serif;
+  /* Figma: testi in Gelasio (Georgia solo come ripiego se Google Fonts non carica) */
+  --f-nav:"Gelasio",Georgia,"Times New Roman",serif;
+  --f-label:"Gelasio",Georgia,"Times New Roman",serif;
+  --f-body:"Gelasio",Georgia,"Times New Roman",serif;
   --w:1100px; --hh:68px;
   --ease:cubic-bezier(.22,.7,.2,1);
 }

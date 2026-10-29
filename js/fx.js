@@ -20,26 +20,41 @@
     var r=el('div','sigil-rule','<i></i>');r.setAttribute('aria-hidden','true');s.insertBefore(r,s.firstChild);
     r.setAttribute('data-fx','draw');r.setAttribute('data-fx-var','--rule-p');r.setAttribute('data-fx-anchor','.9');
   });
+  /* Dal piombo all'oro (come alchimiadellasovrana.it): l'oro si rivela sul piombo, una lama di luce ne segue il bordo,
+     poi il registro disegna le sue righe una alla volta */
   var art=$('.alch-fig');if(art){art.appendChild(el('span','art-wash'));art.setAttribute('data-fx','draw');art.setAttribute('data-fx-var','--alchemy-p');art.setAttribute('data-fx-anchor','.78')}
+  var ledger=$('.manifesto .pairs');if(ledger){ledger.style.setProperty('--ledger-n',ledger.children.length);ledger.setAttribute('data-fx','draw');ledger.setAttribute('data-fx-var','--ledger-p');ledger.setAttribute('data-fx-anchor','.8')}
   var comp=$('.compiac');if(comp){comp.setAttribute('data-fx','enter');comp.setAttribute('data-fx-var','--contract-p')}
   var cap=$('.capacita');
-  var pz=$('.puzzle');if(pz){pz.setAttribute('data-fx','draw');pz.setAttribute('data-fx-var','--pz-p');pz.setAttribute('data-fx-anchor','1.05')}
+  var pz=$('.puzzle');
   var lead=$('.energy-lead');if(lead){lead.setAttribute('data-fx','draw');lead.setAttribute('data-fx-var','--lead-p');lead.setAttribute('data-fx-anchor','.8')}
 
 
-  /* filo: every section carries its own thread (rail · lit walk · bead · ring node) */
+  /* FILO — identico ad alchimiadellasovrana.it: ogni sezione ha il suo filo (rail · walk illuminato · perla con scia)
+     con un nodo o un simbolo alchemico che si accende/si disegna con lo scroll.
+     [selettore, colore del walk (oro|piombo|transmute), simbolo (origin|portal|sol|vesica|crossed|terminal|none), dove (head|foot)] */
   (function(){
-    var map=[['.hero','oro','origin'],['.piombo','piombo','head'],['.manifesto','transmute','none'],['.elementi-head','oro','head'],['.elements','oro','none'],
-      ['.ecosistema','oro','head'],['.app','oro','head'],['.posa','oro','head'],['.capacita','oro','head'],['.guida','oro','head'],['.corpo','oro','head'],
-      ['.testi','oro','head'],['.accesso','oro','head'],['.faq','oro','head'],['.contatti','oro','head']];
-    function mk(host,walk,node,gap){
-      var f=el('div','filo','<span class="rail"></span><span class="walk"></span><span class="carrier"><span class="bead"></span></span>'+(node!=='none'?'<span class="node"></span>':''));
-      f.setAttribute('aria-hidden','true');f.setAttribute('data-walk',walk);f.setAttribute('data-node',node);
+    var SIGN={
+      portal:'<path class="filo__sign-stroke" pathLength="1" d="M13.5 37.4 A17 17 0 1 1 34.5 37.4"/>',
+      sol:'<circle class="filo__sign-stroke" pathLength="1" cx="24" cy="24" r="17"/><circle class="filo__sign-fill" cx="24" cy="24" r="2.4"/>',
+      vesica:'<circle class="filo__sign-stroke" pathLength="1" cx="17" cy="24" r="12"/><circle class="filo__sign-stroke" pathLength="1" cx="31" cy="24" r="12"/>',
+      crossed:'<circle class="filo__sign-stroke" pathLength="1" cx="24" cy="24" r="17"/><circle class="filo__sign-fill" cx="24" cy="24" r="8.5"/>'
+    };
+    var sets=$$('.marquee-set');
+    var map=[['.hero','oro','origin','head'],['.piombo','piombo','portal','foot'],[sets[0],'piombo','none',''],['.manifesto','transmute','sol','head'],
+      ['.elementi-head','oro','terminal','foot'],['.ecosistema','oro','vesica','head'],[sets[1],'oro','none',''],['.app','oro','none','head'],[sets[2],'oro','none',''],
+      ['.posa','oro','crossed','head'],['.capacita','oro','none','head'],['.guida','oro','none','head'],['.corpo','oro','none','head'],['.testi','oro','none','head'],
+      ['.accesso','oro','none','head'],['.faq','oro','none','head'],['.contatti','oro','none','head'],['.newsletter','oro','terminal','foot']];
+    function mk(host,walk,sign,at){
+      var svg=SIGN[sign]?'<svg class="filo__sign" viewBox="0 0 48 48">'+SIGN[sign]+'</svg>':'';
+      var node=(!svg&&at)?'<span class="filo__node"></span>':'';
+      var f=el('div','filo','<span class="filo__rail"></span><span class="filo__walk"></span><span class="filo__carrier"><span class="filo__bead"></span></span>'+node+svg);
+      f.setAttribute('aria-hidden','true');f.setAttribute('data-walk',walk);f.setAttribute('data-sign',sign);
+      if(at)f.setAttribute(svg?'data-figure-at':'data-node-at',at);
       f.setAttribute('data-fx','draw');f.setAttribute('data-fx-var','--filo-p');f.setAttribute('data-fx-size','--filo-h');
       host.classList.add('has-filo');host.insertBefore(f,host.firstChild);
     }
-    map.forEach(function(m){var h=$(m[0]);if(h)mk(h,m[1],m[2])});
-    $$('.marquee-set').forEach(function(s){mk(s,s.classList.contains('on-cream')?'piombo':'oro','none')});
+    map.forEach(function(m){var h=typeof m[0]==='string'?$(m[0]):m[0];if(h)mk(h,m[1],m[2],m[3])});
   })();
 
   /* elements: stage + runway + spine */
@@ -67,7 +82,7 @@
   function measure(){
     vh=w.innerHeight;
     items.forEach(function(it){var r=it.e.getBoundingClientRect();it.top=r.top+w.scrollY;it.h=r.height;
-      if(it.size){it.e.style.setProperty(it.size,String(Math.round(it.h)));if(it.e.getAttribute('data-node')==='head')it.e.style.setProperty('--filo-at',(56/Math.max(it.h,1)).toFixed(4))}});
+      if(it.size)it.e.style.setProperty(it.size,String(Math.round(it.h)))});
   }
   function calc(it,y){
     var F=it.top-y,h=it.h||1,p;
@@ -79,13 +94,33 @@
     return clamp(p);
   }
   var spineLis=spine?$$('li',spine):null;
+  /* PUZZLE (Parte 5) in pixel reali dello schermo, così funziona a ogni altezza:
+     1) le due metà entrano dai lati e si chiudono quando la loro parte alta è appena sotto l'header (titoli sempre visibili)
+     2) bagliore sulla giuntura nell'istante dell'aggancio
+     3) subito dopo il Workbook sale dal basso e si incastra, visibile mentre sale */
+  var pzL=pz&&$('.pz-l',pz),pzB=pz&&$('.pz-b',pz),pzLast='';
+  function puzzle(){
+    if(!pz)return;
+    var a=1,b=1,s=0;
+    if(!rm){
+      var F=pz.getBoundingClientRect().top,hdr=($('.site-header')||{}).offsetHeight||68;
+      var T=Math.max(hdr+24,Math.min(vh*.14,vh-pzL.offsetHeight-24));   // dove le metà finiscono di unirsi
+      a=clamp((vh-F)/Math.max(vh-T,1));
+      s=clamp(1-Math.abs(F-T)/70)*(a>.96?1:0);
+      var F0=Math.min(T,vh*.94-pzB.offsetTop);                            // il Workbook parte solo dopo l'unione e quando entra nello schermo
+      b=clamp((F0-F)/240);
+    }
+    var key=a.toFixed(3)+b.toFixed(3)+s.toFixed(3);if(key===pzLast)return;pzLast=key;
+    pz.style.setProperty('--pz-a',a.toFixed(4));pz.style.setProperty('--pz-b',b.toFixed(4));pz.style.setProperty('--pz-snap',s.toFixed(4));
+  }
   function update(){
-    ticking=false;var y=w.scrollY;page();
+    ticking=false;var y=w.scrollY;page();puzzle();
     items.forEach(function(it){
       var p=rm?1:calc(it,y);if(rm&&it.mode==='exit')p=0;
+      /* elemento attivo appena la sua sezione occupa metà schermo: mai una schermata vuota all'arrivo */
+      if(it.v==='--el-p')it.e.classList.toggle('is-active',rm||it.top-y<=vh*.55);
       var s=p.toFixed(4);if(s===it.last)return;it.last=s;
       it.e.style.setProperty(it.v,s);
-      if(it.v==='--el-p')it.e.classList.toggle('is-active',rm||p>=.32);
       if(it.v==='--spine-p'&&spineLis){var n=p*4;spineLis.forEach(function(li,i){li.classList.toggle('on',n>=i+.15)})}
     });
   }

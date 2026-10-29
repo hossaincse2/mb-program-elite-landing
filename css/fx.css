@@ -33,33 +33,47 @@
 @keyframes mote{0%{opacity:0;transform:translateZ(0)}18%{opacity:.85}82%{opacity:.55}to{opacity:0;transform:translate3d(-26px,-190px,0)}}
 .hero .scroll-cue{opacity:clamp(0,calc(1 - var(--hero-p,0)*16),1)}
 
-/* ---------- FILO: each section's thread — faint rail, lit walk, travelling bead, ring node ---------- */
+/* ---------- FILO: copia fedele di alchimiadellasovrana.it ----------
+   rail tenue · walk che si illumina con lo scroll · perla con scia · nodo o simbolo alchemico (si disegna con --filo-lit).
+   Posizione: 14px dal bordo; da 1364px segue il contenuto, 40px a sinistra della colonna (come il riferimento). */
 .rail{display:none!important}
 .has-filo{position:relative}
-.filo{--filo-x:14px;--filo-node-y:56px;--filo-node:12px;--filo-ink:#a88a4a;--filo-hot:#e4d2aa;--filo-rule:hsla(41,52%,78%,.24);
-  position:absolute;top:0;bottom:0;left:var(--filo-x);width:1px;pointer-events:none;z-index:3;
-  --filo-start:0px;--gs:0px;--ge:0px}
-.filo[data-walk=piombo]{--filo-ink:#918b82}
-.filo[data-walk=transmute]{--filo-ink:#a88a4a}
-.on-cream>.filo,.manifesto>.filo{--filo-rule:rgba(110,101,88,.3)}
-.filo[data-node=head]{--gs:calc(var(--filo-node-y) - 1px);--ge:calc(var(--filo-node-y) + var(--filo-node) + 1px)}
-.filo .rail,.filo .walk{position:absolute;left:0;right:0;top:var(--filo-start);bottom:0;
-  -webkit-mask-image:linear-gradient(to bottom,#000 var(--gs),transparent var(--gs),transparent var(--ge),#000 var(--ge));
-  mask-image:linear-gradient(to bottom,#000 var(--gs),transparent var(--gs),transparent var(--ge),#000 var(--ge))}
-.filo .rail{display:block!important;background:var(--filo-rule)}
-.filo .walk{background:var(--filo-ink);clip-path:inset(0 0 calc((1 - var(--filo-p,0))*100%) 0)}
-.filo[data-walk=transmute] .walk{background:linear-gradient(180deg,#918b82,#a88a4a)}
-.filo .carrier{position:absolute;left:0;top:var(--filo-start);width:0;height:0;
-  transform:translateY(calc(var(--filo-p,0)*(var(--filo-h,0) - var(--filo-start-n,0))*1px))}
-.filo[data-node=origin]{--filo-node-y:108px;--filo-start:121px;--filo-start-n:121}
-.filo .bead{position:absolute;left:-2.5px;top:-2.5px;width:5px;height:5px;border-radius:50%;background:var(--filo-hot);
-  opacity:clamp(0,calc(min(var(--filo-p,0),1 - var(--filo-p,0))*40),1)}
-.filo .bead::before{content:"";position:absolute;bottom:50%;left:2px;width:1px;height:120px;background:linear-gradient(0deg,var(--filo-hot),transparent)}
-.filo .node{position:absolute;top:var(--filo-node-y);left:calc(50% - var(--filo-node)/2);width:var(--filo-node);height:var(--filo-node);border:1px solid var(--filo-ink);border-radius:50%;box-sizing:border-box}
-.filo .node::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:var(--filo-ink);translate:-50% -50%;
-  --lit:clamp(0,calc((var(--filo-p,0) - var(--filo-at,0))*20),1);scale:var(--lit);opacity:var(--lit)}
-.filo[data-node=origin] .node::after{--lit:1}
-@media (prefers-reduced-motion:reduce){.filo .bead{display:none}.filo .walk{clip-path:none}.filo .node::after{scale:1;opacity:1}}
+:root{--filo-x:14px;--filo-node:12px;--filo-core:6px;--filo-bead:5px;--filo-tail-size:120px;--filo-ramp:8;--filo-node-top:56;--filo-sign:28px;
+  --filo-ink:#a88a4a;--filo-node-ink:#a88a4a;--filo-core-ink:#a88a4a;--filo-lead:#918b82;--filo-hot:#e4d2aa;
+  --filo-transmute:linear-gradient(180deg,#918b82 0%,#a88a4a 100%);--filo-tail:linear-gradient(0deg,#e4d2aa,transparent);--filo-halo:none;
+  --filo-rule:hsla(41,52%,78%,.24);--filo-measure:1280px}
+@media (min-width:1364px){:root{--filo-x:max(calc(var(--filo-sign)/2),calc((100% - var(--filo-measure))/2 - 40px));--filo-sign:64px;--filo-halo:0 0 18px rgba(168,138,74,.35)}}
+.filo{--filo-lit:clamp(0,calc((var(--filo-p,1) - var(--filo-at))*var(--filo-ramp)),1);--filo-at:calc(var(--filo-node-top)/var(--filo-h,100000));
+  --filo-node-y:calc(var(--filo-node-top)*1px);--filo-sign-y:calc(var(--filo-node-y) + var(--filo-node)/2 - var(--filo-sign)/2);
+  --filo-gap-start:calc(var(--filo-node-y) - 1px);--filo-gap-end:calc(var(--filo-node-y) + var(--filo-node) + 1px);
+  position:absolute;top:0;bottom:0;left:var(--filo-x);width:1px;pointer-events:none;z-index:3}
+.hero>.filo{--filo-node-top:108}
+.piombo{--filo-foot:90px}.elementi-head{--filo-foot:64px}
+.filo[data-sign=origin]{--filo-at:-1;--filo-stem-start:calc(var(--filo-node-y) + var(--filo-node) + 1px);--filo-gap-start:0px;--filo-gap-end:0px}
+.filo[data-sign=terminal]{--filo-at:.875;--filo-stem-end:calc(100% - var(--filo-node-y) + 1px);--filo-gap-start:0px;--filo-gap-end:0px}
+.filo[data-sign=crossed],.filo[data-sign=sol],.filo[data-sign=vesica]{--filo-gap-start:calc(var(--filo-sign-y) - 1px);--filo-gap-end:calc(var(--filo-sign-y) + var(--filo-sign) + 1px)}
+.filo[data-sign=none]:not([data-node-at]),.filo[data-sign=portal]{--filo-gap-start:0px;--filo-gap-end:0px}
+.filo[data-figure-at=foot]{--filo-sign-y:calc(100% - var(--filo-foot,110px)/2 - var(--filo-sign)/2)}
+.filo[data-node-at=foot]{--filo-node-y:calc(100% - var(--filo-foot,110px)/2 - var(--filo-node)/2)}
+.filo__rail,.filo__walk{position:absolute;left:0;right:0;top:var(--filo-stem-start,0);bottom:var(--filo-stem-end,0);
+  -webkit-mask-image:linear-gradient(to bottom,#000 var(--filo-gap-start),transparent var(--filo-gap-start),transparent var(--filo-gap-end),#000 var(--filo-gap-end));
+  mask-image:linear-gradient(to bottom,#000 var(--filo-gap-start),transparent var(--filo-gap-start),transparent var(--filo-gap-end),#000 var(--filo-gap-end))}
+.filo__rail{background:var(--filo-rule)}
+.filo__walk{background:var(--filo-ink);clip-path:inset(0 0 calc((1 - var(--filo-p,1))*100%) 0)}
+.filo[data-walk=piombo] .filo__walk{background:var(--filo-lead)}
+.filo[data-walk=transmute] .filo__walk{background:var(--filo-transmute)}
+.filo__carrier{position:absolute;left:0;right:0;top:var(--filo-stem-start,0);width:0;height:0;transform:translateY(calc(var(--filo-p,1)*var(--filo-h,0)*1px))}
+.filo__bead{position:absolute;top:calc(var(--filo-bead)/-2);left:calc(var(--filo-bead)/-2);width:var(--filo-bead);height:var(--filo-bead);border-radius:50%;
+  background:var(--filo-hot);box-shadow:var(--filo-halo);opacity:clamp(0,calc(min(var(--filo-p,1),1 - var(--filo-p,1))*40),1)}
+.filo__bead::before{content:"";position:absolute;bottom:50%;left:calc(50% - .5px);width:1px;height:var(--filo-tail-size);background:var(--filo-tail)}
+.filo__node{position:absolute;top:var(--filo-node-y);left:calc(50% - var(--filo-node)/2);width:var(--filo-node);height:var(--filo-node);border:1px solid var(--filo-node-ink);border-radius:50%;box-sizing:border-box}
+.filo__node::after{content:"";position:absolute;left:50%;top:50%;width:var(--filo-core);height:var(--filo-core);border-radius:50%;background:var(--filo-core-ink);
+  translate:-50% -50%;opacity:var(--filo-lit);scale:var(--filo-lit)}
+.filo[data-sign=terminal] .filo__node::after{box-shadow:0 0 18px rgba(168,138,74,.35)}
+.filo__sign{position:absolute;top:var(--filo-sign-y);left:calc(50% - var(--filo-sign)/2);width:var(--filo-sign);height:var(--filo-sign);max-width:none;overflow:visible;color:var(--filo-ink)}
+.filo__sign-stroke{fill:none;stroke:currentColor;stroke-width:1px;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--filo-lit))}
+.filo__sign-fill{fill:currentColor;opacity:var(--filo-lit);scale:var(--filo-lit);transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion:reduce){.filo{--filo-lit:1}.filo__bead{display:none}}
 
 /* ---------- Sigil rule: hairline that draws itself while you scroll ---------- */
 .sigil-rule{position:absolute;top:0;left:50%;translate:-50% 0;width:min(var(--w),100% - 56px);height:1px;background:hsla(41,52%,78%,.24);pointer-events:none;z-index:2}

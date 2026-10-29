@@ -81,8 +81,28 @@ p{text-wrap:pretty}
 .alch-ring{border-color:var(--gold)}.alch-ring::after{background:var(--gold)}
 .alch-title{color:var(--ivory)}
 .manifesto .art.alch-fig{width:min(560px,100% - 44px);min-width:0;box-shadow:0 30px 70px -30px #000,0 0 0 1px rgba(168,138,74,.55);outline:1px solid rgba(168,138,74,.22);outline-offset:8px}
-.alch-fig img{filter:saturate(.82) contrast(1.06) brightness(.86) sepia(.12)}
-.alch-fig::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 90% at 50% 50%,transparent 55%,rgba(23,21,19,.6));pointer-events:none}
+/* Parte 3 — trasmutazione come alchimiadellasovrana.it: piombo (b/n) sotto, oro sopra rivelato da sinistra
+   con lo scroll (--alchemy-p da fx.js), lama di luce .art-wash sul bordo. Grading scuro su entrambi i livelli */
+.alch-fig{isolation:isolate}
+.alch-fig .alch-lead,.alch-fig .alch-gold{display:block;width:100%;height:auto;filter:saturate(.8) contrast(1.08) brightness(.8) sepia(.18)}
+.alch-fig .alch-lead{filter:contrast(1.08) brightness(.72) sepia(.1)}
+.alch-fig .alch-gold{position:absolute;inset:0;height:100%;object-fit:cover;clip-path:inset(0 calc((1 - var(--alchemy-p,1))*100%) 0 0)}
+.alch-fig .art-wash{z-index:2}
+.alch-fig::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:
+  linear-gradient(90deg,transparent 45%,rgba(40,26,14,.32) 75%,rgba(23,21,19,.5)),
+  radial-gradient(90% 90% at 50% 50%,transparent 50%,rgba(23,21,19,.65))}
+@media (max-width:819.98px){
+  .alch-fig .alch-gold{clip-path:none}
+  .alch-fig .alch-lead{opacity:clamp(0,calc(1 - var(--alchemy-p,0)*20),1)}
+  .alch-fig .alch-gold{opacity:clamp(0,calc(var(--alchemy-p,1)*20),1)}
+}
+/* registro piombo → oro: ogni riga disegna la sua linea e accende il punto in sequenza (--ledger-p) */
+.manifesto .pairs li{--row-p:clamp(0,calc(var(--ledger-p,1)*var(--ledger-n,4) - var(--i)),1)}
+.manifesto .pairs span,.manifesto .pairs b,.manifesto .pairs i{opacity:1;transform:none;transition:none}
+.manifesto .pairs i{height:1px;background:rgba(228,210,170,.18)}
+.manifesto .pairs i::before{content:"";position:absolute;left:0;top:0;height:1px;width:calc(50% - 10px);background:linear-gradient(90deg,#918b82,#a88a4a);clip-path:inset(0 calc((1 - var(--row-p))*100%) 0 0)}
+.manifesto .pairs i::after{width:12px;height:12px;margin:-6px;background:radial-gradient(circle,#c6a15b 0 calc(var(--row-p)*3px),transparent calc(var(--row-p)*3px + .6px)) #171513;border:1px solid #76513a;box-shadow:none}
+.manifesto .pairs b{opacity:calc(.45 + var(--row-p)*.55)}
 .manifesto .pairs{max-width:640px}
 .manifesto .pairs li{font-size:16.5px}
 .manifesto .pairs span{color:#d9cfbf}
@@ -139,10 +159,16 @@ p{text-wrap:pretty}
 /* ---------- PARTE 5 · IL PORTALE (puzzle che si incastra) ---------- */
 .ecosistema{background:linear-gradient(#241f1b,#171513 30%,#1d1814 80%,#171513);padding:110px 0 120px;overflow-x:clip}
 .ecosistema .h-lg{margin-bottom:64px}
-.puzzle{--pz-a:clamp(0,calc(var(--pz-p,1)*1.9),1);--pz-b:clamp(0,calc((var(--pz-p,1) - .5)*2.6),1)}
-.pz-l{transform:translate3d(calc((1 - var(--pz-a))*-75vw),0,0);opacity:calc(.25 + var(--pz-a)*.75)}
-.pz-r{transform:translate3d(calc((1 - var(--pz-a))*75vw),0,0);opacity:calc(.25 + var(--pz-a)*.75)}
-.pz-b{transform:translate3d(0,calc((1 - var(--pz-b))*260px),0);opacity:var(--pz-b)}
+/* tempi calcolati in fx.js (puzzle) in pixel reali: --pz-a metà laterali, --pz-snap giuntura, --pz-b Workbook */
+.puzzle{position:relative}
+.puzzle::after{content:"";grid-row:1;grid-column:1/-1;justify-self:center;align-self:stretch;width:2px;z-index:2;pointer-events:none;
+  background:linear-gradient(transparent,#e4d2aa 20%,#fdfbf7 50%,#e4d2aa 80%,transparent);box-shadow:0 0 18px 4px rgba(228,210,170,.55);
+  opacity:var(--pz-snap,0);transform:scaleY(calc(.6 + var(--pz-snap,0)*.4))}
+.puzzle>.pz-l{grid-row:1;grid-column:1}.puzzle>.pz-r{grid-row:1;grid-column:2}.puzzle>.pz-b{grid-row:2}
+@media (max-width:900px){.puzzle::after{display:none}.puzzle>.pz-l,.puzzle>.pz-r,.puzzle>.pz-b{grid-row:auto;grid-column:auto}}
+.pz-l{transform:translate3d(calc((1 - var(--pz-a,1))*-75vw),0,0);opacity:calc(.25 + var(--pz-a,1)*.75)}
+.pz-r{transform:translate3d(calc((1 - var(--pz-a,1))*75vw),0,0);opacity:calc(.25 + var(--pz-a,1)*.75)}
+.pz-b{transform:translate3d(0,calc((1 - var(--pz-b,1))*260px),0);opacity:var(--pz-b,1)}
 .pz-l,.pz-r,.pz-b{will-change:transform}
 .tile-marble{background:linear-gradient(rgba(253,251,247,.42),rgba(253,251,247,.30)),url(../img/marble-gold.jpg?v=24f43177) center/cover #ece7df;color:#171513}
 .tile-marble .tile-title{color:#171513;text-shadow:0 0 18px rgba(255,255,255,.9)}
