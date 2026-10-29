@@ -9,9 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-<link rel="preload" href="fonts/Elemental.ttf?v=b33e10bf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=2c30b558">
+<link rel="preload" href="fonts/Elemental.ttf?v=8f1ffe6e" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="css/style.css?v=d3806e87">
 <link rel="stylesheet" href="css/pages.css?v=1a7e4214">
+<link rel="stylesheet" href="css/restyle.css?v=df1953aa">
 </head>
 <body class="sub-page">
 <a class="skip" href="#contenuto">Vai al contenuto</a>
@@ -25,12 +26,11 @@
   </a>
   <nav class="nav" aria-label="Menu principale">
     <a href="index.html#metodo">Il Metodo</a>
-    <a href="index.html#programma">Il Programma</a>
+    <a href="index.html#elementi">Il Viaggio</a>
+    <a href="index.html#programma">Il Portale</a>
     <a href="index.html#guida">La Guida</a>
     <a href="index.html#testimonianze">Testimonianze</a>
-    <a href="blog.html" class="nav-opt">Blog</a>
-    <a href="gift-card.html" class="nav-opt">Gift Card</a>
-    <a href="#prive" class="nav-prive" data-open="modal-prive">Privé</a>
+    <a href="prive.html" class="nav-prive">Privé</a>
   </nav>
   <div class="hdr-icons">
     <a class="btn btn-gold btn-hdr" href="index.html#accesso">Accedi all'Élite</a>
@@ -49,11 +49,12 @@
   <nav class="drawer-list" aria-label="Menu completo">
       <a href="index.html">Home</a>
       <a href="index.html#metodo">Il Metodo</a>
-      <a href="index.html#programma">Il Programma</a>
+      <a href="index.html#elementi">Il Viaggio</a>
+      <a href="index.html#programma">Il Portale</a>
       <a href="index.html#guida">La Guida</a>
       <a href="index.html#testimonianze">Testimonianze</a>
       <a href="index.html#accesso" class="strong">Entra in MB Élite<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="#prive" class="strong" data-open="modal-prive">Entra in MB Privé<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="prive.html" class="strong">Entra in MB Privé<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="blog.html">Blog</a>
       <a href="gift-card.html" class="accent">Gift Card</a>
       <a href="elite.html">Link in Bio</a>
@@ -66,28 +67,40 @@
 
 
 <main id="contenuto">
-  <section class="page-hero">
+  <a class="back-home" href="index.html"><span aria-hidden="true">←</span> Torna alla Home</a>
+  <section class="page-hero gift-hero">
     <p class="eyebrow reveal">Gift Card</p>
-    <h1 class="display h-xl reveal" style="--d:.1s">Regala il benessere</h1>
-    <p class="gift-lead reveal" style="--d:.2s">Sei stanca/o dei soliti regali e vuoi distinguerti con un pensiero dedicato al benessere e alla salute di chi lo riceve?<br>Cerchi l'idea giusta per un regalo di Natale, Compleanno o qualsiasi altro evento?</p>
-    <p class="gift-lead strong reveal" style="--d:.3s">MB personalizza le tue Gift Card per te, per un regalo <b>UNICO</b> e <b>SPECIALE</b>!</p>
+    <h1 class="display h-xl reveal" style="--d:.1s">Ci sono doni che cambiano una vita.</h1>
+    <p class="gift-lead reveal" style="--d:.2s">Non tutto ciò che ha valore si può incartare.</p>
+    <p class="gift-intro reveal" style="--d:.3s">Regala l'accesso a un universo di movimento consapevole, alchimia somatica e trasformazione interiore. Un dono che non si esaurisce nel momento in cui viene ricevuto, ma continua a vivere nell'esperienza di chi lo sceglie.</p>
+    <a class="btn btn-gold reveal" style="--d:.4s" href="#regala">Regala un'Esperienza</a>
   </section>
 
   <section class="gift-how">
     <div class="wrap">
-      <p class="eyebrow center reveal">Come funziona?</p>
-      <p class="how-key center reveal">Scegli l'importo della Gift Card da regalare a chi vuoi tu, il giorno in cui deve riceverla ed un messaggio di auguri.</p>
-      <p class="how-text center reveal">La Gift Card può essere utilizzata per acquistare uno o più programmi e video consulenze MB Program® e può essere utilizzata entro 12 mesi dalla data di scadenza. Alla persona che riceve il regalo invieremo un'email personalizzata con un codice che permetterà l'attivazione e l'utilizzo della Gift Card durante il suo prossimo acquisto. Il credito eccedente l'acquisto potrà essere utilizzato per gli acquisti successivi e potrà essere verificato dall'utente nell'apposita sezione "Gift Card" della sua area privata. La carta regalo non può essere convertita in denaro.</p>
+      <!-- card 3D: sostituire img/gift-card-photo.jpg con il file definitivo di Fiorella -->
+      <div class="gift-stage reveal" id="gift-stage">
+        <div class="gift-3d" id="gift-3d"><img src="img/gift-card-photo.jpg?v=252ad704" alt="Gift Card MB Program Élite — Il Dono della Trasformazione" width="1280" height="853"></div>
+      </div>
 
-      <div class="gift-grid">
+      <h2 class="display h-md center reveal">Come funziona?</h2>
+      <p class="how-key center reveal">La Gift Card sblocca l'accesso d'élite alla piattaforma di Fitness Somatico e Alchimia Spirituale.</p>
+      <p class="how-text center reveal">La persona che riceve il regalo riceverà un'email personalizzata contenente un codice alchemico privato per riscattare l'importo e iniziare il suo percorso di ricalibrazione profonda step-by-step.</p>
+      <ul class="gift-rules reveal">
+        <li><b>Validità:</b> Il credito è utilizzabile entro 12 mesi dalla data di ricezione.</li>
+        <li><b>Utilizzo:</b> Valido per l'acquisto sul portale.</li>
+        <li><b>Gestione del saldo:</b> Se l'importo del carrello è inferiore al valore della carta, il credito residuo rimane disponibile per gli acquisti successivi nella propria area riservata.</li>
+      </ul>
+      <p class="gift-note center reveal">Nota: La Gift Card è un prodotto digitale e non è convertibile in denaro.</p>
+
+      <div class="gift-grid" id="regala">
         <div class="gcard-wrap reveal">
           <div class="gcard" aria-label="Anteprima Gift Card">
             <img class="gc-bfly" src="img/butterfly-gold.png?v=56c51ce0" alt="" width="54" height="54">
-            <p class="gc-small">Un</p>
-            <p class="gc-big display" id="gc-title">Pensiero</p>
-            <p class="gc-small">per te</p>
+            <p class="gc-small">Il dono della</p>
+            <p class="gc-big display" id="gc-title">Trasformazione</p>
             <p class="gc-amt" id="gc-amt">100€</p>
-            <p class="gc-brand"><b>MB</b> Program</p>
+            <p class="gc-brand"><b>MB</b> Program Élite</p>
           </div>
         </div>
         <form class="gift-form reveal" style="--d:.12s" onsubmit="event.preventDefault();this.querySelector('.ok').hidden=false">
@@ -101,7 +114,7 @@
           <label>Email di chi riceve<input name="email" type="email" required autocomplete="off"></label>
           <label>Giorno in cui deve riceverla<input name="date" type="date" required></label>
           <label>Messaggio di auguri<textarea name="msg" rows="4" placeholder="Scrivi qui il tuo pensiero…"></textarea></label>
-          <button class="btn btn-gold" type="submit">Aggiungi al carrello</button>
+          <button class="btn btn-gold" type="submit">Regala un'Esperienza</button>
           <p class="ok" hidden>Grazie! La tua Gift Card è stata aggiunta al carrello.</p>
         </form>
       </div>
@@ -131,9 +144,17 @@
 
 
 
-<script src="js/main.js?v=74d900e4"></script>
+<script src="js/main.js?v=570c3072"></script>
 <script>
 (function(){var a=document.getElementById('amts'),o=document.getElementById('gc-amt');a.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(a.children,function(x){x.classList.toggle('is-on',x===b)});o.textContent=b.dataset.v+'€';});})();
+/* gift card 3D: esce dal pannello verso l'utente con lo scroll, si inclina al passaggio del mouse */
+(function(){var st=document.getElementById('gift-stage'),c=document.getElementById('gift-3d');if(!st||!c||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var rx=0,ry=0,sp=0,raf=0;function paint(){raf=0;c.style.transform='translateZ('+(sp*70)+'px) scale('+(0.9+sp*0.1)+') rotateX('+(rx+(1-sp)*14)+'deg) rotateY('+ry+'deg)';}
+function req(){if(!raf)raf=requestAnimationFrame(paint);}
+function scroll(){var r=st.getBoundingClientRect(),vh=innerHeight;sp=Math.max(0,Math.min(1,(vh-r.top)/(vh*.75)));req();}
+st.addEventListener('pointermove',function(e){var r=st.getBoundingClientRect();ry=((e.clientX-r.left)/r.width-.5)*16;rx=-((e.clientY-r.top)/r.height-.5)*12;st.classList.add('hover');req();});
+st.addEventListener('pointerleave',function(){rx=ry=0;st.classList.remove('hover');req();});
+addEventListener('scroll',scroll,{passive:true});scroll();})();
 </script>
 </body>
 </html>

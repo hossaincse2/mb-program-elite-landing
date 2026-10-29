@@ -2,13 +2,14 @@
    MB PROGRAM ÉLITE — Landing (Figma: "Alchimia della Sovrana — Landing")
    Palette: nero pece / antracite / bordeaux / oro metallico
    ========================================================== */
-@font-face{font-family:"Elemental";src:url(../fonts/Elemental.ttf?v=b33e10bf) format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Elemental";src:url(../fonts/Elemental.ttf?v=8f1ffe6e) format("truetype");font-weight:400;font-style:normal;font-display:swap}
+/* Palette ufficiale MB Program (doc "Website Colour Palette"): oro master #A88A4A */
 :root{
-  --ink:#0f0d0c; --coal:#1a1614; --coal-2:#241d1a; --brown:#3a2316; --teal:#0e2733;
-  --wine:#4a1626; --wine-d:#2a0f18; --mauve:#6e4a52;
-  --cream:#f4ede1; --ivory:#faf6ee; --sand:#efe5d3;
-  --gold:#c9a45c; --gold-l:#e6cd8e; --gold-d:#9b7a37;
-  --txt:#e9e0d2; --txt-dim:#b9ad9b; --txt-dark:#2a211c; --txt-dark-dim:#6b5a4c;
+  --ink:#171513; --coal:#1c1916; --coal-2:#241f1b; --brown:#76513a; --teal:#164c50;
+  --wine:#641e2b; --wine-d:#40161e; --ruby:#7b2637; --mauve:#65496d;
+  --cream:#e4d2aa; --ivory:#f2ebdd; --sand:#d8c59b; --soft:#fdfbf7;
+  --gold:#a88a4a; --gold-l:#c6a15b; --gold-d:#9a743c; --champ:#e4d2aa;
+  --txt:#f2ebdd; --txt-dim:#c9c1b5; --txt-dark:#171513; --txt-dark-dim:#5a4f45;
   --f-display:"Elemental","Cinzel",Georgia,serif;
   --f-nav:Georgia,"Gelasio","Times New Roman",serif;
   --f-label:Georgia,"Gelasio","Times New Roman",serif;

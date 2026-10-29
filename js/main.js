@@ -1,9 +1,29 @@
 /* MB Program Élite — landing interactions
-   scroll reveal · sticky nav · marquee · modals · pricing selector */
+   scroll reveal · sticky nav · marquee · side drawers · pricing selector */
 (function () {
   'use strict';
   var d = document, root = d.documentElement;
   root.classList.remove('no-js');
+
+  /* ---- Elemental: la R ha una coda larga che il browser non crena (Figma sì).
+     Avvolgiamo ogni R dei titoli in .kr per stringerla come nel file Figma ---- */
+  (function () {
+    var w = d.createTreeWalker(d.body, NodeFilter.SHOW_TEXT, null), nodes = [], n, seen = new Map();
+    var isElemental = function (el) {
+      if (!seen.has(el)) seen.set(el, /^\s*"?Elemental/i.test(getComputedStyle(el).fontFamily) && !/^(SCRIPT|STYLE|TEXTAREA|OPTION)$/.test(el.tagName));
+      return seen.get(el);
+    };
+    while ((n = w.nextNode())) if (/r/i.test(n.nodeValue) && !n.parentNode.classList.contains('kr') && isElemental(n.parentNode)) nodes.push(n);
+    nodes.forEach(function (t) {
+      var f = d.createDocumentFragment();
+      t.nodeValue.split(/([rR])/).forEach(function (s) {
+        if (!s) return;
+        if (/^[rR]$/.test(s)) { var k = d.createElement('span'); k.className = 'kr'; k.textContent = s; f.appendChild(k); }
+        else f.appendChild(d.createTextNode(s));
+      });
+      t.parentNode.replaceChild(f, t);
+    });
+  })();
 
   /* ---- scroll reveal (fluid fades while the user scrolls down) ---- */
   var revealEls = d.querySelectorAll('.reveal, .pairs');
@@ -18,11 +38,11 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---- marquees: duplicate the track for a seamless loop ---- */
+  /* ---- marquees: 8 copies, so -50% loops seamlessly even on very wide screens ---- */
   d.querySelectorAll('.marquee-track').forEach(function (t) {
-    var html = t.innerHTML;
-    t.innerHTML = html + html + html + html;
-    // keep -50% translate seamless: 4 copies = 2 full cycles
+    var html = t.innerHTML, out = '';
+    for (var i = 0; i < 8; i++) out += html;
+    t.innerHTML = out;
   });
 
   /* ---- header: left drawer menu ---- */
@@ -42,20 +62,34 @@
   }
   window.addEventListener('scroll', spy, { passive: true }); spy();
 
-  /* ---- modals (native <dialog>) ---- */
+  /* ---- side drawers (native <dialog>, slide in from the right) ---- */
   function openModal(id) {
     var m = d.getElementById(id); if (!m) return;
+    m.classList.remove('is-closing');
     if (typeof m.showModal === 'function') m.showModal(); else m.setAttribute('open', '');
+    var box = m.querySelector('.modal-box'); if (box) box.scrollTop = 0;
     root.classList.add('modal-open');
+  }
+  function closeModal(m) {
+    if (!m || !m.open || m.classList.contains('is-closing')) return;
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (rm) { m.close(); return; }
+    m.classList.add('is-closing');
+    m.addEventListener('animationend', function done(ev) {
+      if (ev.target !== m) return;
+      m.removeEventListener('animationend', done);
+      m.classList.remove('is-closing'); m.close();
+    });
   }
   d.addEventListener('click', function (e) {
     var op = e.target.closest('[data-open]');
     if (op) { e.preventDefault(); closeNav(); openModal(op.getAttribute('data-open')); return; }
     var cl = e.target.closest('[data-close]');
-    if (cl) { cl.closest('dialog').close(); return; }
-    if (e.target.tagName === 'DIALOG') e.target.close(); // click on backdrop
+    if (cl) { closeModal(cl.closest('dialog')); return; }
+    if (e.target.tagName === 'DIALOG') closeModal(e.target); // click on the blurred area
   });
   d.querySelectorAll('dialog').forEach(function (m) {
+    m.addEventListener('cancel', function (e) { e.preventDefault(); closeModal(m); });
     m.addEventListener('close', function () {
       if (!d.querySelector('dialog[open]')) root.classList.remove('modal-open');
     });
@@ -74,4 +108,41 @@
     elMonth.textContent = 'Pari a ' + eur(price / m) + ' al mese';
   }
   plans.forEach(function (p) { p.addEventListener('click', function () { choose(p); }); });
+
+  /* ---- testimonianze: puntini del carosello su mobile ---- */
+  var track = d.querySelector('.t-track'), dots = d.querySelectorAll('.t-dots i');
+  if (track && dots.length) {
+    track.addEventListener('scroll', function () {
+      var cards = track.children, best = 0, bd = 1e9, c = track.scrollLeft + track.clientWidth / 2;
+      for (var i = 0; i < cards.length; i++) { var m = Math.abs(cards[i].offsetLeft + cards[i].offsetWidth / 2 - c); if (m < bd) { bd = m; best = i; } }
+      dots.forEach(function (o, i) { o.classList.toggle('on', i === best); });
+    }, { passive: true });
+  }
+
+  /* ---- app: interfaccia reale (dashboard) dentro il telefono, sempre in movimento ---- */
+  var live = d.querySelector('.phone-live');
+  if (live) {
+    var scr = live.parentNode;
+    var fit = function () { scr.style.setProperty('--ps', (scr.clientWidth / 390).toFixed(4)); };
+    fit(); window.addEventListener('resize', fit, { passive: true });
+    var start = function () {
+      if (live.src) return;
+      live.src = live.getAttribute('data-src');
+      live.addEventListener('load', function () {
+        var w = live.contentWindow, t0 = null;
+        try { w.document.documentElement.style.scrollBehavior = 'auto'; } catch (e) { return; }
+        (function step(ts) {
+          if (t0 === null) t0 = ts;
+          var doc = w.document.documentElement, max = Math.max(0, doc.scrollHeight - w.innerHeight);
+          var p = ((ts - t0) / 26000) % 1, e = p < .5 ? p * 2 : 2 - p * 2; // giù e su, lento
+          w.scrollTo(0, max * (0.5 - Math.cos(e * Math.PI) / 2));
+          w.requestAnimationFrame(step);
+        })(performance.now());
+      });
+    };
+    if ('IntersectionObserver' in window) {
+      var lo = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { start(); lo.disconnect(); } }, { rootMargin: '400px' });
+      lo.observe(scr);
+    } else start();
+  }
 })();

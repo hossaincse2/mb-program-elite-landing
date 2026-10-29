@@ -1,4 +1,4 @@
-@font-face{font-family:"Elemental";src:url(../fonts/Elemental.ttf?v=b33e10bf) format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Elemental";src:url(../fonts/Elemental.ttf?v=8f1ffe6e) format("truetype");font-weight:400;font-style:normal;font-display:swap}
 /* MB Program Élite — Area riservata (dashboard) · antracite / bordeaux / oro */
 :root{--ink:#0c0a09;--pitch:#070605;--coal:#1a1614;--coal2:#221b18;--wine:#4a1626;--wine2:#6a1f37;--cream:#f4ede1;--gold:#c9a45c;--gold-l:#e6cd8e;--gold-d:#9b7a37;--txt:#e9e0d2;--dim:#b4a898;--line:rgba(201,164,92,.22);--f-disp:"Elemental","Cinzel",Georgia,serif;--f-ser:Georgia,"Gelasio","Times New Roman",serif;--ease:cubic-bezier(.22,.7,.2,1);--navh:68px}
 *,*::before,*::after{box-sizing:border-box}
