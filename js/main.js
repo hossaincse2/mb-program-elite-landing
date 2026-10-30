@@ -13,7 +13,13 @@
       if (!seen.has(el)) seen.set(el, /^\s*"?Elemental/i.test(getComputedStyle(el).fontFamily) && !/^(SCRIPT|STYLE|TEXTAREA|OPTION)$/.test(el.tagName));
       return seen.get(el);
     };
-    while ((n = w.nextNode())) if (/r/i.test(n.nodeValue) && !n.parentNode.classList.contains('kr') && isElemental(n.parentNode)) nodes.push(n);
+    while ((n = w.nextNode())) {
+      if (n.parentNode.classList.contains('kr') || !isElemental(n.parentNode)) continue;
+      /* Elemental non ha accenti: come sul sito di riferimento le accentate vanno in maiuscolo (è → È, ò → Ò) */
+      var up = n.nodeValue.replace(/[\u00e0-\u00fe]/g, function (c) { return c.toUpperCase(); });
+      if (up !== n.nodeValue) n.nodeValue = up;
+      if (/r/i.test(n.nodeValue)) nodes.push(n);
+    }
     nodes.forEach(function (t) {
       var f = d.createDocumentFragment();
       t.nodeValue.split(/([rR])/).forEach(function (s) {

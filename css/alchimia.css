@@ -1,0 +1,139 @@
+/* ==========================================================
+   ALLINEAMENTO CON alchimiadellasovrana.it (richiesta cliente)
+   Font, scala tipografica, colori, superfici e sfumature di passaggio
+   presi 1:1 dal sito di riferimento. Testi e immagini invariati.
+   Dove il documento della cliente chiede altro (Aria scura, Parte 3
+   scura, testi Parte 2 più grandi e stretti, titolo oro Biologia Sacra)
+   resta valido il documento.
+   ========================================================== */
+
+/* ---------- font: identici al riferimento ---------- */
+@font-face{font-family:"Elemental Fallback";size-adjust:115%;src:local("Georgia")}
+@font-face{font-family:"Elemental Accents";size-adjust:88%;src:local("Georgia");unicode-range:U+00C0-00FF,U+0100-017F}
+:root{
+  --f-display:"Elemental","Elemental Accents","Elemental Fallback",Georgia,"Gelasio","Times New Roman",serif;
+  --f-body:Georgia,"Gelasio","Times New Roman",serif;
+  --f-label:Georgia,"Gelasio","Times New Roman",serif;
+  --f-nav:Georgia,"Gelasio","Times New Roman",serif;
+
+  /* scala tipografica del riferimento */
+  --t-base:1.0313rem;
+  --t-small:clamp(.9375rem,.9259rem + .0476vw,.9688rem);
+  --t-caps:clamp(.8125rem,.8067rem + .0238vw,.8281rem);
+  --t-lead:clamp(1.1563rem,1.0286rem + .5238vw,1.5rem);
+  --t-display-2:clamp(1.0625rem,.9rem + .6667vw,1.5rem);
+  --t-display-3:clamp(1.75rem,1.1929rem + 2.2857vw,3.25rem);
+  --t-display-4:clamp(2.0625rem,1.2036rem + 3.5238vw,4.375rem);
+  --pad-section:clamp(5.625rem,4.232rem + 5.714vw,9.375rem);
+
+  /* colori del riferimento */
+  --nero-abisso:#0e0d0c;--nero-coal:#1d1a18;--nero-soot:#12100e;
+  --avorio:#f2ebdd;--avorio-alto:#fdfbf6;--grigio-perla:#c9c1b5;--grigio-chiaro:#a39c92;
+  --bruno-ink:#3e362c;--terra-bruciata:#76513a;--bordeaux-scuro:#40161e;
+
+  /* superfici del riferimento */
+  --light-crown-gold-dim:radial-gradient(circle at 50% 0%,rgb(168 138 74/8%),transparent 20%);
+  --ramp-nigredo:linear-gradient(180deg,#1d1a18,#241f1b 56%,#0e0d0c);
+  --ramp-rubedo:linear-gradient(135deg,#201517,#40161e 46%,#0d0b0b);
+  --surface-nigredo:var(--light-crown-gold-dim),var(--ramp-nigredo);
+  --surface-threshold:radial-gradient(circle at 50% 116%,rgba(168,138,74,.1),transparent 44%),linear-gradient(180deg,#0e0d0c 0%,#1d1a18 100%);
+  --surface-journey:radial-gradient(circle at 50% 0%,rgba(168,138,74,.1),transparent 24%),linear-gradient(180deg,#241f1b,#12100e);
+  --surface-albedo:radial-gradient(circle at 80% 10%,hsla(41,52%,78%,.24),transparent 22%),linear-gradient(180deg,#fdfbf6,#f2ebdd);
+  --surface-rubedo:radial-gradient(circle at 70% 18%,hsla(41,52%,78%,.1),transparent 20%),radial-gradient(circle at 18% 72%,rgba(100,30,43,.18),transparent 24%),var(--ramp-rubedo);
+  --surface-marica-mount:radial-gradient(circle at 50% 18%,hsla(41,52%,78%,.14),transparent 12%),radial-gradient(circle at 22% 78%,rgba(100,30,43,.18),transparent 24%),linear-gradient(140deg,#201517,#0d0b0b 65%,#241f1b);
+  --surface-final:radial-gradient(circle at 50% 58%,hsla(41,52%,78%,.2),transparent 24%),radial-gradient(circle at 50% 88%,rgba(100,30,43,.22),transparent 26%),linear-gradient(180deg,#2b1a1d,#0d0b0b 72%);
+  --surface-earth:radial-gradient(circle at 78% 26%,rgba(166,103,58,.22),transparent 28%),radial-gradient(circle at 18% 72%,rgba(182,138,69,.12),transparent 22%),linear-gradient(180deg,#4e3421,#35231a 54%,#1b130d);
+  --surface-water:radial-gradient(ellipse at 50% 25%,rgba(62,116,113,.22),transparent 28%),radial-gradient(circle at 82% 18%,rgba(168,138,74,.1),transparent 22%),linear-gradient(180deg,#204548,#123a3d 52%,#09191b);
+  --surface-fire:radial-gradient(circle at 54% 30%,rgba(139,63,50,.22),transparent 26%),radial-gradient(circle at 28% 74%,rgba(168,138,74,.12),transparent 22%),linear-gradient(180deg,#652f26,#4e1722 46%,#200a0e);
+
+  /* passaggio tra sezioni: la sezione sfuma dal colore di fondo della precedente (curva a 9 passi del riferimento) */
+  --join-fade:max(var(--pad-section),18svh);
+}
+
+/* la curva va calcolata sulla sezione (dove esiste --join-prev-rgb), non su :root */
+.piombo,.manifesto,.elementi-head,.ecosistema,.app,.posa,.capacita,.guida,.accesso,.faq,.contatti,.newsletter{
+  --join-in:linear-gradient(180deg,rgb(var(--join-prev-rgb)/100%) 0,rgb(var(--join-prev-rgb)/95.7%) calc(var(--join-fade)*.125),rgb(var(--join-prev-rgb)/84.4%) calc(var(--join-fade)*.25),rgb(var(--join-prev-rgb)/68.4%) calc(var(--join-fade)*.375),rgb(var(--join-prev-rgb)/50%) calc(var(--join-fade)*.5),rgb(var(--join-prev-rgb)/31.6%) calc(var(--join-fade)*.625),rgb(var(--join-prev-rgb)/15.6%) calc(var(--join-fade)*.75),rgb(var(--join-prev-rgb)/4.3%) calc(var(--join-fade)*.875),rgb(var(--join-prev-rgb)/0%) var(--join-fade));
+}
+
+/* sfumatura in uscita: il fondo della sezione va verso il colore d'inizio della successiva */
+.ecosistema,.app{--edge-bottom-rgb:29 26 24}
+.posa,.capacita,.guida{--edge-bottom-rgb:32 21 23}
+.accesso,.faq{--edge-bottom-rgb:13 11 11}
+.ecosistema,.app,.posa,.capacita,.guida,.accesso,.faq{--join-fade-out:max(calc(var(--pad-section)*.8),14svh);
+  --join-out:linear-gradient(0deg,rgb(var(--edge-bottom-rgb)/100%) 0,rgb(var(--edge-bottom-rgb)/95.7%) calc(var(--join-fade-out)*0.125),rgb(var(--edge-bottom-rgb)/84.4%) calc(var(--join-fade-out)*0.25),rgb(var(--edge-bottom-rgb)/68.4%) calc(var(--join-fade-out)*0.375),rgb(var(--edge-bottom-rgb)/50%) calc(var(--join-fade-out)*0.5),rgb(var(--edge-bottom-rgb)/31.6%) calc(var(--join-fade-out)*0.625),rgb(var(--edge-bottom-rgb)/15.6%) calc(var(--join-fade-out)*0.75),rgb(var(--edge-bottom-rgb)/4.3%) calc(var(--join-fade-out)*0.875),rgb(var(--edge-bottom-rgb)/0%) var(--join-fade-out))}
+
+/* ---------- tipografia ---------- */
+body{font-size:var(--t-base);line-height:1.72;color:var(--avorio)}
+.display{text-transform:none;letter-spacing:-.015em;line-height:1.1}
+.h-xl{font-size:var(--t-display-4)}
+.h-lg,.alch-title{font-size:var(--t-display-3)}
+.kr{margin-right:-.32em}
+.eyebrow,.alch-eyebrow,.faq-eyebrow{font-family:var(--f-label);font-size:var(--t-caps);font-weight:700;letter-spacing:.16em;line-height:1.2;color:#e4d2aa}
+.eyebrow.dim{color:#e4d2aa}
+.testi .eyebrow{color:var(--terra-bruciata)}
+/* testi su fondi scuri: grigio perla come il riferimento; titoli avorio */
+.lead,.lead-center,.lead-soft,.small-copy,.alch-cap,.manifesto-text,.el .el-txt,.tile-dark p,.page-r p:not(.eyebrow),
+.app-copy p,.cap-text,.guida-txt,.acc-a p,.acc-list li,.faq-note p,.news-copy p,.contatti .lead-center,.prive-block p,.how-text,.gift-rules li,
+.coerenza .lead-soft,.piombo .small-copy,.capacita .cap-text,.include li,.posa .lead-soft.light{color:var(--grigio-perla)}
+.lead{font-size:var(--t-lead);line-height:1.5}
+.piombo .lead{color:var(--grigio-perla)}
+
+/* ---------- superfici + passaggi (stesso ordine delle sezioni) ---------- */
+.hero{background:var(--surface-nigredo)}
+.piombo{--join-prev-rgb:14 13 12;background:var(--join-in),var(--surface-threshold)}
+.marquee-set.on-dark{background:#1d1a18}
+.manifesto{--join-prev-rgb:29 26 24;background:var(--join-in),var(--surface-nigredo)}
+.elementi-head{--join-prev-rgb:14 13 12;background:var(--join-in),var(--surface-journey)}
+.el-terra{background:var(--surface-earth)}
+.el-acqua{background:var(--surface-water)}
+.el-fuoco{background:var(--surface-fire)}
+.ecosistema{--join-prev-rgb:32 10 14;background:var(--join-in),var(--join-out),var(--surface-nigredo)}
+.app{--join-prev-rgb:29 26 24;background:var(--join-in),var(--join-out),var(--surface-nigredo)}
+.posa{--join-prev-rgb:29 26 24;background:var(--join-in),var(--join-out),var(--surface-rubedo)}
+.capacita{--join-prev-rgb:32 21 23;background:var(--join-in),var(--join-out),var(--surface-rubedo)}
+.guida{--join-prev-rgb:32 21 23;background:var(--join-in),var(--join-out),var(--surface-marica-mount)}
+/* Il corpo: lista su bordeaux, poi sfuma in avorio con la stessa curva del riferimento */
+.corpo{background:linear-gradient(180deg,#201517 0%,#2c171b 18%,#40161e 36%,
+  rgb(44,23,27) 56%,rgb(53,32,35) 60%,rgb(75,56,57) 64%,rgb(107,90,88) 68%,rgb(143,129,124) 72%,rgb(179,168,160) 76%,rgb(211,202,191) 80%,rgb(233,226,213) 84%,rgb(242,235,221) 88%)}
+.testi{background:var(--surface-albedo)}
+/* dal chiaro al bordeaux: lunga dissolvenza (immagine 2 della cliente), il contenuto parte dopo la sfumatura */
+.accesso{--join-prev-rgb:242 235 221;background:var(--join-in),var(--join-out),var(--surface-rubedo);padding-top:calc(var(--join-fade) + 40px)}
+.faq{--join-prev-rgb:13 11 11;background:var(--join-in),var(--join-out),var(--surface-rubedo)}
+.contatti{--join-prev-rgb:13 11 11;background:var(--join-in),var(--surface-final);border-top:0}
+.newsletter{--join-prev-rgb:13 11 11;background:var(--join-in),var(--surface-nigredo);border-top:0}
+
+/* ---------- Il viaggio (Parte 2): impaginazione a sinistra come il riferimento ---------- */
+.piombo-head{text-align:left;align-items:flex-start}
+.piombo .eyebrow-center{justify-content:flex-start}
+.piombo .h-xl{max-width:12em;margin:32px 0 0;color:var(--avorio)}
+.piombo .lead{max-width:27em;margin:30px 0 0}
+.piombo .small-copy{max-width:31em;margin:22px 0 0}
+.ornament-rule{display:flex;align-items:center;gap:8px;width:240px;height:16px;margin:10px 0 0;color:#a88a4a}
+.ornament-rule svg{flex:none;width:40px;height:16px;overflow:visible}
+.ornament-rule svg path,.ornament-rule svg circle{fill:currentColor}
+.ornament-rule i{flex:1;height:1px;background:linear-gradient(270deg,transparent,currentColor)}
+.portal{display:grid;justify-items:start;width:max-content;margin-top:16px}
+.portal__row{display:flex;gap:60px}
+.portal svg{width:26px;height:26px;display:block}
+.portal svg path{fill:none;stroke:#918b82;stroke-width:1px;stroke-linecap:square;stroke-linejoin:miter;vector-effect:non-scaling-stroke}
+.portal__thread{display:block;width:100%;height:1px;margin-top:12px;background:#918b82}
+@media (max-width:560px){.portal__row{gap:clamp(24px,9vw,60px)}}
+
+/* ---------- 400 W e La Guida: sfumature identiche a #watt e .marica di alchimiadellasovrana.it ---------- */
+.capacita{background:
+  linear-gradient(180deg,rgb(32 21 23/50%) 0,rgb(32 21 23/40.8%) calc(100px*0.125),rgb(32 21 23/31.8%) calc(100px*0.25),rgb(32 21 23/23%) calc(100px*0.375),rgb(32 21 23/15.7%) calc(100px*0.5),rgb(32 21 23/9.4%) calc(100px*0.625),rgb(32 21 23/4.3%) calc(100px*0.75),rgb(32 21 23/1%) calc(100px*0.875),rgb(32 21 23/0%) calc(100px*1)),
+  linear-gradient(180deg,rgb(44 23 27/100%) 0,rgb(44 23 27/81%) calc(100px*0.125),rgb(44 23 27/63%) calc(100px*0.25),rgb(44 23 27/46.3%) calc(100px*0.375),rgb(44 23 27/31.4%) calc(100px*0.5),rgb(44 23 27/18.4%) calc(100px*0.625),rgb(44 23 27/8.6%) calc(100px*0.75),rgb(44 23 27/2.4%) calc(100px*0.875),rgb(44 23 27/0%) calc(100px*1)),
+  linear-gradient(0deg,rgb(44 23 27/50%) 0,rgb(44 23 27/40.8%) calc(60px*0.125),rgb(44 23 27/31.8%) calc(60px*0.25),rgb(44 23 27/23%) calc(60px*0.375),rgb(44 23 27/15.7%) calc(60px*0.5),rgb(44 23 27/9.4%) calc(60px*0.625),rgb(44 23 27/4.3%) calc(60px*0.75),rgb(44 23 27/1%) calc(60px*0.875),rgb(44 23 27/0%) calc(60px*1)),
+  linear-gradient(0deg,rgb(32 21 23/100%) 0,rgb(32 21 23/81%) calc(60px*0.125),rgb(32 21 23/63%) calc(60px*0.25),rgb(32 21 23/46.3%) calc(60px*0.375),rgb(32 21 23/31.4%) calc(60px*0.5),rgb(32 21 23/18.4%) calc(60px*0.625),rgb(32 21 23/8.6%) calc(60px*0.75),rgb(32 21 23/2.4%) calc(60px*0.875),rgb(32 21 23/0%) calc(60px*1)),
+  var(--surface-rubedo)}
+/* fascia scura in fondo (watt-sticky::after del riferimento) */
+.capacita::after{content:"";position:absolute;left:0;right:0;bottom:0;height:270px;pointer-events:none;z-index:0;background:
+  linear-gradient(0deg,rgb(44 23 27/50%) 0,rgb(44 23 27/40.8%) calc(60px*0.125),rgb(44 23 27/31.8%) calc(60px*0.25),rgb(44 23 27/23%) calc(60px*0.375),rgb(44 23 27/15.7%) calc(60px*0.5),rgb(44 23 27/9.4%) calc(60px*0.625),rgb(44 23 27/4.3%) calc(60px*0.75),rgb(44 23 27/1%) calc(60px*0.875),rgb(44 23 27/0%) calc(60px*1)),
+  linear-gradient(0deg,rgb(32 21 23/100%) 0,rgb(32 21 23/81%) calc(60px*0.125),rgb(32 21 23/63%) calc(60px*0.25),rgb(32 21 23/46.3%) calc(60px*0.375),rgb(32 21 23/31.4%) calc(60px*0.5),rgb(32 21 23/18.4%) calc(60px*0.625),rgb(32 21 23/8.6%) calc(60px*0.75),rgb(32 21 23/2.4%) calc(60px*0.875),rgb(32 21 23/0%) calc(60px*1)),
+  linear-gradient(0deg,rgb(32 21 23/100%),rgb(32 21 23/76.5%),rgb(32 21 23/56.5%),rgb(32 21 23/39.2%),rgb(32 21 23/25%),rgb(32 21 23/14.1%),rgb(32 21 23/6.3%),rgb(32 21 23/1.6%),rgb(32 21 23/0%))}
+.capacita>.wrap{position:relative;z-index:1}
+.guida{--g-fade:var(--pad-section);background:
+  linear-gradient(180deg,rgb(32 21 23/50%) 0,rgb(32 21 23/40.8%) calc(var(--g-fade)*0.125),rgb(32 21 23/31.8%) calc(var(--g-fade)*0.25),rgb(32 21 23/23%) calc(var(--g-fade)*0.375),rgb(32 21 23/15.7%) calc(var(--g-fade)*0.5),rgb(32 21 23/9.4%) calc(var(--g-fade)*0.625),rgb(32 21 23/4.3%) calc(var(--g-fade)*0.75),rgb(32 21 23/1%) calc(var(--g-fade)*0.875),rgb(32 21 23/0%) calc(var(--g-fade)*1)),
+  linear-gradient(180deg,rgb(44 23 27/100%) 0,rgb(44 23 27/81%) calc(var(--g-fade)*0.125),rgb(44 23 27/63%) calc(var(--g-fade)*0.25),rgb(44 23 27/46.3%) calc(var(--g-fade)*0.375),rgb(44 23 27/31.4%) calc(var(--g-fade)*0.5),rgb(44 23 27/18.4%) calc(var(--g-fade)*0.625),rgb(44 23 27/8.6%) calc(var(--g-fade)*0.75),rgb(44 23 27/2.4%) calc(var(--g-fade)*0.875),rgb(44 23 27/0%) calc(var(--g-fade)*1)),
+  linear-gradient(0deg,rgb(64 22 30/100%) 0,rgb(64 22 30/95.7%) calc(var(--g-fade)*0.125),rgb(64 22 30/84.3%) calc(var(--g-fade)*0.25),rgb(64 22 30/68.2%) calc(var(--g-fade)*0.375),rgb(64 22 30/50%) calc(var(--g-fade)*0.5),rgb(64 22 30/31.8%) calc(var(--g-fade)*0.625),rgb(64 22 30/15.7%) calc(var(--g-fade)*0.75),rgb(64 22 30/4.3%) calc(var(--g-fade)*0.875),rgb(64 22 30/0%) calc(var(--g-fade)*1)),
+  var(--surface-rubedo)}
