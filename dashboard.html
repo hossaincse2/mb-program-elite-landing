@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Area Riservata · MB Program Élite</title>
 <meta name="theme-color" content="#0c0a09">
-<link rel="icon" href="img/butterfly.svg?v=c33aef92" type="image/svg+xml">
+<link rel="icon" href="img/butterfly.svg?v=55dad654" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 <link rel="preload" href="fonts/Elemental.ttf?v=8f1ffe6e" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="css/dashboard.css?v=a426eb03">
+<link rel="stylesheet" href="css/dashboard.css?v=ddd750ec">
 </head>
 <body class="dash">
 
 <header class="d-top">
   <a class="d-logo" href="#home" data-go="home" aria-label="MB Program – Home">
-    <img src="img/butterfly.svg?v=c33aef92" alt="" width="34" height="34">
+    <img src="img/butterfly.svg?v=55dad654" alt="" width="34" height="34">
     <span><b>MB</b><i>PROGRAM</i></span>
   </a>
   <div class="d-top-r">
@@ -51,7 +51,7 @@
     <section class="sec" id="sec-fitness">
       <header class="sec-h">
         <h2 class="alch">IL TUO PORTALE DI FITNESS SOMATICO</h2>
-        <button class="link" data-open="m-guide">Iniziazione all’Utilizzo <span aria-hidden="true">⚜️</span></button>
+        <button class="link" data-open="m-guide">Iniziazione all’Utilizzo <span class="glyph" aria-hidden="true">✦</span></button>
       </header>
       <div class="chakra-grid" id="chakra-grid"></div>
     </section>
@@ -60,16 +60,17 @@
     <section class="sec" id="sec-sacro">
       <header class="sec-h"><h2 class="alch">IL TUO SPAZIO SACRO</h2></header>
       <div class="sacro-list" id="sacro-list">
-        <button class="sacro" data-sacro="percorsi"><span class="s-ico" aria-hidden="true">🌌</span><span class="s-t">I Percorsi Alchemici</span><span class="s-plus">+</span></button>
-        <button class="sacro" data-sacro="geometrie"><span class="s-ico" aria-hidden="true">🧘</span><span class="s-t">Geometrie del Corpo</span><span class="s-plus">+</span></button>
-        <button class="sacro" data-sacro="sound"><span class="s-ico" aria-hidden="true">🔊</span><span class="s-t">Sound Healing Vibrazionale</span><span class="s-plus">+</span></button>
+        <!-- icone/emoji rimosse: solo glifo oro ✦ + nuove foto di Fiorella -->
+        <button class="sacro" data-sacro="percorsi"><img src="img/dash/pr-percorsi.jpg?v=960ce127" alt="" loading="lazy" width="1600" height="900"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">I Percorsi Alchemici</span><span class="s-go" aria-hidden="true">♦</span></button>
+        <button class="sacro" data-sacro="geometrie"><img src="img/dash/pr-geometrie.jpg?v=7bc58c65" alt="" loading="lazy" width="1600" height="900"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">Geometrie del Corpo</span><span class="s-go" aria-hidden="true">♦</span></button>
+        <button class="sacro" data-sacro="sound"><img src="img/dash/pr-sound.jpg?v=49d31210" alt="" loading="lazy" width="1600" height="900"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">Sound Healing Vibrazionale</span><span class="s-go" aria-hidden="true">♦</span></button>
       </div>
     </section>
 
-    <!-- RINNOVO (spostato qui, al posto di "Nutri le tue emozioni") -->
+    <!-- RINNOVO: bottone trasparente, filo oro satinato 1px -->
     <aside class="renew" aria-label="Rinnovo">
       <p>Hai terminato il programma del mese e vuoi iniziare il successivo?</p>
-      <a class="btn-gold" href="https://www.mb-elite.com/welcome" rel="noopener">Rinnova <span aria-hidden="true">→</span></a>
+      <a class="btn-ghost" href="https://www.mb-elite.com/welcome" rel="noopener">Rinnova <span aria-hidden="true">→</span></a>
     </aside>
   </div>
 </section>
@@ -88,6 +89,13 @@
   <div class="lesson">
     <aside class="side" id="side">
       <div class="side-top"><label class="search"><input type="search" placeholder="Cerca nel corso" aria-label="Cerca nel corso"></label><button class="ico" id="side-close" aria-label="Chiudi menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+      <h3 class="side-h">Introduzione</h3>
+      <!-- "Reset your mind" e "Modulo consapevolezza" restano nel backend ma il filtro globale in dashboard.js li nasconde -->
+      <ul class="side-l">
+        <li><a href="#"><span>Esercizi "Reset Your Mind"</span><em>0 min</em></a></li>
+        <li><a href="#"><span>intro</span><em>6 min</em></a></li>
+        <li><a href="#"><span>Consapevolezza delle Emozioni</span><em>0 min</em></a></li>
+      </ul>
       <h3 class="side-h">Tutorial Pratico</h3>
       <ul class="side-l" id="tut-list"></ul>
       <h3 class="side-h">Fitness <small>Esegui gli allenamenti in sequenza</small></h3>
@@ -100,9 +108,10 @@
     <div class="lesson-main">
       <div class="lesson-bar"><button class="back" data-go="blocco">← Indietro</button><div class="lesson-t"><b id="les-title">Tecnica-Basi Metodologia</b><span id="les-sub">RADICE · MESE 1</span></div><span></span></div>
       <div class="lesson-body">
-        <h2 class="alch">M1: TRAINING 1</h2>
-        <div class="seg" role="tablist" aria-label="Versione"><button class="on" role="tab" aria-selected="true">ESTESA</button><button role="tab" aria-selected="false">BREVE</button></div>
-        <div class="player"><video controls preload="none" poster="img/hero.jpg?v=f286a7c4"><!-- <source src="media/training-1.mp4" type="video/mp4"> --></video><span class="player-note">Qui va il video (player invariato)</span></div>
+        <h2 class="alch" id="les-h">M1: Training 1</h2>
+        <div class="seg" role="tablist" aria-label="Versione"><button class="on" role="tab" aria-selected="true" data-cover="esteso">ESTESA</button><button role="tab" aria-selected="false" data-cover="breve">BREVE</button></div>
+        <!-- copertina di default per categoria (esteso / breve / tutorial) + titolo dinamico nel font del sito -->
+        <div class="player" id="player" data-cover="esteso"><video controls preload="none" poster="img/dash/cover-esteso.jpg?v=b7b91ca9"><!-- <source src="media/training-1.mp4" type="video/mp4"> --></video><span class="p-title" id="p-title">M1: Training 1</span><span class="player-note">Qui va il video (player invariato)</span></div>
         <div class="done-wrap"><button class="btn-done" id="btn-done"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.500l2.800 2.800L16 9.500"/></svg><span>Segna come completato</span></button></div>
         <div class="notes">
           <div class="tabs"><button class="on">Note</button></div>
@@ -121,29 +130,44 @@
 
 <!-- ================= BLOG ================= -->
 <section class="view" id="v-blog" aria-label="Blog">
-  <div class="banner"><img src="img/guida.jpg?v=0aadc7b4" alt="" width="1400" height="933"><div><h1 class="alch">BLOG</h1><p>Articoli, riflessioni e aggiornamenti dal mondo MB.</p></div></div>
+  <!-- header 16:9 intero, sfuma nel nero assoluto ai lati e in basso -->
+  <div class="hero169"><img src="img/dash/blog-header.jpg?v=90ed4394" alt="" width="1600" height="900"></div>
+  <header class="hero-t"><h1 class="alch">BLOG</h1><p>Espandi la tua visione. Riflessioni e scritti sacri per nutrire la tua mente.</p></header>
   <div class="wrap">
-    <div class="blog-grid">
-      <article class="post"><img src="img/hero.jpg?v=f286a7c4" alt="" loading="lazy" width="400" height="300"><div><p class="eyebrow">Blog</p><h3>Titolo dell’articolo</h3><p>Breve estratto dell’articolo del blog. I contenuti reali verranno inseriti da Marica.</p></div></article>
-      <article class="post"><img src="img/piombo-oro.jpg?v=172689bd" alt="" loading="lazy" width="400" height="300"><div><p class="eyebrow">Blog</p><h3>Titolo dell’articolo</h3><p>Breve estratto dell’articolo del blog. I contenuti reali verranno inseriti da Marica.</p></div></article>
-      <article class="post"><img src="img/guida.jpg?v=0aadc7b4" alt="" loading="lazy" width="400" height="300"><div><p class="eyebrow">Blog</p><h3>Titolo dell’articolo</h3><p>Breve estratto dell’articolo del blog. I contenuti reali verranno inseriti da Marica.</p></div></article>
+    <div class="blog-f" role="group" aria-label="Categorie">
+      <button class="on" data-cat="">Tutti</button><button data-cat="corpo-sacro">Corpo Sacro</button><button data-cat="alchimia">Alchimia</button><button data-cat="coscienza">Coscienza</button>
     </div>
+    <!-- gli articoli arrivano dal database del blog: qui 3 segnaposto, si leggono dentro l'area privata -->
+    <div class="blog-grid" id="blog-grid"></div>
   </div>
 </section>
 
-<!-- ================= ATTIVITÀ ================= -->
-<section class="view" id="v-attivita" aria-label="Attività">
-  <div class="banner banner-act"><img src="img/guida2.jpg?v=d53067b9" alt="" width="1500" height="1000"><div><h1 class="alch">LE TUE ATTIVITÀ</h1><p>Integra il tuo programma con le attività consigliate nel tuo percorso</p></div></div>
+<!-- ================= ARTICOLO (lettura interna) ================= -->
+<section class="view" id="v-articolo" aria-label="Articolo">
+  <div class="wrap art">
+    <button class="back" data-go="blog">← Torna al Blog</button>
+    <p class="eyebrow" id="art-cat"></p>
+    <h1 class="alch" id="art-t"></h1>
+    <img id="art-img" src="" alt="" width="1600" height="900">
+    <div id="art-body"></div>
+  </div>
+</section>
+
+<!-- ================= LE MIE PRATICHE (ex Attività) ================= -->
+<section class="view" id="v-attivita" aria-label="Le Mie Pratiche">
+  <div class="hero169"><img src="img/dash/pratiche-header.jpg?v=710a6aa6" alt="" width="1600" height="900"></div>
+  <header class="hero-t"><h1 class="alch">Le Mie Pratiche</h1><p>L’unione profonda di mente, corpo e spirito. Scegli la pratica sacra da cui desideri partire oggi.</p></header>
   <div class="wrap">
-    <div class="act-grid">
-      <a class="act a1" href="#" data-go="lezione"><div class="act-in"><h3>Movimento</h3><span class="act-n">42 attività</span><ul><li>Glutei/Abs</li><li>Tabata/Hiit</li><li>Total Body</li><li>Stretching</li><li>Walking Motivation</li></ul></div><img src="img/marica-cut.png?v=39276570" alt="" width="640" height="533"></a>
-      <a class="act a2" href="#" data-go="lezione"><div class="act-in"><h3>Frequenze Sacre</h3><span class="act-n">33 attività</span><ul><li>Rigenerazione notturna</li></ul></div><img src="img/marica-cut.png?v=39276570" alt="" width="640" height="533"></a>
-      <a class="act a3 tall" href="#" data-go="lezione"><div class="act-in"><h3>Geometrie del Corpo</h3><span class="act-n">77 attività</span><ul><li>Kundalini Yoga</li><li>Yin Yoga</li><li>Yoga Nidra</li></ul></div><img src="img/marica-cut.png?v=39276570" alt="" width="640" height="533"></a>
-      <a class="act a4 tall" href="#" data-go="lezione"><div class="act-in"><h3>Percorso | Incrollabile dallo Zero alla Luce</h3><span class="act-n">96 attività</span><ul><li>Modulo 1: “La Purificazione”</li><li>Modulo 2: “La Riconnessione”</li><li>Modulo 3: “L’Integrazione”</li><li>Modulo 4: “La Manifestazione”</li><li>Modulo 5: “Terra”</li><li>Modulo 6: “Acqua”</li><li>Modulo 7: “Aria”</li><li>Modulo 8: “Fuoco”</li><li>Modulo 9: “Abbondanza economica”</li><li>Modulo 10: “Abbondanza amore”</li><li>Modulo 11: “Abbondanza salute”</li><li>Modulo 12: “Preghiere Alchemiche”</li></ul></div><img src="img/marica-cut.png?v=39276570" alt="" width="640" height="533"></a>
-      <a class="act a5" href="#" data-go="lezione"><div class="act-in"><h3>Percorso | Alchimia Emotiva</h3><span class="act-n">8 attività</span><ul><li>Preghiere Alchemiche al Creatore</li><li>Meditazioni Alchemiche con Marica</li><li>Meditazioni Kundalini Yoga con Monica</li><li>Rilascio emotivo corporeo</li></ul></div><img src="img/marica-cut.png?v=39276570" alt="" width="640" height="533"></a>
-      <a class="act a6" href="#" data-go="lezione"><div class="act-in"><h3>Percorso | Ricalibrazione del Sistema Nervoso</h3><span class="act-n">18 attività</span><ul><li>Meditazioni Body-Facial Nervous System</li><li>Breathe Work Kundalini Yoga</li><li>Alchimia dell’Asse Invisibile: Dalla contrazione all’Impero</li><li>Meditazioni Credenze limitanti</li></ul></div><img src="img/marica-cut.png?v=39276570" alt="" width="640" height="533"></a>
-      
-    </div>
+    <div class="pr-grid" id="pr-grid"></div>
+  </div>
+</section>
+
+<!-- ================= PRATICA (lista video interna) ================= -->
+<section class="view" id="v-pratica" aria-label="Pratica">
+  <div class="wrap">
+    <button class="back" data-go="attivita">← Le Mie Pratiche</button>
+    <header class="blk-h"><p class="eyebrow" id="pv-n"></p><h1 class="alch" id="pv-t"></h1></header>
+    <div class="vid-grid" id="vid-grid"></div>
   </div>
 </section>
 
@@ -152,21 +176,27 @@
   <div class="wrap diario">
     <div class="dia-top">
       <button class="dia-back" data-go="home" aria-label="Indietro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-      <h2 class="alch">CALENDARIO ALLENAMENTI</h2>
+      <h2 class="alch">Il Tuo Diario</h2>
       <button class="dia-set" data-open="m-cal" aria-label="Impostazioni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
     </div>
-    <p class="dia-sub">Il calendario è il tuo alleato gentile: rispetta i tuoi ritmi e procedi con amore verso te stessa.</p>
+    <p class="dia-sub">Onora il ritmo del tuo tempio e traccia la tua evoluzione.</p>
     <div class="mcal">
       <div class="mcal-h"><h3 id="mc-title">Ottobre 2026</h3><div class="mcal-nav"><button id="mc-prev" aria-label="Mese precedente">‹</button><button id="mc-today" class="mc-oggi">Oggi</button><button id="mc-next" aria-label="Mese successivo">›</button></div></div>
       <div class="mcal-wd" aria-hidden="true"><span>L</span><span>M</span><span>M</span><span>G</span><span>V</span><span>S</span><span>D</span></div>
       <div class="mcal-grid" id="mc-grid" role="grid"></div>
     </div>
+    <p class="ring-key" aria-hidden="true"><span><i></i>Nessuna pratica</span><span><i class="k1"></i>1 su 2</span><span><i class="k2"></i>Allineamento completo</span></p>
     <div class="dia-day">
       <h3 id="dia-date">Lunedì 26 Ott 2026</h3>
-      <button class="btn-gold btn-sm" data-open="m-add">+ Aggiungi</button>
+      <button class="btn-ghost btn-sm" data-open="m-add">+ Aggiungi</button>
+    </div>
+    <!-- le 2 pratiche che accendono l'anello del giorno -->
+    <div class="core" id="core">
+      <button type="button" data-core="w">Allenamento <i aria-hidden="true">✓</i></button>
+      <button type="button" data-core="m">Meditazione <i aria-hidden="true">✓</i></button>
     </div>
     <ul class="dia-list" id="dia-list"></ul>
-    <p class="dia-empty" id="dia-empty">Nessuna attività per questo giorno</p>
+    <p class="dia-empty" id="dia-empty">Nessuna pratica aggiunta per questo giorno</p>
   </div>
 </section>
 </main>
@@ -174,7 +204,7 @@
 <!-- bottom nav: Nutrizione eliminata, World → Blog -->
 <nav class="d-nav" aria-label="Navigazione principale">
   <button data-go="home" class="on"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg><span>Home</span></button>
-  <button data-go="attivita"><svg viewBox="0 0 24 24"><path d="M5 13c3-1 5-4 7-9 2 5 4 8 7 9-3 1-5 4-7 7-2-3-4-6-7-7z"/></svg><span>Attività</span></button>
+  <button data-go="attivita"><svg viewBox="0 0 24 24"><path d="M5 13c3-1 5-4 7-9 2 5 4 8 7 9-3 1-5 4-7 7-2-3-4-6-7-7z"/></svg><span>Pratiche</span></button>
   <button data-go="diario"><svg viewBox="0 0 24 24"><path d="M6 4h11a1 1 0 0 1 1 1v15H7a1 1 0 0 1-1-1z"/><path d="M9 8h6M9 12h6"/></svg><span>Diario</span></button>
   <button data-go="blog"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/><path d="M8 9h8M8 13h8M8 16h5"/></svg><span>Blog</span></button>
 </nav>
@@ -188,11 +218,11 @@
     <div class="w-text">
       <p>Sei dentro MB Program Elite. Questo non è un contenitore di video da consumare in modo passivo, né un’applicazione di fitness standard. Da questo momento, stai ricalibrando la tua vecchia biologia per reclamare la tua Sovranità.</p>
       <h3>Le Regole d’Oro del tuo Portale:</h3>
-      <p><b>🔴 IL TUO PORTALE DI FITNESS SOMATICO (In Alto):</b> Vedrai l’intera mappa degli 8 Blocchi Chakra, ma puoi accedere solo alla tua mensilità attiva. Il passato si chiuderà alle tue spalle per evitare di frammentare la tua energia, e il futuro si sbloccherà con lucchetti dorati mese dopo mese. Concentrati sul presente.</p>
-      <p><b>🌌 IL TUO SPAZIO SACRO (In Basso):</b> Questo è il tuo Spazio Sacro di Guarigione Cellulare, sempre accessibile. Qui troverai le tue Attivazioni Energetiche, lo Yoga e il Sound Healing. Ricorda: ogni singola sessione di questo Archivio è supportata dal tuo Workbook dell’1% posizionato sotto al video. Usalo giorno per giorno per rompere i tuoi vecchi loop emotivi.</p>
+      <p><b><span class="glyph">✦</span> IL TUO PORTALE DI FITNESS SOMATICO (In Alto):</b> Vedrai l’intera mappa degli 8 Blocchi Chakra, ma puoi accedere solo alla tua mensilità attiva. Il passato si chiuderà alle tue spalle per evitare di frammentare la tua energia, e il futuro si sbloccherà con lucchetti dorati mese dopo mese. Concentrati sul presente.</p>
+      <p><b><span class="glyph">✦</span> IL TUO SPAZIO SACRO (In Basso):</b> Questo è il tuo Spazio Sacro di Guarigione Cellulare, sempre accessibile. Qui troverai le tue Attivazioni Energetiche, lo Yoga e il Sound Healing. Ricorda: ogni singola sessione di questo Archivio è supportata dal tuo Workbook dell’1% posizionato sotto al video. Usalo giorno per giorno per rompere i tuoi vecchi loop emotivi.</p>
       <p class="w-end">Guarda il video qui sopra per intero, riaccorda il tuo respiro e fai clic qui sotto per iniziare.</p>
     </div>
-    <div class="w-foot"><button class="btn-gold btn-lg" id="w-go">Varca la Soglia ed Entra</button></div>
+    <div class="w-foot"><button class="btn-ghost btn-lg" id="w-go">Varca la Soglia ed Entra</button></div>
   </div>
 </dialog>
 
@@ -200,9 +230,9 @@
 <dialog class="dlg dlg-sm dlg-add" id="m-add" aria-labelledby="add-t"><div class="dlg-box">
   <button class="x" data-close aria-label="Chiudi">×</button>
   <form id="add-form" method="dialog">
-    <h2 class="alch" id="add-t">AGGIUNGI ATTIVITÀ</h2>
-    <label>Attività
-      <select id="add-act" required><option value="">Seleziona attività</option><option>Movimento · Glutei/Abs</option><option>Movimento · Tabata/Hiit</option><option>Movimento · Total Body</option><option>Movimento · Stretching</option><option>Movimento · Walking Motivation</option><option>Geometrie del Corpo · Kundalini Yoga</option><option>Geometrie del Corpo · Yin Yoga</option><option>Geometrie del Corpo · Yoga Nidra</option><option>Frequenze Sacre · Rigenerazione notturna</option><option>Percorso · Alchimia Emotiva</option><option>Percorso · Ricalibrazione del Sistema Nervoso</option><option>Percorso · Incrollabile dallo Zero alla Luce</option></select>
+    <h2 class="alch" id="add-t">Aggiungi Pratica</h2>
+    <label>Pratica
+      <select id="add-act" required><option value="">Seleziona pratica</option><option>Movimento · Glutei/Abs</option><option>Movimento · Tabata/Hiit</option><option>Movimento · Total Body</option><option>Movimento · Stretching</option><option>Movimento · Walking Motivation</option><option>Geometrie del Corpo · Kundalini Yoga</option><option>Geometrie del Corpo · Yin Yoga</option><option>Geometrie del Corpo · Yoga Nidra</option><option>Sound Healing Vibrazionale · Rigenerazione notturna</option><option>Percorso · Alchimia Emotiva</option><option>Percorso · Ricalibrazione del Sistema Nervoso</option><option>Percorso · Incrollabile dallo Zero alla Luce</option></select>
     </label>
     <label>Fascia oraria preferita
       <select id="add-time" required><option value="">Seleziona fascia oraria preferita</option><option>Mattina</option><option>Pausa pranzo</option><option>Pomeriggio</option><option>Sera</option><option>Notte</option></select>
@@ -214,9 +244,9 @@
 <!-- Messaggio blocco -->
 <dialog class="dlg dlg-sm" id="m-msg" aria-labelledby="msg-t"><div class="dlg-box">
   <button class="x" data-close aria-label="Chiudi">×</button>
-  <div class="msg-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.500"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="msg-ico" aria-hidden="true" id="msg-ico"></div>
   <h2 class="alch" id="msg-t"></h2><p id="msg-p"></p>
-  <button class="btn-gold" data-close>Ho capito</button>
+  <button class="btn-ghost" data-close>Ho capito</button>
 </div></dialog>
 
 <!-- Iniziazione all'Utilizzo -->
@@ -225,20 +255,33 @@
   <h2 class="alch" id="g-t">L’ARCHITETTURA DEL TUO PERCORSO.</h2>
   <p class="g-sub">Scegli la tua frequenza biologica settimanale, senza fretta e senza sforzo.</p>
   <div class="tbl-wrap"><table class="tbl">
-    <thead><tr><th>Livello</th><th>🏋️ Fitness Somatico</th><th>🌌 Alchimia Spirituale</th><th>👑 La tua Sovranità</th></tr></thead>
+    <thead><tr><th>Livello</th><th>✦ Fitness Somatico</th><th>✦ Alchimia Spirituale</th><th>✦ La tua Sovranità</th></tr></thead>
     <tbody>
       <tr><th scope="row"><span class="dot g"></span>SOFT</th><td><b>2 Allenamenti a settimana</b><br><small>(Scegli la versione BREVE)</small></td><td><b>1 Meditazione al giorno</b><br>+ 1 Pratica Yoga a settimana</td><td>Reset iniziale del sistema nervoso e rilascio delle prime corazze fisiche.</td></tr>
       <tr><th scope="row"><span class="dot y"></span>MEDIUM</th><td><b>2/3 Allenamenti a settimana</b><br><small>(Scegli la versione BREVE o ESTESA)</small></td><td><b>1 Meditazione al giorno</b><br>+ 2 Pratiche Yoga a settimana</td><td>Consolidamento della postura, sblocco profondo del core e stabilità.</td></tr>
       <tr><th scope="row"><span class="dot r"></span>STRONG</th><td><b>3 Allenamenti a settimana</b><br><small>(Scegli la versione ESTESA)</small></td><td><b>1 Meditazione al giorno</b><br>+ 3 Pratiche Yoga a settimana</td><td>Massima potenza biologica, ricalibrazione cellulare e radicamento.</td></tr>
     </tbody></table></div>
-  <blockquote class="g-note">«Ascolta il tuo corpo. Puoi cambiare livello in base all’energia della tua settimana. Se lo desideri, puoi integrare liberamente le sessioni di stretching e i moduli aggiuntivi dalla sezione "Attività". Il Sound Healing vibrazionale non ha regole: ascoltalo ogni volta che senti il sistema nervoso in trincea, anche durante la notte.»</blockquote>
+  <blockquote class="g-note">«Ascolta il tuo corpo. Puoi cambiare livello in base all’energia della tua settimana. Se lo desideri, puoi integrare liberamente le sessioni di stretching e i moduli aggiuntivi dalla sezione "Pratiche". Il Sound Healing vibrazionale non ha regole: ascoltalo ogni volta che senti il sistema nervoso in trincea, anche durante la notte.»</blockquote>
 </div></dialog>
 
-<!-- Spazio Sacro (3 modali, un solo contenitore riempito da JS) -->
-<dialog class="dlg dlg-mid" id="m-sacro" aria-labelledby="sc-t"><div class="dlg-box">
+<!-- Spazio Sacro (3 modali, un solo contenitore riempito da JS): header 16:9, titolo, sottotitolo breve, mini-card, accordion ♦ -->
+<dialog class="dlg dlg-mid dlg-sacro" id="m-sacro" aria-labelledby="sc-t"><div class="dlg-box">
   <button class="x" data-close aria-label="Chiudi">×</button>
-  <h2 class="alch" id="sc-t"></h2>
-  <div class="acc" id="sc-acc"></div>
+  <div class="sc-head"><img id="sc-img" src="" alt="" width="1600" height="900"></div>
+  <div class="sc-body">
+    <h2 class="alch" id="sc-t"></h2>
+    <p class="sc-sub" id="sc-sub"></p>
+    <div class="teach" id="sc-teach"></div>
+    <h3 class="sc-h" id="sc-h"></h3>
+    <div class="acc" id="sc-acc"></div>
+  </div>
+</div></dialog>
+
+<!-- Pratiche: pop-up descrizione (vetro) -->
+<dialog class="dlg dlg-mid dlg-glass" id="m-info" aria-labelledby="info-t"><div class="dlg-box info">
+  <button class="x" data-close aria-label="Chiudi">×</button>
+  <h3 id="info-t"></h3>
+  <div id="info-b"></div>
 </div></dialog>
 
 <!-- Impostazioni Calendario -->
@@ -256,19 +299,19 @@
   <p class="c-help">Ricevi una notifica con il riepilogo delle attività il giorno prima. Puoi disabilitare quando vuoi.</p>
   <div class="c-actions"><button class="btn-gold" data-close>Salva</button></div>
 
-  <details class="c-sec" open><summary><span class="c-ico">🏋️</span>ALLENAMENTI</summary>
+  <details class="c-sec" open><summary><span class="c-ico">✦</span>ALLENAMENTI</summary>
     <div class="c-in"><h4>Frequenza settimanale</h4><p>Quanti allenamenti ti senti di fare a settimana?</p>
       <div class="seg3" data-seg><button>1</button><button>2</button><button class="on">3</button></div>
       <h4>Giorni di allenamento</h4>
       <label class="sw-row"><span>Uguale per tutti i giorni</span><input type="checkbox" class="sw" checked></label>
       <div class="days"><button class="on">L</button><button>M</button><button class="on">M</button><button>G</button><button class="on">V</button><button>S</button><button>D</button></div>
     </div></details>
-  <details class="c-sec"><summary><span class="c-ico">🧘</span>MEDITAZIONI</summary>
+  <details class="c-sec"><summary><span class="c-ico">✦</span>MEDITAZIONI</summary>
     <div class="c-in"><h4>Frequenza settimanale</h4><p>Quante meditazioni ti senti di fare a settimana?</p>
       <div class="seg3" data-seg><button>3</button><button>5</button><button class="on">7</button></div>
       <label class="sw-row"><span>Uguale per tutti i giorni</span><input type="checkbox" class="sw" checked></label>
     </div></details>
-  <details class="c-sec"><summary><span class="c-ico">☯</span>YOGA</summary>
+  <details class="c-sec"><summary><span class="c-ico">✦</span>YOGA</summary>
     <div class="c-in"><h4>Frequenza settimanale</h4><p>Quante pratiche yoga ti senti di fare a settimana?</p>
       <div class="seg3" data-seg><button class="on">1</button><button>2</button><button>3</button></div>
       <label class="sw-row"><span>Uguale per tutti i giorni</span><input type="checkbox" class="sw"></label>
@@ -283,9 +326,12 @@
     <select id="demo-month">
       <option value="1">1</option><option value="4">4</option><option value="5">5</option><option value="12">12</option><option value="34">34</option><option value="38">38</option><option value="46">46 (compimento)</option>
     </select></label>
+  <label>Allenamenti
+    <select id="demo-wk"><option>0</option><option>7</option><option>8</option><option>10</option><option>12</option></select></label>
   <button id="demo-welcome">Rivedi benvenuto</button>
 </div>
 
-<script src="js/dashboard.js?v=6eb0801b"></script>
+<canvas id="fx-c" hidden></canvas>
+<script src="js/dashboard.js?v=548ccb63"></script>
 </body>
 </html>
