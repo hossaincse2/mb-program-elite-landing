@@ -41,7 +41,7 @@
       crossed:'<circle class="filo__sign-stroke" pathLength="1" cx="24" cy="24" r="17"/><circle class="filo__sign-fill" cx="24" cy="24" r="8.5"/>'
     };
     var sets=$$('.marquee-set');
-    var map=[['.hero','oro','origin','head'],['.piombo','piombo','portal','foot'],[sets[0],'piombo','none',''],['.manifesto','transmute','sol','head'],
+    var map=[['.hero','oro','origin','head'],['.piombo','piombo','portal','foot'],['.coerenza-sec','transmute','none','head'],[sets[0],'oro','none',''],['.manifesto','transmute','sol','head'],
       ['.elementi-head','oro','terminal','foot'],['.ecosistema','oro','vesica','head'],[sets[1],'oro','none',''],['.app','oro','none','head'],[sets[2],'oro','none',''],
       ['.posa','oro','crossed','head'],['.capacita','oro','none','head'],['.guida','oro','none','head'],['.corpo','oro','none','head'],['.testi','oro','none','head'],
       ['.accesso','oro','none','head'],['.faq','oro','none','head'],['.contatti','oro','none','head'],['.newsletter','oro','terminal','foot']];

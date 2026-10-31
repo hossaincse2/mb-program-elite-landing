@@ -1,0 +1,339 @@
+/* ==========================================================
+   MB MODIFICHE 30 OTTOBRE — documento finale della cliente
+   Colori, passaggi e ornamenti sul modello di alchimiadellasovrana.it
+   (avorio "albedo", porta ad arco, ricami di rami d'oro, superfici
+   degli elementi). Tutti i testi vengono dal documento della cliente.
+   Caricato per ultimo: sovrascrive alchimia.css / restyle.css.
+   ========================================================== */
+
+:root{
+  --ink:#171513;--ink-muted:#3e362c;--accent-earth:#76513a;--gold-line:#a88a4a;
+  --albedo-hi:#fdfbf6;--albedo-lo:#f2ebdd;
+  --surface-marble:linear-gradient(180deg,rgb(253 251 246/.9),rgb(242 235 221/.92)),url(../img/marble.jpg?v=c2f1e755) center/cover;
+}
+
+/* passaggio in entrata (curva a 9 passi) anche per le sezioni nuove */
+.coerenza-sec,.corpo{
+  --join-in:linear-gradient(180deg,rgb(var(--join-prev-rgb)/100%) 0,rgb(var(--join-prev-rgb)/95.7%) calc(var(--join-fade)*.125),rgb(var(--join-prev-rgb)/84.4%) calc(var(--join-fade)*.25),rgb(var(--join-prev-rgb)/68.4%) calc(var(--join-fade)*.375),rgb(var(--join-prev-rgb)/50%) calc(var(--join-fade)*.5),rgb(var(--join-prev-rgb)/31.6%) calc(var(--join-fade)*.625),rgb(var(--join-prev-rgb)/15.6%) calc(var(--join-fade)*.75),rgb(var(--join-prev-rgb)/4.3%) calc(var(--join-fade)*.875),rgb(var(--join-prev-rgb)/0%) var(--join-fade));
+}
+
+/* ---------- ornamenti comuni: volta ad arco, stella, rami ---------- */
+.arch-vault{position:absolute;inset:0;border:1px solid rgba(198,161,91,.85);border-bottom:0;
+  border-top-left-radius:50% var(--arch-rise,10rem);border-top-right-radius:50% var(--arch-rise,10rem);pointer-events:none}
+.arch-vault--inner{inset:10px;border-color:rgba(198,161,91,.5);
+  border-top-left-radius:50% calc(var(--arch-rise,10rem) - 10px);border-top-right-radius:50% calc(var(--arch-rise,10rem) - 10px)}
+.arch-key{position:absolute;top:0;left:50%;width:22px;height:22px;translate:-50% -50%;fill:#e4d2aa;filter:drop-shadow(0 0 8px rgba(228,210,170,.85));pointer-events:none}
+.star-rule{display:flex;align-items:center;justify-content:center;gap:10px;width:min(260px,70%);color:var(--gold-line)}
+.star-rule i{flex:1;height:1px;background:linear-gradient(90deg,transparent,currentColor)}
+.star-rule i:last-child{background:linear-gradient(270deg,transparent,currentColor)}
+.star-rule svg{flex:none;width:16px;height:16px;fill:#e4d2aa;filter:drop-shadow(0 0 5px rgba(228,210,170,.7))}
+.star-rule--left{justify-content:flex-start;width:240px}
+.star-rule--left i{background:linear-gradient(270deg,transparent,currentColor)}
+.star-rule--left svg{fill:var(--gold-line);filter:none}
+.roundel{position:relative;display:inline-block;flex:none;width:40px;height:40px;border:1px solid var(--gold-line);border-radius:50%;vertical-align:middle}
+.roundel::after{content:"";position:absolute;inset:0;margin:auto;width:6px;height:6px;border-radius:50%;background:var(--gold-line)}
+
+/* ricamo di rami d'oro con sigillo al centro */
+.rami{position:relative;display:block;height:clamp(84px,9vw,112px);margin:4px 0;pointer-events:none}
+.rami::before{content:"";position:absolute;inset:0;background:url(../img/rami-oro.svg?v=613df347) 50% 50%/max(1500px,110%) auto no-repeat;
+  -webkit-mask-image:linear-gradient(90deg,transparent 2%,#000 14%,#000 86%,transparent 98%);mask-image:linear-gradient(90deg,transparent 2%,#000 14%,#000 86%,transparent 98%)}
+.rami-seal{position:absolute;left:50%;top:50%;width:52px;height:52px;translate:-50% -50%;fill:none;stroke:var(--gold-line);stroke-width:1.1;overflow:visible}
+.rami-seal .dot{fill:var(--gold-line);stroke:none}
+
+/* ---------- 1 · HERO: portale d'oro ad arco a sinistra, foto a destra, fondo nero ---------- */
+.hero{background:#000}
+.hero .hero-sky,.hero .mote,.hero .hero-sweep{display:none}
+.hero-inner{width:min(1440px,100% - 56px);grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(20px,3vw,48px);align-items:center}
+.hero-arch{--arch-rise:min(11rem,32%);position:relative;padding:clamp(56px,6vw,86px) clamp(26px,3.4vw,52px) clamp(34px,3.4vw,50px);text-align:center}
+.hero-arch .arch-vault{-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}
+.hero-arch .hero-logo{width:58px;margin:0 auto 6px;filter:drop-shadow(0 0 12px rgba(198,161,91,.35))}
+.hero-brand{color:#e4d2aa;margin-bottom:18px}
+.hero-arch .hero-title{font-size:clamp(26px,2.7vw,42px);line-height:1.18;letter-spacing:-.01em;color:#e9d7ab;margin:0 auto 18px;max-width:13em;
+  background:linear-gradient(180deg,#f3e3bb 0%,#d9bb7c 55%,#b8924f 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-arch .star-rule{margin:0 auto 20px}
+.hero-arch .hero-sub{font-style:normal;color:#f2ebdd;font-size:clamp(17px,1.5vw,20px);line-height:1.5;letter-spacing:.02em;max-width:24em;margin:0 auto 18px}
+.hero-arch .hero-text{color:var(--grigio-perla);font-size:clamp(15px,1.15vw,16.5px);line-height:1.75;max-width:31em;margin:0 auto}
+.hero-cta{margin-top:30px!important;padding-inline:clamp(28px,3vw,46px);border-radius:10px;letter-spacing:.2em;gap:14px}
+.hero-cta span{font-size:1.4em;line-height:0;translate:0 -1px}
+.hero-photo{min-height:0;aspect-ratio:1672/941;border:0;background:#000;overflow:hidden}
+.hero-photo::after{box-shadow:none;background:linear-gradient(90deg,#000 0,transparent 12%),linear-gradient(0deg,#000 0,transparent 10%)}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+@media (max-width:1279.98px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-arch{max-width:720px;margin-inline:auto;width:100%}
+  .hero-photo{aspect-ratio:1672/941;width:100%;order:-1}
+  .hero-photo img{object-position:60% 50%}
+}
+
+/* ---------- 2 · IL PIOMBO: senza specchio, il secondo paragrafo è stato tolto ---------- */
+.piombo{padding-bottom:clamp(40px,6vw,80px)}
+
+/* ---------- 3 · LA LEGGE DI COERENZA: dal buio la porta ad arco si apre sull'avorio ---------- */
+.coerenza-sec{--join-prev-rgb:29 26 24;--join-fade:max(var(--pad-section),34svh);position:relative;overflow:hidden;
+  background:var(--join-in),var(--surface-albedo);padding:calc(var(--join-fade) + 30px) 0 var(--pad-section);color:var(--ink)}
+.door{--arch-rise:min(10rem,46%);position:absolute;top:calc(var(--join-fade)*.12);left:50%;translate:-50% 0;width:min(52vw,22rem);height:calc(var(--join-fade)*.8);pointer-events:none}
+.door .arch-vault{-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 96%);mask-image:linear-gradient(180deg,#000 55%,transparent 96%);border-color:rgba(198,161,91,.8)}
+.door .arch-vault--inner{opacity:.7}
+.door-light{position:absolute;inset:10px;border-top-left-radius:50% calc(var(--arch-rise) - 10px);border-top-right-radius:50% calc(var(--arch-rise) - 10px);
+  background:radial-gradient(ellipse 80% 70% at 50% 38%,rgb(253 251 246/88%),rgb(253 251 246/46%) 55%,rgb(253 251 246/0));
+  -webkit-mask-image:linear-gradient(180deg,#000 45%,transparent 96%);mask-image:linear-gradient(180deg,#000 45%,transparent 96%)}
+.coerenza-sec .wrap.coerenza{position:relative;z-index:1;width:min(var(--w),100% - 56px);text-align:left;align-items:flex-start;color:var(--ink)}
+.coerenza .star-rule{margin-bottom:28px}
+.coerenza .eyebrow{display:flex;align-items:center;gap:16px;color:var(--accent-earth);margin:0}
+.coerenza .h-lg{color:var(--ink);max-width:14em;margin:26px 0 0;font-size:var(--t-display-4)}
+.coerenza-sec .coerenza .lead-soft{color:var(--ink-muted);max-width:38em;margin:30px 0 0;font-size:var(--t-lead);font-weight:400;line-height:1.6}
+
+/* ---------- nastri (marquee) su avorio e su scuro con il ricamo d'oro ---------- */
+.marquee-set .rami{margin:2px 0}
+.marquee-set.on-light{background:linear-gradient(180deg,var(--albedo-lo),var(--albedo-hi))}
+.marquee-set.on-light .marquee{border-color:rgba(168,138,74,.55)}
+.marquee-set.on-light .marquee.ink span,.marquee-set.on-light .marquee:not(.gilt) span{color:#8f877c}
+.marquee-set.on-light .marquee.gilt span{color:#a88a4a}
+.marquee-set.on-light .marquee-track span::before{color:#a88a4a}
+.marquee-set.on-light .sigil-rule i{background:var(--albedo-lo)}
+/* 2° nastro (dopo Il Portale): scuro con i rami, poi sfuma nell'avorio della App */
+.marquee-set.on-dark{background:#14110f}
+/* 3° nastro (dopo la App): avorio, poi sfuma nel bordeaux della Biologia Sacra */
+
+/* ---------- 4 · DAL PIOMBO ALL'ORO: avorio, immagine più grande, testi scuri ---------- */
+.manifesto{--out:max(var(--pad-section),30svh);
+  background:linear-gradient(0deg,rgb(29 26 24/100%) 0,rgb(29 26 24/95.7%) calc(var(--out)*.125),rgb(29 26 24/84.3%) calc(var(--out)*.25),rgb(29 26 24/68.2%) calc(var(--out)*.375),rgb(29 26 24/50%) calc(var(--out)*.5),rgb(29 26 24/31.8%) calc(var(--out)*.625),rgb(29 26 24/15.7%) calc(var(--out)*.75),rgb(29 26 24/4.3%) calc(var(--out)*.875),rgb(29 26 24/0%) var(--out)),
+    linear-gradient(180deg,var(--albedo-hi),var(--albedo-lo));
+  padding:clamp(40px,5vw,70px) 0 calc(var(--out) + 10px);color:var(--ink)}
+.alch-eyebrow{color:var(--accent-earth)}
+.alch-ring{border-color:var(--gold-line)}.alch-ring::after{background:var(--gold-line)}
+.alch-title{color:var(--ink)}
+.manifesto .art.alch-fig{width:min(86%,1040px);min-width:min(320px,100% - 44px);box-shadow:0 40px 80px -40px rgba(23,21,19,.55),0 0 0 1px rgba(168,138,74,.55)}
+.manifesto .pairs{max-width:680px}
+.manifesto .pairs li{font-size:clamp(15px,1.3vw,17px)}
+.manifesto .pairs span{color:var(--ink-muted)}
+.manifesto .pairs b{color:var(--accent-earth);font-weight:700}
+.manifesto .pairs i{background:rgba(23,21,19,.14)}
+.manifesto .pairs i::after{background:radial-gradient(circle,#a88a4a 0 calc(var(--row-p)*3px),transparent calc(var(--row-p)*3px + .6px)) var(--albedo-lo);box-shadow:0 0 0 1px rgba(168,138,74,.6)}
+.manifesto .manifesto-text{color:var(--ink-muted);max-width:44em;margin:clamp(40px,5vw,64px) auto 0;font-size:var(--t-lead);line-height:1.65;text-align:center}
+
+/* ---------- 5 · IL VIAGGIO: divisore a rami d'oro + superficie "journey" ---------- */
+.elementi-head{--join-prev-rgb:29 26 24;background:linear-gradient(180deg,#1d1a18 0,#1d1a18 150px,rgb(14 13 12) 150px,rgb(14 13 12/0) 260px),var(--surface-journey);padding:0 0 160px}
+.sigil-divider{position:relative;padding:18px 0 22px;margin-bottom:clamp(110px,12vw,160px)}
+.sigil-line{display:block;width:min(var(--w),100% - 56px);height:1px;margin:6px auto 0;background:rgba(168,138,74,.7)}
+.elementi-head .lead-center{color:var(--grigio-perla);max-width:44em}
+
+/* ---------- 6 · I QUATTRO ELEMENTI: superfici come il riferimento ---------- */
+.el-terra{background:repeating-linear-gradient(135deg,rgb(228 210 170/.045) 0 1px,transparent 1px 26px),var(--surface-earth)}
+.el-acqua{background:radial-gradient(ellipse 60% 45% at 50% 30%,rgb(62 116 113/.16),transparent 70%),linear-gradient(180deg,#1e2c2f 0%,#172426 50%,#0f1a1b 100%)}
+.el-fuoco{background:radial-gradient(ellipse 42% 16% at 50% 60%,rgb(160 120 105/.28),transparent 70%),linear-gradient(180deg,#511b26 0%,#3e1520 50%,#270d13 100%)}
+
+/* ---------- 7 · IL PORTALE: avorio con "muro" diagonale scuro dietro le tessere ---------- */
+.ecosistema{--join-prev-rgb:39 13 19;--join-fade:max(var(--pad-section),26svh);position:relative;isolation:isolate;
+  background:var(--join-in),linear-gradient(180deg,var(--albedo-hi),var(--albedo-lo));padding:calc(var(--join-fade) + 20px) 0 0;color:var(--ink)}
+.ecosistema .eyebrow{color:var(--accent-earth)}
+.ecosistema .h-lg{color:var(--ink)}
+/* il muro: piano scuro tagliato in diagonale che sale da sinistra verso destra dietro le tessere */
+.ecosistema>.wrap{position:relative;padding-bottom:clamp(80px,9vw,120px)}
+.portale-wall{position:absolute;left:calc(50% - 50vw);right:calc(50% - 50vw);top:clamp(150px,14vw,210px);bottom:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,#2a2420,#14110f 60%);clip-path:polygon(66% 0,100% 0,100% 100%,0 100%,0 62%)}
+.portale-wall::before{content:"";position:absolute;inset:0;background:linear-gradient(118deg,transparent 40%,rgb(242 235 221/.07) 55%,transparent 72%)}
+.ecosistema .tiles{position:relative;z-index:1}
+
+/* ---------- 8 · LA MOBILE APP: avorio/marmo chiaro, telefono scuro, pulsanti oro ---------- */
+.app{--join-prev-rgb:20 17 15;--join-fade:max(var(--pad-section),24svh);background:var(--join-in),var(--surface-marble);padding:calc(var(--join-fade) + 10px) 0 var(--pad-section);color:var(--ink)}
+.app-copy .h-lg{color:var(--ink)}
+.app-copy .eyebrow{color:var(--accent-earth)}
+.app-copy p:not(.eyebrow){color:var(--ink-muted);font-size:var(--t-lead);line-height:1.6}
+.app .phone{box-shadow:0 50px 90px -40px rgba(23,21,19,.75),0 0 0 1px rgba(168,138,74,.5)}
+.app .store-btns .btn{min-width:15em;justify-content:center}
+
+/* ---------- 9 · LA BIOLOGIA SACRA: dall'avorio al bordeaux, ricamo d'oro e luce dietro il testo ---------- */
+.posa{--join-prev-rgb:253 251 246;--join-fade:max(var(--pad-section),30svh);position:relative;isolation:isolate;
+  background:var(--join-in),radial-gradient(ellipse 40% 30% at 30% 58%,hsla(41,52%,78%,.12),transparent 70%),var(--surface-rubedo);padding-top:calc(var(--join-fade) + 30px)}
+.posa-rami{position:absolute;left:-6%;right:30%;top:calc(var(--join-fade) + 40%);height:220px;z-index:-1;opacity:.32;pointer-events:none;
+  background:url(../img/rami-oro.svg?v=613df347) 50% 50%/max(1400px,130%) auto no-repeat;
+  -webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 50%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 60% 50% at 50% 50%,#000 30%,transparent 75%)}
+.posa .posa-grid{position:relative}
+.posa .tree img{filter:drop-shadow(0 0 40px rgba(198,161,91,.35))}
+
+/* ---------- 10 · 400 W: alone dorato, geometria e pulviscolo luminoso ---------- */
+.capacita{isolation:isolate}
+.capacita::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 48% 42% at 50% 34%,rgb(150 104 92/.42),transparent 70%),radial-gradient(ellipse 30% 70% at 0% 50%,rgb(26 14 15/.5),transparent 70%),radial-gradient(ellipse 30% 70% at 100% 50%,rgb(26 14 15/.5),transparent 70%)}
+.watt{position:relative;z-index:1}
+.watt-geo{position:absolute;left:50%;top:50%;width:min(64vmin,560px);aspect-ratio:1;translate:-50% -54%;color:#a88a4a;opacity:.45;pointer-events:none;z-index:-1;
+  animation:watt-turn 120s linear infinite}
+@keyframes watt-turn{to{rotate:360deg}}
+.watt-aura{position:absolute;left:50%;top:50%;width:min(80vw,700px);height:min(40vw,320px);translate:-50% -50%;z-index:-1;pointer-events:none;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 50%,rgb(25 12 12/.55) 0,rgb(25 12 12/.25) 45%,transparent 70%)}
+.watt .glow{bottom:-58px;height:120px;background:radial-gradient(closest-side,rgb(240 200 90/.75),rgb(200 150 60/.32) 55%,transparent);mix-blend-mode:screen}
+.watt-dust{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.watt-dust::before,.watt-dust::after{content:"";position:absolute;left:50%;top:40%;width:2px;height:2px;border-radius:50%;background:#f0d89a;
+  box-shadow:-320px -160px 0 0 rgb(240 216 154/.7),-250px 40px 0 1px rgb(240 216 154/.45),-180px -90px 0 0 rgb(240 216 154/.8),-120px 150px 0 0 rgb(240 216 154/.5),-60px -210px 0 1px rgb(240 216 154/.35),
+    40px 180px 0 0 rgb(240 216 154/.6),110px -140px 0 0 rgb(240 216 154/.75),190px 70px 0 1px rgb(240 216 154/.4),260px -60px 0 0 rgb(240 216 154/.7),330px 130px 0 0 rgb(240 216 154/.5),
+    -400px 90px 0 0 rgb(240 216 154/.4),420px -170px 0 0 rgb(240 216 154/.45),-30px 60px 0 0 rgb(240 216 154/.3);
+  animation:dust-float 14s ease-in-out infinite alternate}
+.watt-dust::after{top:58%;left:46%;scale:-1 1;animation-duration:19s;animation-delay:-6s;opacity:.75}
+@keyframes dust-float{0%{translate:0 0;opacity:.35}50%{opacity:1}100%{translate:14px -38px;opacity:.5}}
+.capacita .cap-lead{font-style:italic;color:#ece3d3}
+
+/* ---------- 11 · IL CORPO È LO STRUMENTO: dal bordeaux all'avorio con una sfumatura morbida ---------- */
+.corpo{--join-prev-rgb:64 22 30;--join-fade:max(var(--pad-section),26svh);
+  background:var(--join-in),linear-gradient(180deg,var(--albedo-hi),#f7f2e8);padding:calc(var(--join-fade) + 20px) 0 90px;color:var(--ink)}
+.corpo .h-lg{color:var(--ink)}
+.body-list li{border-bottom-color:rgba(23,21,19,.12)}
+.body-list small{color:var(--accent-earth)}
+.body-list i{color:var(--gold-line)}
+.body-list span{color:var(--ink)}
+.corpo-end .h-md{color:var(--ink);margin:0 auto 18px;max-width:16em}
+.corpo-end .lead-dark{color:var(--ink-muted)}
+
+/* ---------- 12 · TESTIMONIANZE: avorio continuo, schede sabbia con filamenti d'oro ---------- */
+.testi{background:linear-gradient(180deg,#f7f2e8,var(--albedo-lo));padding-top:40px}
+.testi .eyebrow{color:var(--accent-earth)}
+.testi .h-lg{color:var(--ink)}
+.t-card{background:linear-gradient(170deg,#f1e8d9 0%,#ebe0cc 100%);border:1px solid rgba(168,138,74,.45);box-shadow:0 30px 50px -36px rgba(62,54,44,.55);isolation:isolate;overflow:hidden}
+.t-card::before{content:"";position:absolute;left:-30%;right:-30%;bottom:-10px;height:120px;z-index:-1;opacity:.35;pointer-events:none;
+  background:url(../img/rami-oro.svg?v=613df347) 50% 50%/auto 100% no-repeat}
+.t-card::after{content:"";position:absolute;inset:8px;border:1px solid rgba(168,138,74,.22);pointer-events:none}
+.t-card:hover{box-shadow:0 36px 60px -34px rgba(62,54,44,.7)}
+.t-card .qmark{color:var(--gold-line)}
+.t-card .q-title{color:var(--ink)}
+.t-card .q-title em,.t-card .q-sig,.t-card .t-more{color:var(--accent-earth)}
+.t-card .t-more{border-color:rgba(118,81,58,.45);position:relative;z-index:1}
+.t-prev{color:var(--ink-muted)}
+.t-dots i{background:rgba(118,81,58,.3)}.t-dots i.on{background:var(--accent-earth)}
+
+/* ---------- 13 · COSA INCLUDE: luce dorata e marmo dietro l'elenco ---------- */
+.include{position:relative;isolation:isolate}
+.include-glow{position:absolute;inset:-40px -14%;z-index:-1;pointer-events:none;border-radius:50%;
+  background:radial-gradient(ellipse 60% 55% at 50% 50%,rgb(214 172 96/.22),rgb(168 120 70/.1) 50%,transparent 75%)}
+.include-glow::after{content:"";position:absolute;inset:12% 10%;border-radius:50%;background:url(../img/marble-gold.jpg?v=24f43177) center/cover;opacity:.1;mix-blend-mode:screen;
+  -webkit-mask-image:radial-gradient(closest-side,#000,transparent);mask-image:radial-gradient(closest-side,#000,transparent)}
+
+/* ---------- 14 · FAQ: bronzo scuro/nero, 4 barre che aprono i pannelli ---------- */
+.faq{--join-prev-rgb:13 11 11;background:var(--join-in),radial-gradient(ellipse 70% 40% at 50% 45%,rgb(120 90 55/.2),transparent 75%),linear-gradient(180deg,#0d0b0b 0%,#1f1a15 45%,#17130f 75%,#0d0b0b 100%)}
+.faq .h-lg{margin-bottom:54px}
+.faq-bars{display:grid;gap:16px;max-width:760px;margin:0 auto}
+.faq-bar{display:flex;align-items:center;gap:20px;width:100%;padding:24px 28px;background:linear-gradient(90deg,rgb(168 138 74/.07),rgb(168 138 74/.02));border:1px solid rgba(168,138,74,.6);color:#e4d2aa;
+  font-family:var(--f-label);font-size:clamp(13px,1.2vw,15px);font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-align:left;cursor:pointer;transition:background .35s,border-color .35s,color .35s}
+.faq-bar:hover,.faq-bar:focus-visible{background:rgb(168 138 74/.14);border-color:#c6a15b;color:#f2e6c4}
+.faq-plus{flex:none;color:#c6a15b;letter-spacing:.05em}
+.faq-plus::before{content:"[ "}.faq-plus::after{content:" ]"}
+.faq-support{margin-top:48px}
+.modal-faq .acc summary::before{content:none}
+.modal-faq .q-n{flex:none;min-width:2.4em;font-family:var(--f-label);font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--gold)}
+.modal-faq .m-title{margin-bottom:30px}
+
+/* ---------- 15 · CONTATTI: rami d'oro e filetti in alto, fondo profondo con luce ai bordi ---------- */
+.contatti{background:radial-gradient(ellipse 50% 40% at 50% 0%,hsla(41,52%,78%,.14),transparent 70%),radial-gradient(ellipse 28% 60% at 0% 60%,rgb(100 30 43/.22),transparent 70%),radial-gradient(ellipse 28% 60% at 100% 60%,rgb(100 30 43/.22),transparent 70%),linear-gradient(180deg,#14100e,#0d0b0b);
+  padding:40px 0 130px;border-top:0}
+.contatti-rami{margin-bottom:clamp(50px,6vw,80px)}
+.c-line{display:block;width:min(var(--w),100% - 56px);height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,rgba(168,138,74,.8) 15%,rgba(168,138,74,.8) 85%,transparent)}
+.c-line+.rami+.c-line{width:min(calc(var(--w) - 160px),100% - 96px);opacity:.6}
+.contatti .h-md{color:var(--avorio);margin-top:10px}
+.mail span{color:var(--grigio-perla);margin-right:6px}
+
+/* ---------- 16 · NEWSLETTER su avorio/marmo, foto come un'opera d'arte; footer nero ---------- */
+.newsletter{--join-prev-rgb:13 11 11;--join-fade:max(var(--pad-section),20svh);background:var(--join-in),var(--surface-marble);padding:calc(var(--join-fade) + 10px) 0 var(--pad-section);color:var(--ink)}
+.news-photo{aspect-ratio:1672/941;background:#000;border:1px solid rgba(168,138,74,.6);outline:1px solid rgba(168,138,74,.25);outline-offset:8px;box-shadow:0 50px 90px -40px rgba(23,21,19,.7)}
+.news-photo img{inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.news-copy .eyebrow{color:var(--accent-earth)}
+.news-copy .h-md{color:var(--ink)}
+.news-copy p{color:var(--ink-muted)}
+.news-form input{color:var(--ink);border-bottom-color:rgba(118,81,58,.7)}
+.news-form input::placeholder{color:#8a7f70}
+.news-form .btn-line{color:var(--ink);border-color:rgba(118,81,58,.8)}
+.news-form .btn-line:hover{background:rgba(168,138,74,.15)}
+.news-ok{color:var(--accent-earth)}
+.site-footer{background:#000;border-top:1px solid rgba(168,138,74,.25)}
+.foot-links{display:flex;justify-content:center;gap:8px 30px;margin-bottom:16px}
+.foot-links a{font-family:var(--f-label);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#e4d2aa;text-decoration:none;border-bottom:1px solid transparent;transition:.3s}
+.foot-links a:hover{border-color:#a88a4a}
+
+/* ---------- navbar: 5 voci centrate, Privè nel riquadro oro ---------- */
+@media (max-width:700px){
+  .hero-inner{width:calc(100% - 32px)}
+  .hero-arch{--arch-rise:min(7rem,30%);padding-top:56px}
+  .coerenza-sec .wrap.coerenza{width:calc(100% - 40px)}
+  .faq-bar{padding:20px 18px;letter-spacing:.12em;gap:12px}
+  .manifesto .art.alch-fig{width:calc(100% - 32px)}
+}
+@media (prefers-reduced-motion:reduce){.watt-geo,.watt-dust::before,.watt-dust::after{animation:none}}
+
+/* ritocchi dopo la verifica */
+.posa .h-lg.gold{max-width:none}
+.alch-head{text-align:left}
+.alch-eyebrow{justify-content:flex-start}
+.posa .h-lg.gold{font-size:clamp(1.75rem,1.05rem + 2.1vw,3rem)}
+@media (min-width:900px){.posa .h-lg.gold{white-space:nowrap}}
+.modal-faq .modal-box{background:radial-gradient(ellipse 80% 40% at 50% 0%,rgb(120 90 55/.18),transparent 70%),linear-gradient(170deg,#1f1a15,#0d0b0b)}
+.contatti,.newsletter{border-top:0;border-bottom:0}
+
+/* ---------- HERO come la tavola del documento (immagine 1): tutto in una schermata,
+   arco stretto a sinistra, foto grande a tutta altezza a destra ---------- */
+.hero{min-height:100svh;padding:calc(var(--hh) + 18px) 0 18px;display:flex;align-items:stretch}
+.hero-inner{width:min(1560px,100% - 56px);min-height:calc(100svh - var(--hh) - 36px);grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:stretch}
+.hero-arch{--arch-rise:min(9rem,30%);display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(40px,7vh,72px) clamp(22px,2.6vw,40px) clamp(24px,4vh,40px)}
+.hero-arch .arch-vault{-webkit-mask-image:none;mask-image:none;border-bottom:0}
+.hero-arch .hero-logo{width:clamp(34px,5vh,46px);margin:0 auto 4px}
+.hero-brand{display:grid;justify-items:center;line-height:1;margin:0 0 clamp(14px,2.6vh,24px);font-family:"Montserrat",Arial,sans-serif;font-weight:700;color:#d9bb7c}
+.hero-brand b{font-size:clamp(20px,3vh,26px);letter-spacing:.02em}
+.hero-brand span{font-size:clamp(7px,1vh,9px);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+.hero-arch .hero-title{font-size:clamp(26px,min(2.7vw,5vh),44px);line-height:1.12;max-width:none;margin:0 auto clamp(10px,1.8vh,16px)}
+.hero-arch .star-rule{width:min(300px,64%);margin:0 auto clamp(12px,2.2vh,20px)}
+.hero-arch .hero-sub{font-size:clamp(15px,min(1.35vw,2.4vh),19px);letter-spacing:.04em;line-height:1.45;max-width:23em;margin:0 auto clamp(12px,2vh,18px)}
+.hero-arch .hero-text{font-size:clamp(13.5px,min(1.05vw,1.9vh),15.5px);line-height:1.7;color:#e9e1d3;max-width:32em}
+.hero-cta{margin:clamp(18px,3.4vh,30px) auto 0!important;width:min(100%,430px);justify-content:center;border-radius:12px;padding-block:clamp(14px,2.2vh,18px)}
+.hero-photo{aspect-ratio:auto;height:auto;min-height:100%;align-self:stretch}
+.hero-photo img{object-fit:cover;object-position:74% 55%}
+.hero-photo::after{background:linear-gradient(90deg,#000 0,transparent 10%),linear-gradient(0deg,#000 0,transparent 8%)}
+@media (max-width:1023.98px){
+  .hero{min-height:0;display:block}
+  .hero-inner{grid-template-columns:1fr;min-height:0;width:calc(100% - 32px)}
+  .hero-photo{order:-1;aspect-ratio:4/3;min-height:0}
+  .hero-arch{max-width:600px;margin-inline:auto;width:100%;padding-top:64px}
+  .hero-arch .hero-title{font-size:clamp(26px,7vw,40px)}
+}
+
+/* HERO — filo e arco come la tavola: il filo corre a sinistra, FUORI dall'arco;
+   doppia volta sottile e luminosa, l'arco parte subito a destra del filo */
+.hero{--hero-filo:clamp(14px,4.6vw,92px)}
+.hero>.filo{left:var(--hero-filo)}
+.hero-inner{width:auto;max-width:none;margin:0;padding-left:calc(var(--hero-filo) + clamp(16px,2vw,34px));padding-right:clamp(16px,3vw,56px);
+  grid-template-columns:minmax(0,600px) minmax(0,1fr)}
+.hero-arch .arch-vault{border-color:#d4b170;filter:drop-shadow(0 0 3px rgba(228,210,170,.45))}
+.hero-arch .arch-vault--inner{inset:9px;border-color:rgba(212,177,112,.55);filter:none}
+.hero-arch .arch-key{width:26px;height:26px}
+@media (max-width:1023.98px){
+  .hero-inner{width:auto;padding-left:calc(var(--hero-filo) + 18px);padding-right:16px}
+  .hero-arch{max-width:600px}
+}
+@media (max-width:600px){
+  .hero{--hero-filo:12px}
+  .hero-inner{padding-left:30px;padding-right:14px;gap:28px}
+  .hero-arch{--arch-rise:min(6.5rem,26%);padding:54px 18px 28px}
+  .hero-arch .hero-title{font-size:clamp(23px,7.2vw,32px)}
+  .hero-arch .hero-sub{font-size:16px}
+  .hero-arch .hero-text{font-size:14.5px}
+  .hero-cta{width:100%;letter-spacing:.12em;padding-inline:14px}
+}
+.hero-inner{flex:1 1 auto;min-width:0}
+/* foto hero: la figura con l'aureola (vedi misura qui sotto) resta sempre intera;
+   la foto si adatta al riquadro senza tagliare mani, testa o cerchio */
+.hero-photo{container-type:size}
+.hero-photo img{inset:auto;top:50%;left:50%;width:min(calc(100cqh / .5628),calc(100cqw / .62));height:auto;max-width:none;object-fit:contain;translate:-69% -50%;transform:none}
+@media (max-width:1023.98px){.hero-photo{container-type:normal}.hero-photo img{inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%;translate:none}}
+/* misurato sulla foto: figura + aureola occupano dal 28% al 74% della larghezza (centro 51%) */
+@media (min-width:1024px){.hero-photo img{width:min(calc(100cqh / .5628),calc(100cqw / .54));translate:-51% -50%}}
+@media (max-width:1023.98px){.hero-photo img{object-position:51% 50%}}
+/* tablet e telefono: foto sopra, arco sotto (blocco finale, vince sulle regole desktop qui sopra) */
+@media (max-width:1023.98px){
+  .hero{display:block;min-height:0}
+  .hero-inner{grid-template-columns:1fr;min-height:0;gap:clamp(24px,5vw,40px)}
+  .hero-photo{order:-1;aspect-ratio:4/3;min-height:0;height:auto;width:100%;max-width:640px;margin-inline:auto}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:51% 50%;translate:none}
+  .hero-arch{max-width:600px;width:100%;margin-inline:auto}
+}
+/* il filo dell'hero torna sulla stessa x di tutte le altre sezioni (una sola linea continua);
+   è l'arco a spostarsi a destra del filo */
+.hero>.filo{left:var(--filo-x)}
+.hero-inner{padding-left:calc(var(--filo-x) + clamp(16px,2vw,34px))}
+@media (max-width:600px){.hero-inner{padding-left:calc(var(--filo-x) + 16px)}}

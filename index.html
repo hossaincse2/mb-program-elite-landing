@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/fx.css?v=378a041f">
 <link rel="stylesheet" href="css/restyle.css?v=3017e85f">
 <link rel="stylesheet" href="css/alchimia.css?v=462ded20">
+<link rel="stylesheet" href="css/ottobre.css?v=28a37a1e">
 </head>
 <body>
 <a class="skip" href="#contenuto">Vai al contenuto</a>
@@ -26,7 +27,6 @@
     <span class="brand-txt"><b>MB</b><i>PROGRAM</i></span>
   </a>
   <nav class="nav" aria-label="Menu principale">
-    <a href="#hero">Il Metodo</a>
     <a href="#elementi">Il Viaggio</a>
     <a href="#programma">Il Portale</a>
     <a href="#guida">La Guida</a>
@@ -49,7 +49,6 @@
   </div>
   <nav class="drawer-list" aria-label="Menu completo">
       <a href="#top">Home</a>
-      <a href="#hero">Il Metodo</a>
       <a href="#elementi">Il Viaggio</a>
       <a href="#programma">Il Portale</a>
       <a href="#guida">La Guida</a>
@@ -57,7 +56,7 @@
       <a href="#accesso" class="strong">Entra in MB Élite<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="prive.html" class="strong">Entra in MB Privé<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="blog.html">Blog</a>
-      <a href="gift-card.html" class="accent">Gift Card</a>
+      <a href="gift-card.html" class="accent">Gift Cards</a>
       <a href="elite.html">Link in Bio</a>
   </nav>
   <div class="drawer-sep"></div>
@@ -71,21 +70,21 @@
 <!-- ============ PARTE 1 · HERO ============ -->
 <section class="hero" id="hero">
   <div class="hero-inner">
-    <div class="hero-panel frame reveal">
-      <img class="hero-logo" src="img/butterfly-gold.png?v=56c51ce0" alt="MB Program" width="64" height="64">
-      <p class="eyebrow">MB Program Élite</p>
-      <h1 class="display hero-title">
-        <span class="gold">Il Portale di Fitness Somatico</span>
-        e Pratiche Alchemiche per la Ricalibrazione del Sistema <span class="nw">Nervoso.</span>
-      </h1>
+    <!-- portale d'oro ad arco (doppia volta + chiave di volta a stella) con il testo dentro -->
+    <div class="hero-panel hero-arch reveal">
+      <span class="arch-vault" aria-hidden="true"></span>
+      <span class="arch-vault arch-vault--inner" aria-hidden="true"></span>
+      <svg class="arch-key" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0 L9.4 6.6 L16 8 L9.4 9.4 L8 16 L6.6 9.4 L0 8 L6.6 6.6 Z"/></svg>
+      <img class="hero-logo" src="img/butterfly-gold.png?v=56c51ce0" alt="" width="64" height="64">
+      <p class="hero-brand"><b>MB</b><span>Program</span><span>Élite</span></p>
+      <h1 class="display hero-title">Il Portale di<br>Fitness Somatico<br>e Alchimia Spirituale</h1>
+      <span class="star-rule" aria-hidden="true"><i></i><svg viewBox="0 0 16 16"><path d="M8 0 L9.4 6.6 L16 8 L9.4 9.4 L8 16 L6.6 9.4 L0 8 L6.6 6.6 Z"/></svg><i></i></span>
       <h2 class="hero-sub">Libera il corpo dai blocchi emotivi. Disinnesca le tensioni cristallizzate nella postura, nell'adipe e nel gonfiore.</h2>
-      <p class="hero-text">Non sei qui per ricevere l'ennesima scheda di allenamento standard, né per ascoltare una meditazione passiva. Sei qui perché hai scelto di ricalibrare profondamente il legame tra la tua biografia e la tua biologia.</p>
-      <p class="hero-text"><strong>MB Program Élite</strong> è l'unico portale on-demand che unisce il Fitness Somatico al lavoro interiore attraverso i 4 Elementi: Terra, Acqua, Aria, Fuoco. Una struttura biologica ed energetica progressiva per riappropriarti della tua massima espressione di ricchezza fisica, emotiva e materiale.</p>
-      <a class="btn btn-gold" href="#accesso">Accedi al Portale d'Élite</a>
-      <a class="scroll-cue" href="#metodo"><span>Scorri</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg></a>
+      <p class="hero-text">L'unico portale on-demand che unisce la biologia del Fitness Somatico al lavoro interiore attraverso i 4 Elementi: Terra, Acqua, Aria, Fuoco. Una struttura energetica progressiva per riappropriarti della tua massima espressione di ricchezza fisica, emotiva, materiale e spirituale.</p>
+      <a class="btn btn-gold hero-cta" href="#accesso">Accedi al Portale d'Élite <span aria-hidden="true">›</span></a>
     </div>
     <figure class="hero-photo reveal" style="--d:.15s">
-      <img src="img/hero-full.jpg?v=63a14fd1" alt="Marica Bortoletto in meditazione, metà abito elegante e metà completo fitness" width="1000" height="1250">
+      <img src="img/affondo-aureola.png?v=646bae2a" alt="Affondo yoga dentro un'aureola dorata" width="1672" height="941">
     </figure>
   </div>
 </section>
@@ -106,33 +105,28 @@
     </div>
     <h2 class="display h-xl reveal">Il piombo è un portale: trasforma ciò che ti trattiene.</h2>
     <p class="lead reveal">Quello che l'Alchimia chiama Piombo è la tua realtà di oggi: il peso delle aspettative, il sovraccarico mentale e l'energia trattenuta che si riflette sul tuo corpo.</p>
-    <p class="small-copy reveal">MB Program Elite è il viaggio in cui impari a non subire questi limiti, ma a usarli come materia prima per risvegliare il tuo reale potere.</p>
-  </div>
-
-  <!-- Specchio Alchemico: contenitore 1:1 pronto per l'asset definitivo di Fiorella (sostituire img/specchio.png) -->
-  <div class="mirror reveal" aria-hidden="true">
-    <span class="mirror-glow"></span>
-    <div class="mirror-disc">
-      <svg viewBox="-100 -100 200 200">
-        <defs><radialGradient id="mg" r="1"><stop offset="0" stop-color="#F2EBDD"/><stop offset=".45" stop-color="#C9C1B5"/><stop offset=".8" stop-color="#5a544c"/><stop offset="1" stop-color="#171513"/></radialGradient></defs>
-        <circle r="74" fill="url(#mg)"/>
-        <g fill="none" stroke="#A88A4A" stroke-width=".7"><circle r="96"/><circle r="88" stroke-dasharray="1 3.2"/><circle r="78"/><path d="M0 -96v14M0 82v14M-96 0h14M82 0h14"/><path d="M0 -78L67.5 39H-67.5Z" opacity=".55"/><path d="M0 78L67.5 -39H-67.5Z" opacity=".55"/></g>
-      </svg>
-    </div>
-  </div>
-
-  <div class="wrap coerenza">
-    <span class="ring-icon" aria-hidden="true">✦</span>
-    <p class="eyebrow reveal">La Legge di Coerenza</p>
-    <h2 class="display h-lg reveal">La vita rispecchia sempre il tuo stato interiore.</h2>
-    <p class="lead-soft reveal">Questo piombo non è un errore, ma Coerenza Biologica: il sistema nervoso e la realtà esterna riflettono fedelmente ciò che trattieni nel profondo, senza distinguere tra gioia e sofferenza.</p>
-    <p class="lead-soft reveal">Con il Fitness Somatico e il lavoro interiore dell'Alchimia Spirituale, risvegli la coscienza attraverso il corpo e sblocchi il sistema nervoso. Quando trasformi ciò che credi di essere nel profondo, la tua biologia cambia e la vita manifesta una realtà totalmente nuova.</p>
   </div>
 </section>
 
-<div class="marquee-set on-dark" aria-hidden="true">
+<!-- La Legge di Coerenza: dal buio la porta ad arco si apre sulla luce avorio -->
+<section class="coerenza-sec">
+  <div class="door" aria-hidden="true">
+    <span class="door-light"></span>
+    <span class="arch-vault"></span>
+    <span class="arch-vault arch-vault--inner"></span>
+    <svg class="arch-key" viewBox="0 0 16 16"><path d="M8 0 L9.4 6.6 L16 8 L9.4 9.4 L8 16 L6.6 9.4 L0 8 L6.6 6.6 Z"/></svg>
+  </div>
+  <div class="wrap coerenza">
+    <span class="star-rule star-rule--left reveal" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 0 L9.4 6.6 L16 8 L9.4 9.4 L8 16 L6.6 9.4 L0 8 L6.6 6.6 Z"/></svg><i></i></span>
+    <p class="eyebrow reveal"><span class="roundel" aria-hidden="true"></span>La Legge di Coerenza</p>
+    <h2 class="display h-lg reveal">La vita rispecchia sempre il tuo stato interiore.</h2>
+    <p class="lead-soft reveal">Questo piombo non è un errore, ma Coerenza Biologica: la rigidità, la stanchezza o quel gonfiore che non riesci a spiegare non sono un problema mentale. Sono risposte del sistema nervoso e memorie trattenute dal tuo corpo. Finché cercherai la svolta lavorando solo con i pensieri, continuerai a scontrarti con gli stessi limiti fisici ed energetici. Con il Fitness Somatico e l'Alchimia Spirituale risvegli la coscienza attraverso il corpo, sciogliendo le tensioni alla radice. Quando trasformi ciò che trattieni nel profondo, la tua biologia cambia e prende vita la tua nuova postura nel mondo.</p>
+  </div>
+</section>
+
+<div class="marquee-set on-light" aria-hidden="true">
   <div class="marquee ink"><div class="marquee-track"><span>Soglia</span><span>Piombo</span><span>Materia</span><span>Ombra</span></div></div>
-  <span class="seal">◎</span>
+  <span class="rami" aria-hidden="true"><span class="rami-l"></span><svg class="rami-seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M24 3 C10 14 10 34 24 45 C38 34 38 14 24 3 Z"/><circle class="dot" cx="24" cy="24" r="2.2"/></svg><span class="rami-r"></span></span>
   <div class="marquee gilt reverse"><div class="marquee-track"><span>Azione</span><span>Oro</span><span>Luce</span><span>Presenza</span><span>Trasmutazione</span></div></div>
 </div>
 
@@ -154,19 +148,17 @@
       <li style="--i:2"><span>Blocco Emotivo</span><i></i><b>Libera Scelta</b></li>
       <li style="--i:3"><span>Sovraccarico Mentale</span><i></i><b>Voce e Azione</b></li>
     </ul>
-    <p class="alch-pull reveal">Prima vedi il piombo. Poi puoi trasformarlo in oro.</p>
-    <p class="alch-cap reveal">La vera trasmutazione non nasce dal giudizio, ma dal riconoscere i blocchi automatici impressi nel tuo sistema nervoso. Solo ripartendo dal corpo puoi convertire la pesantezza in presenza, scelta e azione consapevole. È esattamente da questo lavoro interiore che prende vita la tua nuova postura nel mondo.</p>
-    <h2 class="display h-lg center man-title reveal">La tua energia non è bloccata nella mente. È bloccata nel tuo corpo.</h2>
-    <p class="manifesto-text reveal">La rigidità, la stanchezza cronica o il gonfiore che non riesci a spiegare non sono un problema mentale: sono risposte biologiche trattenute dal tuo corpo. Finché cerchi la svolta lavorando solo con la mente e con i pensieri, continuerai a scontrarti con gli stessi limiti fisici ed energetici. L'Alchimia Spirituale e il Fitness Somatico sciolgono il blocco alla radice, liberando la tua vera energia.</p>
+    <p class="manifesto-text reveal">Prima vedi il piombo. Poi puoi trasformarlo in oro. La vera trasmutazione non nasce dal giudizio, ma dal riconoscere i blocchi automatici impressi nel tuo sistema nervoso. La tua energia non è bloccata nella mente, è bloccata nel tuo corpo. La rigidità, la stanchezza cronica o il gonfiore che non riesci a spiegare sono risposte biologiche trattenute: finché cercherai la svolta lavorando solo con i pensieri, continuerai a scontrarti con gli stessi limiti fisici ed energetici. L'Alchimia Spirituale e il Fitness Somatico sciolgono il blocco alla radice, liberando la tua vera energia per dare vita alla tua nuova postura nel mondo.</p>
   </div>
 </section>
 
 <!-- ============ PARTE 4 · I QUATTRO ELEMENTI (IL VIAGGIO) ============ -->
 <section class="elementi-head" id="elementi">
+  <div class="sigil-divider" aria-hidden="true"><span class="rami" aria-hidden="true"><span class="rami-l"></span><svg class="rami-seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M24 3 C10 14 10 34 24 45 C38 34 38 14 24 3 Z"/><circle class="dot" cx="24" cy="24" r="2.2"/></svg><span class="rami-r"></span></span><i class="sigil-line"></i></div>
   <div class="wrap center">
     <p class="eyebrow reveal">Il viaggio</p>
     <h2 class="display h-lg reveal">I quattro elementi della trasformazione</h2>
-    <p class="lead-center reveal">Un'esperienza vissuta totalmente tra corpo e coscienza. Esplorerai quattro archetipi alternando movimenti somatici, meditazione e pratiche di respiro e di presenza. Un viaggio totale per liberare il tuo corpo dalle tensioni, spegnere il rumore della mente e trasformare la fatica di ogni giorno in assoluta stabilità, sicurezza e libertà.</p>
+    <p class="lead-center reveal">Un viaggio totale che vivi interamente tra corpo e coscienza. Attraverso i quattro archetipi di Terra, Acqua, Aria e Fuoco, alterni movimenti somatici mirati, pratiche di respiro profondo e meditazioni di pura presenza. Una mappa energetica precisa in cui risvegli, elemento dopo elemento, la tua assoluta stabilità, sicurezza e libertà interiore.</p>
   </div>
   <span class="energy-lead" aria-hidden="true"></span>
 </section>
@@ -178,8 +170,8 @@
     <h3 class="display el-name" data-i="0">Terra</h3>
     <p class="el-sub" data-i="4">Risvegliare le Radici</p>
     <div class="divider" data-i="4"><i></i><span>▽</span><i></i></div>
-    <p class="el-txt" data-i="5">Ricalibra il tuo sistema nervoso e rilascia le tensioni profonde. Il tuo corpo smette di accumulare lo stress quotidiano e diventa una struttura solida, pronta a sostenere la tua vita in totale sicurezza.</p>
-    <button class="el-more" data-i="6" data-open="modal-terra"><span aria-hidden="true">+</span> Esplora l'Elemento</button>
+    <p class="el-txt" data-i="5">Ricalibra il sistema nervoso e rilascia le tensioni profonde. Il corpo smette di accumulare lo stress quotidiano e diventa una struttura solida, pronta a sostenere la vita in totale sicurezza.</p>
+    <button class="el-more" data-i="6" data-open="modal-terra"><span aria-hidden="true">+</span> Scopri l'Elemento</button>
   </div>
 </section>
 <section class="el el-acqua">
@@ -187,10 +179,10 @@
     <img class="el-icon" data-i="2" src="img/el-acqua.png?v=61271f3a" alt="Emblema Acqua" width="220" height="220">
     <p class="eyebrow" data-i="0">Il secondo elemento</p>
     <h3 class="display el-name" data-i="0">Acqua</h3>
-    <p class="el-sub" data-i="4">L'Intelligenza Emotiva</p>
+    <p class="el-sub" data-i="4">Il Flusso e le Emozioni</p>
     <div class="divider" data-i="4"><i></i><span>▽</span><i></i></div>
-    <p class="el-txt" data-i="5">Impara a sentire le tue emozioni senza farti travolgere. Sblocca il tuo bacino e il tuo nucleo profondo per trasformare ogni sensazione in pura forza vitale e magnetismo.</p>
-    <button class="el-more" data-i="6" data-open="modal-acqua"><span aria-hidden="true">+</span> Esplora l'Elemento</button>
+    <p class="el-txt" data-i="5">Sblocca il bacino e il nucleo profondo per trasformare ogni sensazione in pura forza vitale. Il corpo smette di farsi travolgere dalle correnti emotive e diventa magnetismo puro.</p>
+    <button class="el-more" data-i="6" data-open="modal-acqua"><span aria-hidden="true">+</span> Scopri l'Elemento</button>
   </div>
 </section>
 <section class="el el-aria">
@@ -198,10 +190,10 @@
     <img class="el-icon" data-i="2" src="img/el-aria.png?v=3ce56bb0" alt="Emblema Aria" width="220" height="220">
     <p class="eyebrow" data-i="0">Il terzo elemento</p>
     <h3 class="display el-name" data-i="0">Aria</h3>
-    <p class="el-sub" data-i="4">La Chiarezza Mentale</p>
+    <p class="el-sub" data-i="4">Lo Spazio e la Mente</p>
     <div class="divider" data-i="4"><i></i><span>△</span><i></i></div>
-    <p class="el-txt" data-i="5">Libera il respiro compresso e spegni i pensieri ripetitivi. Ritrova una presenza totale per azzerare la procrastinazione e agire con focus e lucidità.</p>
-    <button class="el-more" data-i="6" data-open="modal-aria"><span aria-hidden="true">+</span> Esplora l'Elemento</button>
+    <p class="el-txt" data-i="5">Libera il respiro compresso e disinnesca i pensieri ripetitivi. Una presenza totale che azzera la procrastinazione per agire con focus e lucidità assoluta.</p>
+    <button class="el-more" data-i="6" data-open="modal-aria"><span aria-hidden="true">+</span> Scopri l'Elemento</button>
   </div>
 </section>
 <section class="el el-fuoco">
@@ -209,10 +201,10 @@
     <img class="el-icon" data-i="2" src="img/el-fuoco.png?v=97331820" alt="Emblema Fuoco" width="220" height="220">
     <p class="eyebrow" data-i="0">Il quarto elemento</p>
     <h3 class="display el-name" data-i="0">Fuoco</h3>
-    <p class="el-sub" data-i="4">La Forza della Disciplina</p>
+    <p class="el-sub" data-i="4">La Direzione e l'Azione</p>
     <div class="divider" data-i="4"><i></i><span>△</span><i></i></div>
-    <p class="el-txt" data-i="5">Accendi la tua determinazione senza sforzo o fatica pesante. Una disciplina somatica cosciente che ti guida ad agire ogni giorno con totale carisma e certezza.</p>
-    <button class="el-more" data-i="6" data-open="modal-fuoco"><span aria-hidden="true">+</span> Esplora l'Elemento</button>
+    <p class="el-txt" data-i="5">Accendi la determinazione senza sforzo o fatica pesante. Una disciplina somatica cosciente che orienta l'azione quotidiana con totale carisma e certezza assoluta.</p>
+    <button class="el-more" data-i="6" data-open="modal-fuoco"><span aria-hidden="true">+</span> Scopri l'Elemento</button>
   </div>
 </section>
 
@@ -222,16 +214,17 @@
     <p class="eyebrow center reveal">Il portale</p>
     <h2 class="display h-lg center reveal">L'ecosistema integrato</h2>
 
+    <span class="portale-wall" aria-hidden="true"></span>
     <div class="tiles puzzle">
       <article class="tile tile-marble pz-l">
         <h3 class="display tile-title">Fitness Somatico</h3>
-        <p>Un viaggio di evoluzione in 45 mensilità progressive. Attraverso movimenti lenti e controllati, la consapevolezza della postura e il ripristino del respiro naturale, andiamo a riprogrammare il sistema nervoso da cui dipende ogni aspetto della tua vita. Nel metodo MB non esiste movimento casuale: ogni singolo esercizio è coordinato a partire dal tuo Core Sacro — Ventre, Pavimento Pelvico, Glutei e Addome.</p>
-        <button class="btn btn-outline-dark" data-open="modal-fitness">Scopri il Programma delle 45 Mensilità <span aria-hidden="true">→</span></button>
+        <p>Un viaggio di evoluzione in 45 mensilità progressive. Attraverso movimenti lenti e controllati, la consapevolezza della postura e il ripristino del respiro naturale, il sistema nervoso viene riprogrammato per sbloccare ogni aspetto della vita. Nel metodo MB non esiste movimento casuale: ogni singolo esercizio è coordinato a partire dal Core Sacro – Ventre, Pavimento Pelvico, Glutei e Addome.</p>
+        <button class="btn btn-outline-dark" data-open="modal-fitness">Scopri il Programma <span aria-hidden="true">→</span></button>
       </article>
       <article class="tile tile-dark pz-r">
         <h3 class="display tile-title">Alchimia Spirituale</h3>
-        <p>Un portale d'élite sempre accessibile per liberare l'energia bloccata a livello cellulare ed oltrepassare i limiti mentali attraverso Attivazioni Energetiche profonde, Pratiche Yoga e Sound Healing vibrazionali. Raggiungi i tuoi obiettivi lavorando da dentro. Quando elevi la tua frequenza interiore, il mondo esteriore risponde alla tua nuova frequenza riflettendo una nuova realtà.</p>
-        <button class="btn btn-outline" data-open="modal-archivio">Esplora l'Archivio Spirituale <span aria-hidden="true">→</span></button>
+        <p>Un portale d'élite sempre accessibile per liberare l'energia bloccata a livello cellulare ed oltrepassare i limiti della mente attraverso Attivazioni Energetiche profonde, Pratiche Yoga e Sound Healing vibrazionali. Raggiungere gli obiettivi lavorando dall'interno: quando la frequenza interiore si eleva, il mondo esteriore risponde riflettendo una nuova realtà.</p>
+        <button class="btn btn-outline" data-open="modal-archivio">Scopri l'Archivio <span aria-hidden="true">→</span></button>
       </article>
 
       <article class="tile tile-book pz-b">
@@ -250,7 +243,7 @@
           <div class="page page-r">
             <p class="eyebrow">Il cuore unificato</p>
             <h3 class="display tile-title">Il Workbook dell'1% Quotidiano</h3>
-            <p>Meditare o allenarsi per un'ora al giorno non basta se poi si passa il resto della giornata nei vecchi schemi di sempre. Il vero cambiamento accade nelle altre 23 ore. Ogni singola sessione di Fitness Somatico e ogni Attivazione Energetica è supportata dal tuo <strong>Workbook dell'1%</strong>. Una guida descrittiva che ogni giorno ti accompagna, attraverso piccolissime azioni e confini biologici radicali, a elevare il tuo stato di coscienza giorno dopo giorno. La pratica inizia sul tappetino, ma si compie nella tua biologia quotidiana.</p>
+            <p>Meditare o allenarsi per un'ora al giorno non basta se il resto del tempo viene vissuto nei vecchi schemi automatici. Il vero cambiamento accade nelle altre 23 ore. Ogni singola sessione di Fitness Somatico e ogni Attivazione Energetica è supportata dallo strumento del Workbook dell'1%: la guida descrittiva che codifica l'azione quotidiana, eleva lo stato di coscienza e definisce confini biologici radicali giorno dopo giorno. La pratica inizia sul tappetino, ma si compie nella biologia quotidiana.</p>
           </div>
         </div>
       </article>
@@ -260,7 +253,7 @@
 
 <div class="marquee-set on-dark" aria-hidden="true">
   <div class="marquee"><div class="marquee-track"><span>Fuoco</span><span>Terra</span><span>Acqua</span><span>Aria</span></div></div>
-  <span class="seal">◎</span>
+  <span class="rami" aria-hidden="true"><span class="rami-l"></span><svg class="rami-seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M24 3 C10 14 10 34 24 45 C38 34 38 14 24 3 Z"/><circle class="dot" cx="24" cy="24" r="2.2"/></svg><span class="rami-r"></span></span>
   <div class="marquee gilt reverse"><div class="marquee-track"><span>Azione</span><span>Radicamento</span><span>Flusso</span><span>Voce</span></div></div>
 </div>
 
@@ -268,12 +261,12 @@
 <section class="app" id="app">
   <div class="wrap app-grid">
     <div class="app-copy reveal">
-      <h2 class="display h-lg">L'ecosistema in tasca</h2>
+      <h2 class="display h-lg">L'Ecosistema in Tasca</h2>
       <p class="eyebrow">La Mobile App</p>
-      <p>L'intero portale di <strong>MB Program Élite</strong> è integrato nella tua <strong>App Mobile dedicata</strong>. Porta la tua ricalibrazione ovunque: accedi on-demand alle tue mensilità, avvia le Attivazioni Energetiche e ascolta il Sound Healing in background mentre riallinei la tua biologia. Trasforma il tuo telefono nel tuo altare sacro quotidiano.</p>
+      <p>L'intero portale di MB Program Élite è integrato nell'App Mobile dedicata. Porta la ricalibrazione ovunque: accedi on-demand alle mensilità, avvia le Attivazioni Energetiche e ascolta il Sound Healing in background mentre riallinei la biologia. Trasforma il telefono in un altare sacro quotidiano.</p>
       <div class="store-btns">
-        <a class="btn btn-outline" href="#" rel="noopener">Scarica su App Store</a>
-        <a class="btn btn-outline" href="#" rel="noopener">Scarica su Play Store</a>
+        <a class="btn btn-gold" href="#" rel="noopener">Scarica su App Store</a>
+        <a class="btn btn-gold" href="#" rel="noopener">Scarica su Play Store</a>
       </div>
     </div>
     <div class="phone reveal" style="--d:.15s" role="img" aria-label="Anteprima animata dell'interfaccia reale dell'app MB Program Élite">
@@ -286,18 +279,19 @@
   </div>
 </section>
 
-<div class="marquee-set on-dark" aria-hidden="true">
+<div class="marquee-set on-light" aria-hidden="true">
   <div class="marquee"><div class="marquee-track"><span>Corpo</span><span>Consapevolezza</span><span>Trasformazione</span><span>Sovranità</span></div></div>
-  <span class="seal">◎</span>
+  <span class="rami" aria-hidden="true"><span class="rami-l"></span><svg class="rami-seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M24 3 C10 14 10 34 24 45 C38 34 38 14 24 3 Z"/><circle class="dot" cx="24" cy="24" r="2.2"/></svg><span class="rami-r"></span></span>
   <div class="marquee gilt reverse"><div class="marquee-track"><span>Opera</span><span>Regno</span><span>Postura</span><span>Scelta</span><span>Grande Opera</span></div></div>
 </div>
 
 <!-- ============ PARTE 7 · LA BIOLOGIA SACRA + 400 W ============ -->
 <section class="posa" id="sovrana">
+  <span class="posa-rami" aria-hidden="true"></span>
   <div class="wrap posa-grid">
     <div class="posa-copy reveal">
       <p class="eyebrow">La Biologia Sacra</p>
-      <h2 class="display h-lg gold">Il tuo corpo sente tutto. La tua anima sceglie.</h2>
+      <h2 class="display h-lg gold">Il Corpo Sente Tutto.<br>L'Anima Sceglie.</h2>
       <hr class="rule">
       <p class="lead-soft light">La donna MB Program Élite non è colei che ha anestetizzato il dolore o spento il circuito. È la donna che riabita le sue cellule, riconosce la verità di ogni singola vibrazione profonda, e decide comunque di regnare sul proprio destino.</p>
       <p class="sig">Marica Bortoletto</p>
@@ -307,13 +301,18 @@
 </section>
 
 <section class="capacita" id="capacita">
+  <span class="watt-dust" aria-hidden="true"></span>
   <div class="wrap center">
-    <p class="eyebrow reveal">La capacità</p>
+    <p class="eyebrow reveal">La Capacità</p>
     <div class="watt-scale reveal" aria-hidden="true"><span>Contrazione</span><i></i><span>Espansione</span></div>
-    <div class="watt reveal"><span class="display" aria-label="400 W">400 W</span><i class="glow"></i></div>
-    <h3 class="display cap-title reveal">Accendi la tua vera energia biologica</h3>
-    <p class="cap-text reveal">Comprendo la paura di lasciare andare il controllo della mente: l'ho vissuta anche io. Ma oggi puoi scegliere finalmente di abitare il tuo corpo.</p>
-    <p class="cap-text reveal">Quando decidiamo di radicarci nella nostra biologia grazie a questa nuova consapevolezza, i watt aumentano e con essi cresce la tua reale capacità di ricevere l'abbondanza. Quando guarisci l'interno, trasformi inevitabilmente l'esterno portando tutto alla luce... e il resto viene da sé, di conseguenza.</p>
+    <div class="watt reveal">
+      <svg class="watt-geo" viewBox="-100 -100 200 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".5"><circle r="98"/><circle r="70"/><path d="M0 -70 L60.6 35 H-60.6 Z"/><path d="M0 70 L60.6 -35 H-60.6 Z"/></g><g fill="currentColor"><circle cy="-84" r="1.6"/><circle cx="-56" cy="-62" r="1.4"/><circle cx="56" cy="-62" r="1.4"/><circle cx="-80" cy="-24" r="1.2"/><circle cx="80" cy="-24" r="1.2"/><circle cy="84" r="1.6"/><circle cx="-56" cy="62" r="1.4"/><circle cx="56" cy="62" r="1.4"/></g></svg>
+      <i class="watt-aura" aria-hidden="true"></i>
+      <span class="display" aria-label="400 W">400 W</span><i class="glow"></i>
+    </div>
+    <h3 class="display cap-title reveal">Accendi la Vera Energia Biologica</h3>
+    <p class="cap-text cap-lead reveal">La paura di lasciare andare il controllo della mente è comprensibile, ma oggi è possibile scegliere di abitare pienamente il corpo.</p>
+    <p class="cap-text reveal">Il sistema nervoso funziona come un vero e proprio circuito elettrico. Quando l'energia resta bloccata nella testa, la capacità del corpo si contrae, spegnendo la tua forza interiore. Nel momento in cui decidi di radicarti nella biologia, il circuito si sblocca e la tua potenza energetica si espande spontaneamente. È solo attraverso questa reale espansione corporea che diventi capace di sostenere, contenere e accogliere la vera ricchezza materiale e spirituale. Trasformando la struttura del tuo mondo interiore, cambi inevitabilmente la tua realtà esterna. Il resto viene da sé, di conseguenza.</p>
   </div>
 </section>
 
@@ -348,8 +347,8 @@
     </ul>
   </div>
   <div class="wrap center corpo-end">
-    <p class="reveal lead-dark">Sono parte viva della tua carne. Se non li riconosci, non puoi trasformarli.</p>
-    <h2 class="display h-md brown reveal">I tuoi limiti non sono soltanto nella tua testa.</h2>
+    <h2 class="display h-md brown reveal">I limiti non sono soltanto nella mente.</h2>
+    <p class="reveal lead-dark">Sono parte viva della carne. Se non si riconoscono, non è possibile trasformarli.</p>
   </div>
 </section>
 
@@ -424,12 +423,13 @@
     </div>
 
     <div class="include reveal">
+      <span class="include-glow" aria-hidden="true"></span>
       <h3 class="eyebrow">Cosa include</h3>
       <ul>
-        <li>Accesso progressivo alle 45 mensilità di <strong>Fitness Somatico</strong>, una al mese, fino allo sblocco completo dell'intero archivio al raggiungimento della 45ª mensilità.</li>
-        <li>L'intero archivio di <strong>Alchimia Spirituale</strong>: Attivazioni Energetiche, Yoga e Sound Healing vibrazionale</li>
-        <li>Il <strong>Workbook dell'1% Quotidiano</strong> a supporto di ogni pratica</li>
-        <li>La <strong>App Mobile dedicata</strong> per portare il percorso ovunque</li>
+        <li><strong>Il Portale Progressivo:</strong> Accesso alle 45 mensilità di Fitness Somatico – una al mese – fino allo sblocco definitivo e simultaneo dell'intero archivio al raggiungimento del Mese 45.</li>
+        <li><strong>L'Archivio di Alchimia Spirituale:</strong> Accesso immediato e illimitato a tutte le Attivazioni Energetiche, le sessioni di Yoga e le tracce di Sound Healing vibrazionale.</li>
+        <li><strong>Il Workbook dell'1% Quotidiano:</strong> Lo strumento sacro di codifica per integrare la trasformazione e mantenere la presenza radicale nelle 24 ore.</li>
+        <li><strong>L'App Mobile Dedicata:</strong> L'intero ecosistema MB Program Élite integrato e accessibile on-demand in qualunque istante, ovunque.</li>
       </ul>
     </div>
     <p class="center closing reveal">Il passaggio dal piombo all'oro. Tutto racchiuso in un unico portale d'élite.</p>
@@ -439,58 +439,13 @@
 <!-- ============ PARTE 12 · FAQ ============ -->
 <section class="faq" id="faq">
   <div class="wrap faq-wrap">
-    <p class="eyebrow faq-eyebrow center reveal">Domande frequenti</p>
-    <h2 class="display h-lg center reveal">Tutto quello che devi sapere</h2>
-    <p class="faq-sub center reveal">sul tuo percorso</p>
-
-    <div class="faq-cat reveal">
-      <h3 class="faq-cat-h">Accesso e Abbonamenti</h3>
-      <div class="acc">
-        <details><summary>Quali tipologie di accesso posso acquistare?</summary><div class="acc-a"><p>Puoi scegliere tra quattro durate: 1, 3, 6 o 12 mesi. Ogni formula ti permette di accedere ai contenuti di MB Program Élite per il periodo acquistato, secondo le modalità previste dai singoli programmi.</p></div></details>
-        <details><summary>L'abbonamento si rinnova automaticamente?</summary><div class="acc-a"><p>No. Nessun rinnovo automatico e nessun addebito ricorrente. Alla scadenza sarai tu a decidere se e quando acquistare un nuovo periodo di accesso.</p></div></details>
-        <details><summary>Cosa succede quando scade il mio abbonamento?</summary><div class="acc-a"><p>Il tuo account rimane attivo, ma l'accesso ai contenuti viene sospeso. Potrai continuare il percorso acquistando un nuovo periodo di accesso, senza doverti registrare nuovamente.</p></div></details>
-        <details><summary>Se non rinnovo immediatamente, perdo i progressi raggiunti?</summary><div class="acc-a"><p>No. La piattaforma conserva la tua progressione nel Fitness Somatico. Anche dopo una pausa, potrai riprendere dalla mensilità successiva a quella già raggiunta.</p></div></details>
-        <details><summary>Posso cambiare la durata dell'abbonamento al rinnovo?</summary><div class="acc-a"><p>Sì. Puoi scegliere liberamente una durata diversa da quella precedente. Per esempio, dopo un accesso di tre mesi, potrai acquistarne uno di sei o dodici.</p></div></details>
-      </div>
-    </div>
-
-    <div class="faq-cat reveal">
-      <h3 class="faq-cat-h">Fitness Somatico — Le 45 Mensilità</h3>
-      <div class="acc">
-        <details><summary>Come funziona il percorso Fitness Somatico?</summary><div class="acc-a"><p>Fitness Somatico è un percorso di allenamento progressivo, articolato in 45 mensilità. Ogni mese si apre una nuova fase del programma, progettata per accompagnarti attraverso una progressione strutturata.</p></div></details>
-        <details><summary>Posso accedere subito a tutte le 45 mensilità?</summary><div class="acc-a"><p>No. Il percorso segue una progressione mensile: si parte dalla prima mensilità e si procede gradualmente fino alla quarantacinquesima.</p></div></details>
-        <details><summary>Devo completare tutti gli allenamenti prima di passare alla mensilità successiva?</summary><div class="acc-a"><p>No. Il passaggio avviene automaticamente al termine di ogni mensilità, indipendentemente dal numero di allenamenti completati.</p></div></details>
-        <details><summary>Posso tornare a una mensilità precedente?</summary><div class="acc-a"><p>Durante la progressione ordinaria, no. Quando si apre una nuova mensilità, quella precedente non è più accessibile. Il programma procede in avanti, una fase alla volta.</p></div></details>
-        <details><summary>Cosa succede quando raggiungo la quarantacinquesima mensilità?</summary><div class="acc-a"><p>Si sblocca l'intero archivio di Fitness Somatico. Avrai accesso a tutte le 45 mensilità e potrai scegliere autonomamente quali allenamenti seguire, ripetere o approfondire, finché il tuo accesso al programma rimane attivo.</p></div></details>
-        <details><summary>Una volta sbloccate tutte le mensilità, posso ricominciare dalla prima?</summary><div class="acc-a"><p>Sì. Una volta raggiunta la quarantacinquesima mensilità, potrai navigare liberamente nell'intero archivio, ripartire dall'inizio oppure selezionare le fasi che preferisci.</p></div></details>
-      </div>
-    </div>
-
-    <div class="faq-cat reveal">
-      <h3 class="faq-cat-h">Pause, Riprese e Ripartenze</h3>
-      <div class="acc">
-        <details><summary>Posso interrompere il percorso per qualche mese?</summary><div class="acc-a"><p>Certamente. Non sei obbligato a rinnovare senza interruzioni. Puoi concederti una pausa e decidere successivamente quando tornare.</p></div></details>
-        <details><summary>Se interrompo l'abbonamento, le mensilità continuano ad avanzare?</summary><div class="acc-a"><p>No. Durante il periodo in cui non hai un accesso attivo, la progressione si interrompe. Riprenderà quando acquisterai un nuovo periodo di accesso.</p></div></details>
-        <details><summary>Se acquisto tre mesi, interrompo per due mesi e poi rinnovo, da dove riparto?</summary><div class="acc-a"><p>Riparti dalla quarta mensilità.</p><p>Per esempio, se completi un periodo di accesso di tre mesi e decidi di fermarti per gennaio e febbraio, acquistando un nuovo accesso a marzo riprenderai dalla quarta mensilità, indipendentemente dalla durata del nuovo acquisto.</p><p>La piattaforma conserva la progressione raggiunta.</p></div></details>
-        <details><summary>Se dopo una lunga pausa desidero ricominciare dalla prima mensilità, posso farlo?</summary><div class="acc-a"><p>Sì. Puoi contattare l'assistenza MB Program Élite e richiedere il ripristino del percorso dalla prima mensilità.</p><p>È una possibilità pensata per chi desidera ricostruire gradualmente la propria pratica, riprendendo dalle basi.</p></div></details>
-        <details><summary>Posso effettuare autonomamente il reset delle mensilità?</summary><div class="acc-a"><p>No. Per ripartire dalla prima mensilità durante il percorso progressivo, è necessario contattare l'assistenza, che provvederà al ripristino.</p></div></details>
-      </div>
-    </div>
-
-    <div class="faq-cat reveal">
-      <h3 class="faq-cat-h">Contenuti e Piattaforma</h3>
-      <div class="acc">
-        <details><summary>Cosa comprende l'accesso a MB Program Élite?</summary><div class="acc-a"><p>L'accesso comprende:</p><ul class="acc-list"><li><b>Fitness Somatico:</b> il percorso progressivo di 45 mensilità.</li><li><b>Alchimia Spirituale:</b> l'archivio di Attivazioni Energetiche, Yoga e Sound Healing vibrazionale.</li><li><b>Workbook dell'1% Quotidiano:</b> uno strumento per accompagnare il lavoro personale.</li><li><b>App mobile dedicata:</b> per accedere al programma anche da dispositivo mobile.</li></ul></div></details>
-        <details><summary>Se interrompo l'abbonamento, posso continuare a utilizzare i contenuti di Alchimia Spirituale?</summary><div class="acc-a"><p>No. Alla scadenza dell'accesso, i contenuti riservati del portale non sono più fruibili. Tornano disponibili quando acquisti un nuovo periodo di accesso.</p></div></details>
-        <details><summary>Posso accedere alla piattaforma anche quando l'abbonamento è scaduto?</summary><div class="acc-a"><p>Sì. Il tuo account rimane attivo, ma i contenuti riservati non possono essere aperti fino alla riattivazione dell'accesso.</p></div></details>
-        <details><summary>A chi posso rivolgermi se ho bisogno di assistenza?</summary><div class="acc-a"><p>Puoi contattare l'assistenza MB Program Élite per ricevere supporto sull'accesso alla piattaforma, sulla progressione delle mensilità o per richiedere il ripristino del percorso dall'inizio.</p></div></details>
-      </div>
-    </div>
-
-    <div class="faq-note reveal">
-      <h3 class="display">✦ Il tuo percorso non si perde.</h3>
-      <p>Puoi fermarti. Puoi riprendere. Puoi scegliere di ricominciare.</p>
-      <p>La progressione ha una struttura. La decisione di continuare appartiene a te.</p>
+    <p class="eyebrow faq-eyebrow center reveal">Domande Frequenti</p>
+    <h2 class="display h-lg center reveal">Tutto quello che c'è da sapere</h2>
+    <div class="faq-bars reveal">
+      <button class="faq-bar" data-open="modal-faq1"><span class="faq-plus" aria-hidden="true">+</span><span>01. Accesso e Abbonamenti</span></button>
+      <button class="faq-bar" data-open="modal-faq2"><span class="faq-plus" aria-hidden="true">+</span><span>02. Fitness Somatico: le 45 Mensilità</span></button>
+      <button class="faq-bar" data-open="modal-faq3"><span class="faq-plus" aria-hidden="true">+</span><span>03. Pause, Riprese e Ripartenze</span></button>
+      <button class="faq-bar" data-open="modal-faq4"><span class="faq-plus" aria-hidden="true">+</span><span>04. Contenuti e Piattaforma</span></button>
     </div>
     <p class="faq-support center reveal">Non trovi la risposta? <a href="mailto:info@mbprogram.it">Scrivi all'assistenza MB Program Élite →</a></p>
   </div>
@@ -498,12 +453,12 @@
 
 <!-- ============ CONTATTI E SUPPORTO ============ -->
 <section class="contatti" id="contatti">
+  <div class="contatti-rami" aria-hidden="true"><i class="c-line"></i><span class="rami"><span class="rami-l"></span><svg class="rami-seal" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M24 3 C10 14 10 34 24 45 C38 34 38 14 24 3 Z"/><circle class="dot" cx="24" cy="24" r="2.2"/></svg><span class="rami-r"></span></span><i class="c-line"></i></div>
   <div class="wrap center">
-    <div class="crest" aria-hidden="true"><img src="img/butterfly.svg?v=c33aef92" alt="" width="44" height="44"></div>
-    <p class="eyebrow reveal">Contatti e supporto</p>
-    <h2 class="display h-md reveal">Hai dubbi sul tuo abbonamento o riscontri problemi tecnici con il portale?</h2>
-    <p class="lead-center reveal">Il nostro supporto d'élite è a tua completa disposizione.</p>
-    <p class="mail reveal"><a href="mailto:info@mbprogram.it">info@mbprogram.it</a></p>
+    <p class="eyebrow reveal">Contatti e Supporto</p>
+    <h2 class="display h-md reveal">Assistenza Tecnica e Amministrativa</h2>
+    <p class="lead-center reveal">Per quesiti relativi all'abbonamento o anomalie tecniche della piattaforma, il supporto d'élite risponde direttamente all'indirizzo dedicato.</p>
+    <p class="mail reveal"><span>Email:</span> <a href="mailto:info@mbprogram.it">info@mbprogram.it</a></p>
     <a class="btn btn-gold reveal" href="#accesso">Accedi a MB Program Élite</a>
   </div>
 </section>
@@ -512,8 +467,7 @@
 <section class="newsletter" id="newsletter">
   <div class="wrap news-grid">
     <figure class="news-photo reveal">
-      <span class="guida-aura" aria-hidden="true"></span>
-      <img src="img/marica-bordeaux.png?v=612b61ae" alt="Marica Bortoletto durante una pratica di Fitness Somatico" width="1280" height="853" loading="lazy">
+      <img src="img/affondo-aureola.png?v=646bae2a" alt="Affondo yoga dentro un'aureola dorata" width="1672" height="941" loading="lazy">
     </figure>
     <div class="news-copy reveal" style="--d:.12s">
       <p class="eyebrow">Canale ufficiale</p>
@@ -533,6 +487,10 @@
 <footer class="site-footer">
   <div class="wrap center">
     <img class="foot-logo" src="img/logo-gold.png?v=cb5d3be7" alt="MB Program" width="84" height="145">
+    <ul class="foot-links">
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="gift-card.html">Gift Cards</a></li>
+    </ul>
     <ul class="legal">
       <li><a href="/termini-e-condizioni">Termini e Condizioni</a></li>
       <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -555,11 +513,11 @@
   <div class="modal-box">
     <button class="modal-x" data-close aria-label="Chiudi"><span>Chiudi</span></button>
     <p class="eyebrow">Il primo elemento</p>
-    <h2 class="display m-title" id="mt-title">Terra · Risvegliare le radici</h2>
+    <h2 class="display m-title" id="mt-title">Terra · Risvegliare le Radici</h2>
     <h3 class="m-h">Il blocco biologico attuale</h3>
-    <p>Quando accumuli stress, l'anima si sente minacciata e dà un ordine biologico al corpo: “Proteggimi, occupa spazio”. Il sistema nervoso si contrae, bloccando il metabolismo nell'illusione della carenza. La carne irrigidita inizia a trattenere peso, tossine e gonfiori, creando una vera e propria armatura fisica per difenderti dal mondo. Il peso che giudichi allo specchio non è una tua colpa: è solo lo scudo che la tua biologia ha usato finora per proteggerti.</p>
+    <p>Quando accumuli stress, l’anima si sente minacciata e dà un ordine biologico al corpo: "Proteggimi, occupa spazio". Il sistema nervoso si contrae, bloccando il metabolismo nell’illusione della carenza. La carne irrigidita inizia a trattenere peso, tossine e gonfiori, creando una vera e propria armatura fisica per difenderti dal mondo. Il peso che giudichi allo specchio non è una colpa: è solo lo scudo che la biologia ha usato finora per proteggerti.</p>
     <h3 class="m-h">La trasformazione da dentro a fuori</h3>
-    <p>In questa tappa firmi la pace definitiva con la tua materia. Attraverso il movimento somatico e il rilascio interiore, andiamo a sciogliere i nodi profondi trattenuti nei tessuti e nell'asse invisibile del corpo. Spegnendo lo stato di allarme cellulare, l'armatura e i liquidi stagnanti si dissolvono spontaneamente. Il tuo corpo smette di gonfiarsi per difesa, riattiva il suo fuoco metabolico e si alleggerisce, restituendoti una struttura solida, leggera e radicata.</p>
+    <p>In questa tappa firmi la pace definitiva con la materia. Attraverso il movimento somatico e il rilascio interiore, sciogli i nodi profondi trattenuti nei tessuti e nell'asse invisibile del corpo. Spegnendo lo stato di allarme cellulare, l'armatura e i liquidi stagnanti si dissolvono spontaneamente. Il corpo smette di gonfiarsi per difesa, riattiva il fuoco metabolico e si alleggerisce, restituendoti una struttura solida, leggera e radicata.</p>
   </div>
 </dialog>
 
@@ -567,11 +525,11 @@
   <div class="modal-box">
     <button class="modal-x" data-close aria-label="Chiudi"><span>Chiudi</span></button>
     <p class="eyebrow">Il secondo elemento</p>
-    <h2 class="display m-title" id="mac-title">Acqua · Il flusso e le emozioni</h2>
+    <h2 class="display m-title" id="mac-title">Acqua · Il Flusso e le Emozioni</h2>
     <h3 class="m-h">Il blocco biologico attuale</h3>
-    <p>Davanti ai grandi bivi e distacchi dolorosi della vita, il tuo sistema nervoso va in shock. La paura dell'ignoto crea un'ansia cronica che si scarica sullo stomaco, sul diaframma e sul bacino, serrando la mandibola. Se reprimi la tristezza e cerchi di aggrapparti al passato per paura del vuoto, il tuo corpo stringe i pugni in modo invisibile: l'energia si congela nel ventre e nei polmoni, manifestandosi con tremori interni e rigidità cronica nelle articolazioni, nelle braccia e nelle spalle. Ti trasformi in un blocco di ghiaccio rigido, incapace di respirare o di accogliere il nuovo.</p>
+    <p>Davanti ai grandi bivi e ai distacchi della vita, il sistema nervoso va in sovraccarico. La paura dell’ignoto crea un’ansia cronica che si scarica sullo stomaco, sul diaframma e sul bacino, serrando la mandibola. Se reprimi la tristezza per paura del vuoto, l'energia si congela nel ventre e nei polmoni, manifestandosi con tremori interni, rigidità nelle articolazioni, nelle braccia e nelle spalle. Il corpo si trasforma in un blocco di ghiaccio, incapace di respirare o di accogliere il nuovo.</p>
     <h3 class="m-h">La trasformazione da dentro a fuori</h3>
-    <p>In questa tappa impari l'arte di fluire senza romperti, diventando l'oceano e non la tempesta. Attraverso il movimento somatico profondo e il rilascio interiore, andiamo a sciogliere il ghiaccio che blocca i tuoi tessuti e il tuo subconscio. Spegnendo il rumore dei pensieri, impari ad aprire i palmi e a mollare la presa sul passato. Smetti di subire la tempesta esterna e scendi nell'asse incrollabile della tua stabilità profonda: l'ansia e la nostalgia si trasformano in intuito millimetrico, flessibilità e puro magnetismo, ritornando a essere una donna pienamente ricettiva e pronta a cambiare forma senza mai spezzarsi.</p>
+    <p>In questa tappa si apprende l'arte di fluire senza rompersi. Attraverso il movimento somatico profondo e il rilascio interiore, sciogli il ghiaccio che blocca i tessuti e il subconscio. Spegnendo il rumore dei pensieri, impari a mollare la presa sul passato e scendi nell'asse incrollabile della stabilità profonda. L’ansia e la nostalgia si trasmutano in intuito millimetrico, flessibilità e magnetismo, restituendo una struttura pienamente ricettiva, pronta a cambiare forma senza mai spezzarsi.</p>
   </div>
 </dialog>
 
@@ -579,11 +537,11 @@
   <div class="modal-box">
     <button class="modal-x" data-close aria-label="Chiudi"><span>Chiudi</span></button>
     <p class="eyebrow">Il terzo elemento</p>
-    <h2 class="display m-title" id="mar-title">Aria · Lo spazio e la mente</h2>
+    <h2 class="display m-title" id="mar-title">Aria · Lo Spazio e la Mente</h2>
     <h3 class="m-h">Il blocco biologico attuale</h3>
-    <p>Quando la mente è sovraccarica di pensieri, subentrano il dubbio cronico e la procrastinazione. Vivi in un eccesso di elemento Aria: fluttui tra mille progetti che rimangono sospesi nella testa, aperti in cento schede mentali e notifiche continue. Questo rumore assordante, unito alla paura del fallimento e alla mancanza di confini sani, scarica un'ansia continua sul plesso solare e sullo stomaco, provocando un crollo della postura. Le spalle si curvano, la schiena cede e ti lasci distrarre dal mondo esterno, accumulando senso di colpa, apatia e pigrizia nel petto.</p>
+    <p>Quando la mente è sovraccarica di pensieri, subentrano il dubbio cronico e la procrastinazione. Un eccesso di elemento Aria disperde l'energia: ci si ritrova a fluttuare tra mille progetti sospesi. Questo rumore assordante, unito alla paura del fallimento e alla mancanza di confini sani, scarica un'ansia continua sul plesso solare e sullo stomaco, provocando un crollo immediato della postura. Le spalle si curvano, la schiena cede e il petto accumula apatia, pigrizia e senso di oppressione.</p>
     <h3 class="m-h">La trasformazione da dentro a fuori</h3>
-    <p>In questa tappa impari a governare la mente senza farti governare da essa, trovando una costanza incrollabile. Attraverso il movimento somatico profondo e la presenza radicale — quel preciso attimo di vuoto tra inspiro ed espiro — spegniamo il rumore di fondo cellulare. Ancorando i pensieri alla stabilità dell'addome, raddrizzi la colonna vertebrale come un asse d'acciaio e ritrovi il rigore di dire No alle distrazioni. Scegliendo l'azione imperfetta rispetto alla paralisi, la mente si ripulisce dalle scuse: l'aria torna limpida e fresca, trasformandosi in una spinta d'azione focalizzata che unisce il pensiero ai fatti concreti nella materia.</p>
+    <p>In questa tappa si impara a governare la mente senza farsi governare da essa, trovando una costanza incrollabile. Attraverso il movimento somatico profondo e la presenza radicale – in quel preciso attimo di vuoto tra inspiro ed espiro – il rumore di fondo cellulare si disinnesca. Ancorando i pensieri alla stabilità dell’addome, la colonna vertebrale si raddrizza come un asse d’acciaio, ritrovando il rigore di dire No alle distrazioni. Scegliendo l’azione imperfetta rispetto alla paralisi, la mente si ripulisce dalle scuse: l’aria torna limpida, trasformandosi in una spinta focalizzata che unisce il pensiero ai fatti concreti nella materia.</p>
   </div>
 </dialog>
 
@@ -591,11 +549,11 @@
   <div class="modal-box">
     <button class="modal-x" data-close aria-label="Chiudi"><span>Chiudi</span></button>
     <p class="eyebrow">Il quarto elemento</p>
-    <h2 class="display m-title" id="mfu-title">Fuoco · La direzione e l'azione</h2>
+    <h2 class="display m-title" id="mfu-title">Fuoco · La Direzione e l'Azione</h2>
     <h3 class="m-h">Il blocco biologico attuale</h3>
-    <p>Essendo una donna determinata e abituata a reggere il mondo, la tua mente ha imparato una bugia: che per realizzare te stessa devi lottare, faticare e controllare ogni dettaglio. L'ossessione logica di voler prevedere il “come” e la tendenza a farti carico dei problemi altrui per salvare tutti prosciugano il tuo fuoco creativo in un incendio d'ansia. Somaticamente, contrai lo stomaco, blocchi il diaframma e sbarri il petto per non mostrare crepe. Accumuli tensioni croniche su spalle, braccia, fianchi e pavimento pelvico, irrigidendo la biologia sotto il peso di un'armatura che blocca lo spazio per ricevere.</p>
+    <p>L'ossessione logica di voler prevedere il risultato e controllare ogni dettaglio prosciuga il fuoco creativo, trasformandolo in un incendio d'ansia. Somaticamente, la tensione contrae lo stomaco, blocca il diaframma e sbarra il petto nel tentativo di non mostrare cedimenti. Si accumulano tensioni croniche su spalle, braccia, fianchi e pavimento pelvico, irrigidendo la biologia sotto il peso di un'armatura contratta che toglie lo spazio per ricevere.</p>
     <h3 class="m-h">La trasformazione da dentro a fuori</h3>
-    <p>In questa tappa sblocchi l'estremità superiore dell'asse invisibile, allentando le tensioni della mascella e trasformando la tua forza da guerriera che fatica a Dea magnetica che attrae. Attraverso il movimento somatico profondo, l'apertura della corona, il rilascio del bacino e la fine del controllo mentale, sciogli la maschera della perfezione e tagli i pesi che non ti appartengono. Rilassando l'addome e mettendo un confine sacro a protezione del tuo tempo, il tuo Fuoco torna interamente dentro di te e diventa pura ricettività. Questa stabilità viene codificata ogni giorno attraverso il Workbook dell'1%, permettendoti di mollare la presa e di accogliere l'abbondanza senza sforzo.</p>
+    <p>In questa tappa si sblocca l'estremità superiore dell'asse invisibile, allentando le tensioni della mascella e direzionando la forza fisica verso un magnetismo pulito che attrae. Attraverso il movimento somatico profondo, l'apertura della corona, il rilascio del bacino e la fine del controllo mentale, si scioglie la maschera della perfezione. Rilassando l'addome e stabilendo un confine sacro a protezione del tempo, il Fuoco torna interamente all'interno, trasformandosi in pura ricettività. Questa stabilità viene codificata ogni giorno attraverso lo strumento del Workbook, permettendo di accogliere l'abbondanza senza sforzo.</p>
   </div>
 </dialog>
 
@@ -608,19 +566,19 @@
     <h2 class="display m-title" id="mf-title">Il Codice Somatico Mente &amp; Corpo</h2>
     <p class="m-sub">8 Moduli Evolutivi per 45 Mesi di Trasformazione.</p>
     <ol class="moduli">
-      <li><img class="ck" src="img/ck-1.png?v=ab6f8cab" alt="" width="44" height="44"><div><b>1. Tecnica · Basi · Metodologia <em>Mesi 1–4</em></b><p>Le fondamenta del tuo tempio. Costruisci la base solida partendo dal controllo del bacino, dal rilascio della mandibola e degli sfinteri, e dall'attivazione del respiro naturale.</p></div></li>
-      <li><img class="ck" src="img/ck-2.png?v=fa333bbc" alt="" width="44" height="44"><div><b>2. Percezione · Immaginazione <em>Mesi 5–10</em></b><p>Apri gli occhi dell'anima. Impara ad ascoltare il sussurro del tuo corpo e a muoverti attivando il pavimento pelvico in totale presenza.</p></div></li>
-      <li><img class="ck" src="img/ck-3.png?v=bedd4453" alt="" width="44" height="44"><div><b>3. Consapevolezza · Tecnica · Mindset <em>Mesi 11–19</em></b><p>Il risveglio della mente. La tecnica si fonde con la coscienza: la forza del core diventa la stabilità del tuo mindset nel mondo.</p></div></li>
-      <li><img class="ck" src="img/ck-4.png?v=48979b3b" alt="" width="44" height="44"><div><b>4. Energia e Chakra · Un Viaggio dentro il Corpo <em>Mesi 20–26</em></b><p>Attraverso i sette portali energetici, connetti i tuoi muscoli profondi alla tua casa interiore.</p></div></li>
-      <li><img class="ck" src="img/ck-5.png?v=7ac683a1" alt="" width="44" height="44"><div><b>5. Respira · Una Danza tra Movimento e Respiro <em>Mesi 27–29</em></b><p>Il soffio divino prende vita. Il ventre si risucchia, l'addome sostiene e ogni respiro coordinato ti riporta al presente.</p></div></li>
-      <li><img class="ck" src="img/ck-6.png?v=0e9a81c6" alt="" width="44" height="44"><div><b>6. Intenzione · Connetti Corpo-Mente-Cuore <em>Mesi 30–33</em></b><p>Il triangolo sacro. Il movimento articolare e la potenza della radice diventano un'unica sinfonia.</p></div></li>
-      <li><img class="ck" src="img/ck-7.png?v=1fc58b9d" alt="" width="44" height="44"><div><b>7. Respirazione · Total Posture · Allineamento · Connessione <em>Mesi 34–37</em></b><p>L'armonia perfetta. Il tuo asse centrale ritrova l'allineamento naturale divino.</p></div></li>
-      <li><img class="ck" src="img/ck-8.png?v=98e7c438" alt="" width="44" height="44"><div><b>8. Pura Vida · La libertà dell'essenza <em>Mesi 38–45</em></b><p>Il compimento. L'integrazione finale di tutto il potere biologico ed energetico che hai sbloccato nel tuo centro.</p></div></li>
+      <li><img class="ck" src="img/ck-1.png?v=ab6f8cab" alt="" width="44" height="44"><div><b>1. Tecnica · Basi · Metodologia <em>Mesi 1-4</em></b><p>Le fondamenta del tempio. Abitare il corpo nella presenza profonda attraverso l'uso del core, del pavimento pelvico e la stabilizzazione delle articolazioni.</p></div></li>
+      <li><img class="ck" src="img/ck-2.png?v=fa333bbc" alt="" width="44" height="44"><div><b>2. Percezione · Immaginazione <em>Mesi 5-10</em></b><p>Apertura degli occhi dell'anima. Ascolto profondo del sussurro del corpo e movimento focalizzato attivando il pavimento pelvico in totale presenza.</p></div></li>
+      <li><img class="ck" src="img/ck-3.png?v=bedd4453" alt="" width="44" height="44"><div><b>3. Consapevolezza · Tecnica · Mindset <em>Mesi 11-19</em></b><p>Il risveglio della mente. La tecnica si fonde con la coscienza: la forza del core diventa la stabilità del mindset nel mondo.</p></div></li>
+      <li><img class="ck" src="img/ck-4.png?v=48979b3b" alt="" width="44" height="44"><div><b>4. Energia e Chakra · Un Viaggio dentro il Corpo <em>Mesi 20-25</em></b><p>Attraverso i sette portali energetici, connessione dei muscoli profondi alla casa interiore.</p></div></li>
+      <li><img class="ck" src="img/ck-5.png?v=7ac683a1" alt="" width="44" height="44"><div><b>5. Respira · Una Danza tra Movimento e Respiro <em>Mesi 26-29</em></b><p>Il soffio divino prende vita. Il ventre si risveglia, l'addome sostiene e ogni respiro coordinato riporta al presente.</p></div></li>
+      <li><img class="ck" src="img/ck-6.png?v=0e9a81c6" alt="" width="44" height="44"><div><b>6. Intenzione · Connetti Corpo-Mente-Cuore <em>Mesi 30-33</em></b><p>Il triangolo sacro. Il movimento articolare e la potenza della radice diventano un'unica sinfonia.</p></div></li>
+      <li><img class="ck" src="img/ck-7.png?v=1fc58b9d" alt="" width="44" height="44"><div><b>7. Respirazione · Total Posture · Allineamento · Connessione <em>Mesi 34-37</em></b><p>L'armoria perfetta. L'asse centrale ritrova l'allineamento naturale divino.</p></div></li>
+      <li><img class="ck" src="img/ck-8.png?v=98e7c438" alt="" width="44" height="44"><div><b>8. Pura Vida · La libertà dell'essenza <em>Mesi 38-45</em></b><p>Il compimento. L'integrazione finale di tutto il potere biologico ed energetico sbloccato nel centro.</p></div></li>
     </ol>
-    <p class="m-note">Ogni allenamento è creato in modalità audio-video in streaming nelle versioni “breve” ed “estesa” che variano dai 35 ai 70 minuti.<br>Allenati dove vuoi e quando vuoi, l'attrezzatura è facoltativa e sconsigliata nelle fasi iniziali.</p>
+    <p class="m-note">Ogni allenamento è codificato in modalità audio-video in streaming nelle versioni “breve” ed “estesa”, con una variazione dai 35 ai 70 minuti. Pratica libera senza vincoli di luogo o orario; l'attrezzatura è facoltativa e sconsigliata nelle fasi iniziali.</p>
     <aside class="rule45">
-      <h3>La Regola d'Élite del Mese 45: Lo Sblocco Totale</h3>
-      <p>Durante il percorso, per mantenere la massima presenza e non frammentare la tua energia, le mensilità si attivano una alla volta e quelle passate si chiudono per lasciar spazio al presente. Ma al raggiungimento del Mese 45 avviene il compimento: l'intera piattaforma si sblocca simultaneamente. Mantenendo attivo il tuo abbonamento, avrai il controllo totale per navigare e rivivere qualsiasi modulo o allenamento tu desideri, senza più alcun vincolo temporale.</p>
+      <h3>La Regola d’Élite del Mese 45: Lo Sblocco Totale</h3>
+      <p>Durante il percorso, per mantenere la massima presenza e non frammentare l'energia, le mensilità si attivano una alla volta e quelle passate si chiudono per lasciare spazio al presente. Al raggiungimento del Mese 45 avviene il compimento: l'intera piattaforma si sblocca simultaneamente. Mantenendo attivo l'abbonamento, si ottiene il controllo totale per navigare e rivivere qualsiasi modulo o allenamento, senza più alcun vincolo temporale.</p>
     </aside>
   </div>
 </dialog>
@@ -628,21 +586,21 @@
 <dialog class="modal" id="modal-archivio" aria-labelledby="ma-title">
   <div class="modal-box">
     <button class="modal-x" data-close aria-label="Chiudi"><span>Chiudi</span></button>
-    <h2 class="display m-title" id="ma-title">Il tuo Spazio Sacro di Trasformazione Cellulare</h2>
+    <h2 class="display m-title" id="ma-title">Spazio Sacro di Trasformazione Cellulare</h2>
     <div class="pillars3">
       <article>
         <h3>1. Attivazioni Energetiche Profonde <small>Meditazioni Alchemiche Strutturate</small></h3>
-        <p>Ben oltre la classica meditazione passiva. Sono percorsi audio guidati che uniscono mente, corpo e spirito per viaggiare attraverso l'archetipo dei 4 Elementi: Terra (il dimagrimento e il gonfiore), Acqua (il mondo emotivo), Aria (l'auto-sabotaggio e la procrastinazione), Fuoco (il controllo e il perfezionismo). Attraverso la respirazione somatica e l'individuazione mirata dei blocchi interiori, accediamo direttamente al subconscio per permettere all'energia vitale di liberarsi. Un lavoro profondo diviso in tre direzioni: <strong>Alchimia Emotiva</strong> (per trasmutare le emozioni cristallizzate), <strong>Alchimia della Ricalibrazione</strong> (per resettare il sistema nervoso sovraccarico) e <strong>Alchimia del Corpo</strong> (per rilasciare le tensioni fisiche profonde, dagli sfinteri fino al cranio).</p>
-        <p class="dur">Durata media di ogni attivazione: 5–15 minuti</p>
+        <p>Ben oltre la classica meditazione passiva. Percorsi audio guidati che uniscono mente, corpo e spirito per viaggiare attraverso i quattro Archetipi della Trasmutazione: Terra, Acqua, Aria e Fuoco. Attraverso la respirazione somatica e l'individuazione mirata dei blocchi interiori, si accede direttamente al subconscio per permettere all'energia vitale di liberarsi. Un lavoro profondo diviso in tre direzioni assolute: <strong>Alchimia Emotiva</strong> (per trasmutare le emozioni cristallizzate), <strong>Alchimia della Ricalibrazione</strong> (per resettare il sistema nervoso sovraccarico) e <strong>Alchimia del Corpo</strong> (per rilasciare le tensioni fisiche profonde, dagli sfinteri fino al cranio).</p>
+        <p class="dur">Durata media di ogni attivazione: 5-15 minuti</p>
       </article>
       <article>
         <h3>2. Pratiche di Presenza Corporea</h3>
         <p>Sessioni di Kundalini Yoga per attivare l'energia vitale sopita, Yoga Nidra per la ricalibrazione profonda del sistema nervoso attraverso lo stato di rilassamento conscio, e Yin Yoga per il rilascio del tessuto connettivo e delle memorie traumatiche depositate nei muscoli.</p>
-        <p class="dur">Durata media di ogni sessione: 15–40 minuti</p>
+        <p class="dur">Durata media di ogni sessione: 15-40 minuti</p>
       </article>
       <article>
-        <h3>3. Sound Healing vibrazionale</h3>
-        <p>Trattamenti di frequenze sonore, e strumenti ancestrali che agiscono a livello cellulare. Ideali per resettare istantaneamente il sistema nervoso dall'iper-reattività, ripulire il campo magnetico e ristabilire una calma profonda.</p>
+        <h3>3. Sound Healing Vibrazionale</h3>
+        <p>Trattamenti di frequenze sonore e strumenti ancestrali che agiscono a livello cellulare. Ideali per resettare istantaneamente il sistema nervoso dall'iper-reattività, ripulire il campo magnetico e ristabilire calma profonda.</p>
         <p class="dur">Da 7 a 60 minuti per le sessioni diurne e fino a 8 ore per le notturne</p>
       </article>
     </div>
@@ -692,7 +650,67 @@
   </div>
 </dialog>
 
+<dialog class="modal modal-faq" id="modal-faq1" aria-labelledby="faq1-title">
+  <div class="modal-box">
+    <button class="modal-x" data-close aria-label="Chiudi"><span>Chiudi</span></button>
+    <p class="eyebrow">Domande Frequenti · Domande 01–05</p>
+    <h2 class="display m-title" id="faq1-title">01. Accesso e Abbonamenti</h2>
+    <div class="acc">
+        <details><summary><span class="q-n">01</span>Quali tipologie di accesso posso acquistare?</summary><div class="acc-a"><p>Puoi scegliere tra quattro durate: 1, 3, 6 o 12 mesi. Ogni formula ti permette di accedere ai contenuti di MB Program Élite per il periodo acquistato, secondo le modalità previste dai singoli programmi.</p></div></details>
+        <details><summary><span class="q-n">02</span>L'abbonamento si rinnova automaticamente?</summary><div class="acc-a"><p>No. Nessun rinnovo automatico e nessun addebito ricorrente. Alla scadenza sarai tu a decidere se e quando acquistare un nuovo periodo di accesso.</p></div></details>
+        <details><summary><span class="q-n">03</span>Cosa succede quando scade il mio abbonamento?</summary><div class="acc-a"><p>Il tuo account rimane attivo, ma l'accesso ai contenuti viene sospeso. Potrai continuare il percorso acquistando un nuovo periodo di accesso, senza doverti registrare nuovamente.</p></div></details>
+        <details><summary><span class="q-n">04</span>Se non rinnovo immediatamente, perdo i progressi raggiunti?</summary><div class="acc-a"><p>No. La piattaforma conserva la tua progressione nel Fitness Somatico. Anche dopo una pausa, potrai riprendere dalla mensilità successiva a quella già raggiunta.</p></div></details>
+        <details><summary><span class="q-n">05</span>Posso cambiare la durata dell'abbonamento al rinnovo?</summary><div class="acc-a"><p>Sì. Puoi scegliere liberamente una durata diversa da quella precedente. Per esempio, dopo un accesso di tre mesi, potrai acquistarne uno di sei o dodici.</p></div></details>
+      </div>
+  </div>
+</dialog>
+
+<dialog class="modal modal-faq" id="modal-faq2" aria-labelledby="faq2-title">
+  <div class="modal-box">
+    <button class="modal-x" data-close aria-label="Chiudi"><span>Chiudi</span></button>
+    <p class="eyebrow">Domande Frequenti · Domande 06–11</p>
+    <h2 class="display m-title" id="faq2-title">02. Fitness Somatico: le 45 Mensilità</h2>
+    <div class="acc">
+        <details><summary><span class="q-n">06</span>Come funziona il percorso Fitness Somatico?</summary><div class="acc-a"><p>Fitness Somatico è un percorso di allenamento progressivo, articolato in 45 mensilità. Ogni mese si apre una nuova fase del programma, progettata per accompagnarti attraverso una progressione strutturata.</p></div></details>
+        <details><summary><span class="q-n">07</span>Posso accedere subito a tutte le 45 mensilità?</summary><div class="acc-a"><p>No. Il percorso segue una progressione mensile: si parte dalla prima mensilità e si procede gradualmente fino alla quarantacinquesima.</p></div></details>
+        <details><summary><span class="q-n">08</span>Devo completare tutti gli allenamenti prima di passare alla mensilità successiva?</summary><div class="acc-a"><p>No. Il passaggio avviene automaticamente al termine di ogni mensilità, indipendentemente dal numero di allenamenti completati.</p></div></details>
+        <details><summary><span class="q-n">09</span>Posso tornare a una mensilità precedente?</summary><div class="acc-a"><p>Durante la progressione ordinaria, no. Quando si apre una nuova mensilità, quella precedente non è più accessibile. Il programma procede in avanti, una fase alla volta.</p></div></details>
+        <details><summary><span class="q-n">10</span>Cosa succede quando raggiungo la quarantacinquesima mensilità?</summary><div class="acc-a"><p>Si sblocca l'intero archivio di Fitness Somatico. Avrai accesso a tutte le 45 mensilità e potrai scegliere autonomamente quali allenamenti seguire, ripetere o approfondire, finché il tuo accesso al programma rimane attivo.</p></div></details>
+        <details><summary><span class="q-n">11</span>Una volta sbloccate tutte le mensilità, posso ricominciare dalla prima?</summary><div class="acc-a"><p>Sì. Una volta raggiunta la quarantacinquesima mensilità, potrai navigare liberamente nell'intero archivio, ripartire dall'inizio oppure selezionare le fasi che preferisci.</p></div></details>
+      </div>
+  </div>
+</dialog>
+
+<dialog class="modal modal-faq" id="modal-faq3" aria-labelledby="faq3-title">
+  <div class="modal-box">
+    <button class="modal-x" data-close aria-label="Chiudi"><span>Chiudi</span></button>
+    <p class="eyebrow">Domande Frequenti · Domande 12–16</p>
+    <h2 class="display m-title" id="faq3-title">03. Pause, Riprese e Ripartenze</h2>
+    <div class="acc">
+        <details><summary><span class="q-n">12</span>Posso interrompere il percorso per qualche mese?</summary><div class="acc-a"><p>Certamente. Non sei obbligato a rinnovare senza interruzioni. Puoi concederti una pausa e decidere successivamente quando tornare.</p></div></details>
+        <details><summary><span class="q-n">13</span>Se interrompo l'abbonamento, le mensilità continuano ad avanzare?</summary><div class="acc-a"><p>No. Durante il periodo in cui non hai un accesso attivo, la progressione si interrompe. Riprenderà quando acquisterai un nuovo periodo di accesso.</p></div></details>
+        <details><summary><span class="q-n">14</span>Se acquisto tre mesi, interrompo per due mesi e poi rinnovo, da dove riparto?</summary><div class="acc-a"><p>Riparti dalla quarta mensilità.</p><p>Per esempio, se completi un periodo di accesso di tre mesi e decidi di fermarti per gennaio e febbraio, acquistando un nuovo accesso a marzo riprenderai dalla quarta mensilità, indipendentemente dalla durata del nuovo acquisto.</p><p>La piattaforma conserva la progressione raggiunta.</p></div></details>
+        <details><summary><span class="q-n">15</span>Se dopo una lunga pausa desidero ricominciare dalla prima mensilità, posso farlo?</summary><div class="acc-a"><p>Sì. Puoi contattare l'assistenza MB Program Élite e richiedere il ripristino del percorso dalla prima mensilità.</p><p>È una possibilità pensata per chi desidera ricostruire gradualmente la propria pratica, riprendendo dalle basi.</p></div></details>
+        <details><summary><span class="q-n">16</span>Posso effettuare autonomamente il reset delle mensilità?</summary><div class="acc-a"><p>No. Per ripartire dalla prima mensilità durante il percorso progressivo, è necessario contattare l'assistenza, che provvederà al ripristino.</p></div></details>
+      </div>
+  </div>
+</dialog>
+
+<dialog class="modal modal-faq" id="modal-faq4" aria-labelledby="faq4-title">
+  <div class="modal-box">
+    <button class="modal-x" data-close aria-label="Chiudi"><span>Chiudi</span></button>
+    <p class="eyebrow">Domande Frequenti · Domande 17–20</p>
+    <h2 class="display m-title" id="faq4-title">04. Contenuti e Piattaforma</h2>
+    <div class="acc">
+        <details><summary><span class="q-n">17</span>Cosa comprende l'accesso a MB Program Élite?</summary><div class="acc-a"><p>L'accesso comprende:</p><ul class="acc-list"><li><b>Fitness Somatico:</b> il percorso progressivo di 45 mensilità.</li><li><b>Alchimia Spirituale:</b> l'archivio di Attivazioni Energetiche, Yoga e Sound Healing vibrazionale.</li><li><b>Workbook dell'1% Quotidiano:</b> uno strumento per accompagnare il lavoro personale.</li><li><b>App mobile dedicata:</b> per accedere al programma anche da dispositivo mobile.</li></ul></div></details>
+        <details><summary><span class="q-n">18</span>Se interrompo l'abbonamento, posso continuare a utilizzare i contenuti di Alchimia Spirituale?</summary><div class="acc-a"><p>No. Alla scadenza dell'accesso, i contenuti riservati del portale non sono più fruibili. Tornano disponibili quando acquisti un nuovo periodo di accesso.</p></div></details>
+        <details><summary><span class="q-n">19</span>Posso accedere alla piattaforma anche quando l'abbonamento è scaduto?</summary><div class="acc-a"><p>Sì. Il tuo account rimane attivo, ma i contenuti riservati non possono essere aperti fino alla riattivazione dell'accesso.</p></div></details>
+        <details><summary><span class="q-n">20</span>A chi posso rivolgermi se ho bisogno di assistenza?</summary><div class="acc-a"><p>Puoi contattare l'assistenza MB Program Élite per ricevere supporto sull'accesso alla piattaforma, sulla progressione delle mensilità o per richiedere il ripristino del percorso dall'inizio.</p></div></details>
+      </div>
+  </div>
+</dialog>
+
 <script src="js/main.js?v=0a2eae65"></script>
-<script src="js/fx.js?v=532f66b4"></script>
+<script src="js/fx.js?v=d589ef1a"></script>
 </body>
 </html>
