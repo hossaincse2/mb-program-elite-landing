@@ -8,8 +8,9 @@
 <link rel="icon" href="img/butterfly.svg?v=c33aef92" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/dashboard.css?v=2f175c3f">
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/Elemental.ttf?v=8f1ffe6e" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="css/dashboard.css?v=405e3f05">
 </head>
 <body class="dash">
 
@@ -30,9 +31,10 @@
 <!-- ================= HOME ================= -->
 <section class="view is-on" id="v-home" aria-label="Home">
   <div class="wrap">
-    <!-- solo il nome di battesimo (dal backend: data-nome sul body), nient'altro sotto -->
     <div class="hello">
-      <p class="hello-t">Benvenuta <span id="nome">Sovrana</span>,</p>
+      <p class="hello-t">Benvenuta <b id="nome">Sovrana</b>,</p>
+      <p class="hello-s">pronta per la tua sfida?</p>
+      <p class="sub-badge" title="Abbonamento unico: Fitness Somatico + Alchimia Spirituale"><span>Abbonamento attivo</span> 97 giorni · 26/01/27</p>
     </div>
 
     <!-- calendario -->
@@ -58,17 +60,17 @@
     <section class="sec" id="sec-sacro">
       <header class="sec-h"><h2 class="alch">IL TUO SPAZIO SACRO</h2></header>
       <div class="sacro-list" id="sacro-list">
-        <!-- barre pulite tono su tono: l'artwork appare solo nel pop-up -->
-        <button class="sacro" data-sacro="percorsi"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">I Percorsi Alchemici</span><svg class="s-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg></button>
-        <button class="sacro" data-sacro="geometrie"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">Geometrie del Corpo</span><svg class="s-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg></button>
-        <button class="sacro" data-sacro="sound"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">Sound Healing Vibrazionale</span><svg class="s-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg></button>
+        <!-- icone/emoji rimosse: solo glifo oro ✦ + nuove foto di Fiorella -->
+        <button class="sacro" data-sacro="percorsi"><img src="img/dash/pr-percorsi.jpg?v=960ce127" alt="" loading="lazy" width="1600" height="900"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">I Percorsi Alchemici</span><span class="s-go" aria-hidden="true">♦</span></button>
+        <button class="sacro" data-sacro="geometrie"><img src="img/dash/pr-geometrie.jpg?v=7bc58c65" alt="" loading="lazy" width="1600" height="900"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">Geometrie del Corpo</span><span class="s-go" aria-hidden="true">♦</span></button>
+        <button class="sacro" data-sacro="sound"><img src="img/dash/pr-sound.jpg?v=49d31210" alt="" loading="lazy" width="1600" height="900"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">Sound Healing Vibrazionale</span><span class="s-go" aria-hidden="true">♦</span></button>
       </div>
     </section>
 
-    <!-- RINNOVO: nero opaco con filo d'oro; solo il bottone in velluto bordeaux -->
+    <!-- RINNOVO: bottone trasparente, filo oro satinato 1px -->
     <aside class="renew" aria-label="Rinnovo">
       <p>Hai terminato il programma del mese e vuoi iniziare il successivo?</p>
-      <a class="btn-velvet" href="https://www.mb-elite.com/welcome" rel="noopener">Rinnova <span aria-hidden="true">→</span></a>
+      <a class="btn-ghost" href="https://www.mb-elite.com/welcome" rel="noopener">Rinnova <span aria-hidden="true">→</span></a>
     </aside>
   </div>
 </section>
@@ -163,7 +165,7 @@
 <!-- ================= PRATICA (lista video interna) ================= -->
 <section class="view" id="v-pratica" aria-label="Pratica">
   <div class="wrap">
-    <button class="back" id="pv-back" data-go="attivita">← Le Mie Pratiche</button>
+    <button class="back" data-go="attivita">← Le Mie Pratiche</button>
     <header class="blk-h"><p class="eyebrow" id="pv-n"></p><h1 class="alch" id="pv-t"></h1></header>
     <div class="vid-grid" id="vid-grid"></div>
   </div>
@@ -183,10 +185,10 @@
       <div class="mcal-wd" aria-hidden="true"><span>L</span><span>M</span><span>M</span><span>G</span><span>V</span><span>S</span><span>D</span></div>
       <div class="mcal-grid" id="mc-grid" role="grid"></div>
     </div>
-    <p class="ring-key" aria-hidden="true"><span><i class="kw"></i>Allenamento</span><span><i class="km"></i>Meditazione</span><span><i class="kb"></i>Entrambe</span></p>
+    <p class="ring-key" aria-hidden="true"><span><i></i>Nessuna pratica</span><span><i class="k1"></i>1 su 2</span><span><i class="k2"></i>Allineamento completo</span></p>
     <div class="dia-day">
       <h3 id="dia-date">Lunedì 26 Ott 2026</h3>
-      <button class="btn-velvet btn-sm" data-open="m-add">+ Aggiungi</button>
+      <button class="btn-ghost btn-sm" data-open="m-add">+ Aggiungi</button>
     </div>
     <!-- le 2 pratiche che accendono l'anello del giorno -->
     <div class="core" id="core">
@@ -330,6 +332,6 @@
 </div>
 
 <canvas id="fx-c" hidden></canvas>
-<script src="js/dashboard.js?v=b25e7aad"></script>
+<script src="js/dashboard.js?v=fde0a660"></script>
 </body>
 </html>

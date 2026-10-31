@@ -18,9 +18,6 @@
   };
   function els(list) { return '<span class="els">' + (list || []).map(function (k) { return '<svg viewBox="0 0 24 24" role="img" aria-label="' + EL[k][0] + '">' + EL[k][1] + '</svg>'; }).join('') + '</span>'; }
 
-  /* nome di battesimo dal backend (<body data-nome="…">) */
-  if (d.body.getAttribute('data-nome')) $('#nome').textContent = d.body.getAttribute('data-nome');
-
   /* ---------- filtro globale: moduli eliminati dal portale ---------- */
   var HIDE = /reset your mind|modulo consapevolezza|consapevolezza delle emozioni/i;
   function hideRemoved() { $$('li, details, .sacro, .mo, .vid').forEach(function (el) { if (HIDE.test(el.textContent)) el.style.display = 'none'; }); }
@@ -139,7 +136,7 @@
   var SENTIERI = ['I', 'II', 'III', 'IV', 'V', 'VI'];
   var SACRO = {
     percorsi: { t: 'I Percorsi Alchemici', img: 'img/dash/pr-percorsi-center.jpg', sub: 'Viaggi di trasmutazione per sciogliere i blocchi profondi e ritrovare la tua Sovranità.',
-      teach: [['Incrollabile: Dallo Zero alla Luce', '', 'incrollabile'], ['Alchimia Emotiva', '', 'alchimia'], ['Ricalibrazione del Sistema Nervoso', '', 'ricalibrazione']] },
+      teach: [['Incrollabile: Dallo Zero alla Luce', '3 fasi', 'incrollabile'], ['Alchimia Emotiva', '2 fasi', 'alchimia'], ['Ricalibrazione del Sistema Nervoso', '3 fasi', 'ricalibrazione']] },
     geometrie: { t: 'Geometrie del Corpo', img: 'img/dash/pr-geometrie.jpg', sub: 'Sequenze somatiche profonde per risvegliare l’energia vitale e rilasciare lo stress attraverso il movimento sacro.',
       teach: [['Kundalini Yoga', 'con Monica', 'geometrie'], ['Yin Yoga', 'con Greta', 'geometrie'], ['Yoga Nidra', 'con Camila', 'geometrie']],
       acc: 'I 6 Sentieri' },
@@ -152,7 +149,7 @@
       $('#sc-img').src = s.img;
       $('#sc-t').textContent = s.t;
       $('#sc-sub').textContent = s.sub;
-      $('#sc-teach').innerHTML = s.teach.map(function (t) { return '<button type="button" data-pr="' + t[2] + '" data-teacher="' + t[0] + '"><b>' + t[0] + '</b>' + (t[1] ? '<span>' + t[1] + '</span>' : '') + '<i aria-hidden="true">→</i></button>'; }).join('');
+      $('#sc-teach').innerHTML = s.teach.map(function (t) { return '<button type="button" data-pr="' + t[2] + '" data-teacher="' + t[0] + '"><b>' + t[0] + '</b><span>' + t[1] + '</span><i aria-hidden="true">→</i></button>'; }).join('');
       $('#sc-h').textContent = s.acc || '';
       $('#sc-acc').innerHTML = s.acc ? SENTIERI.map(function (n) {
         return '<details><summary><small>' + n + '</small>Sentiero ' + n + '</summary><div class="acc-in"><p>Qui restano invariati i testi e i video del Sentiero già formattati da Marica.</p><a class="go" href="#" data-go="lezione">Entra nel Sentiero <span aria-hidden="true">→</span></a></div></details>';
@@ -163,7 +160,7 @@
   });
   $('#sc-teach').addEventListener('click', function (e) {
     var t = e.target.closest('[data-pr]'); if (!t) return;
-    $('#m-sacro').close(); openPratica(t.getAttribute('data-pr'), t.getAttribute('data-teacher'), 'home');
+    $('#m-sacro').close(); openPratica(t.getAttribute('data-pr'), t.getAttribute('data-teacher'));
   });
   $('#sc-acc').addEventListener('click', function (e) {
     var a = e.target.closest('a.go'); if (!a) return; e.preventDefault(); e.stopPropagation();
@@ -206,9 +203,8 @@
   });
   $('#pr-grid').addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.pr')) { e.preventDefault(); openPratica(e.target.getAttribute('data-pr')); } });
 
-  function openPratica(k, teacher, from) {
+  function openPratica(k, teacher) {
     var p = PRK[k];
-    var bk = $('#pv-back'); bk.setAttribute('data-go', from || 'attivita'); bk.textContent = from === 'home' ? '← Home' : '← Le Mie Pratiche';
     $('#pv-n').textContent = p.n + ' Pratiche';
     $('#pv-t').textContent = p.t;
     var list = p.v;
@@ -218,7 +214,6 @@
       return '<button type="button" class="vid" data-v="' + v[1] + '" data-c="' + v[3] + '"><img src="' + COVER[v[3]] + '" alt="" loading="lazy" width="1600" height="900"' + (v[3] === 'breve' ? ' class="light"' : '') + '><span><span class="db-tag">' + v[0] + '</span><h4>' + v[1] + '</h4><span class="vid-m">' + (v[4] ? els(v[4]) : '') + '<span>' + dur + '</span></span></span></button>';
     }).join('');
     go('pratica');
-    if (from) $$('.d-nav button').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-go') === from); });
   }
   $('#vid-grid').addEventListener('click', function (e) {
     var v = e.target.closest('.vid'); if (!v) return;
@@ -307,7 +302,7 @@
     for (var i = 1; i <= 24; i++) { var dd = new Date(s0); dd.setDate(s0.getDate() - i); var r = (dd.getDate() * 7 + dd.getMonth() * 3) % 5; if (r) core[key(dd)] = { w: r > 2 ? 1 : 0, m: r !== 3 ? 1 : 0 }; }
     store('mb_core', JSON.stringify(core));
   }
-  function ring(dt) { var c = core[key(dt)]; if (!c || !(c.w || c.m)) return ''; return c.w && c.m ? ' rb' : c.w ? ' rw' : ' rm'; } // rw allenamento · rm meditazione · rb entrambe
+  function ring(dt) { var c = core[key(dt)]; var n = c ? (c.w ? 1 : 0) + (c.m ? 1 : 0) : 0; return n ? ' r' + n : ''; }
 
   /* ---------- calendario settimanale (home) ---------- */
   var MONTHS = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
