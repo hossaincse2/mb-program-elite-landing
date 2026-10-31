@@ -224,12 +224,12 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke
 
 /* ===== Le Mie Pratiche ===== */
 .pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:34px auto 30px}
-.pr{position:relative;display:flex;flex-direction:column;aspect-ratio:4/5;overflow:hidden;text-align:left;padding:0;background:rgba(31,28,25,.38);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border:1px solid rgba(168,138,74,.55);border-radius:14px;color:var(--txt);transition:transform .45s var(--ease),border-color .3s,box-shadow .45s}
+.pr{position:relative;display:flex;flex-direction:column;overflow:hidden;text-align:left;padding:0;background:rgba(31,28,25,.38);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border:1px solid rgba(168,138,74,.55);border-radius:14px;color:var(--txt);transition:transform .45s var(--ease),border-color .3s,box-shadow .45s}
 .pr:hover{transform:translateY(-3px);border-color:var(--gold-l);box-shadow:0 22px 44px -26px rgba(198,161,91,.55)}
-.pr-img{position:relative;flex:1;min-height:0}
-.pr-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease)}
-.pr:hover .pr-img img{transform:scale(1.04)}
-.pr-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,21,19,0) 45%,rgba(23,21,19,.92))}
+.pr-img{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.pr-img img{width:100%;height:100%;object-fit:contain;display:block;transition:filter .6s}
+.pr:hover .pr-img img{filter:brightness(1.08)}
+.pr-b{border-top:1px solid rgba(168,138,74,.2)}
 .pr-n{position:absolute;top:12px;right:14px;z-index:2;font-size:12px;letter-spacing:.06em;color:var(--ivory);padding:3px 10px;border-radius:999px;background:rgba(0,0,0,.45);border:1px solid rgba(168,138,74,.35)}
 .pr-b{position:relative;display:flex;align-items:flex-end;gap:12px;padding:16px 18px 18px;min-height:96px}
 .pr h3{flex:1;font-family:var(--f-disp);font-weight:400;font-size:clamp(16px,1.7vw,19px);letter-spacing:.05em;line-height:1.25;color:var(--gold-l)}
@@ -238,7 +238,7 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke
 .pr-i:hover{background:rgba(168,138,74,.18)}
 .pr-plus{flex:none;color:var(--gold-l);font-size:18px;line-height:30px}
 @media (max-width:900px){.pr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.pr-grid{grid-template-columns:1fr}.pr{aspect-ratio:5/4}}
+@media (max-width:520px){.pr-grid{grid-template-columns:1fr}}
 
 /* lista interna video */
 .vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:20px}
@@ -260,7 +260,7 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke
 .post{display:flex;flex-direction:column;text-align:left;padding:0;background:rgba(31,28,25,.38);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border:1px solid rgba(154,116,60,.6);border-radius:14px;overflow:hidden;color:var(--txt);transition:transform .4s var(--ease),border-color .4s}
 .post:hover{transform:translateY(-3px);border-color:var(--gold-l)}
 .post[hidden]{display:none}
-.post img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+.post img{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#000;display:block}
 .post div{padding:16px 20px 20px}
 .post h3{font-size:18px;margin:4px 0 6px;color:var(--champ)}
 .post p:last-child{font-size:14px;color:var(--dim)}
@@ -328,8 +328,8 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke
 /* modale Spazio Sacro (Geometrie del Corpo ecc.) */
 .dlg-sacro .dlg-box{padding:0}
 .sc-head{position:relative;aspect-ratio:16/9;background:#000}
-.sc-head img{width:100%;height:100%;object-fit:cover;display:block;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);mask-image:linear-gradient(180deg,#000 60%,transparent)}
-.sc-body{padding:0 clamp(22px,4vw,40px) clamp(22px,4vw,40px);margin-top:-5%;position:relative}
+.sc-head img{width:100%;height:100%;object-fit:contain;display:block}
+.sc-body{padding:0 clamp(22px,4vw,40px) clamp(22px,4vw,40px);padding-top:22px;position:relative}
 .sc-body h2{font-size:clamp(24px,3.2vw,34px);margin-bottom:8px}
 .sc-sub{color:var(--ivory);font-size:16px;line-height:1.7;margin-bottom:22px}
 .dlg-sacro .x{position:absolute;float:none;top:14px;right:14px;margin:0}
