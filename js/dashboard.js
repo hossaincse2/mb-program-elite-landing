@@ -135,7 +135,7 @@
   /* ---------- Spazio Sacro: 3 modali ---------- */
   var SENTIERI = ['I', 'II', 'III', 'IV', 'V', 'VI'];
   var SACRO = {
-    percorsi: { t: 'I Percorsi Alchemici', img: 'img/dash/pr-percorsi.jpg', sub: 'Viaggi di trasmutazione per sciogliere i blocchi profondi e ritrovare la tua Sovranità.',
+    percorsi: { t: 'I Percorsi Alchemici', img: 'img/dash/pr-percorsi-center.jpg', sub: 'Viaggi di trasmutazione per sciogliere i blocchi profondi e ritrovare la tua Sovranità.',
       teach: [['Incrollabile: Dallo Zero alla Luce', '3 fasi', 'incrollabile'], ['Alchimia Emotiva', '2 fasi', 'alchimia'], ['Ricalibrazione del Sistema Nervoso', '3 fasi', 'ricalibrazione']] },
     geometrie: { t: 'Geometrie del Corpo', img: 'img/dash/pr-geometrie.jpg', sub: 'Sequenze somatiche profonde per risvegliare l’energia vitale e rilasciare lo stress attraverso il movimento sacro.',
       teach: [['Kundalini Yoga', 'con Monica', 'geometrie'], ['Yin Yoga', 'con Greta', 'geometrie'], ['Yoga Nidra', 'con Camila', 'geometrie']],
@@ -331,7 +331,7 @@
   /* ---------- Blog (lettura interna) ---------- */
   var POSTS = [
     { c: 'corpo-sacro', cn: 'Corpo Sacro', img: 'img/dash/pr-movimento.jpg', t: 'Titolo dell’articolo', ex: 'Breve estratto dell’articolo. I contenuti reali arrivano dal database del blog.' },
-    { c: 'alchimia', cn: 'Alchimia', img: 'img/dash/pr-percorsi.jpg', t: 'Titolo dell’articolo', ex: 'Breve estratto dell’articolo. I contenuti reali arrivano dal database del blog.' },
+    { c: 'alchimia', cn: 'Alchimia', img: 'img/dash/pr-percorsi-center.jpg', t: 'Titolo dell’articolo', ex: 'Breve estratto dell’articolo. I contenuti reali arrivano dal database del blog.' },
     { c: 'coscienza', cn: 'Coscienza', img: 'img/dash/pr-alchimia.jpg', t: 'Titolo dell’articolo', ex: 'Breve estratto dell’articolo. I contenuti reali arrivano dal database del blog.' }
   ];
   $('#blog-grid').innerHTML = POSTS.map(function (p, i) { return '<button type="button" class="post" data-post="' + i + '" data-c="' + p.c + '"><img src="' + p.img + '" alt="" loading="lazy" width="1600" height="900"><div><p class="eyebrow">' + p.cn + '</p><h3>' + p.t + '</h3><p>' + p.ex + '</p></div></button>'; }).join('');
