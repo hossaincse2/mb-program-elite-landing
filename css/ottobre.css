@@ -337,3 +337,23 @@
 .hero>.filo{left:var(--filo-x)}
 .hero-inner{padding-left:calc(var(--filo-x) + clamp(16px,2vw,34px))}
 @media (max-width:600px){.hero-inner{padding-left:calc(var(--filo-x) + 16px)}}
+
+/* ---------- 400 W come #watt di alchimiadellasovrana.it ----------
+   alone champagne che illumina tutta la sezione, velo scuro dietro il numero,
+   ellisse "coil" bordeaux-oro sotto il numero, geometria sottile, numerale Georgia */
+.capacita{overflow:hidden;min-height:100svh;display:grid;align-content:center}
+.capacita::before{inset:auto;left:50%;top:40%;width:136vmax;aspect-ratio:1;translate:-50% -50%;border-radius:50%;opacity:.72;
+  background:radial-gradient(circle,hsla(41,52%,78%,.55),transparent 62%)}
+.capacita .watt{display:inline-block;isolation:isolate;margin:clamp(20px,4vh,40px) auto 0;padding:clamp(30px,6vh,60px) clamp(20px,4vw,60px)}
+.watt-aura{left:-18%;right:-18%;top:-12%;bottom:-12%;width:auto;height:auto;translate:none;border-radius:0;z-index:-1;
+  background:radial-gradient(ellipse at 50% 52%,rgb(14 13 12/.62) 0%,rgb(14 13 12/.45) 46%,transparent 74%)}
+.capacita .watt .glow{position:absolute;left:50%;top:86%;bottom:auto;width:62vmin;height:26vmin;translate:-50% -50%;transform:none;z-index:-2;
+  background:radial-gradient(ellipse at 50% 50%,rgb(100 30 43/.95) 0%,rgb(198 161 91/.9) 30%,hsla(41,52%,78%,.35) 46%,transparent 58%);
+  filter:none;opacity:1;mix-blend-mode:normal;animation:none;border-radius:0}
+.watt-geo{width:min(58vmin,52svh);translate:-50% -58%;opacity:.5;color:#c9b07a;animation:none;z-index:-3}
+.capacita .watt .display{font-family:Georgia,"Gelasio","Times New Roman",serif;font-weight:400;font-size:clamp(3.75rem,1.3821rem + 9.7143vw,10.125rem);
+  line-height:.82;letter-spacing:-.03em;font-variant-numeric:tabular-nums lining-nums;color:#e4d2aa;text-shadow:none;text-transform:none}
+.capacita .watt-scale{margin-bottom:0}
+.watt-dust::before,.watt-dust::after{opacity:.55}
+.capacita .watt .kr{margin-right:0}
+.capacita .watt .display{font-variant-numeric:oldstyle-nums tabular-nums}
