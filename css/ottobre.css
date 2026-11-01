@@ -357,3 +357,224 @@
 .watt-dust::before,.watt-dust::after{opacity:.55}
 .capacita .watt .kr{margin-right:0}
 .capacita .watt .display{font-variant-numeric:oldstyle-nums tabular-nums}
+
+/* ==========================================================
+   MODIFICHE 1 NOVEMBRE
+   ========================================================== */
+
+/* ---------- 1 · HERO: pavimento lucido (marmo nero / specchio d'acqua) con taglio netto ---------- */
+.hero-floor{position:absolute;left:0;right:0;bottom:0;height:clamp(110px,19vh,190px);z-index:0;pointer-events:none;overflow:hidden;
+  border-top:1px solid rgba(228,190,120,.2);border-bottom:1px solid rgba(198,161,91,.5);
+  background:
+    radial-gradient(ellipse 20% 70% at 70% 0%,rgb(240 170 80/.32),transparent 70%),
+    radial-gradient(ellipse 30% 40% at 70% 0%,rgb(255 214 150/.14),transparent 70%),
+    radial-gradient(ellipse 18% 55% at 24% 0%,rgb(228 190 120/.14),transparent 70%),
+    linear-gradient(180deg,#0e0c0b 0%,#060505 100%)}
+.hero-floor::before{content:"";position:absolute;inset:0;background:url(../img/marble.jpg?v=c2f1e755) center/cover;filter:invert(1) grayscale(1);opacity:.07;mix-blend-mode:screen}
+.hero-floor::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(255 236 200/.07) 0,transparent 35%),
+  repeating-linear-gradient(90deg,transparent 0 140px,rgb(255 230 190/.025) 140px 141px)}
+.hero-photo{background:transparent}
+.hero-photo::after{content:none}
+.hero-photo img{mix-blend-mode:screen}
+/* sotto il pavimento il blocco seguente parte nero opaco */
+.piombo{--join-prev-rgb:11 10 9;border-top:0}
+
+/* logo più in alto, titolo Cinzel leggibile, pulsante più staccato dal testo */
+.hero-arch{justify-content:flex-start;padding-top:clamp(28px,4.4vh,44px)}
+.hero-arch .hero-logo{margin-top:6px}
+.hero-brand{margin-bottom:auto!important}
+.hero-arch .hero-title{font-family:"Cinzel",Georgia,serif;font-weight:500;text-transform:none;letter-spacing:.02em;line-height:1.18;
+  font-size:clamp(26px,min(2.6vw,4.8vh),42px);padding-top:clamp(14px,3vh,30px)}
+.hero-arch .hero-title .kr{margin-right:0}
+.hero-cta{margin-top:clamp(34px,6vh,60px)!important;margin-bottom:auto!important}
+
+/* ---------- 2 · Nastri contenuti nei margini (come il sito precedente), rami a tutta larghezza ---------- */
+.marquee-set .marquee{width:min(1180px,calc(100% - 2 * (var(--filo-x) + 48px)));margin-inline:auto;border-block:0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-set>.marquee:first-of-type{border-top:1px solid rgba(168,138,74,.6)}
+.marquee-set>.marquee:last-of-type{border-bottom:1px solid rgba(168,138,74,.6)}
+.marquee-set .sigil-rule{display:none}
+
+/* Dal piombo all'oro: immagine originale a colori, nessun filtro grigio, proporzione del sito precedente */
+.manifesto .art.alch-fig{width:min(920px,100% - 44px);min-width:0;background:transparent;outline:0;box-shadow:0 40px 80px -40px rgba(23,21,19,.6)}
+.alch-fig::after{content:none}
+.alch-fig .alch-img{display:block;width:100%;height:auto;filter:none}
+
+/* ---------- 3 · elenco piombo/oro protagonista, paragrafo secondario ---------- */
+.manifesto .pairs{max-width:760px;gap:22px}
+.manifesto .pairs li{font-size:clamp(18px,1.55vw,22px);grid-template-columns:1fr clamp(90px,13vw,170px) 1fr;gap:18px}
+.manifesto .pairs span{color:#171513;font-weight:600}
+.manifesto .pairs b{color:#76513a;font-weight:600;opacity:1}
+.manifesto .pairs i{background:linear-gradient(90deg,#8a6a3e 0,#8a6a3e 50%,rgba(23,21,19,.18) 50%)}
+.manifesto .pairs i::before{content:none}
+.manifesto .pairs i::after{left:50%;top:50%;margin:0;translate:-50% -50%;width:13px;height:13px;border-radius:50%;
+  background:radial-gradient(circle,#2b241d 0 3px,transparent 3.5px) #fbf8f1;box-shadow:0 0 0 1px #2b241d}
+.manifesto .manifesto-text{font-size:clamp(15.5px,1.15vw,17px);line-height:1.95;max-width:46em}
+
+/* ---------- 4 · passaggio verso Il Viaggio: fascia scura netta con i rami sopra, filetti d'oro ---------- */
+.manifesto{--out:140px}
+.elementi-head{background:linear-gradient(180deg,#221e1b 0,#221e1b 168px,#0e0d0c 168px,#0e0d0c 288px,rgb(14 13 12/0) 288px),var(--surface-journey)}
+.sigil-divider{height:168px;padding:0;margin-bottom:clamp(170px,16vw,220px);display:grid;align-content:center}
+.sigil-divider::before{content:"";position:absolute;left:50%;top:22px;translate:-50% 0;width:min(1180px,calc(100% - 2 * (var(--filo-x) + 48px)));height:1px;background:rgba(168,138,74,.7)}
+.sigil-divider .sigil-line{position:absolute;left:50%;bottom:20px;translate:-50% 0;margin:0;width:min(1180px,calc(100% - 2 * (var(--filo-x) + 48px)));background:rgba(168,138,74,.7)}
+
+/* ---------- 5/6 · Il Portale: diagonale unica e continua, sfumature morbide, fino sotto al nastro ---------- */
+.ecosistema{background:var(--join-in),
+  radial-gradient(ellipse 40% 45% at 12% 45%,rgb(226 200 140/.35),transparent 70%),
+  linear-gradient(180deg,var(--albedo-hi) 0,var(--albedo-lo) 62%,#2a2420 calc(100% - 300px),#14110f calc(100% - 200px),#14110f 100%)}
+.portale-wall{top:clamp(120px,12vw,180px);clip-path:polygon(70% 0,100% 0,100% 100%,0 100%,0 80%);
+  background:linear-gradient(180deg,#2a2420 0,#1a1613 45%,#14110f 100%);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%);mask-image:linear-gradient(180deg,transparent 0,#000 16%)}
+.portale-wall::before{background:linear-gradient(118deg,transparent 30%,rgb(242 235 221/.05) 48%,transparent 66%)}
+.ecosistema>.wrap{padding-bottom:clamp(60px,7vw,100px)}
+.ecosistema>.marquee-set{position:relative;z-index:1;background:transparent;padding-bottom:clamp(40px,5vw,70px)}
+
+/* ---------- 7 · La Biologia Sacra: il bordeaux parte subito sotto il nastro ---------- */
+.posa{--join-fade:150px;padding-top:calc(150px + clamp(60px,7vw,100px))}
+
+/* ---------- 8 · 400 W: bordeaux continuo, luce solo al centro ---------- */
+.capacita::before{inset:0;left:0;top:0;width:auto;aspect-ratio:auto;translate:none;border-radius:0;opacity:1;
+  background:radial-gradient(ellipse 34% 32% at 50% 40%,rgb(214 170 110/.24),rgb(150 80 70/.12) 50%,transparent 75%)}
+.capacita{--join-prev-rgb:44 23 27}
+
+/* ---------- 9 · Il corpo: verticale, sottile, linee larghe ---------- */
+.corpo .body-list{max-width:none;width:min(1180px,calc(100% - 2 * (var(--filo-x) + 48px)));margin-inline:auto;border-top:1px solid rgba(23,21,19,.1)}
+.corpo .body-list li{flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:30px 0;border-bottom:1px solid rgba(23,21,19,.1)}
+.corpo .body-list small{min-width:0;text-align:center;font-size:13px}
+.corpo .body-list span{min-width:0;text-align:center;font-family:Georgia,"Gelasio",serif;font-weight:400;font-size:clamp(20px,1.8vw,24px);line-height:1.3}
+
+/* ---------- 10 · Testimonianze: avorio seta più chiaro, titolo 1/3 a sinistra, schede 2/3 a destra ---------- */
+.testi{background:radial-gradient(ellipse 50% 40% at 70% 30%,rgb(255 255 255/.55),transparent 70%),linear-gradient(180deg,#f7f2e8 0,#fdfbf6 140px,#fbf8f2 100%);padding-top:clamp(70px,8vw,120px)}
+.testi-grid{width:min(1320px,calc(100% - 2 * (var(--filo-x) + 40px)));display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.1fr);gap:clamp(32px,4vw,64px);align-items:start}
+.testi-head{position:sticky;top:calc(var(--hh) + 40px)}
+.testi-head .eyebrow{margin:0 0 14px}
+.testi-head .h-lg{text-align:left;margin:0;font-size:clamp(1.75rem,1.2rem + 1.6vw,2.75rem)}
+.testi .t-track{grid-auto-columns:calc((100% - 40px)/3);gap:20px}
+.testi .t-card{padding:32px 22px 26px}
+@media (max-width:1023.98px){
+  .testi-grid{grid-template-columns:1fr;width:calc(100% - 40px)}
+  .testi-head{position:static;text-align:center}
+  .testi-head .h-lg{text-align:center}
+  .testi .t-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -20px;padding-inline:20px}
+  .testi .t-card{flex:0 0 min(82%,360px);scroll-snap-align:center}
+  .testi .t-dots{display:flex}
+}
+
+/* ---------- 11 · Prezzi: 3 mesi in evidenza ---------- */
+.plan[data-months="3"]{transform:scale(1.05);z-index:1;border-color:#e4d2aa;box-shadow:0 0 0 1px rgba(228,210,170,.45),0 0 60px -6px rgba(198,161,91,.6),0 0 120px -20px rgba(198,161,91,.4)}
+.plan[data-months="3"]:hover{transform:scale(1.07)}
+/* checkout: testi sotto il pulsante ben leggibili */
+.stripe-line,.no-renew,.unlock-note,.chosen-month,.chosen-price span{color:#ece3d3}
+.stripe-line b{color:#f2e6c4}
+.include .eyebrow{color:#e4d2aa}
+.include li{color:#f4ecdf}
+.include li strong{color:#f2e6c4}
+.closing{color:#e4d2aa}
+
+/* ---------- Newsletter → footer: sfumatura avorio → nero, filo che si spegne, social più ariosi ---------- */
+.newsletter{background:var(--join-in),linear-gradient(0deg,#000 0,rgb(0 0 0/.85) 40px,rgb(0 0 0/.5) 100px,rgb(0 0 0/.18) 150px,rgb(0 0 0/0) 200px),var(--surface-marble);padding-bottom:calc(var(--pad-section) + 120px)}
+.newsletter>.filo{-webkit-mask-image:linear-gradient(180deg,#000 0,#000 calc(100% - 320px),transparent calc(100% - 200px));mask-image:linear-gradient(180deg,#000 0,#000 calc(100% - 320px),transparent calc(100% - 200px))}
+.site-footer{border-top:0}
+.social{padding-block:22px;margin-bottom:30px;gap:14px 30px}
+
+/* ---------- logo originale (farfalla + MB / PROGRAM) nel nuovo oro ---------- */
+.brand img{width:30px;height:30px;object-fit:contain}
+.brand-txt b{font-family:"Montserrat",Arial,sans-serif;font-weight:700;font-size:21px;letter-spacing:.01em;line-height:1;
+  background:linear-gradient(180deg,#f3e3bb,#c9a25c 70%,#a8823f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.brand-txt i{font-family:"Montserrat",Arial,sans-serif;font-weight:600;font-size:8px;letter-spacing:.1em;color:#b8924f;margin-top:2px}
+
+/* ---------- pop-up Codice Somatico: video Vimeo su copertina dei chakra ---------- */
+.video-slot{overflow:hidden;background:#000;padding:0}
+.video-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video-play{position:relative;z-index:1;display:grid;place-items:center;width:100%;height:100%;background:radial-gradient(circle at 50% 50%,rgb(0 0 0/.15),rgb(0 0 0/.45));border:0;cursor:pointer}
+.video-play .play{width:78px;height:78px;background:rgb(10 8 7/.55);backdrop-filter:blur(2px);transition:transform .3s,background .3s}
+.video-play:hover .play,.video-play:focus-visible .play{transform:scale(1.08);background:rgb(10 8 7/.75)}
+.video-slot iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.video-slot.is-playing .video-play{visibility:hidden}
+
+/* ---------- 1 novembre · ritocchi dopo la verifica ---------- */
+/* pavimento dentro .hero-inner: la foto (fondo nero) si fonde in "screen" e i piedi poggiano sul riflesso */
+.hero-inner>.hero-floor{left:0;right:0;bottom:-18px;height:clamp(120px,20vh,200px);border-top:0;
+  background:
+    radial-gradient(ellipse 1.1% 85% at 59% 0%,rgb(255 190 110/.5),transparent 80%),
+    radial-gradient(ellipse 1.1% 85% at 88% 0%,rgb(255 190 110/.5),transparent 80%),
+    radial-gradient(ellipse 22% 75% at 73% 0%,rgb(240 160 70/.26),transparent 72%),
+    radial-gradient(ellipse 16% 55% at 24% 0%,rgb(228 190 120/.13),transparent 72%),
+    linear-gradient(90deg,transparent,rgb(255 214 150/.35) 50%,transparent) top/100% 1px no-repeat,
+    linear-gradient(180deg,#090807 0%,#030303 100%)}
+.hero-inner>.hero-floor::after{background:linear-gradient(180deg,rgb(255 236 200/.06) 0,transparent 40%)}
+.hero-photo{position:relative;z-index:1;mix-blend-mode:screen}
+.hero-photo img{mix-blend-mode:normal}
+.hero-arch{z-index:1}
+
+/* elenco piombo/oro: due parole su una riga */
+.manifesto .pairs{max-width:960px}
+.manifesto .pairs li{grid-template-columns:1fr clamp(90px,11vw,150px) 1fr}
+
+/* Il Portale: sotto le tessere tutta la larghezza resta scura (nessuna fascia chiara) */
+.ecosistema{background:var(--join-in),
+  radial-gradient(ellipse 40% 45% at 12% 40%,rgb(226 200 140/.35),transparent 70%),
+  linear-gradient(180deg,var(--albedo-hi) 0,var(--albedo-lo) 52%,#14110f calc(100% - 420px),#14110f 100%)}
+
+/* 400 W: stesso bordeaux della Biologia Sacra, nessun gradino, luce solo al centro */
+.capacita{background:
+  radial-gradient(ellipse 30% 28% at 50% 42%,rgb(214 170 110/.22),rgb(150 80 70/.1) 55%,transparent 78%),
+  radial-gradient(circle at 16% 72%,rgb(100 30 43/.22),transparent 32%),
+  radial-gradient(circle at 84% 30%,rgb(100 30 43/.18),transparent 32%),
+  linear-gradient(180deg,#201517 0,#2c161b 30%,#33161d 60%,#2a1418 100%)}
+.capacita::before{content:none}
+
+/* schede testimonianze: pulsante su una riga */
+.testi .t-more{white-space:nowrap;letter-spacing:.14em;font-size:10.5px}
+
+/* contatti: nessun bordo chiaro in alto */
+.contatti{background:radial-gradient(ellipse 50% 40% at 50% 22%,hsla(41,52%,78%,.12),transparent 70%),radial-gradient(ellipse 28% 60% at 0% 60%,rgb(100 30 43/.22),transparent 70%),radial-gradient(ellipse 28% 60% at 100% 60%,rgb(100 30 43/.22),transparent 70%),linear-gradient(180deg,#0d0b0b,#0d0b0b 60px,#14100e 220px,#0d0b0b)}
+
+/* Biologia Sacra: torna la sfumatura d'uscita verso il bordeaux scuro del 400 W (nessun gradino) */
+.posa{--edge-bottom-rgb:32 21 23;
+  background:var(--join-in),var(--join-out),radial-gradient(ellipse 40% 30% at 30% 58%,hsla(41,52%,78%,.12),transparent 70%),var(--surface-rubedo)}
+/* il bordeaux dei prezzi parte dallo stesso avorio seta delle testimonianze */
+.accesso{--join-prev-rgb:251 248 242}
+
+/* ---------- HERO definitivo (pic 1 della cliente: PAGINA APERTURA SITO) ----------
+   foto con il pavimento originale (img/hero-pavimento.jpg, ritagliata dalla tavola):
+   la figura poggia sul pavimento lucido; sotto l'arco lo stesso pavimento prosegue in CSS
+   con i colori misurati sulla foto (marrone caldo quasi nero), senza fascia grigia */
+.hero-photo{container-type:normal;mix-blend-mode:normal;aspect-ratio:auto;min-height:100%;height:auto;align-self:stretch;background:#000;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
+.hero-photo img{position:absolute;inset:0;top:0;left:0;width:100%;height:100%;max-width:none;translate:none;object-fit:cover;object-position:50% 100%;mix-blend-mode:normal}
+.hero-inner>.hero-floor{height:19%;bottom:-18px;border-top:0;border-bottom:1px solid rgba(198,161,91,.4);
+  background:
+    radial-gradient(ellipse 30% 70% at 30% 18%,rgb(44 21 4/.55),transparent 75%),
+    radial-gradient(ellipse 60% 90% at 50% 30%,rgb(20 9 2/.7),transparent 80%),
+    linear-gradient(180deg,rgb(0 0 0/0) 0,rgb(12 6 2) 14%,rgb(9 4 1) 60%,rgb(5 3 1) 100%)}
+.hero-inner>.hero-floor::before{opacity:.05}
+.hero-inner>.hero-floor::after{background:linear-gradient(180deg,transparent 0,rgb(255 220 170/.035) 16%,transparent 45%)}
+
+/* tutto il blocco entra in una schermata anche sui portatili (altezza 720–830px) */
+.hero-arch{padding-top:clamp(24px,3.6vh,40px);padding-bottom:clamp(20px,3vh,36px)}
+.hero-arch .hero-logo{width:clamp(32px,4.6vh,46px)}
+.hero-arch .hero-title{padding-top:clamp(8px,2vh,26px);font-size:clamp(24px,min(2.5vw,4.5vh),42px);margin-bottom:clamp(8px,1.4vh,16px)}
+.hero-arch .star-rule{margin-bottom:clamp(10px,1.8vh,20px)}
+.hero-arch .hero-sub{font-size:clamp(15px,min(1.3vw,2.25vh),19px);margin-bottom:clamp(10px,1.6vh,18px)}
+.hero-arch .hero-text{font-size:clamp(13.5px,min(1vw,1.8vh),15.5px);line-height:1.65;max-width:34em}
+.hero-cta{margin-top:clamp(24px,4.4vh,52px)!important}
+@media (max-width:1023.98px){
+  .hero-photo{aspect-ratio:852/941;min-height:0;width:100%;max-width:520px;-webkit-mask-image:none;mask-image:none}
+  .hero-inner>.hero-floor{display:none}
+}
+
+/* hero: la foto intera (testa, mani, cerchio) a tutta altezza, appoggiata in basso sul pavimento */
+@media (min-width:1024px){.hero-photo img{object-fit:contain;object-position:50% 100%}}
+/* logo subito sotto la stella, testo che segue (niente vuoto tra logo e titolo sugli schermi alti) */
+.hero-brand{margin-bottom:clamp(14px,3.6vh,44px)!important}
+.hero-cta{margin-bottom:auto!important}
+/* pavimento sotto l'arco: ingresso morbido, nessun bordo netto in alto */
+.hero-inner>.hero-floor{background:
+    radial-gradient(ellipse 30% 70% at 30% 30%,rgb(44 21 4/.45),transparent 75%),
+    radial-gradient(ellipse 60% 90% at 50% 40%,rgb(20 9 2/.6),transparent 80%),
+    linear-gradient(180deg,rgb(0 0 0/0) 0,rgb(12 6 2/.6) 30%,rgb(10 5 1) 55%,rgb(5 3 1) 100%)}
+
+/* Il Viaggio: fascia nera nelle proporzioni della foto 2 (circa 85px) e meno vuoto prima del titolo */
+.elementi-head{background:linear-gradient(180deg,#221e1b 0,#221e1b 168px,#0e0d0c 168px,#0e0d0c 253px,rgb(14 13 12/0) 253px),var(--surface-journey)}
+.sigil-divider{margin-bottom:clamp(150px,13vw,185px)}
