@@ -23,6 +23,10 @@
   function hideRemoved() { $$('li, details, .sacro, .mo, .vid').forEach(function (el) { if (HIDE.test(el.textContent)) el.style.display = 'none'; }); }
   new MutationObserver(hideRemoved).observe(d.body, { childList: true, subtree: true });
 
+  /* ---------- nome dell'utente (dal backend: data-nome su <body> o ?nome=) ---------- */
+  var nome = d.body.getAttribute('data-nome') || new URLSearchParams(location.search).get('nome');
+  if (nome) $('#nome').textContent = nome.split(' ')[0];
+
   /* ---------- dati: 8 macro-blocchi Chakra (palette chakra minerale, non arcobaleno) ---------- */
   var BLOCKS = [
     { n: 1, name: 'Radice', sub: 'Tecnica · Basi · Metodologia', from: 1, to: 4, c: '#9b4735' },
@@ -149,7 +153,7 @@
       $('#sc-img').src = s.img;
       $('#sc-t').textContent = s.t;
       $('#sc-sub').textContent = s.sub;
-      $('#sc-teach').innerHTML = s.teach.map(function (t) { return '<button type="button" data-pr="' + t[2] + '" data-teacher="' + t[0] + '"><b>' + t[0] + '</b><span>' + t[1] + '</span><i aria-hidden="true">→</i></button>'; }).join('');
+      $('#sc-teach').innerHTML = s.teach.map(function (t) { return '<button type="button" data-pr="' + t[2] + '" data-teacher="' + t[0] + '"><b>' + t[0] + '</b><i aria-hidden="true">→</i></button>'; }).join('');
       $('#sc-h').textContent = s.acc || '';
       $('#sc-acc').innerHTML = s.acc ? SENTIERI.map(function (n) {
         return '<details><summary><small>' + n + '</small>Sentiero ' + n + '</summary><div class="acc-in"><p>Qui restano invariati i testi e i video del Sentiero già formattati da Marica.</p><a class="go" href="#" data-go="lezione">Entra nel Sentiero <span aria-hidden="true">→</span></a></div></details>';
@@ -160,7 +164,7 @@
   });
   $('#sc-teach').addEventListener('click', function (e) {
     var t = e.target.closest('[data-pr]'); if (!t) return;
-    $('#m-sacro').close(); openPratica(t.getAttribute('data-pr'), t.getAttribute('data-teacher'));
+    $('#m-sacro').close(); openPratica(t.getAttribute('data-pr'), t.getAttribute('data-teacher'), true);
   });
   $('#sc-acc').addEventListener('click', function (e) {
     var a = e.target.closest('a.go'); if (!a) return; e.preventDefault(); e.stopPropagation();
@@ -203,8 +207,12 @@
   });
   $('#pr-grid').addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.pr')) { e.preventDefault(); openPratica(e.target.getAttribute('data-pr')); } });
 
-  function openPratica(k, teacher) {
+  function openPratica(k, teacher, fromSacro) {
     var p = PRK[k];
+    // aperta dallo Spazio Sacro: "indietro" riporta alla Home, non a Le Mie Pratiche
+    var back = $('#pv-back');
+    back.setAttribute('data-go', fromSacro ? 'home' : 'attivita');
+    back.textContent = fromSacro ? '← Torna alla Home' : '← Le Mie Pratiche';
     $('#pv-n').textContent = p.n + ' Pratiche';
     $('#pv-t').textContent = p.t;
     var list = p.v;
@@ -302,7 +310,8 @@
     for (var i = 1; i <= 24; i++) { var dd = new Date(s0); dd.setDate(s0.getDate() - i); var r = (dd.getDate() * 7 + dd.getMonth() * 3) % 5; if (r) core[key(dd)] = { w: r > 2 ? 1 : 0, m: r !== 3 ? 1 : 0 }; }
     store('mb_core', JSON.stringify(core));
   }
-  function ring(dt) { var c = core[key(dt)]; var n = c ? (c.w ? 1 : 0) + (c.m ? 1 : 0) : 0; return n ? ' r' + n : ''; }
+  // rw = solo allenamento (bordeaux), rm = solo meditazione (oro), rb = entrambe (i due colori insieme)
+  function ring(dt) { var c = core[key(dt)] || {}; return c.w && c.m ? ' rb' : c.w ? ' rw' : c.m ? ' rm' : ''; }
 
   /* ---------- calendario settimanale (home) ---------- */
   var MONTHS = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
