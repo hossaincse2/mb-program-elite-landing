@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..600&family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/dashboard.css?v=08fe2e00">
+<link rel="stylesheet" href="css/dashboard.css?v=3dae28a0">
 </head>
 <body class="dash">
 
@@ -31,8 +31,8 @@
 <section class="view is-on" id="v-home" aria-label="Home">
   <div class="wrap">
     <div class="hello">
-      <!-- solo il nome di battesimo dell'utente, niente sotto -->
-      <p class="hello-t">Benvenuta <span id="nome">Marica</span>,</p>
+      <!-- nome di battesimo dell'utente (dal backend) -->
+      <p class="hello-t">Benvenuta <b id="nome">Marica</b>,</p>
       <p class="sub-badge" title="Abbonamento unico: Fitness Somatico + Alchimia Spirituale"><span>Abbonamento attivo</span> 97 giorni · 26/01/27</p>
     </div>
 
@@ -59,17 +59,17 @@
     <section class="sec" id="sec-sacro">
       <header class="sec-h"><h2 class="alch">IL TUO SPAZIO SACRO</h2></header>
       <div class="sacro-list" id="sacro-list">
-        <!-- barre pulite tono su tono: l'artwork appare solo nel pop-up -->
-        <button class="sacro" data-sacro="percorsi"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">I Percorsi Alchemici</span><svg class="s-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg></button>
-        <button class="sacro" data-sacro="geometrie"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">Geometrie del Corpo</span><svg class="s-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg></button>
-        <button class="sacro" data-sacro="sound"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">Sound Healing Vibrazionale</span><svg class="s-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M14 7l5 5-5 5"/></svg></button>
+        <!-- icone/emoji rimosse: solo glifo oro ✦ + nuove foto di Fiorella -->
+        <button class="sacro" data-sacro="percorsi"><img src="img/dash/pr-percorsi.jpg?v=960ce127" alt="" loading="lazy" width="1600" height="900"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">I Percorsi Alchemici</span><span class="s-go" aria-hidden="true">♦</span></button>
+        <button class="sacro" data-sacro="geometrie"><img src="img/dash/pr-geometrie.jpg?v=7bc58c65" alt="" loading="lazy" width="1600" height="900"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">Geometrie del Corpo</span><span class="s-go" aria-hidden="true">♦</span></button>
+        <button class="sacro" data-sacro="sound"><img src="img/dash/pr-sound.jpg?v=49d31210" alt="" loading="lazy" width="1600" height="900"><span class="glyph" aria-hidden="true">✦</span><span class="s-t">Sound Healing Vibrazionale</span><span class="s-go" aria-hidden="true">♦</span></button>
       </div>
     </section>
 
-    <!-- RINNOVO: nero opaco con filo oro, solo il bottone in velluto bordeaux -->
+    <!-- RINNOVO: bottone trasparente, filo oro satinato 1px -->
     <aside class="renew" aria-label="Rinnovo">
       <p>Hai terminato il programma del mese e vuoi iniziare il successivo?</p>
-      <a class="btn-velvet" href="https://www.mb-elite.com/welcome" rel="noopener">Rinnova <span aria-hidden="true">→</span></a>
+      <a class="btn-ghost" href="https://www.mb-elite.com/welcome" rel="noopener">Rinnova <span aria-hidden="true">→</span></a>
     </aside>
   </div>
 </section>
@@ -88,6 +88,9 @@
   <div class="lesson">
     <aside class="side" id="side">
       <div class="side-top"><label class="search"><input type="search" placeholder="Cerca nel corso" aria-label="Cerca nel corso"></label><button class="ico" id="side-close" aria-label="Chiudi menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+      <!-- menu del percorso (Percorsi Alchemici): riempito da dashboard.js -->
+      <div id="side-course" hidden></div>
+      <div id="side-fit">
       <h3 class="side-h">Introduzione</h3>
       <!-- "Reset your mind" e "Modulo consapevolezza" restano nel backend ma il filtro globale in dashboard.js li nasconde -->
       <ul class="side-l">
@@ -103,9 +106,10 @@
         <li><a href="#"><span>M1: Training 2</span><em>40–60 min</em></a></li>
         <li><a href="#"><span>M1: Training 3</span><em>45–62 min</em></a></li>
       </ul>
+      </div>
     </aside>
     <div class="lesson-main">
-      <div class="lesson-bar"><button class="back" data-go="blocco">← Indietro</button><div class="lesson-t"><b id="les-title">Tecnica-Basi Metodologia</b><span id="les-sub">RADICE · MESE 1</span></div><span></span></div>
+      <div class="lesson-bar"><button class="back" id="les-back" data-go="blocco">← Indietro</button><div class="lesson-t"><b id="les-title">Tecnica-Basi Metodologia</b><span id="les-sub">RADICE · MESE 1</span></div><span></span></div>
       <div class="lesson-body">
         <h2 class="alch" id="les-h">M1: Training 1</h2>
         <div class="seg" role="tablist" aria-label="Versione"><button class="on" role="tab" aria-selected="true" data-cover="esteso">ESTESA</button><button role="tab" aria-selected="false" data-cover="breve">BREVE</button></div>
@@ -331,6 +335,6 @@
 </div>
 
 <canvas id="fx-c" hidden></canvas>
-<script src="js/dashboard.js?v=52318f0b"></script>
+<script src="js/dashboard.js?v=d3973130"></script>
 </body>
 </html>

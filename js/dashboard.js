@@ -140,20 +140,21 @@
   var SENTIERI = ['I', 'II', 'III', 'IV', 'V', 'VI'];
   var SACRO = {
     percorsi: { t: 'I Percorsi Alchemici', img: 'img/dash/pr-percorsi-center.jpg', sub: 'Viaggi di trasmutazione per sciogliere i blocchi profondi e ritrovare la tua Sovranità.',
-      teach: [['Incrollabile: Dallo Zero alla Luce', '3 fasi', 'incrollabile'], ['Alchimia Emotiva', '2 fasi', 'alchimia'], ['Ricalibrazione del Sistema Nervoso', '3 fasi', 'ricalibrazione']] },
+      teach: [['Incrollabile: Dallo Zero alla Luce', '', 'incrollabile'], ['Alchimia Emotiva', '', 'alchimia'], ['Ricalibrazione del Sistema Nervoso', '', 'ricalibrazione']], course: true },
     geometrie: { t: 'Geometrie del Corpo', img: 'img/dash/pr-geometrie.jpg', sub: 'Sequenze somatiche profonde per risvegliare l’energia vitale e rilasciare lo stress attraverso il movimento sacro.',
       teach: [['Kundalini Yoga', 'con Monica', 'geometrie'], ['Yin Yoga', 'con Greta', 'geometrie'], ['Yoga Nidra', 'con Camila', 'geometrie']],
       acc: 'I 6 Sentieri' },
     sound: { t: 'Sound Healing Vibrazionale', img: 'img/dash/pr-sound.jpg', sub: 'Frequenze sonore per ricalibrare il sistema nervoso, di giorno e durante il sonno.',
       teach: [['Brani Diurni', '7 min – 1 ora', 'sound'], ['Brani Notturni', '6 – 8 ore', 'sound']] }
   };
+  var curSacro = null;
   $$('[data-sacro]').forEach(function (b) {
     b.addEventListener('click', function () {
-      var s = SACRO[b.getAttribute('data-sacro')];
+      var s = curSacro = SACRO[b.getAttribute('data-sacro')];
       $('#sc-img').src = s.img;
       $('#sc-t').textContent = s.t;
       $('#sc-sub').textContent = s.sub;
-      $('#sc-teach').innerHTML = s.teach.map(function (t) { return '<button type="button" data-pr="' + t[2] + '" data-teacher="' + t[0] + '"><b>' + t[0] + '</b><i aria-hidden="true">→</i></button>'; }).join('');
+      $('#sc-teach').innerHTML = s.teach.map(function (t) { return '<button type="button" data-pr="' + t[2] + '" data-teacher="' + t[0] + '"><b>' + t[0] + '</b>' + (t[1] ? '<span>' + t[1] + '</span>' : '') + '<i aria-hidden="true">→</i></button>'; }).join('');
       $('#sc-h').textContent = s.acc || '';
       $('#sc-acc').innerHTML = s.acc ? SENTIERI.map(function (n) {
         return '<details><summary><small>' + n + '</small>Sentiero ' + n + '</summary><div class="acc-in"><p>Qui restano invariati i testi e i video del Sentiero già formattati da Marica.</p><a class="go" href="#" data-go="lezione">Entra nel Sentiero <span aria-hidden="true">→</span></a></div></details>';
@@ -164,7 +165,10 @@
   });
   $('#sc-teach').addEventListener('click', function (e) {
     var t = e.target.closest('[data-pr]'); if (!t) return;
-    $('#m-sacro').close(); openPratica(t.getAttribute('data-pr'), t.getAttribute('data-teacher'), true);
+    $('#m-sacro').close();
+    // Percorsi Alchemici: si entra nel percorso con il suo menu laterale (come nell'area privata attuale)
+    if (curSacro && curSacro.course) openCourse(t.getAttribute('data-pr'));
+    else openPratica(t.getAttribute('data-pr'), t.getAttribute('data-teacher'), true);
   });
   $('#sc-acc').addEventListener('click', function (e) {
     var a = e.target.closest('a.go'); if (!a) return; e.preventDefault(); e.stopPropagation();
@@ -194,6 +198,8 @@
       v: [['MODULO 1', 'La Purificazione', 24, 'esteso', ['acqua']], ['MODULO 2', 'La Riconnessione', 22, 'esteso', ['terra']], ['MODULO 3', 'L’Integrazione', 26, 'esteso', ['aria']], ['MODULO 4', 'La Manifestazione', 23, 'esteso', ['fuoco']]] }
   ];
   var PRK = {}; PR.forEach(function (p) { PRK[p.k] = p; });
+  // ordine delle card richiesto (2 novembre)
+  PR = ['movimento', 'geometrie', 'sound', 'incrollabile', 'alchimia', 'ricalibrazione'].map(function (k) { return PRK[k]; });
   var COVER = { esteso: 'img/dash/cover-esteso.jpg', breve: 'img/dash/cover-breve.jpg', tutorial: 'img/dash/cover-tutorial.jpg' };
 
   $('#pr-grid').innerHTML = PR.map(function (p) {
@@ -233,13 +239,48 @@
     var p = $('#player'); p.setAttribute('data-cover', c); $('video', p).setAttribute('poster', COVER[c]);
     $$('.seg button').forEach(function (x) { var on = x.getAttribute('data-cover') === c; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); });
   }
-  function openLesson(title, sub, barTitle, cover) {
+  function sideMode(course, back) {
+    $('#side-course').hidden = !course; $('#side-fit').hidden = !!course;
+    $('#les-back').setAttribute('data-go', back || 'blocco');
+  }
+  function openLesson(title, sub, barTitle, cover, keepSide) {
+    if (!keepSide) sideMode(false, $('#v-pratica').classList.contains('is-on') ? 'pratica' : 'blocco');
     $('#les-title').textContent = barTitle || title; $('#les-sub').textContent = sub;
     $('#les-h').textContent = title; $('#p-title').textContent = title;
     setCover(cover || 'esteso');
     $('#btn-done').classList.remove('is-done'); $('span', $('#btn-done')).textContent = 'Segna come completato';
     go('lezione');
   }
+  /* percorso alchemico: menu laterale a sezioni (Presentazione + moduli), "indietro" torna alla Home */
+  var COURSE = {
+    incrollabile: [
+      ['Presentazione "Incrollabile dallo Zero alla Luce" La Grande Opera', [['Presentazione: Incrollabile dallo Zero alla Luce "La Grande Opera"', 5]]],
+      ['Meditazioni Modulo 1: "La Purificazione"', [['Presentazione: Fase 1 "La Purificazione" e la gestione del Canale', 4], ['Muladhara "La Purificazione"', 13], ['Svadhisthana "La Purificazione"', 13], ['Manipura "La Purificazione"', 13], ['Anahata "La Purificazione"', 13], ['Vishudda "La Purificazione"', 13], ['Ajna "La Purificazione"', 12]]],
+      ['Meditazioni Modulo 2: "La Riconnessione"', [['La Riconnessione', 22]]],
+      ['Meditazioni Modulo 3: "L’Integrazione"', [['L’Integrazione', 26]]],
+      ['Meditazioni Modulo 4: "La Manifestazione"', [['La Manifestazione', 23]]]
+    ]
+  };
+  function courseMenu(k) {
+    if (COURSE[k]) return COURSE[k];
+    var g = [['Presentazione "' + PRK[k].t + '"', [['Presentazione: ' + PRK[k].t, 5]]]];
+    PRK[k].v.forEach(function (v) {
+      var last = g[g.length - 1];
+      if (last[0] === v[0]) last[1].push([v[1], v[2]]); else g.push([v[0], [[v[1], v[2]]]]);
+    });
+    return g;
+  }
+  function openCourse(k) {
+    var p = PRK[k], m = courseMenu(k);
+    $('#side-course').innerHTML = m.map(function (s) {
+      return '<h3 class="side-h">' + s[0] + '</h3><ul class="side-l">' + s[1].map(function (l) { return '<li><a href="#"><span>' + l[0] + '</span><em>' + l[1] + ' min</em></a></li>'; }).join('') + '</ul>';
+    }).join('');
+    sideMode(true, 'home');
+    var first = m[0][1][0][0];
+    openLesson(first, 'PERCORSO · ' + p.t.toUpperCase(), 'Percorso ' + p.t, 'esteso', true);
+    var li = $('#side-course li'); if (li) li.classList.add('on');
+  }
+
   var TUT = [['Esercizio 1: Vacuum', 5], ['Esercizio 2: Articolazioni + Respirazione', 6], ['Esercizio 3: Ponte da terra training 1 e 2', 6], ['Esercizio 4: Squat', 6], ['Esercizio 5: Stacco', 4], ['Esercizio 6: Affondi posteriori alternati / Kick back alternativa', 10], ['Esercizio 7: Rematore singolo', 4], ['Esercizio 8: Bicipiti / tricipiti', 3], ['Esercizio 9: Alzate sopra la testa (Spalle)', 4]];
   $('#tut-list').innerHTML = TUT.map(function (t) { return '<li><a href="#" data-tut><span>' + t[0] + '</span><em>' + t[1] + ' min</em></a></li>'; }).join('');
   $('#side').addEventListener('click', function (e) {
