@@ -1,0 +1,57 @@
+/* MB Program Élite — revisioni del 2 novembre (area pubblica, home)
+   Caricato dopo ottobre.css: solo ritocchi tipografici, logo, bottone e specchio della Legge di Coerenza. */
+
+/* ---------- logo in alto a sinistra: versione oro originale ---------- */
+.brand-gold img{width:32px;height:32px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(228,210,170,.25))}
+.brand-gold .brand-txt b{background:linear-gradient(180deg,#f3e3b6 0%,#d9bd84 45%,#a8834a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand-gold .brand-txt i{color:#b4985f}
+
+/* ---------- 1 · hero ---------- */
+/* sottotitolo un po' più grande e più presente */
+.hero-arch .hero-sub{font-size:clamp(17px,min(1.6vw,2.9vh),22px);line-height:1.45}
+/* paragrafo finale più grande, avorio caldo tendente all'oro per staccarsi dal blocco centrale */
+.hero-arch .hero-text{font-size:clamp(15px,min(1.22vw,2.25vh),17.5px);line-height:1.7;color:#d9ccb2}
+/* bottone: più aria sopra e centrato nello spazio tra il testo e il filo d'oro in basso */
+/* stessa distanza sopra (dal testo) e sotto (fino al filo d'oro, che include i ~30px di padding del portale) */
+.hero-arch{--cta-gap:clamp(36px,6vh,56px)}
+.hero-arch .hero-cta{margin-top:var(--cta-gap)!important;margin-bottom:max(6px,calc(var(--cta-gap) - 30px))!important}
+
+/* ---------- ecosistema: titoli più grandi, i tre paragrafi con lo stesso stile ---------- */
+.ecosistema .tile-title{font-size:clamp(28px,3.1vw,42px)}
+/* stesso font del paragrafo "L'Alchimia della Sovrana" (Georgia/Gelasio, interlinea ampia), stesso corpo e spessore per tutti e tre */
+.ecosistema .tile-marble p,.ecosistema .tile-dark p,.ecosistema .page-r p:not(.eyebrow){font-family:var(--f-body);font-style:normal;font-size:clamp(16px,1.25vw,17.5px);font-weight:600;line-height:1.65;letter-spacing:normal}
+/* su scuro il testo resta bianco/avorio */
+.ecosistema .tile-dark p,.ecosistema .page-r p:not(.eyebrow){color:#f2ebdd}
+
+/* ---------- 3 · la Legge di Coerenza ---------- */
+/* paragrafo più piccolo e con più respiro */
+.coerenza-sec .coerenza .lead-soft{font-size:clamp(16.5px,1.32vw,19.5px);line-height:1.85}
+
+/* specchio alchemico in codice: arco con filo d'oro sottilissimo, vetro semi-riflettente che segue la sfumatura buio → avorio */
+.door{width:min(56vw,19rem);height:calc(var(--join-fade)*1.12);top:calc(var(--join-fade)*.1);--arch-rise:min(9.5rem,50%)}
+.door .arch-vault{border:1.5px solid transparent;border-bottom:0;
+  background:linear-gradient(180deg,#f1dfae,#c9a865 30%,#a8834a 60%,#d9bd84) border-box;
+  -webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0) border-box;-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0) border-box;mask-composite:exclude;
+  filter:drop-shadow(0 0 4px rgba(228,210,170,.55))}
+.door .arch-vault--inner{display:none}
+.door-light{inset:1.5px;border-top-left-radius:50% calc(var(--arch-rise) - 1.5px);border-top-right-radius:50% calc(var(--arch-rise) - 1.5px);
+  background:
+    /* luce di una finestra riflessa nel vetro */
+    linear-gradient(118deg,transparent 46%,rgb(255 250 238/34%) 52%,transparent 60%),
+    linear-gradient(118deg,transparent 62%,rgb(255 250 238/22%) 66%,transparent 71%),
+    linear-gradient(90deg,transparent 64%,rgb(255 248 232/16%) 64.5% 65.5%,transparent 66%),
+    /* vetro: grigio caldo trasparente che si scioglie nell'avorio */
+    linear-gradient(180deg,rgb(150 142 132/62%) 0%,rgb(196 188 177/48%) 38%,rgb(232 226 216/30%) 70%,rgb(253 251 246/0%) 100%);
+  -webkit-backdrop-filter:blur(1.5px) brightness(1.06);backdrop-filter:blur(1.5px) brightness(1.06);
+  -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 98%);mask-image:linear-gradient(180deg,#000 55%,transparent 98%)}
+.door{-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 98%);mask-image:linear-gradient(180deg,#000 62%,transparent 98%)}
+.door .arch-key{width:20px;height:20px;fill:#f6e7bf;filter:drop-shadow(0 0 10px rgba(255,240,205,.95))}
+
+/* ---------- Dal piombo all'oro: lista = sottotitoli (H3), descrizione = didascalia elegante ---------- */
+.manifesto .pairs{max-width:780px}
+.manifesto .pairs li{font-size:clamp(17px,1.55vw,21px)}
+.manifesto .pairs b{white-space:nowrap}
+@media (max-width:640px){.manifesto .pairs b{white-space:normal}}
+.manifesto .pairs span,.manifesto .pairs b{font-weight:700}
+.manifesto .manifesto-text{font-size:clamp(15.5px,1.15vw,17px);line-height:1.95;max-width:46em}
