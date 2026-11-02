@@ -57,3 +57,9 @@
 @media (max-width:640px){.manifesto .pairs b{white-space:normal}}
 .manifesto .pairs span,.manifesto .pairs b{font-weight:700}
 .manifesto .manifesto-text{font-size:clamp(15.5px,1.15vw,17px);line-height:1.95;max-width:46em}
+
+/* ---------- Dal piombo all'oro: di nuovo l'effetto di alchimiadellasovrana.it ----------
+   sotto il piombo (la stessa immagine a colori resa in b/n), sopra l'oro rivelato da sinistra con lo scroll (--alchemy-p da fx.js) */
+.alch-fig .alch-lead,.alch-fig .alch-gold{display:block;width:100%;height:auto;filter:saturate(1.02) contrast(1.06) brightness(.95)}
+.alch-fig .alch-lead{filter:grayscale(1) contrast(1.08) brightness(.95)}
+.alch-fig .alch-gold{position:absolute;inset:0;height:100%;object-fit:cover;clip-path:inset(0 calc((1 - var(--alchemy-p,1))*100%) 0 0)}
