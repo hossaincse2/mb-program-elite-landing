@@ -22,7 +22,7 @@
   });
   /* Dal piombo all'oro (come alchimiadellasovrana.it): l'oro si rivela sul piombo, una lama di luce ne segue il bordo,
      poi il registro disegna le sue righe una alla volta */
-  var art=$('.alch-fig');if(art){art.appendChild(el('span','art-wash'));art.setAttribute('data-fx','draw');art.setAttribute('data-fx-var','--alchemy-p');art.setAttribute('data-fx-anchor','.78')}
+  /* 1 novembre: immagine originale a colori, nessuna lama di luce sopra */
   var ledger=$('.manifesto .pairs');if(ledger){ledger.style.setProperty('--ledger-n',ledger.children.length);ledger.setAttribute('data-fx','draw');ledger.setAttribute('data-fx-var','--ledger-p');ledger.setAttribute('data-fx-anchor','.8')}
   var comp=$('.compiac');if(comp){comp.setAttribute('data-fx','enter');comp.setAttribute('data-fx-var','--contract-p')}
   var cap=$('.capacita');

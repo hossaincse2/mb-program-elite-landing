@@ -141,10 +141,10 @@
   var SACRO = {
     percorsi: { t: 'I Percorsi Alchemici', img: 'img/dash/pr-percorsi-center.jpg', sub: 'Viaggi di trasmutazione per sciogliere i blocchi profondi e ritrovare la tua Sovranità.',
       teach: [['Incrollabile: Dallo Zero alla Luce', '', 'incrollabile'], ['Alchimia Emotiva', '', 'alchimia'], ['Ricalibrazione del Sistema Nervoso', '', 'ricalibrazione']], course: true },
-    geometrie: { t: 'Geometrie del Corpo', img: 'img/dash/pr-geometrie.jpg', sub: 'Sequenze somatiche profonde per risvegliare l’energia vitale e rilasciare lo stress attraverso il movimento sacro.',
+    geometrie: { t: 'Geometrie del Corpo', img: 'img/dash/cop/geometrie-yin.jpg', sub: 'Sequenze somatiche profonde per risvegliare l’energia vitale e rilasciare lo stress attraverso il movimento sacro.',
       teach: [['Kundalini Yoga', 'con Monica', 'geometrie'], ['Yin Yoga', 'con Greta', 'geometrie'], ['Yoga Nidra', 'con Camila', 'geometrie']],
       acc: 'I 6 Sentieri' },
-    sound: { t: 'Sound Healing Vibrazionale', img: 'img/dash/pr-sound.jpg', sub: 'Frequenze sonore per ricalibrare il sistema nervoso, di giorno e durante il sonno.',
+    sound: { t: 'Sound Healing Vibrazionale', img: 'img/dash/cop/sound-emblema.jpg', sub: 'Frequenze sonore per ricalibrare il sistema nervoso, di giorno e durante il sonno.',
       teach: [['Brani Diurni', '7 min – 1 ora', 'sound'], ['Brani Notturni', '6 – 8 ore', 'sound']] }
   };
   var curSacro = null;
@@ -178,21 +178,21 @@
 
   /* ---------- Le Mie Pratiche ---------- */
   var PR = [
-    { k: 'movimento', t: 'Movimento', n: 42, img: 'img/dash/pr-movimento.jpg',
+    { k: 'movimento', t: 'Movimento', n: 42, img: 'img/dash/cop/movimento.jpg',
       info: ['Supporti Somatici & Pratiche Estemporanee', '<p>Questo spazio non sostituisce il tuo percorso principale, ma è una raccolta di pratiche extra da scegliere liberamente quando ne senti il bisogno. È un archivio di supporti mirati da inserire nella tua settimana in base a come ti senti e a cosa ti chiede il corpo in quel momento.</p><p><b>Quando usarlo:</b></p><p>Scegli lo <b>Stretching</b> nei giorni di recupero o quando senti il corpo rigido e vuoi rilassare i muscoli.</p><p>Scegli i <b>Focus Mirati (ABS/Glutei)</b> se in un determinato giorno hai più energia e vuoi aggiungere un lavoro extra specifico.</p><p>Scegli le <b>Meditazioni in Camminata</b> quando vuoi uscire all’aria aperta, liberare la mente e trasformare una semplice camminata in un momento di presenza.</p>'],
-      v: [['GLUTEI/ABS', 'Focus Glutei', 18, 'breve'], ['GLUTEI/ABS', 'Focus ABS', 15, 'breve'], ['STRETCHING', 'Stretching profondo', 22, 'breve'], ['TOTAL BODY', 'Total Body', 35, 'esteso'], ['WALKING', 'Meditazione in Camminata', 30, 'esteso', ['aria', 'terra']]] },
-    { k: 'sound', t: 'Sound Healing Vibrazionale', n: 33, img: 'img/dash/pr-sound.jpg',
+      v: [['GLUTEI/ABS', 'Focus Glutei', 18, 'breve', 0, 'img/dash/cop/movimento.jpg'], ['GLUTEI/ABS', 'Focus ABS', 15, 'breve', 0, 'img/dash/cop/movimento.jpg'], ['STRETCHING', 'Stretching profondo', 22, 'breve', 0, 'img/dash/cop/movimento.jpg'], ['TOTAL BODY', 'Total Body', 35, 'esteso', 0, 'img/dash/cop/movimento.jpg'], ['WALKING', 'Meditazione in Camminata', 30, 'esteso', ['aria', 'terra'], 'img/dash/cop/movimento.jpg']] },
+    { k: 'sound', t: 'Sound Healing Vibrazionale', n: 33, img: 'img/dash/cop/sound.jpg',
       info: ['Sound Healing Vibrazionale', '<p>Un’area sacra dedicata alla guarigione cellulare passiva. Attraverso frequenze sonore ad altissimo livello, questo spazio ricalibra il tuo sistema nervoso in modo automatico, semplicemente lasciando scorrere la musica.</p><p><b>Brani Diurni (7 min - 1 ora):</b> Da ascoltare in qualsiasi momento: in macchina, mentre lavori da casa, durante un bagno caldo, al risveglio o con i bambini prima di dormire.</p><p><b>Brani Notturni (6 - 8 ore):</b> Da lasciare in sottofondo durante il sonno a volume quasi inesistente. Il tuo corpo assorbirà la vibrazione lavorando nel profondo della notte.</p>'],
-      v: [['DIURNI', 'Frequenza di calma profonda', 7, 'esteso', ['aria']], ['DIURNI', 'Risveglio vibrazionale', 45, 'esteso', ['fuoco']], ['NOTTURNI', 'Rigenerazione notturna', 480, 'esteso', ['acqua']]] },
-    { k: 'ricalibrazione', t: 'Ricalibrazione del Sistema Nervoso', s: 'Percorso', n: 18, img: 'img/dash/pr-ricalibrazione.jpg',
+      v: [['DIURNI', 'Frequenza di calma profonda', 7, 'esteso', ['aria'], 'img/dash/cop/sound-diurna.jpg'], ['DIURNI', 'Risveglio vibrazionale', 45, 'esteso', ['fuoco'], 'img/dash/cop/sound-diurna.jpg'], ['NOTTURNI', 'Rigenerazione notturna', 480, 'esteso', ['acqua'], 'img/dash/cop/sound-notturna.jpg']] },
+    { k: 'ricalibrazione', t: 'Ricalibrazione del Sistema Nervoso', s: 'Percorso', n: 18, img: 'img/dash/cop/ricalibrazione.jpg',
       info: ['Ricalibrazione del Sistema Nervoso', '<p>Le paure e i limiti non sono mentali: vivono nella carne e creano un filtro scuro con cui guardi il mondo. Questo percorso ti guida a scendere nel corpo per smantellare questi blocchi somatici, liberare la pace che già ti appartiene e imparare a non reagire più all’esterno.</p><p><b>I Portali di Accesso:</b> Un cammino in 3 fasi che unisce il risveglio dolce dei nervi, il Kundalini Yoga attraverso i 4 Elementi e il rilascio dall’asse sfinteri alla Corona. Include la pratica bonus Il Tocco della Sovrana.</p><p><b>Quando usarlo:</b> Quando senti la mente sovraccarica, quando ti accorgi di reagire d’impulso agli eventi esterni o quando percepisci che vecchi condizionamenti stanno bloccando fisicamente il tuo corpo.</p>'],
-      v: [['BODY-FACIAL', 'Risveglio dei nervi', 14, 'esteso', ['acqua']], ['KUNDALINI', 'Breathe Work: Terra', 20, 'esteso', ['terra']], ['KUNDALINI', 'Breathe Work: Fuoco', 20, 'esteso', ['fuoco']], ['BONUS', 'Il Tocco della Sovrana', 16, 'esteso', ['acqua', 'aria']]] },
-    { k: 'geometrie', t: 'Geometrie del Corpo', n: 77, img: 'img/dash/pr-geometrie.jpg',
+      v: [['BODY-FACIAL', 'Risveglio dei nervi', 14, 'esteso', ['acqua'], 'img/dash/cop/ricalibrazione-body-facial.jpg'], ['KUNDALINI', 'Breathe Work: Terra', 20, 'esteso', ['terra'], 'img/dash/cop/ricalibrazione-kundalini-terra.jpg'], ['KUNDALINI', 'Breathe Work: Acqua', 20, 'esteso', ['acqua'], 'img/dash/cop/ricalibrazione-kundalini-acqua.jpg'], ['KUNDALINI', 'Breathe Work: Aria', 20, 'esteso', ['aria'], 'img/dash/cop/ricalibrazione-kundalini-aria.jpg'], ['KUNDALINI', 'Breathe Work: Fuoco', 20, 'esteso', ['fuoco'], 'img/dash/cop/ricalibrazione-kundalini-fuoco.jpg'], ['BONUS', 'Il Tocco della Sovrana', 16, 'esteso', ['acqua', 'aria']]] },
+    { k: 'geometrie', t: 'Geometrie del Corpo', n: 77, img: 'img/dash/cop/geometrie-yin.jpg',
       info: ['Geometrie del Corpo', '<p>Sequenze somatiche profonde che uniscono movimento sacro e meditazione. Attraverso il corpo, andiamo a liberare lo stress accumulato nel sistema nervoso e a sciogliere i blocchi emotivi trattenuti nei muscoli.</p><p><b>I Portali di Accesso:</b> Kundalini Yoga (attivazione energetica), Yin Yoga (rilassamento profondo delle fasce) e Yoga Nidra (rigenerazione mentale).</p><p><b>Quando usarlo:</b> Quando senti il corpo rigido, la mente sovraccarica o hai bisogno di scaricare tensioni profonde e ritrovare il tuo allineamento.</p>'],
-      v: [['KUNDALINI YOGA', 'Kundalini Yoga con Monica', 32, 'esteso', ['fuoco']], ['YIN YOGA', 'Yin Yoga con Greta', 45, 'esteso', ['acqua', 'terra']], ['YOGA NIDRA', 'Yoga Nidra con Camila', 28, 'esteso', ['aria']]] },
-    { k: 'alchimia', t: 'Alchimia Emotiva', s: 'Percorso', n: 8, img: 'img/dash/pr-alchimia.jpg',
+      v: [['KUNDALINI YOGA', 'Kundalini Yoga con Monica · Terra', 32, 'esteso', ['terra'], 'img/dash/cop/geometrie-kundalini-terra.jpg'], ['KUNDALINI YOGA', 'Kundalini Yoga con Monica · Acqua', 32, 'esteso', ['acqua'], 'img/dash/cop/geometrie-kundalini-acqua.jpg'], ['KUNDALINI YOGA', 'Kundalini Yoga con Monica · Aria', 32, 'esteso', ['aria'], 'img/dash/cop/geometrie-kundalini-aria.jpg'], ['KUNDALINI YOGA', 'Kundalini Yoga con Monica · Fuoco', 32, 'esteso', ['fuoco'], 'img/dash/cop/geometrie-kundalini-fuoco.jpg'], ['YIN YOGA', 'Yin Yoga con Greta', 45, 'esteso', ['acqua', 'terra'], 'img/dash/cop/geometrie-yin.jpg'], ['YOGA NIDRA', 'Yoga Nidra con Camila', 28, 'esteso', ['aria'], 'img/dash/cop/geometrie-nidra.jpg']] },
+    { k: 'alchimia', t: 'Alchimia Emotiva', s: 'Percorso', n: 8, img: 'img/dash/cop/alchimia-meditazioni.jpg',
       info: ['Alchimia Emotiva', '<p>Rieduca la tua mente e ricorda chi sei veramente. Questo modulo ti insegna a smettere di identificarti con le tue emozioni e a vederle per ciò che sono realmente: non ostacoli da evitare o giudicare, ma potenti portali energetici da attraversare, sentire e trasmutare.</p><p><b>Il Percorso in 2 Fasi:</b> Prima impariamo a cambiare ottica sulle emozioni attraverso preghiere sacre e meditazioni alchemiche; poi, passiamo all’azione fisica con un profondo lavoro di 4 settimane sul rilascio dell’asse sfinteri-mandibola, liberando l’energia vitale bloccata. Non possiamo liberare ciò che non conosciamo.</p><p><b>Quando usarlo:</b> Quando ti senti sopraffatta da ciò che provi, quando tendi a giudicare o reprimere i tuoi stati d’animo, o quando senti il bisogno di rieducare il tuo approccio interiore per trasformare il piombo emotivo in oro spirituale.</p>'],
-      v: [['PREGHIERE', 'Preghiera n.1', 11, 'esteso', ['aria']], ['PREGHIERE', 'Preghiera n.2', 9, 'esteso', ['aria']], ['EMOZIONI , MEDITAZIONI ALCHEMICHE', 'Paura', 21, 'esteso', ['terra', 'fuoco']], ['EMOZIONI , MEDITAZIONI ALCHEMICHE', 'Rabbia', 18, 'esteso', ['fuoco']], ['RILASCIO', 'Asse sfinteri-mandibola · Settimana 1', 25, 'tutorial']] },
+      v: [['PREGHIERE', 'Preghiera n.1', 11, 'esteso', ['terra'], 'img/dash/cop/preghiera-terra.jpg'], ['PREGHIERE', 'Preghiera n.2', 9, 'esteso', ['acqua'], 'img/dash/cop/preghiera-acqua.jpg'], ['PREGHIERE', 'Preghiera n.3', 10, 'esteso', ['aria'], 'img/dash/cop/preghiera-aria.jpg'], ['PREGHIERE', 'Preghiera n.4', 10, 'esteso', ['fuoco'], 'img/dash/cop/preghiera-fuoco.jpg'], ['EMOZIONI , MEDITAZIONI ALCHEMICHE', 'Paura', 21, 'esteso', ['terra', 'fuoco'], 'img/dash/cop/alchimia-meditazioni.jpg'], ['EMOZIONI , MEDITAZIONI ALCHEMICHE', 'Rabbia', 18, 'esteso', ['fuoco'], 'img/dash/cop/alchimia-meditazioni.jpg'], ['MEDITAZIONI KUNDALINI', 'Meditazione Kundalini con Monica · Terra', 20, 'esteso', ['terra'], 'img/dash/cop/alchimia-kundalini-terra.jpg'], ['RILASCIO', 'Asse sfinteri-mandibola · Settimana 1', 25, 'tutorial']] },
     { k: 'incrollabile', t: 'Incrollabile: Dallo Zero alla Luce', s: 'Percorso', n: 96, img: 'img/dash/pr-incrollabile.jpg',
       info: ['Incrollabile: Dallo Zero alla Luce', '<p>Un viaggio di radicale trasmutazione in 3 fasi per elevare la tua frequenza energetica, fisica e spirituale. Attraverso attivazioni alchemiche e pratiche quotidiane integrate, sciogliamo i blocchi profondi del corpo per farti ritrovare la tua totale Sovranità.</p><p><b>Quando usarlo:</b> Quando senti il bisogno impellente di cambiare rotta nella tua vita, superare un periodo di vuoto interiore, eliminare l’ansia del controllo ossessivo o riprendere in mano il tuo potere profondo per rinascere.</p>'],
       v: [['MODULO 1', 'La Purificazione', 24, 'esteso', ['acqua']], ['MODULO 2', 'La Riconnessione', 22, 'esteso', ['terra']], ['MODULO 3', 'L’Integrazione', 26, 'esteso', ['aria']], ['MODULO 4', 'La Manifestazione', 23, 'esteso', ['fuoco']]] }
@@ -225,13 +225,13 @@
     if (teacher) { var f = list.filter(function (v) { return v[1].indexOf(teacher) === 0 || v[0].indexOf(teacher.toUpperCase()) === 0; }); if (f.length) list = f; }
     $('#vid-grid').innerHTML = list.map(function (v) {
       var dur = v[2] >= 60 ? Math.round(v[2] / 60) + ' ore' : v[2] + ' min';
-      return '<button type="button" class="vid" data-v="' + v[1] + '" data-c="' + v[3] + '"><img src="' + COVER[v[3]] + '" alt="" loading="lazy" width="1600" height="900"' + (v[3] === 'breve' ? ' class="light"' : '') + '><span><span class="db-tag">' + v[0] + '</span><h4>' + v[1] + '</h4><span class="vid-m">' + (v[4] ? els(v[4]) : '') + '<span>' + dur + '</span></span></span></button>';
+      return '<button type="button" class="vid" data-v="' + v[1] + '" data-c="' + v[3] + '"' + (v[5] ? ' data-img="' + v[5] + '"' : '') + '><img src="' + (v[5] || COVER[v[3]]) + '" alt="" loading="lazy" width="1600" height="900"' + (!v[5] && v[3] === 'breve' ? ' class="light"' : '') + '><span><span class="db-tag">' + v[0] + '</span><h4>' + v[1] + '</h4><span class="vid-m">' + (v[4] && v[4].length ? els(v[4]) : '') + '<span>' + dur + '</span></span></span></button>';
     }).join('');
     go('pratica');
   }
   $('#vid-grid').addEventListener('click', function (e) {
     var v = e.target.closest('.vid'); if (!v) return;
-    openLesson(v.getAttribute('data-v'), $('#pv-t').textContent.toUpperCase(), v.getAttribute('data-v'), v.getAttribute('data-c'));
+    openLesson(v.getAttribute('data-v'), $('#pv-t').textContent.toUpperCase(), v.getAttribute('data-v'), v.getAttribute('data-c'), v.getAttribute('data-img'));
   });
 
   /* ---------- lezione: copertina per categoria + titolo dinamico ---------- */
@@ -243,11 +243,12 @@
     $('#side-course').hidden = !course; $('#side-fit').hidden = !!course;
     $('#les-back').setAttribute('data-go', back || 'blocco');
   }
-  function openLesson(title, sub, barTitle, cover, keepSide) {
+  function openLesson(title, sub, barTitle, cover, img, keepSide) {
     if (!keepSide) sideMode(false, $('#v-pratica').classList.contains('is-on') ? 'pratica' : 'blocco');
     $('#les-title').textContent = barTitle || title; $('#les-sub').textContent = sub;
     $('#les-h').textContent = title; $('#p-title').textContent = title;
     setCover(cover || 'esteso');
+    if (img) $('#player video').setAttribute('poster', img);
     $('#btn-done').classList.remove('is-done'); $('span', $('#btn-done')).textContent = 'Segna come completato';
     go('lezione');
   }
@@ -277,7 +278,7 @@
     }).join('');
     sideMode(true, 'home');
     var first = m[0][1][0][0];
-    openLesson(first, 'PERCORSO · ' + p.t.toUpperCase(), 'Percorso ' + p.t, 'esteso', true);
+    openLesson(first, 'PERCORSO · ' + p.t.toUpperCase(), 'Percorso ' + p.t, 'esteso', null, true);
     var li = $('#side-course li'); if (li) li.classList.add('on');
   }
 

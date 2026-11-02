@@ -89,8 +89,14 @@
     var box = m.querySelector('.modal-box'); if (box) box.scrollTop = 0;
     root.classList.add('modal-open');
   }
+  function stopVideo(m) {
+    // ferma il video Vimeo togliendo il player quando il pannello si chiude
+    m.querySelectorAll('.video-slot iframe').forEach(function (f) { f.remove(); });
+    m.querySelectorAll('.video-slot.is-playing').forEach(function (v) { v.classList.remove('is-playing'); });
+  }
   function closeModal(m) {
     if (!m || !m.open || m.classList.contains('is-closing')) return;
+    stopVideo(m);
     var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (rm) { m.close(); return; }
     m.classList.add('is-closing');
@@ -103,6 +109,16 @@
   d.addEventListener('click', function (e) {
     var op = e.target.closest('[data-open]');
     if (op) { e.preventDefault(); closeNav(); openModal(op.getAttribute('data-open')); return; }
+    var play = e.target.closest('.video-play');
+    if (play) {
+      // il player Vimeo si carica solo al clic, sopra la copertina
+      var slot = play.closest('.video-slot'), f = d.createElement('iframe');
+      f.src = 'https://player.vimeo.com/video/' + slot.getAttribute('data-vimeo') + '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+      f.allow = 'autoplay; fullscreen; picture-in-picture'; f.allowFullscreen = true;
+      f.title = 'Il Codice Somatico Mente & Corpo';
+      slot.appendChild(f); slot.classList.add('is-playing');
+      return;
+    }
     var cl = e.target.closest('[data-close]');
     if (cl) { closeModal(cl.closest('dialog')); return; }
     if (e.target.tagName === 'DIALOG') closeModal(e.target); // click on the blurred area
@@ -110,6 +126,7 @@
   d.querySelectorAll('dialog').forEach(function (m) {
     m.addEventListener('cancel', function (e) { e.preventDefault(); closeModal(m); });
     m.addEventListener('close', function () {
+      stopVideo(m);
       if (!d.querySelector('dialog[open]')) root.classList.remove('modal-open');
     });
   });
