@@ -87,3 +87,11 @@
 .door--img img{display:block;width:100%;height:auto;
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%,#000 76%,transparent 100%),linear-gradient(180deg,transparent 0,#000 14%,#000 82%,transparent 100%);-webkit-mask-composite:source-in;
   mask-image:linear-gradient(90deg,transparent 0,#000 24%,#000 76%,transparent 100%),linear-gradient(180deg,transparent 0,#000 14%,#000 82%,transparent 100%);mask-composite:intersect}
+/* come nel riferimento del cliente: l'immagine originale copre tutta la larghezza della sezione (la sua sfumatura
+   buio → avorio diventa lo sfondo), lo specchio resta al centro, e il titolo cade dove lo specchio si dissolve */
+.coerenza-sec{--mir-h:max(56.25vw,440px);padding-top:max(calc(var(--join-fade) + 30px),calc(var(--mir-h) * .5))}
+.door.door--img{width:100%;height:var(--mir-h);top:0;left:0;translate:none}
+.door--img img{width:100%;height:100%;object-fit:cover;object-position:50% 0;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 84%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 84%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add}
+.coerenza-sec{padding-top:max(calc(var(--join-fade) + 30px),calc(var(--mir-h) * .4))}
+.door--img img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 42%,transparent 74%);mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 42%,transparent 74%)}
