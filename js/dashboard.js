@@ -204,7 +204,7 @@
 
   $('#pr-grid').innerHTML = PR.map(function (p) {
     return '<div class="pr" role="button" tabindex="0" data-pr="' + p.k + '" aria-label="' + p.t + ', ' + p.n + ' Pratiche"><div class="pr-img"><span class="pr-bg" aria-hidden="true" style="background-image:url(' + p.img + ')"></span><img src="' + p.img + '" alt="" loading="lazy" width="2000" height="2000"><span class="pr-n">' + p.n + ' Pratiche</span></div>' +
-      '<div class="pr-b"><h3>' + (p.s ? '<small>' + p.s + '</small>' : '') + p.t + '</h3><button type="button" class="pr-i" data-info="' + p.k + '" aria-label="Cos’è ' + p.t + '">♦</button><span class="pr-plus" aria-hidden="true">+</span></div></div>';
+      '<div class="pr-b"><h3>' + (p.s ? '<small>' + p.s + '</small>' : '') + p.t + '</h3><button type="button" class="pr-i" data-info="' + p.k + '" title="Scopri la pratica" aria-label="Cos’è ' + p.t + '">♦</button><button type="button" class="pr-plus" data-info="' + p.k + '" title="Scopri la pratica" aria-label="Descrizione di ' + p.t + '">+</button></div></div>';
   }).join('');
   $('#pr-grid').addEventListener('click', function (e) {
     var i = e.target.closest('[data-info]');

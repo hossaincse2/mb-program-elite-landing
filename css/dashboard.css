@@ -569,3 +569,9 @@ body.dash::after{width:56vw;height:56vw;right:-12vw;top:42vh;background:radial-g
 .pr-img{isolation:isolate;background:#0d0708}
 .pr-bg{position:absolute;inset:-24px;z-index:-1;background-position:center;background-size:cover;background-repeat:no-repeat;filter:blur(30px) brightness(.55) saturate(1.1)}
 .pr-img img{position:relative;width:auto;height:100%;aspect-ratio:1;margin:0 auto;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
+
+/* Le Mie Pratiche: il gioiello ♦ che apre il pop-up descrittivo è più grande e respira di luce; anche il "+" apre la descrizione */
+.pr-i{width:38px!important;height:38px!important;font-size:15px!important;animation:jewel 3.6s ease-in-out infinite}
+@keyframes jewel{0%,100%{box-shadow:var(--jewel-shadow)}50%{box-shadow:var(--jewel-shadow),0 0 22px 2px rgba(214,190,140,.55)}}
+.pr-plus{background:none;border:0;padding:0 4px;cursor:pointer;font:inherit;font-size:20px;line-height:38px;color:var(--gold-l)}
+.pr-plus:hover{color:var(--champ)}
