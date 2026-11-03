@@ -564,3 +564,8 @@ body.dash::after{width:56vw;height:56vw;right:-12vw;top:42vh;background:radial-g
   color:#f6ead0!important;box-shadow:var(--jewel-shadow),0 0 18px -2px rgba(142,42,64,.9)!important}
 /* bordi metallici lucidi sui testate calendario */
 .cal-h,.mcal-h{border-bottom:1.5px solid transparent;border-image:var(--gold-frame) 1}
+
+/* Le Mie Pratiche: copertine quadrate intere al centro; ai lati la stessa opera sfocata e scurita, niente bande nere */
+.pr-img{isolation:isolate;background:#0d0708}
+.pr-bg{position:absolute;inset:-24px;z-index:-1;background-position:center;background-size:cover;background-repeat:no-repeat;filter:blur(30px) brightness(.55) saturate(1.1)}
+.pr-img img{position:relative;width:auto;height:100%;aspect-ratio:1;margin:0 auto;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
