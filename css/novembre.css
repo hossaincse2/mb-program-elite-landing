@@ -2,13 +2,11 @@
    Caricato dopo ottobre.css: solo ritocchi tipografici, logo, bottone e specchio della Legge di Coerenza. */
 
 /* ---------- logo in alto a sinistra: versione oro originale ---------- */
-.brand-gold img{width:32px;height:32px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(228,210,170,.25))}
-.brand-gold .brand-txt b{background:linear-gradient(180deg,#f3e3b6 0%,#d9bd84 45%,#a8834a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.brand-gold .brand-txt i{color:#b4985f}
+/* 3 novembre: l'artwork originale (farfalla + MB PROGRAM) in orizzontale, img/logo-gold-h.png */
+.brand-gold img{width:auto;height:44px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(228,210,170,.2))}
 
 /* ---------- 1 · hero ---------- */
-/* titolo principale nello stesso font di tutti gli altri titoli del sito (non Cinzel) */
-.hero-arch .hero-title{font-family:var(--f-display);font-weight:400;letter-spacing:-.01em}
+/* il titolo resta nel Cinzel approvato dal cliente (immagine del 2 novembre) */
 /* sottotitolo un po' più grande e più presente */
 .hero-arch .hero-sub{font-size:clamp(17px,min(1.6vw,2.9vh),22px);line-height:1.45}
 /* paragrafo finale più grande, avorio caldo tendente all'oro per staccarsi dal blocco centrale */

@@ -9,16 +9,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..600&family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/dashboard.css?v=3dae28a0">
+<link rel="stylesheet" href="css/dashboard.css?v=ee10b409">
 </head>
 <body class="dash">
 
 <header class="d-top">
   <a class="d-logo" href="#home" data-go="home" aria-label="MB Program – Home">
-    <img src="img/butterfly.svg?v=55dad654" alt="" width="34" height="34">
-    <span><b>MB</b><i>PROGRAM</i></span>
+    <!-- logo originale oro (farfalla + MB PROGRAM) -->
+    <img class="d-logo-img" src="img/logo-gold-h.png?v=8c49e9ba" alt="MB Program" width="487" height="240">
   </a>
   <div class="d-top-r">
+    <!-- abbonamento spostato in alto a destra, vicino al profilo -->
+    <p class="sub-badge" title="Abbonamento unico: Fitness Somatico + Alchimia Spirituale"><span>Abbonamento attivo</span> 97 giorni · 26/01/27</p>
     <a class="d-site" href="index.html">← Sito</a>
     <button class="ico" aria-label="Menu laterale lezione" id="side-toggle" hidden><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <button class="ico" aria-label="Profilo"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.6-3.600 3.400-5.500 7-5.500s6.400 1.900 7 5.500"/></svg></button>
@@ -33,7 +35,6 @@
     <div class="hello">
       <!-- nome di battesimo dell'utente (dal backend) -->
       <p class="hello-t">Benvenuta <b id="nome">Marica</b>,</p>
-      <p class="sub-badge" title="Abbonamento unico: Fitness Somatico + Alchimia Spirituale"><span>Abbonamento attivo</span> 97 giorni · 26/01/27</p>
     </div>
 
     <!-- calendario -->
@@ -335,6 +336,6 @@
 </div>
 
 <canvas id="fx-c" hidden></canvas>
-<script src="js/dashboard.js?v=0a362299"></script>
+<script src="js/dashboard.js?v=36176c00"></script>
 </body>
 </html>

@@ -147,8 +147,8 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke
 /* ===== Spazio Sacro ===== */
 .sacro-list{display:grid;gap:14px}
 .sacro{position:relative;display:flex;align-items:center;gap:16px;width:100%;min-height:104px;text-align:left;padding:24px 28px;overflow:hidden;background:#1b1916;isolation:isolate;border:1px solid rgba(168,144,95,.32);border-radius:16px;transition:transform .4s var(--ease),border-color .4s,box-shadow .4s}
-/* geometria sacra intera (mai tagliata), in scala con l'altezza della barra, allineata a destra */
-.sacro img{position:absolute;right:52px;top:2px;height:calc(100% - 4px);width:auto;aspect-ratio:auto;object-fit:contain;mix-blend-mode:screen;opacity:.95;-webkit-mask-image:radial-gradient(closest-side,#000 72%,transparent);mask-image:radial-gradient(closest-side,#000 72%,transparent);transition:opacity .5s,transform .8s var(--ease)}
+/* geometria sacra intera, mai ritagliata: il nero dell'immagine sparisce nella barra (screen), nessuna maschera a cerchio */
+.sacro img{position:absolute;right:48px;top:0;height:100%;width:auto;aspect-ratio:auto;object-fit:contain;mix-blend-mode:screen;opacity:.95;transition:opacity .5s,transform .8s var(--ease)}
 .sacro:hover{transform:translateY(-2px);border-color:var(--gold-l);box-shadow:0 18px 40px -22px rgba(168,144,95,.5)}
 .sacro:hover img{opacity:1;transform:scale(1.06)}
 .sacro .glyph{position:relative;font-size:14px}
@@ -222,12 +222,17 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke
 
 /* ===== header 16:9 (Pratiche / Blog): immagine intera, mai tagliata, sfuma nel nero ===== */
 /* 2 novembre: immagine intera (mai tagliata), un po' più piccola e più in alto */
-.hero169{position:relative;width:min(1280px,100%);margin:-40px auto 0;aspect-ratio:16/9;max-height:60vh}
-.hero169 img{display:block;width:100%;height:100%;object-fit:contain;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%),linear-gradient(180deg,#000 62%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%),linear-gradient(180deg,#000 62%,transparent 100%);mask-composite:intersect}
-.hero-t{position:relative;z-index:2;text-align:center;margin:-9% auto 0;padding:0 20px;max-width:46em}
+/* il riquadro ha esattamente la proporzione della foto: la sfumatura cade sui bordi veri dell'immagine,
+   niente rettangolo nero visibile; ai lati, in alto e in basso la foto si scioglie nello sfondo */
+.hero169{position:relative;width:min(1100px,100%,calc(54vh * 16 / 9));margin:-14px auto 0;aspect-ratio:16/9}
+.hero169 img{display:block;width:100%;height:100%;object-fit:cover;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 20%,#000 80%,transparent 100%),linear-gradient(180deg,transparent 0,#000 10%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 20%,#000 80%,transparent 100%),linear-gradient(180deg,transparent 0,#000 10%,#000 86%,transparent 100%);mask-composite:intersect}
+/* il titolo sta sotto la figura (mani e piedi liberi), solo sulla sfumatura finale */
+.hero-t{position:relative;z-index:2;text-align:center;margin:-2.2% auto 0;padding:0 20px;max-width:46em}
 .hero-t h1{font-size:clamp(30px,4.4vw,52px);color:var(--gold-l);line-height:1.1}
 .hero-t p{margin-top:10px;font-size:clamp(15px,1.6vw,18px);color:var(--ivory);line-height:1.6}
-@media (max-width:640px){.hero169{max-height:none}.hero-t{margin-top:-6%}}
+@media (max-width:640px){.hero-t{margin-top:-1%}}
 
 /* ===== Le Mie Pratiche ===== */
 .pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:34px auto 30px}
@@ -461,4 +466,63 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke
   .core{grid-template-columns:1fr}
   .vid img{width:96px}
 }
+/* =====================================================================
+   3 novembre — profondità e luce: niente più superfici piatte
+   ===================================================================== */
+:root{
+  /* filo metallico satinato (oro champagne lucidato) */
+  --satin:linear-gradient(150deg,rgba(236,222,190,.75) 0%,rgba(168,144,95,.22) 32%,rgba(201,176,131,.55) 62%,rgba(143,116,73,.18) 100%);
+  /* ombre: luce dall'alto, rilievo interno, oggetto che si stacca dallo sfondo, alone bordeaux */
+  --lift:inset 0 1px 0 rgba(255,238,205,.09),inset 0 -22px 34px -26px rgba(0,0,0,.75),0 22px 46px -24px rgba(0,0,0,.95),0 0 46px -22px rgba(111,26,46,.55);
+  --lift-hi:inset 0 1px 0 rgba(255,238,205,.12),inset 0 -22px 34px -26px rgba(0,0,0,.75),0 30px 60px -26px rgba(0,0,0,.95),0 0 60px -18px rgba(142,42,64,.7)
+}
+
+/* logo originale */
+.d-logo-img{display:block;height:46px;width:auto;filter:drop-shadow(0 0 10px rgba(201,176,131,.18))}
+/* abbonamento in alto a destra, accanto al profilo */
+.d-top-r{align-items:center}
+.d-top-r .sub-badge{margin:0 10px 0 0;padding:5px 12px;font-size:12px;box-shadow:inset 0 1px 0 rgba(255,238,205,.08),0 0 18px -8px rgba(201,176,131,.4)}
+@media (max-width:700px){.d-top-r .sub-badge span{display:none}.d-top-r .sub-badge{margin-right:4px;font-size:11px}.d-site{display:none}}
+.hello{margin-bottom:14px}
+
+/* spazio mistico in movimento: aloni bordeaux/rubino sfocati che fluttuano dietro sezioni e card attive */
+body.dash,body.dash[data-view=blog],body.dash[data-view=articolo]{background:radial-gradient(120% 80% at 50% 0%,#1d1513 0,#120e0c 55%,#0b0908 100%) fixed}
+body.dash::before,body.dash::after{content:"";position:fixed;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(70px);will-change:transform}
+body.dash::before{width:62vw;height:62vw;left:-14vw;top:8vh;background:radial-gradient(circle,rgba(123,30,50,.42) 0,rgba(91,19,36,.18) 45%,transparent 70%);animation:halo1 28s ease-in-out infinite alternate}
+body.dash::after{width:56vw;height:56vw;right:-12vw;top:42vh;background:radial-gradient(circle,rgba(111,26,46,.38) 0,rgba(64,16,28,.16) 45%,transparent 70%),radial-gradient(circle at 30% 70%,rgba(201,176,131,.06) 0,transparent 40%);animation:halo2 34s ease-in-out infinite alternate}
+@keyframes halo1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(12vw,10vh) scale(1.12)}100%{transform:translate(4vw,28vh) scale(.94)}}
+@keyframes halo2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-14vw,-12vh) scale(1.1)}100%{transform:translate(-6vw,-30vh) scale(.96)}}
+
+/* superfici in rilievo: bordo metallico satinato + ombre morbide che le fanno galleggiare */
+.cal,.mcal,.ck,.sacro,.pr,.post,.vid,.mo,.core button,.dia-day,.dia-list li{
+  border:1px solid transparent!important;
+  background:linear-gradient(180deg,rgba(40,34,30,.78),rgba(22,19,17,.86)) padding-box,var(--satin) border-box!important;
+  box-shadow:var(--lift);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.ck:hover,.sacro:hover,.pr:hover,.post:hover,.vid:hover,.mo:hover,.core button:hover{transform:translateY(-4px);box-shadow:var(--lift-hi)}
+/* modulo attivo: stesso bagliore interno approvato, più alone bordeaux che lo solleva */
+.ck.active{background:linear-gradient(165deg,rgba(91,19,36,.62),rgba(23,21,19,.72) 75%) padding-box,linear-gradient(150deg,#ecdcb6,rgba(201,176,131,.45) 40%,#c9b083 70%,rgba(143,116,73,.4)) border-box!important;
+  box-shadow:inset 0 1px 0 rgba(255,238,205,.14),inset 0 -24px 40px -28px rgba(0,0,0,.8),0 30px 70px -28px rgba(0,0,0,.95),0 0 80px -16px rgba(142,42,64,.75)}
+.ck.locked{opacity:1}
+.mo.on{background:linear-gradient(165deg,rgba(91,19,36,.55),rgba(23,21,19,.75) 70%) padding-box,var(--satin) border-box!important;box-shadow:var(--lift-hi)}
+
+/* calendario: testata bordeaux in velluto con luce satinata e profondità */
+.cal-h,.mcal-h{background:linear-gradient(180deg,rgba(255,220,225,.07),rgba(255,220,225,0) 45%),linear-gradient(90deg,#3a0d18,#5b1324 50%,#3a0d18);
+  box-shadow:inset 0 1px 0 rgba(255,214,222,.14),inset 0 -10px 18px -12px rgba(0,0,0,.7),0 8px 18px -10px rgba(0,0,0,.8);border-bottom:1px solid rgba(201,176,131,.35)}
+.cd.today .n,.mcal-grid button.today span{background:radial-gradient(circle at 35% 30%,#8e2a40,#4a101d 70%);color:var(--ivory);box-shadow:0 0 16px -2px rgba(142,42,64,.85),inset 0 1px 0 rgba(255,214,222,.25)}
+.mcal-grid button.sel{background:linear-gradient(180deg,rgba(201,176,131,.10),rgba(201,176,131,.03))}
+
+/* barre Spazio Sacro e rinnovo */
+.sacro{background:linear-gradient(180deg,#221d1a,#16120f) padding-box,var(--satin) border-box!important}
+.renew{border:1px solid transparent!important;background:linear-gradient(180deg,rgba(255,214,222,.06),transparent 45%) padding-box,linear-gradient(90deg,#3a0d18,#5b1324 55%,#3a0d18) padding-box,var(--satin) border-box!important;
+  box-shadow:inset 0 1px 0 rgba(255,214,222,.12),0 26px 60px -26px rgba(0,0,0,.95),0 0 70px -20px rgba(142,42,64,.7)}
+
+/* bottoni: filo d'oro satinato, rilievo, alone al passaggio */
+.btn-gold,.btn-ghost,.pill,.blog-f button{box-shadow:inset 0 1px 0 rgba(255,238,205,.12),inset 0 -8px 14px -10px rgba(0,0,0,.6),0 8px 20px -12px rgba(0,0,0,.9);background:linear-gradient(180deg,rgba(201,176,131,.10),rgba(201,176,131,.02))}
+.btn-gold:hover,.btn-ghost:hover,.pill:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,238,205,.18),0 12px 26px -12px rgba(0,0,0,.9),0 0 26px -6px rgba(201,176,131,.45)}
+.d-nav button.on{box-shadow:inset 0 1px 0 rgba(255,214,222,.14),0 0 30px -8px rgba(142,42,64,.8)}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* il nero delle foto prende il colore dello sfondo (luce bordeaux compresa): nessun riquadro scuro visibile */
+.hero169 img{mix-blend-mode:lighten}
+.sacro img{mix-blend-mode:lighten}
+.sacro[data-sacro=percorsi] img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 34%,#000 88%,transparent 100%)}
