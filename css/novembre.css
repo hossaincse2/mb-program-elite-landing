@@ -126,7 +126,7 @@
   var(--join-in),
   linear-gradient(0deg,rgb(29 26 24/.36) 0,rgb(29 26 24/.294) 18.75px,rgb(29 26 24/.227) 37.5px,rgb(29 26 24/.17) 56.25px,rgb(29 26 24/.114) 75px,rgb(29 26 24/.067) 93.75px,rgb(29 26 24/.03) 112.5px,rgb(29 26 24/.008) 131.25px,rgb(29 26 24/0) 150px),
   linear-gradient(0deg,rgb(29 26 24) 0,rgb(29 26 24/.81) 18.75px,rgb(29 26 24/.63) 37.5px,rgb(29 26 24/.463) 56.25px,rgb(29 26 24/.314) 75px,rgb(29 26 24/.184) 93.75px,rgb(29 26 24/.086) 112.5px,rgb(29 26 24/.024) 131.25px,rgb(29 26 24/0) 150px),
-  linear-gradient(142deg,#fdfbf6 0,#efe3c8 32%,#e4d2aa 54%,#2d2723 54%,#0e0d0c 100%)!important}
+  linear-gradient(120deg,#fdfbf6 0,#efe3c8 22%,#e4d2aa 41%,#2d2723 41%,#0e0d0c 100%)!important}
 /* la diagonale passa dietro le card, dall'alto a destra fino in basso a sinistra (come nel sito di riferimento) */
 @media (max-width:700px){.ecosistema{background:var(--join-in),linear-gradient(0deg,rgb(29 26 24) 0,rgb(29 26 24/0) 150px),linear-gradient(160deg,#fdfbf6 0,#e4d2aa 82%,#2d2723 82%,#0e0d0c 100%)!important}}
 .ecosistema .portale-wall{display:none}
