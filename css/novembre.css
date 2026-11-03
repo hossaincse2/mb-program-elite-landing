@@ -118,3 +118,13 @@
 .pillars3 .m-bullets li{position:relative;padding-left:24px;color:var(--soft);font-size:17px;line-height:1.7}
 .pillars3 .m-bullets li::before{content:"";position:absolute;left:4px;top:.72em;width:6px;height:6px;border-radius:50%;background:#dcc493;box-shadow:0 0 8px rgba(220,196,147,.7)}
 .pillars3 .m-bullets strong{color:#dcc493;font-weight:700}
+
+/* ---------- Il Portale: stesso effetto di sfondo di alchimiadellasovrana.it (sezione "duality") ----------
+   un'unica diagonale a 120°: avorio → champagne sul lato chiaro, bronzo scuro sull'altro;
+   in basso la stessa sfumatura morbida verso il buio, in alto resta l'ingresso dalla sezione precedente */
+.ecosistema{background:
+  var(--join-in),
+  linear-gradient(0deg,rgb(29 26 24/.36) 0,rgb(29 26 24/.294) 18.75px,rgb(29 26 24/.227) 37.5px,rgb(29 26 24/.17) 56.25px,rgb(29 26 24/.114) 75px,rgb(29 26 24/.067) 93.75px,rgb(29 26 24/.03) 112.5px,rgb(29 26 24/.008) 131.25px,rgb(29 26 24/0) 150px),
+  linear-gradient(0deg,rgb(29 26 24) 0,rgb(29 26 24/.81) 18.75px,rgb(29 26 24/.63) 37.5px,rgb(29 26 24/.463) 56.25px,rgb(29 26 24/.314) 75px,rgb(29 26 24/.184) 93.75px,rgb(29 26 24/.086) 112.5px,rgb(29 26 24/.024) 131.25px,rgb(29 26 24/0) 150px),
+  linear-gradient(120deg,#fdfbf6,#e4d2aa 47%,#2d2723 0,#0e0d0c)!important}
+.ecosistema .portale-wall{display:none}
