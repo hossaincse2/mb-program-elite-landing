@@ -136,3 +136,8 @@
 
 /* ---------- Legge di Coerenza → nastri → L'Alchimia: stessa distanza sopra e sotto i nastri ---------- */
 .coerenza-sec{padding-bottom:70px!important}
+
+/* ---------- 400 W: le scritte scendono, staccate dal contatore e centrate nello spazio sotto di esso ---------- */
+.capacita .cap-title{margin-top:150px!important}
+.capacita{padding-bottom:130px!important}
+@media (max-width:700px){.capacita .cap-title{margin-top:96px!important}.capacita{padding-bottom:96px!important}}
