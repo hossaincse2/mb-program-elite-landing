@@ -61,3 +61,21 @@
 .alch-fig .alch-lead,.alch-fig .alch-gold{display:block;width:100%;height:auto;filter:saturate(1.02) contrast(1.06) brightness(.95)}
 .alch-fig .alch-lead{filter:grayscale(1) contrast(1.08) brightness(.95)}
 .alch-fig .alch-gold{position:absolute;inset:0;height:100%;object-fit:cover;clip-path:inset(0 calc((1 - var(--alchemy-p,1))*100%) 0 0)}
+
+/* ---------- 3 novembre: titoli dei tre blocchi un po' più grandi ---------- */
+.ecosistema .tile-title{font-size:clamp(30px,3.4vw,46px)}
+
+/* ---------- bottoni "élite" come nell'area privata: cornice oro champagne lucidata, vetro bordeaux, riflesso ---------- */
+:root{
+  --gold-frame:linear-gradient(180deg,#f6ead0 0%,#dcc493 18%,#a98a55 46%,#efdcb2 64%,#b8975f 82%,#e9d6aa 100%);
+  --jewel:radial-gradient(130% 150% at 50% 125%,#8a2238 0,#5a1324 38%,#26070e 72%,#120407 100%);
+  --sheen:linear-gradient(162deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,.07) 34%,rgba(255,255,255,0) 35%);
+  --jewel-shadow:inset 0 0 0 1px rgba(0,0,0,.55),inset 0 -8px 14px -8px rgba(0,0,0,.8),0 10px 24px -10px rgba(0,0,0,.95),0 0 22px -6px rgba(214,190,140,.45)
+}
+.btn,.btn-gold,.btn-outline,.btn-outline-dark,.btn-line,.tile-marble .btn-outline-dark{
+  border:1.5px solid transparent!important;
+  background:var(--sheen) padding-box,var(--jewel) padding-box,var(--gold-frame) border-box!important;
+  color:#f0e2c2!important;text-shadow:0 1px 2px rgba(0,0,0,.6);box-shadow:var(--jewel-shadow)!important;
+  transition:transform .35s cubic-bezier(.22,.7,.2,1),filter .35s,box-shadow .35s}
+.btn:hover,.btn-gold:hover,.btn-outline:hover,.btn-outline-dark:hover,.btn-line:hover,.tile-marble .btn-outline-dark:hover{
+  transform:translateY(-2px);filter:brightness(1.12);box-shadow:var(--jewel-shadow),0 0 30px -4px rgba(214,190,140,.6)!important}
