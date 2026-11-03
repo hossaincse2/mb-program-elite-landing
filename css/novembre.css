@@ -6,7 +6,8 @@
 .brand-gold img{width:auto;height:44px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(228,210,170,.2))}
 
 /* ---------- 1 · hero ---------- */
-/* il titolo resta nel Cinzel approvato dal cliente (immagine del 2 novembre) */
+/* titolo principale nello stesso font di tutti gli altri titoli del sito (Elemental), come chiesto dal cliente */
+.hero-arch .hero-title{font-family:var(--f-display);font-weight:400;letter-spacing:-.01em}
 /* sottotitolo un po' più grande e più presente */
 .hero-arch .hero-sub{font-size:clamp(17px,min(1.6vw,2.9vh),22px);line-height:1.45}
 /* paragrafo finale più grande, avorio caldo tendente all'oro per staccarsi dal blocco centrale */
