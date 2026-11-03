@@ -525,4 +525,42 @@ body.dash::after{width:56vw;height:56vw;right:-12vw;top:42vh;background:radial-g
 /* il nero delle foto prende il colore dello sfondo (luce bordeaux compresa): nessun riquadro scuro visibile */
 .hero169 img{mix-blend-mode:lighten}
 .sacro img{mix-blend-mode:lighten}
-.sacro[data-sacro=percorsi] img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 34%,#000 88%,transparent 100%)}
+
+/* =====================================================================
+   3 novembre (2) — icone allineate e materiali: lucido solo sui dettagli
+   ===================================================================== */
+/* le tre geometrie sacre in uno slot quadrato identico, centrato sullo stesso asse verticale */
+.sacro{--slot:92px}
+.sacro img{right:52px;top:50%;width:var(--slot);height:var(--slot);translate:0 -50%;object-fit:contain;-webkit-mask-image:none;mask-image:none}
+.sacro:hover img{transform:scale(1.06)}
+@media (max-width:560px){.sacro{--slot:64px}.sacro img{right:36px}}
+
+/* MATERIALE OPACO: card e riquadri di testo grandi, velluto nero-bordeaux senza riflessi (leggibilità) */
+.cal,.mcal,.ck,.sacro,.pr,.post,.vid,.mo,.core button,.dia-day,.dia-list li,.info,.teach button,.acc details,.workbook,.notes{
+  background:linear-gradient(180deg,#1a1113,#120b0d) padding-box,var(--satin) border-box!important;
+  box-shadow:0 22px 46px -24px rgba(0,0,0,.95),0 0 46px -22px rgba(111,26,46,.5)!important}
+.ck.active{background:radial-gradient(120% 90% at 50% 20%,#4a1220 0,#24090f 60%,#150a0c 100%) padding-box,var(--gold-frame) border-box!important;
+  box-shadow:0 30px 70px -28px rgba(0,0,0,.95),0 0 80px -16px rgba(142,42,64,.75)!important}
+.renew{background:linear-gradient(90deg,#2a0910,#4a1020 55%,#2a0910) padding-box,var(--satin) border-box!important}
+
+/* MATERIALE LUCIDO "GIOIELLO": solo bottoni, icone, numeri selezionati del calendario e cornici metalliche */
+:root{
+  --gold-frame:linear-gradient(180deg,#f6ead0 0%,#dcc493 18%,#a98a55 46%,#efdcb2 64%,#b8975f 82%,#e9d6aa 100%);
+  --jewel:radial-gradient(130% 150% at 50% 125%,#8a2238 0,#5a1324 38%,#26070e 72%,#120407 100%);
+  --sheen:linear-gradient(162deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,.07) 34%,rgba(255,255,255,0) 35%);
+  --jewel-shadow:inset 0 0 0 1px rgba(0,0,0,.55),inset 0 -6px 12px -6px rgba(0,0,0,.8),0 6px 16px -6px rgba(0,0,0,.95),0 0 18px -6px rgba(214,190,140,.45)
+}
+.btn-gold,.btn-ghost,.pill,.mc-oggi,.blog-f button,.seg button,.btn-done,.d-nav button.on,.dia-back,.dia-set,.pr-i,.x{
+  border:1.5px solid transparent!important;
+  background:var(--sheen) padding-box,var(--jewel) padding-box,var(--gold-frame) border-box!important;
+  color:#f0e2c2!important;box-shadow:var(--jewel-shadow)!important;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.btn-gold:hover,.btn-ghost:hover,.pill:hover,.mc-oggi:hover,.blog-f button:hover,.seg button:hover,.btn-done:hover,.dia-back:hover,.dia-set:hover,.pr-i:hover{
+  filter:brightness(1.12);box-shadow:var(--jewel-shadow),0 0 26px -4px rgba(214,190,140,.6)!important}
+/* stati non attivi dei filtri/segmenti: cornice oro più tenue, stesso vetro */
+.blog-f button:not(.on),.seg button:not(.on){opacity:.82}
+/* numeri del calendario selezionati (oggi): gemma bordeaux con anello d'oro lucido */
+.cd.today .n,.mcal-grid button.today span{border:1.5px solid transparent!important;
+  background:var(--sheen) padding-box,var(--jewel) padding-box,var(--gold-frame) border-box!important;
+  color:#f6ead0!important;box-shadow:var(--jewel-shadow),0 0 18px -2px rgba(142,42,64,.9)!important}
+/* bordi metallici lucidi sui testate calendario */
+.cal-h,.mcal-h{border-bottom:1.5px solid transparent;border-image:var(--gold-frame) 1}
