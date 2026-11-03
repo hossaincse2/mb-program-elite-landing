@@ -575,3 +575,21 @@ body.dash::after{width:56vw;height:56vw;right:-12vw;top:42vh;background:radial-g
 @keyframes jewel{0%,100%{box-shadow:var(--jewel-shadow)}50%{box-shadow:var(--jewel-shadow),0 0 22px 2px rgba(214,190,140,.55)}}
 .pr-plus{background:none;border:0;padding:0 4px;cursor:pointer;font:inherit;font-size:20px;line-height:38px;color:var(--gold-l)}
 .pr-plus:hover{color:var(--champ)}
+
+/* =====================================================================
+   mobile: le card principali scorrono in orizzontale (carosello a swipe) su un'unica riga,
+   così la pagina resta compatta e Spazio Sacro / navigazione sono subito raggiungibili
+   ===================================================================== */
+@media (max-width:700px){
+  .chakra-grid,.pr-grid,.blog-grid{display:grid!important;grid-template-columns:none!important;grid-auto-flow:column;gap:12px;
+    overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:16px;-webkit-overflow-scrolling:touch;
+    margin-inline:-16px;padding:6px 16px 16px;scrollbar-width:none;
+    /* bordo destro sfumato: suggerisce che si può scorrere */
+    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 86%,transparent 100%);mask-image:linear-gradient(90deg,#000 0,#000 86%,transparent 100%)}
+  .chakra-grid::-webkit-scrollbar,.pr-grid::-webkit-scrollbar,.blog-grid::-webkit-scrollbar{display:none}
+  .chakra-grid{grid-auto-columns:44%}
+  .pr-grid{grid-auto-columns:78%;margin-top:18px}
+  .blog-grid{grid-auto-columns:80%}
+  .chakra-grid>*,.pr-grid>*,.blog-grid>*{scroll-snap-align:start}
+  .ck:hover,.pr:hover,.post:hover{transform:none}
+}

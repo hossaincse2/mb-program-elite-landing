@@ -69,6 +69,9 @@
       });
       g.appendChild(el);
     });
+    // mobile (carosello orizzontale): il modulo in corso è il primo che si vede
+    var act = $('.ck.active', g);
+    if (act && window.matchMedia('(max-width:700px)').matches) g.scrollLeft = act.offsetLeft - g.offsetLeft - 16;
   }
 
   /* ---------- allenamenti completati del mese → baffetto + 3 farfalle ---------- */
