@@ -127,7 +127,9 @@
   /* sotto le card il crema si scioglie nel buio in ~150px (come nel sito di riferimento), i nastri restano sul nero */
   linear-gradient(0deg,rgb(29 26 24) 0,rgb(29 26 24) 290px,rgb(29 26 24/.81) 308px,rgb(29 26 24/.63) 326px,rgb(29 26 24/.463) 345px,rgb(29 26 24/.314) 363px,rgb(29 26 24/.184) 381px,rgb(29 26 24/.086) 400px,rgb(29 26 24/.024) 418px,rgb(29 26 24/0) 436px),
   /* diagonale a 121° (quasi quella del riferimento): sopra il titolo tutto crema, il buio parte accanto alle card */
-  linear-gradient(121deg,#fdfbf6 0,#efe3c8 28%,#e4d2aa 51.9%,#2d2723 51.9%,#0e0d0c 100%)!important}
+  /* sopra le card il buio si scioglie nel crema (sfumatura avorio come nel riferimento) */
+  linear-gradient(180deg,rgb(242 235 221) 0,rgb(242 235 221) 270px,rgb(242 235 221/.8) 305px,rgb(242 235 221/.5) 340px,rgb(242 235 221/.22) 375px,rgb(242 235 221/.05) 398px,rgb(242 235 221/0) 410px),
+  linear-gradient(112.5deg,#fdfbf6 0,#efe3c8 26%,#e4d2aa 48.2%,#2d2723 48.2%,#0e0d0c 100%)!important}
 /* la diagonale passa dietro le card, dall'alto a destra fino in basso a sinistra (come nel sito di riferimento) */
 @media (max-width:700px){.ecosistema{background:var(--join-in),linear-gradient(0deg,rgb(29 26 24) 0,rgb(29 26 24/0) 150px),linear-gradient(160deg,#fdfbf6 0,#e4d2aa 82%,#2d2723 82%,#0e0d0c 100%)!important}}
 .ecosistema .portale-wall{display:none}
