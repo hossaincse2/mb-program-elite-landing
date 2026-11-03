@@ -50,11 +50,12 @@
 
 /* ---------- Dal piombo all'oro: lista = sottotitoli (H3), descrizione = didascalia elegante ---------- */
 .manifesto .pairs{max-width:780px}
-.manifesto .pairs li{font-size:clamp(17px,1.55vw,21px)}
+.manifesto .pairs li{font-size:clamp(16.5px,1.2vw,19px)}
 .manifesto .pairs b{white-space:nowrap}
 @media (max-width:640px){.manifesto .pairs b{white-space:normal}}
 .manifesto .pairs span,.manifesto .pairs b{font-weight:700}
-.manifesto .manifesto-text{font-size:clamp(15.5px,1.15vw,17px);line-height:1.95;max-width:46em}
+/* proporzione: la lista (grassetto) appena più grande della didascalia (regolare) */
+.manifesto .manifesto-text{font-size:clamp(16px,1.12vw,18px);line-height:1.85;max-width:46em}
 
 /* ---------- Dal piombo all'oro: di nuovo l'effetto di alchimiadellasovrana.it ----------
    sotto il piombo (la stessa immagine a colori resa in b/n), sopra l'oro rivelato da sinistra con lo scroll (--alchemy-p da fx.js) */
