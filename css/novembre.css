@@ -130,3 +130,6 @@
 /* la diagonale passa dietro le card, dall'alto a destra fino in basso a sinistra (come nel sito di riferimento) */
 @media (max-width:700px){.ecosistema{background:var(--join-in),linear-gradient(0deg,rgb(29 26 24) 0,rgb(29 26 24/0) 150px),linear-gradient(160deg,#fdfbf6 0,#e4d2aa 82%,#2d2723 82%,#0e0d0c 100%)!important}}
 .ecosistema .portale-wall{display:none}
+
+/* ---------- Legge di Coerenza → nastri → L'Alchimia: stessa distanza sopra e sotto i nastri ---------- */
+.coerenza-sec{padding-bottom:70px!important}
