@@ -79,3 +79,11 @@
   transition:transform .35s cubic-bezier(.22,.7,.2,1),filter .35s,box-shadow .35s}
 .btn:hover,.btn-gold:hover,.btn-outline:hover,.btn-outline-dark:hover,.btn-line:hover,.tile-marble .btn-outline-dark:hover{
   transform:translateY(-2px);filter:brightness(1.12);box-shadow:var(--jewel-shadow),0 0 30px -4px rgba(214,190,140,.6)!important}
+
+/* ---------- 3 novembre: lo specchio originale (img/specchio-coerenza.jpg) al posto di quello disegnato in codice ----------
+   l'immagine contiene già la sfumatura buio → avorio: la centriamo sulla transizione della sezione e ne sciogliamo i bordi */
+.door.door--img{width:min(1180px,100%);height:auto;top:0;left:50%;translate:-50% 0;--arch-rise:0;
+  -webkit-mask-image:none;mask-image:none}
+.door--img img{display:block;width:100%;height:auto;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%,#000 76%,transparent 100%),linear-gradient(180deg,transparent 0,#000 14%,#000 82%,transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 24%,#000 76%,transparent 100%),linear-gradient(180deg,transparent 0,#000 14%,#000 82%,transparent 100%);mask-composite:intersect}
