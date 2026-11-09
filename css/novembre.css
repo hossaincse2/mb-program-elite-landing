@@ -141,3 +141,6 @@
 .capacita .cap-title{margin-top:150px!important}
 .capacita{padding-bottom:130px!important}
 @media (max-width:700px){.capacita .cap-title{margin-top:96px!important}.capacita{padding-bottom:96px!important}}
+
+/* ---------- pagina dedicata /accedi/ (URL pulito, senza #accesso) ---------- */
+.accedi-page .accesso{--join-prev-rgb:11 10 9;padding-top:calc(var(--hh) + clamp(56px,7vw,96px));min-height:100svh}
