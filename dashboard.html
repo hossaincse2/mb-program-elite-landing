@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..600&family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/dashboard.css?v=48fba36b">
+<link rel="stylesheet" href="css/dashboard.css?v=b2834788">
 </head>
 <body class="dash">
 
@@ -35,6 +35,8 @@
     <div class="hello">
       <!-- nome di battesimo dell'utente (dal backend) -->
       <p class="hello-t">Benvenuta <b id="nome">Marica</b>,</p>
+      <!-- sempre visibile a tutte (anche dopo il primo accesso): riapre il video di benvenuto -->
+      <button type="button" class="btn-ghost btn-sm w-again" data-welcome><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.5v7l6-3.5z"/></svg>Rivedi il video di benvenuto</button>
     </div>
 
     <!-- calendario -->
@@ -336,6 +338,6 @@
 </div>
 
 <canvas id="fx-c" hidden></canvas>
-<script src="js/dashboard.js?v=d7a8eddc"></script>
+<script src="js/dashboard.js?v=d3cbbb36"></script>
 </body>
 </html>

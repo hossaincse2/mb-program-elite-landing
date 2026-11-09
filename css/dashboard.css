@@ -596,3 +596,10 @@ body.dash::after{width:56vw;height:56vw;right:-12vw;top:42vh;background:radial-g
   .chakra-grid>*,.pr-grid>*,.blog-grid>*{scroll-snap-align:start}
   .ck:hover,.pr:hover,.post:hover{transform:none}
 }
+
+/* Home: "Rivedi il video di benvenuto" sempre disponibile accanto al saluto */
+.hello{display:flex;align-items:center;justify-content:space-between;gap:12px 18px;flex-wrap:wrap}
+.w-again{gap:9px;white-space:nowrap}
+.w-again svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linejoin:round}
+.w-again svg path{fill:currentColor;stroke:none}
+@media (max-width:560px){.w-again{width:100%;justify-content:center}}

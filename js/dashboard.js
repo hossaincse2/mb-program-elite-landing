@@ -406,6 +406,14 @@
   W.addEventListener('cancel', function (e) { e.preventDefault(); }); // non si chiude con Esc
   $('#w-go').addEventListener('click', function () { store('mb_welcome_done', '1'); W.close(); });
   function maybeWelcome(force) { if (force || !store('mb_welcome_done')) setTimeout(function () { if (!W.open) W.showModal(); }, force ? 0 : 1000); }
+  // "Rivedi il video di benvenuto": disponibile sempre, per ogni utente, quante volte vuole
+  d.addEventListener('click', function (e) {
+    if (!e.target.closest('[data-welcome]')) return;
+    var v = $('video', W); if (v) { try { v.currentTime = 0; } catch (err) {} }
+    maybeWelcome(true);
+  });
+  // chiudendo il benvenuto il video si ferma
+  W.addEventListener('close', function () { var v = $('video', W); if (v) v.pause(); });
 
   /* ---------- demo ---------- */
   var sel = $('#demo-month'); sel.value = String(month);
